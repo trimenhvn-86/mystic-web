@@ -65,29 +65,31 @@ export default function CanChiResult({ dd, mm, yyyy, lunar, canChiNam, canChiTha
         <meta name="description" content={desc} />
       </Head>
       <Header />
-      <main className="max-w-2xl mx-auto px-5 py-8 sm:py-12">
+      <main className="max-w-3xl mx-auto px-5 py-8 sm:py-12">
         <div className="w-14 h-14 rounded-full bg-ink-soft border border-gold/30 flex items-center justify-center mx-auto mb-4">
           <Layers size={26} className="text-gold" />
         </div>
         <h1 className="font-display text-2xl sm:text-3xl text-parchment mb-8 text-center">{title}</h1>
 
-        <div className="mb-6">
+        <div className="grid md:grid-cols-[340px_1fr] gap-6 items-start">
           <CalendarImageCard dd={dd} mm={mm} yyyy={yyyy} />
+
+          <div className="space-y-6 min-w-0">
+            <div className="grid sm:grid-cols-3 gap-4">
+              <CanChiCard label="Năm" canChi={canChiNam} napAm={napAmNam} />
+              <CanChiCard label="Tháng" canChi={canChiThang} napAm={napAmThang} />
+              <CanChiCard label="Ngày" canChi={canChiNgay} napAm={napAmNgay} />
+            </div>
+
+            <div className="mystic-card p-6 text-sm text-moon">
+              Âm lịch: <strong className="text-parchment">{lunar.day}/{lunar.month}{lunar.leap ? ' (nhuận)' : ''}/{lunar.year}</strong>
+            </div>
+
+            <AdSlot label="Ad slot — can chi" />
+
+            <HubDayLinks dd={dd} mm={mm} yyyy={yyyy} exclude="can-chi" />
+          </div>
         </div>
-
-        <div className="grid sm:grid-cols-3 gap-4 mb-6">
-          <CanChiCard label="Năm" canChi={canChiNam} napAm={napAmNam} />
-          <CanChiCard label="Tháng" canChi={canChiThang} napAm={napAmThang} />
-          <CanChiCard label="Ngày" canChi={canChiNgay} napAm={napAmNgay} />
-        </div>
-
-        <div className="mystic-card p-6 text-sm text-moon">
-          Âm lịch: <strong className="text-parchment">{lunar.day}/{lunar.month}{lunar.leap ? ' (nhuận)' : ''}/{lunar.year}</strong>
-        </div>
-
-        <AdSlot label="Ad slot — can chi" className="mt-6" />
-
-        <HubDayLinks dd={dd} mm={mm} yyyy={yyyy} exclude="can-chi" />
       </main>
       <Footer />
     </>

@@ -80,38 +80,40 @@ export default function TietKhiResult({ dd, mm, yyyy, current, startDate, next }
         <meta name="description" content={desc} />
       </Head>
       <Header />
-      <main className="max-w-2xl mx-auto px-5 py-8 sm:py-12">
+      <main className="max-w-3xl mx-auto px-5 py-8 sm:py-12">
         <div className="w-14 h-14 rounded-full bg-ink-soft border border-gold/30 flex items-center justify-center mx-auto mb-4">
           <Sun size={26} className="text-gold" />
         </div>
         <h1 className="font-display text-2xl sm:text-3xl text-parchment mb-8 text-center">{title}</h1>
 
-        <div className="mb-6">
+        <div className="grid md:grid-cols-[340px_1fr] gap-6 items-start">
           <CalendarImageCard dd={dd} mm={mm} yyyy={yyyy} />
-        </div>
 
-        <div className="mystic-card p-6 text-center mb-6">
-          <p className="text-xs text-moon uppercase mb-1">Tiết Khí hiện tại</p>
-          <p className="font-display text-3xl text-gold-soft mb-2">{current}</p>
-          <p className="text-parchment/85 mb-3">{tietKhiMeaning[current]}</p>
-          <p className="text-sm text-moon">Bắt đầu từ: <strong className="text-parchment">{pad(startDate.dd)}/{pad(startDate.mm)}/{startDate.yyyy}</strong></p>
-        </div>
+          <div className="space-y-6 min-w-0">
+            <div className="mystic-card p-6 text-center">
+              <p className="text-xs text-moon uppercase mb-1">Tiết Khí hiện tại</p>
+              <p className="font-display text-3xl text-gold-soft mb-2">{current}</p>
+              <p className="text-parchment/85 mb-3">{tietKhiMeaning[current]}</p>
+              <p className="text-sm text-moon">Bắt đầu từ: <strong className="text-parchment">{pad(startDate.dd)}/{pad(startDate.mm)}/{startDate.yyyy}</strong></p>
+            </div>
 
-        {next && (
-          <div className="mystic-card p-6 text-center mb-6">
-            <p className="text-xs text-moon uppercase mb-1">Tiết Khí tiếp theo</p>
-            <p className="font-display text-xl text-gold-soft mb-1">{next.name}</p>
-            <p className="text-sm text-moon">Dự kiến: <strong className="text-parchment">{pad(next.date.dd)}/{pad(next.date.mm)}/{next.date.yyyy}</strong></p>
+            {next && (
+              <div className="mystic-card p-6 text-center">
+                <p className="text-xs text-moon uppercase mb-1">Tiết Khí tiếp theo</p>
+                <p className="font-display text-xl text-gold-soft mb-1">{next.name}</p>
+                <p className="text-sm text-moon">Dự kiến: <strong className="text-parchment">{pad(next.date.dd)}/{pad(next.date.mm)}/{next.date.yyyy}</strong></p>
+              </div>
+            )}
+
+            <AdSlot label="Ad slot — tiết khí" />
+
+            <HubDayLinks dd={dd} mm={mm} yyyy={yyyy} exclude="tiet-khi" />
+
+            <p className="text-xs text-moon/50 text-center">
+              * Tính theo công thức thiên văn xấp xỉ, có thể lệch 1 ngày ở đúng thời điểm chuyển tiết so với nguồn chính thức.
+            </p>
           </div>
-        )}
-
-        <AdSlot label="Ad slot — tiết khí" className="mb-6" />
-
-        <HubDayLinks dd={dd} mm={mm} yyyy={yyyy} exclude="tiet-khi" />
-
-        <p className="text-xs text-moon/50 mt-6 text-center">
-          * Tính theo công thức thiên văn xấp xỉ, có thể lệch 1 ngày ở đúng thời điểm chuyển tiết so với nguồn chính thức.
-        </p>
+        </div>
       </main>
       <Footer />
     </>

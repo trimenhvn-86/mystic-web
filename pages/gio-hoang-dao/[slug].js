@@ -45,29 +45,31 @@ export default function GioHoangDaoResult({ dd, mm, yyyy, chiNgay, gioList }) {
         <meta name="description" content={desc} />
       </Head>
       <Header />
-      <main className="max-w-2xl mx-auto px-5 py-8 sm:py-12">
+      <main className="max-w-3xl mx-auto px-5 py-8 sm:py-12">
         <div className="w-14 h-14 rounded-full bg-ink-soft border border-gold/30 flex items-center justify-center mx-auto mb-4">
           <Clock3 size={26} className="text-gold" />
         </div>
-        <h1 className="font-display text-2xl sm:text-3xl text-parchment mb-6 text-center">{title}</h1>
+        <h1 className="font-display text-2xl sm:text-3xl text-parchment mb-8 text-center">{title}</h1>
 
-        <div className="mb-6">
+        <div className="grid md:grid-cols-[340px_1fr] gap-6 items-start">
           <CalendarImageCard dd={dd} mm={mm} yyyy={yyyy} />
-        </div>
 
-        <div className="mystic-card p-6">
-          <p className="text-moon mb-4">6 khung giờ Hoàng đạo tốt trong ngày:</p>
-          <div className="grid sm:grid-cols-2 gap-3">
-            {gioList.map((g) => (
-              <div key={g.chi} className="flex items-center justify-between bg-ink-soft rounded-lg px-4 py-3 border border-ink-line">
-                <span className="text-gold-soft font-display text-lg">Giờ {g.chi}</span>
-                <span className="text-moon text-sm">{g.khung}</span>
+          <div className="space-y-6 min-w-0">
+            <div className="mystic-card p-6">
+              <p className="text-moon mb-4">6 khung giờ Hoàng đạo tốt trong ngày:</p>
+              <div className="grid sm:grid-cols-2 gap-3">
+                {gioList.map((g) => (
+                  <div key={g.chi} className="flex items-center justify-between bg-ink-soft rounded-lg px-4 py-3 border border-ink-line">
+                    <span className="text-gold-soft font-display text-lg">Giờ {g.chi}</span>
+                    <span className="text-moon text-sm">{g.khung}</span>
+                  </div>
+                ))}
               </div>
-            ))}
+            </div>
+            <AdSlot label="Ad slot — giờ hoàng đạo" />
+            <HubDayLinks dd={dd} mm={mm} yyyy={yyyy} exclude="gio-hoang-dao" />
           </div>
         </div>
-        <AdSlot label="Ad slot — giờ hoàng đạo" className="mt-6" />
-        <HubDayLinks dd={dd} mm={mm} yyyy={yyyy} exclude="gio-hoang-dao" />
       </main>
       <Footer />
     </>

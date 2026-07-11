@@ -1,0 +1,46 @@
+{
+  "_note": "Mỗi con giáp có 1 pool câu luận giải cho Công danh/Tài lộc/Tình duyên. Hệ thống chọn theo công thức xoay vòng dựa trên ngày (deterministic), đảm bảo mỗi ngày ra kết quả khác nhau nhưng không cần gọi AI runtime.",
+  "congDanh": [
+    "Công việc hôm nay thuận lợi, dễ được cấp trên ghi nhận nỗ lực.",
+    "Nên tập trung hoàn thành việc tồn đọng trước khi nhận thêm việc mới.",
+    "Có thể xuất hiện cơ hội hợp tác bất ngờ, nên chủ động lắng nghe.",
+    "Tránh tranh luận gay gắt trong công việc hôm nay, dễ mất hòa khí.",
+    "Là ngày phù hợp để lên kế hoạch dài hạn hơn là hành động gấp gáp.",
+    "Sự kiên trì hôm nay sẽ được đền đáp trong thời gian tới."
+  ],
+  "taiLoc": [
+    "Tài chính ổn định, không nên đầu tư mạo hiểm trong hôm nay.",
+    "Có thể có khoản thu nhỏ bất ngờ, nhưng cũng dễ phát sinh chi tiêu ngoài dự kiến.",
+    "Nên rà soát lại các khoản chi trước khi quyết định mua sắm lớn.",
+    "Vận tài lộc khá, thuận cho các giao dịch đã chuẩn bị kỹ từ trước.",
+    "Tránh cho vay mượn tiền bạc trong ngày hôm nay.",
+    "Một cơ hội tài chính nhỏ có thể xuất hiện nếu chịu quan sát kỹ."
+  ],
+  "tinhDuyen": [
+    "Tình cảm hôm nay nhẹ nhàng, phù hợp để chia sẻ và lắng nghe đối phương.",
+    "Người độc thân có thể gặp một kết nối thú vị nếu chủ động mở lòng.",
+    "Các cặp đôi nên tránh để chuyện nhỏ trở thành hiểu lầm lớn.",
+    "Là ngày tốt để thể hiện sự quan tâm với người thương.",
+    "Cảm xúc có thể dao động, nên giữ bình tĩnh trước khi phản ứng.",
+    "Một cuộc trò chuyện thẳng thắn hôm nay sẽ giúp mối quan hệ tốt hơn."
+  ],
+  "luckyColorByHanh": {
+    "Kim": "Trắng", "Mộc": "Xanh lá", "Thủy": "Đen", "Hỏa": "Đỏ", "Thổ": "Vàng đất"
+  },
+  "tongQuanTuan": [
+    "Tuần này nhìn chung ổn định, thích hợp để tập trung hoàn thành các việc còn dang dở hơn là bắt đầu dự án mới.",
+    "Năng lượng tuần này khá tốt, nhiều khả năng có tin vui hoặc cơ hội bất ngờ xuất hiện giữa tuần.",
+    "Tuần này cần chú ý sức khỏe và giữ nhịp làm việc điều độ, tránh dồn việc vào cuối tuần.",
+    "Đây là tuần thuận lợi cho giao tiếp, kết nối — nên chủ động mở rộng quan hệ công việc.",
+    "Tuần này có thể gặp một vài trở ngại nhỏ đầu tuần nhưng sẽ hanh thông hơn về cuối tuần.",
+    "Tinh thần tuần này khá tích cực, phù hợp để đưa ra các quyết định đã cân nhắc kỹ từ trước."
+  ],
+  "tongQuanThang": [
+    "Tháng này là giai đoạn tích lũy, phù hợp để lên kế hoạch dài hạn hơn là hành động vội vàng.",
+    "Vận trình tháng này khá thuận, nhiều khả năng có tiến triển tốt trong công việc hoặc tài chính.",
+    "Tháng này nên chú ý các mối quan hệ xung quanh, tránh để hiểu lầm nhỏ tích tụ thành mâu thuẫn lớn.",
+    "Đây là tháng thích hợp để khởi động những dự định mới đã ấp ủ từ lâu.",
+    "Tháng này có thể có biến động nhẹ về tài chính, nên rà soát chi tiêu vào đầu tháng.",
+    "Nhìn chung tháng này thuận lợi cho phát triển bản thân và mở rộng cơ hội mới."
+  ]
+}

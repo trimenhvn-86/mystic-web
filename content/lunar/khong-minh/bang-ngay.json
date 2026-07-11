@@ -1,0 +1,46 @@
+{
+  "_note": "Số hóa từ tài liệu 'Ngày tốt xuất hành của Cụ Khổng Minh' (ngày âm lịch, áp dụng mọi năm). Vị trí = ((ngày âm - 1) mod chu kỳ). Cần kiểm duyệt lại với chuyên gia trước khi công bố chính thức.",
+  "A": {
+    "thang": [1, 4, 7, 10],
+    "chuKy": 6,
+    "thuTu": ["Đường Phong", "Kim Thổ", "Kim Dương", "Thuần Dương", "Đạo Tặc", "Bảo Thương"],
+    "luanGiai": {
+      "Đường Phong": { "tot": true, "text": "Rất tốt cho xuất hành. Cầu tài được như ý muốn. Gặp quý nhân phù trợ." },
+      "Kim Dương": { "tot": true, "text": "Xuất hành tốt. Có quý nhân phù trợ. Tài lộc thông suốt. Thưa kiện có nhiều lý giải." },
+      "Thuần Dương": { "tot": true, "text": "Xuất hành tốt, lúc về cũng tốt, được người tốt giúp đỡ, cầu được ý muốn. Tranh luận đường thắng lợi." },
+      "Bảo Thương": { "tot": true, "text": "Xuất hành thuận lợi. Gặp người lớn vừa lòng. Làm việc theo ý muốn, áo phẩm vinh quy." },
+      "Đạo Tặc": { "tot": false, "text": "Rất xấu, xuất hành bị hại, mất của." },
+      "Kim Thổ": { "tot": false, "text": "Ra đi nhỡ tàu xe. Cầu tài không được. Trên đường đi mất của. Bất lợi." }
+    }
+  },
+  "B": {
+    "thang": [2, 5, 8, 11],
+    "chuKy": 8,
+    "thuTu": ["Thiên Đạo", "Thiên Môn", "Thiên Đường", "Thiên Tài", "Thiên Tặc", "Thiên Dương", "Thiên Hầu", "Thiên Thương"],
+    "luanGiai": {
+      "Thiên Đạo": { "tot": false, "text": "Xuất hành, cầu tài nên tránh. Dù được cũng mất mát tốn kém." },
+      "Thiên Hầu": { "tot": false, "text": "Xuất hành dù ít nhiều cũng có cãi cọ, phải xảy ra tai nạn chảy máu." },
+      "Thiên Tặc": { "tot": false, "text": "Xuất hành xấu. Cầu tài không được hay bị mất và mọi việc đều xấu." },
+      "Thiên Môn": { "tot": true, "text": "Xuất hành, làm mọi việc đều vừa ý. Cầu được ước thấy." },
+      "Thiên Đường": { "tot": true, "text": "Xuất hành tốt, có quý nhân phù trợ, buôn bán may mắn, mọi việc như ý." },
+      "Thiên Tài": { "tot": true, "text": "Nên xuất hành, cầu tài thắng lợi, được người giúp đỡ, mọi việc đều thuận." },
+      "Thiên Thương": { "tot": true, "text": "Xuất hành để gặp cấp trên thì tuyệt vời. Cầu tài được thuận lợi." },
+      "Thiên Dương": { "tot": true, "text": "Xuất hành tốt, cầu tài được tài, hỏi vợ được vợ." }
+    }
+  },
+  "C": {
+    "thang": [3, 6, 9, 12],
+    "chuKy": 8,
+    "thuTu": ["Chu Trước", "Bạch Hổ Đầu", "Bạch Hổ Kiếp", "Bạch Hổ Túc", "Huyền Vũ", "Thanh Long Đầu", "Thanh Long Kiếp", "Thanh Long Túc"],
+    "luanGiai": {
+      "Chu Trước": { "tot": false, "text": "Xuất hành cầu tài đều xấu, hay mất của, kiện cáo thua vì đuối lý." },
+      "Thanh Long Túc": { "tot": false, "text": "Không nên đi xa, xuất hành tài lộc đều không có. Kiện cáo đuối lý." },
+      "Bạch Hổ Túc": { "tot": false, "text": "Cấm đi xa, làm việc gì cũng không thành công. Rất xấu trong mọi việc." },
+      "Huyền Vũ": { "tot": false, "text": "Xuất hành thường gặp cãi cọ, gặp việc xấu không nên đi." },
+      "Bạch Hổ Đầu": { "tot": true, "text": "Xuất hành, cầu tài đều được." },
+      "Bạch Hổ Kiếp": { "tot": true, "text": "Xuất hành, cầu tài đều được, đi hướng Nam, Bắc đều được." },
+      "Thanh Long Kiếp": { "tot": true, "text": "Xuất hành 4 phương 8 hướng đều tốt, trăm sự như ý." },
+      "Thanh Long Đầu": { "tot": true, "text": "Nên xuất hành vào sáng sớm. Cầu tài thắng lợi, mọi việc đều như ý." }
+    }
+  }
+}

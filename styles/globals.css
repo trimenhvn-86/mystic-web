@@ -1,0 +1,128 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    background-color: #0B0E1A;
+    background-image:
+      radial-gradient(circle at 15% 10%, rgba(201,162,75,0.07) 0%, transparent 35%),
+      radial-gradient(circle at 85% 70%, rgba(62,142,126,0.07) 0%, transparent 40%);
+    background-attachment: fixed;
+    color: #EDE9E0;
+    font-family: 'Be Vietnam Pro', sans-serif;
+  }
+  h1, h2, h3, h4 {
+    font-family: 'Be Vietnam Pro', sans-serif;
+    font-weight: 700;
+  }
+  /* Focus visible cho accessibility - không bỏ khi có bàn phím */
+  a:focus-visible, button:focus-visible, input:focus-visible {
+    outline: 2px solid #C9A24B;
+    outline-offset: 2px;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+  }
+}
+
+@layer components {
+  .mystic-card {
+    background: linear-gradient(180deg, #141830 0%, #0F1226 100%);
+    border: 1px solid #232A4D;
+    border-radius: 14px;
+  }
+  .mystic-divider {
+    border-top: 1px solid #232A4D;
+  }
+  .btn-gold {
+    background: linear-gradient(180deg, #E4C97A 0%, #C9A24B 100%);
+    color: #0B0E1A;
+    font-weight: 600;
+    border-radius: 10px;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  .btn-gold:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 18px rgba(201,162,75,0.25);
+  }
+}
+
+/* Vòng xoay chiêm tinh + bát quái - hiệu ứng loading dùng chung cho mọi tool */
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+@keyframes spin-reverse {
+  from { transform: rotate(360deg); }
+  to { transform: rotate(0deg); }
+}
+.spin-slow { animation: spin-slow 6s linear infinite; }
+.spin-reverse { animation: spin-reverse 9s linear infinite; }
+
+/* Style cho nội dung HTML dán trực tiếp từ Sanity CMS (bài Cẩm nang) */
+.cam-nang-html {
+  color: rgba(237, 233, 224, 0.9); /* parchment/90 */
+  line-height: 1.75;
+}
+.cam-nang-html h2 {
+  font-family: 'Be Vietnam Pro', sans-serif;
+  font-weight: 700;
+  font-size: 1.35rem;
+  color: #EDE9E0;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+}
+.cam-nang-html h3 {
+  font-family: 'Be Vietnam Pro', sans-serif;
+  font-weight: 600;
+  font-size: 1.15rem;
+  color: #EDE9E0;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+.cam-nang-html p {
+  margin-bottom: 1rem;
+}
+.cam-nang-html ul, .cam-nang-html ol {
+  margin: 0 0 1rem 1.25rem;
+}
+.cam-nang-html ul { list-style: disc; }
+.cam-nang-html ol { list-style: decimal; }
+.cam-nang-html li { margin-bottom: 0.4rem; }
+.cam-nang-html a {
+  color: #C9A24B;
+  text-decoration: underline;
+}
+.cam-nang-html strong { color: #EDE9E0; font-weight: 600; }
+.cam-nang-html blockquote {
+  border-left: 3px solid #C9A24B;
+  padding-left: 1rem;
+  margin: 1.25rem 0;
+  color: rgba(199, 206, 234, 0.85); /* moon/85 */
+  font-style: italic;
+}
+.cam-nang-html img {
+  border-radius: 12px;
+  margin: 1.25rem 0;
+  max-width: 100%;
+  height: auto;
+}
+.cam-nang-html table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.25rem 0;
+  font-size: 0.9rem;
+}
+.cam-nang-html th, .cam-nang-html td {
+  border: 1px solid #232A4D;
+  padding: 0.5rem 0.75rem;
+  text-align: left;
+}
+.cam-nang-html th {
+  background: #141830;
+  color: #EDE9E0;
+}

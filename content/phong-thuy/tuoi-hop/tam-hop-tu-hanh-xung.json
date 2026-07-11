@@ -1,0 +1,26 @@
+{
+  "_note": "Tam hợp / Tứ hành xung / Lục hợp Địa Chi + Ngũ hợp Thiên Can — kiến thức truyền thống phổ biến, cần kiểm duyệt lại trước production.",
+  "tamHop": [
+    ["Tý", "Thìn", "Thân"],
+    ["Sửu", "Tỵ", "Dậu"],
+    ["Dần", "Ngọ", "Tuất"],
+    ["Mão", "Mùi", "Hợi"]
+  ],
+  "tuHanhXung": [
+    ["Tý", "Ngọ", "Mão", "Dậu"],
+    ["Dần", "Thân", "Tỵ", "Hợi"],
+    ["Thìn", "Tuất", "Sửu", "Mùi"]
+  ],
+  "lucHop": [
+    ["Tý", "Sửu"], ["Dần", "Hợi"], ["Mão", "Tuất"],
+    ["Thìn", "Dậu"], ["Tỵ", "Thân"], ["Ngọ", "Mùi"]
+  ],
+  "nguHopThienCan": [
+    ["Giáp", "Kỷ"], ["Ất", "Canh"], ["Bính", "Tân"], ["Đinh", "Nhâm"], ["Mậu", "Quý"]
+  ],
+  "lucHai": {
+    "Tý": "Mùi", "Sửu": "Ngọ", "Dần": "Tỵ", "Mão": "Thìn",
+    "Thìn": "Mão", "Tỵ": "Dần", "Ngọ": "Sửu", "Mùi": "Tý",
+    "Thân": "Hợi", "Dậu": "Tuất", "Tuất": "Dậu", "Hợi": "Thân"
+  }
+}

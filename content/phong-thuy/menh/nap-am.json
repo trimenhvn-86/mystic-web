@@ -1,0 +1,70 @@
+{
+  "_note": "Bảng Lục Thập Hoa Giáp Nạp Âm — kiến thức truyền thống phổ biến, tham khảo từ nhiều nguồn Lịch Vạn Niên. CẦN chuyên gia phong thủy kiểm duyệt lại trước khi dùng chính thức.",
+  "napAm": [
+    { "canChi": ["Giáp Tý", "Ất Sửu"], "ten": "Hải Trung Kim", "hanh": "Kim" },
+    { "canChi": ["Bính Dần", "Đinh Mão"], "ten": "Lư Trung Hỏa", "hanh": "Hỏa" },
+    { "canChi": ["Mậu Thìn", "Kỷ Tỵ"], "ten": "Đại Lâm Mộc", "hanh": "Mộc" },
+    { "canChi": ["Canh Ngọ", "Tân Mùi"], "ten": "Lộ Bàng Thổ", "hanh": "Thổ" },
+    { "canChi": ["Nhâm Thân", "Quý Dậu"], "ten": "Kiếm Phong Kim", "hanh": "Kim" },
+    { "canChi": ["Giáp Tuất", "Ất Hợi"], "ten": "Sơn Đầu Hỏa", "hanh": "Hỏa" },
+    { "canChi": ["Bính Tý", "Đinh Sửu"], "ten": "Giản Hạ Thủy", "hanh": "Thủy" },
+    { "canChi": ["Mậu Dần", "Kỷ Mão"], "ten": "Thành Đầu Thổ", "hanh": "Thổ" },
+    { "canChi": ["Canh Thìn", "Tân Tỵ"], "ten": "Bạch Lạp Kim", "hanh": "Kim" },
+    { "canChi": ["Nhâm Ngọ", "Quý Mùi"], "ten": "Dương Liễu Mộc", "hanh": "Mộc" },
+    { "canChi": ["Giáp Thân", "Ất Dậu"], "ten": "Tuyền Trung Thủy", "hanh": "Thủy" },
+    { "canChi": ["Bính Tuất", "Đinh Hợi"], "ten": "Ốc Thượng Thổ", "hanh": "Thổ" },
+    { "canChi": ["Mậu Tý", "Kỷ Sửu"], "ten": "Tích Lịch Hỏa", "hanh": "Hỏa" },
+    { "canChi": ["Canh Dần", "Tân Mão"], "ten": "Tùng Bách Mộc", "hanh": "Mộc" },
+    { "canChi": ["Nhâm Thìn", "Quý Tỵ"], "ten": "Trường Lưu Thủy", "hanh": "Thủy" },
+    { "canChi": ["Giáp Ngọ", "Ất Mùi"], "ten": "Sa Trung Kim", "hanh": "Kim" },
+    { "canChi": ["Bính Thân", "Đinh Dậu"], "ten": "Sơn Hạ Hỏa", "hanh": "Hỏa" },
+    { "canChi": ["Mậu Tuất", "Kỷ Hợi"], "ten": "Bình Địa Mộc", "hanh": "Mộc" },
+    { "canChi": ["Canh Tý", "Tân Sửu"], "ten": "Bích Thượng Thổ", "hanh": "Thổ" },
+    { "canChi": ["Nhâm Dần", "Quý Mão"], "ten": "Kim Bạch Kim", "hanh": "Kim" },
+    { "canChi": ["Giáp Thìn", "Ất Tỵ"], "ten": "Phú Đăng Hỏa", "hanh": "Hỏa" },
+    { "canChi": ["Bính Ngọ", "Đinh Mùi"], "ten": "Thiên Hà Thủy", "hanh": "Thủy" },
+    { "canChi": ["Mậu Thân", "Kỷ Dậu"], "ten": "Đại Trạch Thổ", "hanh": "Thổ" },
+    { "canChi": ["Canh Tuất", "Tân Hợi"], "ten": "Thoa Xuyến Kim", "hanh": "Kim" },
+    { "canChi": ["Nhâm Tý", "Quý Sửu"], "ten": "Tang Đố Mộc", "hanh": "Mộc" },
+    { "canChi": ["Giáp Dần", "Ất Mão"], "ten": "Đại Khê Thủy", "hanh": "Thủy" },
+    { "canChi": ["Bính Thìn", "Đinh Tỵ"], "ten": "Sa Trung Thổ", "hanh": "Thổ" },
+    { "canChi": ["Mậu Ngọ", "Kỷ Mùi"], "ten": "Thiên Thượng Hỏa", "hanh": "Hỏa" },
+    { "canChi": ["Canh Thân", "Tân Dậu"], "ten": "Thạch Lựu Mộc", "hanh": "Mộc" },
+    { "canChi": ["Nhâm Tuất", "Quý Hợi"], "ten": "Đại Hải Thủy", "hanh": "Thủy" }
+  ],
+  "huongTheoNguHanh": {
+    "Kim": ["Tây", "Tây Bắc"],
+    "Mộc": ["Đông", "Đông Nam"],
+    "Thủy": ["Bắc"],
+    "Hỏa": ["Nam"],
+    "Thổ": ["Đông Bắc", "Tây Nam"]
+  },
+  "ngheNghiep": {
+    "Kim": ["Tài chính - Ngân hàng", "Kỹ thuật - Cơ khí", "Kim hoàn - Trang sức", "Luật"],
+    "Mộc": ["Giáo dục", "Nông - Lâm nghiệp", "Xuất bản - Truyền thông", "Thiết kế"],
+    "Thủy": ["Du lịch - Vận tải", "Truyền thông - Đối ngoại", "Thương mại", "Logistics"],
+    "Hỏa": ["Năng lượng", "Ẩm thực - Nhà hàng", "Giải trí - Nghệ thuật", "Công nghệ"],
+    "Thổ": ["Bất động sản", "Xây dựng", "Nông nghiệp", "Bảo hiểm"]
+  },
+  "vatPhamPhongThuy": {
+    "Kim": ["Thạch anh trắng", "Đá Mắt Hổ vàng", "Trang sức bạc/vàng trắng"],
+    "Mộc": ["Đá Ngọc Bích", "Vòng gỗ trầm hương", "Cây phong thủy"],
+    "Thủy": ["Đá Obsidian đen", "Đá Aquamarine", "Vật phẩm thủy sinh"],
+    "Hỏa": ["Đá Garnet đỏ", "Đá Ruby", "Vật phẩm ánh sáng"],
+    "Thổ": ["Đá Citrine vàng", "Đá Thạch anh vàng", "Gốm sứ phong thủy"]
+  },
+  "ngHanhMota": {
+    "Kim": "Người mệnh Kim thường quyết đoán, nguyên tắc, có tư duy logic mạch lạc, phù hợp công việc đòi hỏi tính chính xác cao.",
+    "Mộc": "Người mệnh Mộc giàu sức sống, hướng đến phát triển, thích sự sinh trưởng và đổi mới không ngừng.",
+    "Thủy": "Người mệnh Thủy linh hoạt, thích nghi tốt, tư duy uyển chuyển, giỏi giao tiếp và kết nối.",
+    "Hỏa": "Người mệnh Hỏa nhiệt huyết, năng động, giàu nhiệt tình và khả năng truyền cảm hứng cho người xung quanh.",
+    "Thổ": "Người mệnh Thổ ổn định, đáng tin cậy, coi trọng sự bền vững và nền tảng lâu dài."
+  },
+  "mauHopMenh": {
+    "Kim": ["Trắng", "Xám", "Ánh kim", "Vàng đất (tương sinh)"],
+    "Mộc": ["Xanh lá", "Xanh rêu", "Đen, xanh dương (tương sinh)"],
+    "Thủy": ["Đen", "Xanh dương đậm", "Trắng, ánh kim (tương sinh)"],
+    "Hỏa": ["Đỏ", "Cam", "Hồng", "Xanh lá (tương sinh)"],
+    "Thổ": ["Vàng đất", "Nâu", "Đỏ, cam (tương sinh)"]
+  }
+}

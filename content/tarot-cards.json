@@ -1,0 +1,1302 @@
+[
+  {
+    "id": 1,
+    "slug": "the-fool",
+    "nameEn": "The Fool",
+    "nameVi": "Kẻ Khờ",
+    "arcana": "major",
+    "suit": null,
+    "number": 0,
+    "keywordsUpright": [
+      "khởi đầu",
+      "tự do",
+      "trải nghiệm mới"
+    ],
+    "keywordsReversed": [
+      "bốc đồng",
+      "thiếu chuẩn bị",
+      "rủi ro"
+    ],
+    "meaningUpright": "The Fool báo hiệu một khởi đầu mới đầy hứng khởi. Đây là lúc bạn được khuyến khích bước ra khỏi vùng an toàn, thử điều chưa từng làm, và tin tưởng vào hành trình phía trước dù chưa nhìn thấy hết mọi thứ. Năng lượng của lá bài này nhẹ nhàng, tự do và không bị ràng buộc bởi những lo lắng thông thường. Đây là thời điểm tốt để lên kế hoạch cho một dự án mới hoặc đưa ra quyết định thay đổi lớn.",
+    "meaningReversed": "Khi ngược, The Fool cảnh báo về sự bốc đồng và thiếu chuẩn bị. Bạn có thể đang lao vào một quyết định quan trọng mà chưa cân nhắc đủ kỹ, dẫn đến rủi ro không đáng có. Đây là lúc nên chậm lại, xem xét thực tế thay vì chỉ chạy theo cảm hứng nhất thời.",
+    "dailyMessageUpright": "Hôm nay là ngày tốt để bắt đầu điều gì đó mới. Đừng ngại thử nghiệm, nhưng vẫn giữ một chút thận trọng cần thiết.",
+    "dailyMessageReversed": "Hôm nay nên tránh quyết định vội vàng. Dành thời gian suy nghĩ kỹ trước khi hành động.",
+    "yesNoUpright": "yes",
+    "yesNoReversed": "leaning_no"
+  },
+  {
+    "id": 2,
+    "slug": "the-magician",
+    "nameEn": "The Magician",
+    "nameVi": "Pháp Sư",
+    "arcana": "major",
+    "suit": null,
+    "number": 1,
+    "keywordsUpright": [
+      "sáng tạo",
+      "hành động",
+      "làm chủ tình huống"
+    ],
+    "keywordsReversed": [
+      "thao túng",
+      "thiếu tập trung",
+      "tiềm năng chưa dùng"
+    ],
+    "meaningUpright": "The Magician tượng trưng cho khả năng biến ý tưởng thành hiện thực. Bạn đang có đủ công cụ, kỹ năng và sự tự tin để đạt được điều mình muốn — chỉ cần tập trung hành động. Đây là lá bài của sự khởi xướng chủ động, khi bạn nắm quyền kiểm soát tình huống thay vì chờ đợi.",
+    "meaningReversed": "Khi ngược, lá bài cho thấy tiềm năng chưa được khai thác đúng cách, hoặc có dấu hiệu thao túng, thiếu trung thực trong một tình huống nào đó. Cũng có thể bạn đang phân tán sự tập trung vào quá nhiều việc cùng lúc.",
+    "dailyMessageUpright": "Hôm nay bạn có đủ khả năng để biến kế hoạch thành hành động cụ thể. Hãy chủ động thay vì chờ đợi.",
+    "dailyMessageReversed": "Hôm nay nên cẩn trọng với lời hứa hẹn chưa rõ ràng, và tránh phân tán sự tập trung.",
+    "yesNoUpright": "yes",
+    "yesNoReversed": "uncertain"
+  },
+  {
+    "id": 3,
+    "slug": "the-high-priestess",
+    "nameEn": "The High Priestess",
+    "nameVi": "Nữ Tư Tế",
+    "arcana": "major",
+    "suit": null,
+    "number": 2,
+    "keywordsUpright": [
+      "trực giác",
+      "bí ẩn",
+      "tri thức nội tâm"
+    ],
+    "keywordsReversed": [
+      "mất kết nối trực giác",
+      "che giấu bí mật",
+      "hời hợt"
+    ],
+    "meaningUpright": "The High Priestess đại diện cho trực giác, tri thức nội tâm và những điều chưa được nói ra. Đây là lá bài khuyên bạn lắng nghe cảm nhận bên trong thay vì chỉ dựa vào logic bên ngoài. Câu trả lời bạn cần thường đã có sẵn trong chính mình, chỉ cần đủ tĩnh lặng để nhận ra.",
+    "meaningReversed": "Khi ngược, bạn có thể đang mất kết nối với trực giác của mình, hoặc có điều gì đó đang bị che giấu mà chưa được nhìn nhận rõ ràng. Cần dành thời gian tĩnh tâm để lắng nghe lại bản thân.",
+    "dailyMessageUpright": "Hôm nay hãy tin vào trực giác của mình nhiều hơn thay vì chỉ phân tích lý trí.",
+    "dailyMessageReversed": "Hôm nay có thể có điều gì đó chưa rõ ràng. Đừng vội kết luận khi thông tin còn thiếu.",
+    "yesNoUpright": "uncertain",
+    "yesNoReversed": "leaning_no"
+  },
+  {
+    "id": 4,
+    "slug": "the-empress",
+    "nameEn": "The Empress",
+    "nameVi": "Nữ Hoàng",
+    "arcana": "major",
+    "suit": null,
+    "number": 3,
+    "keywordsUpright": [
+      "sung túc",
+      "nuôi dưỡng",
+      "sáng tạo"
+    ],
+    "keywordsReversed": [
+      "mất cân bằng",
+      "phụ thuộc quá mức",
+      "trì trệ sáng tạo"
+    ],
+    "meaningUpright": "The Empress mang năng lượng sung túc, nuôi dưỡng và sáng tạo dồi dào. Lá bài này thường báo hiệu sự phát triển tự nhiên, chăm sóc bản thân và người khác, cũng như những thành quả đến từ sự kiên nhẫn vun đắp theo thời gian.",
+    "meaningReversed": "Khi ngược, có thể bạn đang mất cân bằng giữa việc chăm sóc người khác và chính mình, hoặc cảm thấy bế tắc trong sáng tạo. Cần dành thời gian nuôi dưỡng lại chính bản thân.",
+    "dailyMessageUpright": "Hôm nay thuận lợi cho các hoạt động chăm sóc, sáng tạo và phát triển lâu dài.",
+    "dailyMessageReversed": "Hôm nay nên chú ý cân bằng giữa việc cho đi và giữ lại năng lượng cho bản thân.",
+    "yesNoUpright": "yes",
+    "yesNoReversed": "leaning_no"
+  },
+  {
+    "id": 5,
+    "slug": "the-emperor",
+    "nameEn": "The Emperor",
+    "nameVi": "Hoàng Đế",
+    "arcana": "major",
+    "suit": null,
+    "number": 4,
+    "keywordsUpright": [
+      "kỷ luật",
+      "cấu trúc",
+      "quyền lực ổn định"
+    ],
+    "keywordsReversed": [
+      "cứng nhắc",
+      "kiểm soát quá mức",
+      "thiếu tổ chức"
+    ],
+    "meaningUpright": "The Emperor tượng trưng cho kỷ luật, cấu trúc vững chắc và khả năng lãnh đạo. Đây là lá bài của trật tự và trách nhiệm, khuyên bạn xây dựng nền tảng rõ ràng, đặt ra quy tắc và kiên định theo đuổi mục tiêu dài hạn.",
+    "meaningReversed": "Khi ngược, có thể xuất hiện sự cứng nhắc quá mức hoặc kiểm soát thái quá, hoặc ngược lại là tình trạng thiếu tổ chức, mất kỷ luật trong công việc.",
+    "dailyMessageUpright": "Hôm nay phù hợp để thiết lập kế hoạch rõ ràng và giữ vững kỷ luật với bản thân.",
+    "dailyMessageReversed": "Hôm nay nên linh hoạt hơn, tránh áp đặt quy tắc quá cứng nhắc lên bản thân hoặc người khác.",
+    "yesNoUpright": "yes",
+    "yesNoReversed": "uncertain"
+  },
+  {
+    "id": 6,
+    "slug": "the-hierophant",
+    "nameEn": "The Hierophant",
+    "nameVi": "Giáo Hoàng",
+    "arcana": "major",
+    "suit": null,
+    "number": 5,
+    "keywordsUpright": [
+      "truyền thống",
+      "học hỏi",
+      "hướng dẫn"
+    ],
+    "keywordsReversed": [
+      "phá vỡ quy tắc",
+      "tư duy độc lập",
+      "chống đối truyền thống"
+    ],
+    "meaningUpright": "The Hierophant gắn liền với truyền thống, giáo dục và việc học hỏi từ những người đi trước. Lá bài này khuyên bạn tôn trọng các quy tắc, tìm kiếm sự hướng dẫn từ người có kinh nghiệm, hoặc theo đuổi con đường học vấn bài bản.",
+    "meaningReversed": "Khi ngược, bạn có thể đang muốn phá vỡ khuôn khổ truyền thống để đi theo con đường riêng, hoặc cảm thấy không còn phù hợp với các quy chuẩn cũ.",
+    "dailyMessageUpright": "Hôm nay phù hợp để học hỏi từ người có kinh nghiệm hoặc tuân theo quy trình đã được kiểm chứng.",
+    "dailyMessageReversed": "Hôm nay bạn có thể muốn đi theo cách riêng thay vì làm theo lối mòn — hãy cân nhắc kỹ trước khi phá vỡ quy tắc.",
+    "yesNoUpright": "leaning_yes",
+    "yesNoReversed": "uncertain"
+  },
+  {
+    "id": 7,
+    "slug": "the-lovers",
+    "nameEn": "The Lovers",
+    "nameVi": "Tình Nhân",
+    "arcana": "major",
+    "suit": null,
+    "number": 6,
+    "keywordsUpright": [
+      "kết nối",
+      "lựa chọn từ trái tim",
+      "hài hòa"
+    ],
+    "keywordsReversed": [
+      "bất hòa",
+      "lựa chọn khó khăn",
+      "mất cân bằng trong quan hệ"
+    ],
+    "meaningUpright": "The Lovers tượng trưng cho sự kết nối sâu sắc, hài hòa và những lựa chọn xuất phát từ trái tim. Lá bài này thường xuất hiện khi bạn cần đưa ra quyết định quan trọng liên quan đến giá trị cá nhân hoặc một mối quan hệ ý nghĩa.",
+    "meaningReversed": "Khi ngược, có thể đang có bất hòa trong một mối quan hệ, hoặc bạn đang đứng trước một lựa chọn khó khăn mà cả hai phương án đều có được-mất riêng.",
+    "dailyMessageUpright": "Hôm nay thuận lợi cho các quyết định liên quan đến tình cảm và các mối quan hệ quan trọng.",
+    "dailyMessageReversed": "Hôm nay có thể xuất hiện bất đồng nhỏ trong quan hệ. Nên trao đổi thẳng thắn thay vì né tránh.",
+    "yesNoUpright": "yes",
+    "yesNoReversed": "uncertain"
+  },
+  {
+    "id": 8,
+    "slug": "the-chariot",
+    "nameEn": "The Chariot",
+    "nameVi": "Cỗ Xe",
+    "arcana": "major",
+    "suit": null,
+    "number": 7,
+    "keywordsUpright": [
+      "quyết tâm",
+      "chiến thắng",
+      "kiểm soát tình huống"
+    ],
+    "keywordsReversed": [
+      "mất phương hướng",
+      "thiếu kiểm soát",
+      "xung đột nội tâm"
+    ],
+    "meaningUpright": "The Chariot là lá bài của quyết tâm mạnh mẽ và khả năng vượt qua trở ngại để tiến về phía trước. Đây là thời điểm bạn có đủ ý chí và sự tập trung để giành chiến thắng, miễn là giữ vững mục tiêu đã đặt ra.",
+    "meaningReversed": "Khi ngược, bạn có thể đang cảm thấy mất phương hướng hoặc bị giằng xé giữa nhiều mục tiêu khác nhau, khiến năng lượng bị phân tán thay vì tập trung.",
+    "dailyMessageUpright": "Hôm nay là ngày tốt để dồn sức tập trung vào một mục tiêu cụ thể và tiến bước quyết đoán.",
+    "dailyMessageReversed": "Hôm nay nên xác định lại rõ ràng mục tiêu trước khi hành động, tránh phân tán sức lực.",
+    "yesNoUpright": "yes",
+    "yesNoReversed": "leaning_no"
+  },
+  {
+    "id": 9,
+    "slug": "strength",
+    "nameEn": "Strength",
+    "nameVi": "Sức Mạnh",
+    "arcana": "major",
+    "suit": null,
+    "number": 8,
+    "keywordsUpright": [
+      "kiên nhẫn",
+      "can đảm nội tâm",
+      "làm chủ cảm xúc"
+    ],
+    "keywordsReversed": [
+      "tự nghi ngờ",
+      "mất kiên nhẫn",
+      "dùng sức mạnh sai cách"
+    ],
+    "meaningUpright": "Strength không phải sức mạnh cơ bắp mà là sức mạnh nội tâm — sự kiên nhẫn, lòng can đảm nhẹ nhàng và khả năng làm chủ cảm xúc thay vì để cảm xúc chi phối. Đây là lá bài khuyên bạn đối diện khó khăn bằng sự bình tĩnh và thấu hiểu thay vì đối đầu gay gắt.",
+    "meaningReversed": "Khi ngược, bạn có thể đang tự nghi ngờ khả năng của mình hoặc mất kiên nhẫn, dễ phản ứng thái quá trước áp lực.",
+    "dailyMessageUpright": "Hôm nay hãy đối diện khó khăn bằng sự bình tĩnh và kiên nhẫn thay vì phản ứng gay gắt.",
+    "dailyMessageReversed": "Hôm nay có thể dễ mất kiên nhẫn. Hãy cho bản thân thêm thời gian trước khi phản ứng.",
+    "yesNoUpright": "yes",
+    "yesNoReversed": "uncertain"
+  },
+  {
+    "id": 10,
+    "slug": "the-hermit",
+    "nameEn": "The Hermit",
+    "nameVi": "Ẩn Sĩ",
+    "arcana": "major",
+    "suit": null,
+    "number": 9,
+    "keywordsUpright": [
+      "nội tâm",
+      "tìm kiếm sự thật",
+      "tạm lui về"
+    ],
+    "keywordsReversed": [
+      "cô lập quá mức",
+      "trốn tránh",
+      "cô đơn không mong muốn"
+    ],
+    "meaningUpright": "The Hermit khuyên bạn tạm lui về với chính mình để suy ngẫm, tìm kiếm câu trả lời từ nội tâm thay vì từ bên ngoài. Đây là giai đoạn phù hợp để chậm lại, quan sát và tự vấn trước khi tiếp tục bước tiếp.",
+    "meaningReversed": "Khi ngược, sự tách biệt có thể trở thành cô lập quá mức hoặc trốn tránh thực tế, khiến bạn cảm thấy cô đơn không mong muốn.",
+    "dailyMessageUpright": "Hôm nay phù hợp để dành thời gian một mình, suy ngẫm và tìm lại sự rõ ràng trong tâm trí.",
+    "dailyMessageReversed": "Hôm nay đừng để bản thân tách biệt quá lâu — hãy chủ động kết nối lại với người xung quanh.",
+    "yesNoUpright": "uncertain",
+    "yesNoReversed": "leaning_no"
+  },
+  {
+    "id": 11,
+    "slug": "wheel-of-fortune",
+    "nameEn": "Wheel of Fortune",
+    "nameVi": "Bánh Xe Số Mệnh",
+    "arcana": "major",
+    "suit": null,
+    "number": 10,
+    "keywordsUpright": [
+      "bước ngoặt",
+      "vận may",
+      "chu kỳ thay đổi"
+    ],
+    "keywordsReversed": [
+      "trì trệ",
+      "vận rủi tạm thời",
+      "chống lại vòng xoay"
+    ],
+    "meaningUpright": "Wheel of Fortune báo hiệu một bước ngoặt hoặc chu kỳ mới đang bắt đầu, thường mang theo vận may và những thay đổi tích cực nằm ngoài dự tính. Đây là lời nhắc rằng mọi thứ đều vận động theo chu kỳ, thuận lợi sẽ đến nếu bạn sẵn sàng đón nhận.",
+    "meaningReversed": "Khi ngược, có thể bạn đang trải qua giai đoạn trì trệ hoặc vận rủi tạm thời. Đây chỉ là một phần của chu kỳ, không phải trạng thái vĩnh viễn.",
+    "dailyMessageUpright": "Hôm nay có thể xuất hiện một bước ngoặt bất ngờ theo chiều hướng tích cực. Hãy đón nhận cởi mở.",
+    "dailyMessageReversed": "Hôm nay mọi việc có thể chậm hơn mong đợi. Kiên nhẫn, chu kỳ sẽ sớm chuyển biến.",
+    "yesNoUpright": "yes",
+    "yesNoReversed": "leaning_no"
+  },
+  {
+    "id": 12,
+    "slug": "justice",
+    "nameEn": "Justice",
+    "nameVi": "Công Lý",
+    "arcana": "major",
+    "suit": null,
+    "number": 11,
+    "keywordsUpright": [
+      "công bằng",
+      "sự thật",
+      "hệ quả tương xứng"
+    ],
+    "keywordsReversed": [
+      "bất công",
+      "thiếu minh bạch",
+      "trốn tránh trách nhiệm"
+    ],
+    "meaningUpright": "Justice tượng trưng cho sự công bằng, minh bạch và hệ quả tương xứng với hành động đã làm. Lá bài này khuyên bạn hành xử trung thực, cân nhắc kỹ lưỡng trước quyết định, vì mọi việc đều sẽ có kết quả tương xứng.",
+    "meaningReversed": "Khi ngược, có thể đang có sự bất công hoặc thiếu minh bạch trong một tình huống, hoặc bạn đang né tránh trách nhiệm của mình.",
+    "dailyMessageUpright": "Hôm nay nên hành xử trung thực và công bằng — kết quả sẽ phản ánh đúng những gì bạn đã bỏ ra.",
+    "dailyMessageReversed": "Hôm nay cần xem xét lại một quyết định chưa thực sự công bằng hoặc rõ ràng.",
+    "yesNoUpright": "yes",
+    "yesNoReversed": "leaning_no"
+  },
+  {
+    "id": 13,
+    "slug": "the-hanged-man",
+    "nameEn": "The Hanged Man",
+    "nameVi": "Người Treo Ngược",
+    "arcana": "major",
+    "suit": null,
+    "number": 12,
+    "keywordsUpright": [
+      "tạm dừng",
+      "góc nhìn mới",
+      "buông bỏ kiểm soát"
+    ],
+    "keywordsReversed": [
+      "trì hoãn không cần thiết",
+      "chống lại sự tạm dừng",
+      "mắc kẹt"
+    ],
+    "meaningUpright": "The Hanged Man khuyên bạn tạm dừng lại, buông bỏ nhu cầu kiểm soát mọi thứ, và nhìn tình huống từ một góc độ hoàn toàn khác. Đôi khi không hành động lại chính là hành động đúng đắn nhất trong thời điểm này.",
+    "meaningReversed": "Khi ngược, có thể bạn đang trì hoãn một cách không cần thiết, hoặc cảm thấy mắc kẹt trong tình huống mà không tìm được lối ra rõ ràng.",
+    "dailyMessageUpright": "Hôm nay không cần vội vàng hành động — hãy quan sát tình huống từ góc nhìn khác trước.",
+    "dailyMessageReversed": "Hôm nay cảm giác mắc kẹt có thể xuất hiện. Đừng cố ép bản thân, hãy cho thêm thời gian.",
+    "yesNoUpright": "uncertain",
+    "yesNoReversed": "leaning_no"
+  },
+  {
+    "id": 14,
+    "slug": "death",
+    "nameEn": "Death",
+    "nameVi": "Tử Thần",
+    "arcana": "major",
+    "suit": null,
+    "number": 13,
+    "keywordsUpright": [
+      "kết thúc",
+      "chuyển hóa",
+      "khởi đầu sau kết thúc"
+    ],
+    "keywordsReversed": [
+      "chống lại thay đổi",
+      "kết thúc dang dở",
+      "sợ buông bỏ"
+    ],
+    "meaningUpright": "Death hiếm khi mang nghĩa đen, mà tượng trưng cho sự kết thúc cần thiết để mở ra một khởi đầu mới. Một giai đoạn, một thói quen hoặc một mối quan hệ có thể đang khép lại để nhường chỗ cho điều phù hợp hơn.",
+    "meaningReversed": "Khi ngược, bạn có thể đang chống lại một sự thay đổi tất yếu, cố giữ lấy điều đã không còn phù hợp, khiến quá trình chuyển hóa bị kéo dài không cần thiết.",
+    "dailyMessageUpright": "Hôm nay có thể là lúc khép lại một giai đoạn để mở ra điều mới. Đừng sợ buông bỏ.",
+    "dailyMessageReversed": "Hôm nay nên chấp nhận rằng một số điều đã đến lúc kết thúc, thay vì cố kéo dài.",
+    "yesNoUpright": "leaning_no",
+    "yesNoReversed": "no"
+  },
+  {
+    "id": 15,
+    "slug": "temperance",
+    "nameEn": "Temperance",
+    "nameVi": "Tiết Độ",
+    "arcana": "major",
+    "suit": null,
+    "number": 14,
+    "keywordsUpright": [
+      "cân bằng",
+      "kiên nhẫn",
+      "hòa hợp"
+    ],
+    "keywordsReversed": [
+      "mất cân bằng",
+      "cực đoan",
+      "thiếu kiên nhẫn"
+    ],
+    "meaningUpright": "Temperance là lá bài của sự cân bằng, hòa hợp và kiên nhẫn điều chỉnh từng bước nhỏ. Đây là thời điểm phù hợp để dung hòa các yếu tố đối lập trong cuộc sống, tránh cực đoan và tìm ra điểm cân bằng bền vững.",
+    "meaningReversed": "Khi ngược, có thể đang có sự mất cân bằng hoặc xu hướng cực đoan trong một khía cạnh nào đó của cuộc sống, cần điều chỉnh lại cho hài hòa hơn.",
+    "dailyMessageUpright": "Hôm nay phù hợp để tìm kiếm sự cân bằng, tránh làm mọi việc thái quá theo một hướng.",
+    "dailyMessageReversed": "Hôm nay dễ có xu hướng làm quá tay một việc gì đó. Hãy tiết chế lại một chút.",
+    "yesNoUpright": "leaning_yes",
+    "yesNoReversed": "uncertain"
+  },
+  {
+    "id": 16,
+    "slug": "the-devil",
+    "nameEn": "The Devil",
+    "nameVi": "Ác Quỷ",
+    "arcana": "major",
+    "suit": null,
+    "number": 15,
+    "keywordsUpright": [
+      "ràng buộc",
+      "cám dỗ",
+      "phụ thuộc"
+    ],
+    "keywordsReversed": [
+      "giải thoát",
+      "nhận ra ràng buộc",
+      "phá vỡ thói quen xấu"
+    ],
+    "meaningUpright": "The Devil tượng trưng cho những ràng buộc tự áp đặt — thói quen xấu, sự phụ thuộc hoặc cám dỗ đang kìm giữ bạn. Lá bài này khuyến khích nhìn thẳng vào những gì đang kiểm soát mình để có thể chọn cách giải thoát.",
+    "meaningReversed": "Khi ngược, đây là dấu hiệu tích cực cho thấy bạn đang bắt đầu nhận ra và phá vỡ những ràng buộc, thói quen không lành mạnh đã tồn tại lâu.",
+    "dailyMessageUpright": "Hôm nay nên chú ý đến những thói quen hoặc cám dỗ đang chi phối quyết định của bạn.",
+    "dailyMessageReversed": "Hôm nay là bước tiến trong việc thoát khỏi một ràng buộc không còn phù hợp.",
+    "yesNoUpright": "no",
+    "yesNoReversed": "leaning_yes"
+  },
+  {
+    "id": 17,
+    "slug": "the-tower",
+    "nameEn": "The Tower",
+    "nameVi": "Tòa Tháp",
+    "arcana": "major",
+    "suit": null,
+    "number": 16,
+    "keywordsUpright": [
+      "biến động",
+      "thức tỉnh đột ngột",
+      "phá vỡ ảo tưởng"
+    ],
+    "keywordsReversed": [
+      "tránh khủng hoảng",
+      "sợ thay đổi",
+      "trì hoãn điều tất yếu"
+    ],
+    "meaningUpright": "The Tower là lá bài của biến động bất ngờ — một điều gì đó tưởng như vững chắc bị sụp đổ, buộc bạn phải nhìn nhận lại thực tế. Dù gây xáo trộn, đây thường là bước cần thiết để dọn đường cho một nền tảng mới vững chắc hơn. Không nên chống lại thay đổi, mà nên xem đó là cơ hội tái thiết.",
+    "meaningReversed": "Khi ngược, lá bài cho thấy bạn đang cố né tránh một sự thay đổi tất yếu, hoặc sợ hãi trước khủng hoảng sắp xảy ra. Việc trì hoãn đối mặt với vấn đề có thể khiến tình huống trở nên khó kiểm soát hơn về sau.",
+    "dailyMessageUpright": "Hôm nay có thể có một thay đổi bất ngờ. Đừng hoảng loạn — hãy xem đây là cơ hội để làm mới mọi thứ.",
+    "dailyMessageReversed": "Hôm nay nên đối mặt trực tiếp với vấn đề đang né tránh, thay vì để nó âm ỉ kéo dài.",
+    "yesNoUpright": "no",
+    "yesNoReversed": "leaning_no"
+  },
+  {
+    "id": 18,
+    "slug": "the-star",
+    "nameEn": "The Star",
+    "nameVi": "Ngôi Sao",
+    "arcana": "major",
+    "suit": null,
+    "number": 17,
+    "keywordsUpright": [
+      "hy vọng",
+      "chữa lành",
+      "cảm hứng"
+    ],
+    "keywordsReversed": [
+      "mất niềm tin",
+      "kiệt sức",
+      "thiếu định hướng"
+    ],
+    "meaningUpright": "The Star mang năng lượng của hy vọng và sự chữa lành sau giai đoạn khó khăn. Đây là lá bài cho thấy ánh sáng đang dần xuất hiện, mang lại cảm hứng và niềm tin vào tương lai. Đây là thời điểm tốt để đặt lại mục tiêu dài hạn và tin tưởng vào quá trình.",
+    "meaningReversed": "Khi ngược, lá bài cho thấy bạn có thể đang mất niềm tin, cảm thấy kiệt sức hoặc mất phương hướng. Cần dành thời gian nghỉ ngơi và kết nối lại với những điều thực sự mang lại ý nghĩa cho bạn.",
+    "dailyMessageUpright": "Hôm nay là ngày mang nhiều hy vọng. Hãy tin tưởng vào con đường mình đang đi.",
+    "dailyMessageReversed": "Hôm nay nên dành thời gian nghỉ ngơi, tránh để bản thân kiệt sức vì kỳ vọng quá cao.",
+    "yesNoUpright": "leaning_yes",
+    "yesNoReversed": "uncertain"
+  },
+  {
+    "id": 19,
+    "slug": "the-moon",
+    "nameEn": "The Moon",
+    "nameVi": "Mặt Trăng",
+    "arcana": "major",
+    "suit": null,
+    "number": 18,
+    "keywordsUpright": [
+      "mơ hồ",
+      "trực giác sâu",
+      "sợ hãi tiềm ẩn"
+    ],
+    "keywordsReversed": [
+      "sự thật dần sáng tỏ",
+      "giải tỏa lo âu",
+      "vượt qua hoang mang"
+    ],
+    "meaningUpright": "The Moon tượng trưng cho những điều mơ hồ, chưa rõ ràng, gắn liền với trực giác sâu và cả những nỗi sợ tiềm ẩn. Đây là lúc mọi thứ có thể không như vẻ bề ngoài — nên thận trọng và tin vào cảm nhận hơn là chỉ nhìn bề mặt.",
+    "meaningReversed": "Khi ngược, sự thật đang dần sáng tỏ hơn, những lo âu hoặc hoang mang trước đó bắt đầu được giải tỏa khi bạn nhìn rõ tình huống hơn.",
+    "dailyMessageUpright": "Hôm nay có thể có những điều chưa rõ ràng. Đừng vội phán đoán khi thông tin còn thiếu.",
+    "dailyMessageReversed": "Hôm nay sự thật dần trở nên rõ ràng hơn, giúp bạn bớt lo lắng.",
+    "yesNoUpright": "uncertain",
+    "yesNoReversed": "leaning_yes"
+  },
+  {
+    "id": 20,
+    "slug": "the-sun",
+    "nameEn": "The Sun",
+    "nameVi": "Mặt Trời",
+    "arcana": "major",
+    "suit": null,
+    "number": 19,
+    "keywordsUpright": [
+      "thành công",
+      "niềm vui",
+      "sức sống"
+    ],
+    "keywordsReversed": [
+      "trì hoãn niềm vui",
+      "kỳ vọng chưa thành",
+      "thiếu rõ ràng"
+    ],
+    "meaningUpright": "The Sun là một trong những lá bài tích cực nhất của bộ Tarot, tượng trưng cho thành công, niềm vui và sức sống tràn đầy. Mọi việc có xu hướng diễn ra thuận lợi, mang lại sự tự tin và kết quả rõ ràng. Đây là thời điểm tốt để tận hưởng thành quả và chia sẻ niềm vui với người xung quanh.",
+    "meaningReversed": "Khi ngược, thành công có thể đến chậm hơn dự kiến, hoặc niềm vui bị che mờ bởi một số lo lắng chưa được giải quyết. Kết quả vẫn tích cực nhưng cần thêm thời gian và sự rõ ràng.",
+    "dailyMessageUpright": "Hôm nay tràn đầy năng lượng tích cực. Đây là thời điểm tốt để hành động và tận hưởng thành quả.",
+    "dailyMessageReversed": "Hôm nay kết quả có thể đến chậm hơn mong đợi, nhưng vẫn theo chiều hướng tích cực nếu kiên nhẫn.",
+    "yesNoUpright": "yes",
+    "yesNoReversed": "leaning_yes"
+  },
+  {
+    "id": 21,
+    "slug": "judgement",
+    "nameEn": "Judgement",
+    "nameVi": "Phán Xét",
+    "arcana": "major",
+    "suit": null,
+    "number": 20,
+    "keywordsUpright": [
+      "thức tỉnh",
+      "đánh giá lại",
+      "cơ hội chuộc lỗi"
+    ],
+    "keywordsReversed": [
+      "tự phán xét quá khắt khe",
+      "bỏ lỡ cơ hội",
+      "chưa sẵn sàng thay đổi"
+    ],
+    "meaningUpright": "Judgement mang năng lượng thức tỉnh, khi bạn nhìn lại chặng đường đã qua và nhận ra bài học cần thiết để bước sang giai đoạn mới. Đây cũng là lá bài của sự tha thứ, cả cho bản thân lẫn người khác.",
+    "meaningReversed": "Khi ngược, bạn có thể đang quá khắt khe với bản thân, hoặc chưa sẵn sàng đối mặt với bài học cần thiết để thay đổi.",
+    "dailyMessageUpright": "Hôm nay là dịp tốt để nhìn lại và rút ra bài học từ những gì đã trải qua.",
+    "dailyMessageReversed": "Hôm nay đừng quá khắt khe với chính mình. Cho bản thân thêm thời gian để sẵn sàng.",
+    "yesNoUpright": "leaning_yes",
+    "yesNoReversed": "uncertain"
+  },
+  {
+    "id": 22,
+    "slug": "the-world",
+    "nameEn": "The World",
+    "nameVi": "Thế Giới",
+    "arcana": "major",
+    "suit": null,
+    "number": 21,
+    "keywordsUpright": [
+      "hoàn thành",
+      "viên mãn",
+      "chu kỳ khép lại trọn vẹn"
+    ],
+    "keywordsReversed": [
+      "chưa hoàn tất",
+      "thiếu một bước cuối",
+      "trì hoãn kết thúc"
+    ],
+    "meaningUpright": "The World là lá bài của sự hoàn thành viên mãn — một chu kỳ dài khép lại trọn vẹn, mang lại cảm giác thành tựu và tự hào. Đây là thời điểm để ăn mừng thành quả trước khi bước sang một hành trình mới.",
+    "meaningReversed": "Khi ngược, có thể một việc gì đó gần hoàn thành nhưng còn thiếu bước cuối cùng, hoặc bạn đang trì hoãn việc khép lại một chu kỳ đã đến lúc kết thúc.",
+    "dailyMessageUpright": "Hôm nay có thể mang lại cảm giác hoàn thành một việc quan trọng. Hãy tự hào về thành quả của mình.",
+    "dailyMessageReversed": "Hôm nay nên hoàn tất nốt bước cuối còn dang dở thay vì để nó kéo dài mãi.",
+    "yesNoUpright": "yes",
+    "yesNoReversed": "leaning_yes"
+  },
+  {
+    "id": 23,
+    "slug": "ace-of-wands",
+    "nameEn": "Ace of Wands",
+    "nameVi": "Át Gậy",
+    "arcana": "minor",
+    "suit": "wands",
+    "number": 1,
+    "keywordsUpright": [
+      "cảm hứng mới",
+      "nhiệt huyết",
+      "cơ hội khởi đầu"
+    ],
+    "keywordsReversed": [
+      "trì hoãn",
+      "thiếu động lực",
+      "cơ hội bị bỏ lỡ"
+    ],
+    "meaningUpright": "Ace of Wands mang đến nguồn cảm hứng và nhiệt huyết mới, thường báo hiệu một cơ hội hoặc ý tưởng đáng để theo đuổi. Đây là năng lượng khởi đầu mạnh mẽ trong công việc hoặc dự án cá nhân, thúc đẩy bạn hành động ngay khi có động lực.",
+    "meaningReversed": "Khi ngược, nguồn cảm hứng có thể đến rồi lại tắt nhanh, hoặc bạn đang trì hoãn một cơ hội tốt vì thiếu tự tin. Cần tìm lại động lực trước khi cơ hội trôi qua.",
+    "dailyMessageUpright": "Hôm nay có thể xuất hiện một ý tưởng hoặc cơ hội mới đáng chú ý. Đừng để nó trôi qua.",
+    "dailyMessageReversed": "Hôm nay động lực có thể chưa rõ ràng. Đừng ép bản thân, hãy chờ đúng thời điểm.",
+    "yesNoUpright": "yes",
+    "yesNoReversed": "leaning_no"
+  },
+  {
+    "slug": "two-of-wands",
+    "nameEn": "Two of Wands",
+    "nameVi": "Nhị Gậy",
+    "arcana": "minor",
+    "suit": "wands",
+    "number": 2,
+    "keywordsUpright": [
+      "lên kế hoạch",
+      "tầm nhìn xa",
+      "bước đầu khám phá"
+    ],
+    "keywordsReversed": [
+      "sợ điều chưa biết",
+      "thiếu kế hoạch",
+      "do dự"
+    ],
+    "meaningUpright": "Two of Wands nói về giai đoạn lên kế hoạch cho tương lai, khi bạn đã có ý tưởng ban đầu và đang cân nhắc bước đi tiếp theo. Đây là lúc mở rộng tầm nhìn, dám nghĩ lớn hơn về những gì có thể đạt được.",
+    "meaningReversed": "Khi ngược, bạn có thể đang do dự vì sợ điều chưa biết, hoặc thiếu một kế hoạch rõ ràng khiến bước tiến bị chững lại.",
+    "dailyMessageUpright": "Hôm nay phù hợp để suy nghĩ về bức tranh lớn và lên kế hoạch cho bước tiếp theo.",
+    "dailyMessageReversed": "Hôm nay sự do dự có thể cản trở bạn. Hãy xác định rõ hơn điều mình thực sự muốn.",
+    "yesNoUpright": "leaning_yes",
+    "yesNoReversed": "uncertain",
+    "id": 24
+  },
+  {
+    "slug": "three-of-wands",
+    "nameEn": "Three of Wands",
+    "nameVi": "Tam Gậy",
+    "arcana": "minor",
+    "suit": "wands",
+    "number": 3,
+    "keywordsUpright": [
+      "mở rộng",
+      "tầm nhìn dài hạn",
+      "cơ hội mới"
+    ],
+    "keywordsReversed": [
+      "trở ngại",
+      "thiếu tầm nhìn",
+      "chậm tiến độ"
+    ],
+    "meaningUpright": "Three of Wands cho thấy kế hoạch ban đầu đang bắt đầu mở rộng ra, mang lại những cơ hội mới ở phạm vi lớn hơn. Đây là lá bài của sự phát triển và tầm nhìn xa, khi công sức bỏ ra bắt đầu cho thấy kết quả.",
+    "meaningReversed": "Khi ngược, có thể xuất hiện trở ngại làm chậm tiến độ, hoặc bạn chưa nhìn xa đủ để tận dụng hết cơ hội đang có.",
+    "dailyMessageUpright": "Hôm nay có thể xuất hiện cơ hội mở rộng công việc hoặc dự án đang làm.",
+    "dailyMessageReversed": "Hôm nay tiến độ có thể chậm hơn dự kiến. Kiên nhẫn và điều chỉnh kế hoạch nếu cần.",
+    "yesNoUpright": "yes",
+    "yesNoReversed": "leaning_no",
+    "id": 25
+  },
+  {
+    "slug": "four-of-wands",
+    "nameEn": "Four of Wands",
+    "nameVi": "Tứ Gậy",
+    "arcana": "minor",
+    "suit": "wands",
+    "number": 4,
+    "keywordsUpright": [
+      "ăn mừng",
+      "hòa hợp",
+      "đoàn tụ"
+    ],
+    "keywordsReversed": [
+      "niềm vui riêng tư",
+      "mâu thuẫn nhỏ trong nhà",
+      "trì hoãn ăn mừng"
+    ],
+    "meaningUpright": "Four of Wands mang năng lượng ăn mừng, hòa hợp và đoàn tụ — thường liên quan đến gia đình, cộng đồng hoặc một cột mốc đáng nhớ. Đây là thời điểm tận hưởng thành quả cùng những người thân thiết.",
+    "meaningReversed": "Khi ngược, niềm vui có thể mang tính riêng tư hơn là chia sẻ rộng rãi, hoặc có một chút mâu thuẫn nhỏ trong gia đình cần được giải quyết.",
+    "dailyMessageUpright": "Hôm nay thuận lợi cho các dịp sum họp, ăn mừng cùng người thân và bạn bè.",
+    "dailyMessageReversed": "Hôm nay nên chú ý hàn gắn một mâu thuẫn nhỏ trong gia đình trước khi nó lớn hơn.",
+    "yesNoUpright": "yes",
+    "yesNoReversed": "leaning_yes",
+    "id": 26
+  },
+  {
+    "slug": "five-of-wands",
+    "nameEn": "Five of Wands",
+    "nameVi": "Ngũ Gậy",
+    "arcana": "minor",
+    "suit": "wands",
+    "number": 5,
+    "keywordsUpright": [
+      "cạnh tranh",
+      "xung đột",
+      "căng thẳng"
+    ],
+    "keywordsReversed": [
+      "tránh xung đột",
+      "tôn trọng khác biệt",
+      "giải quyết mâu thuẫn"
+    ],
+    "meaningUpright": "Five of Wands thể hiện sự cạnh tranh hoặc xung đột quan điểm giữa nhiều bên, tạo ra căng thẳng nhất thời. Đây không hẳn là điều xấu — đôi khi tranh luận là cách để mọi người tìm ra hướng đi tốt hơn.",
+    "meaningReversed": "Khi ngược, bạn có xu hướng tránh xung đột hoặc đang học cách tôn trọng sự khác biệt thay vì đối đầu.",
+    "dailyMessageUpright": "Hôm nay có thể có tranh luận hoặc bất đồng quan điểm. Giữ bình tĩnh để tránh căng thẳng leo thang.",
+    "dailyMessageReversed": "Hôm nay nên chủ động hóa giải mâu thuẫn thay vì để nó kéo dài.",
+    "yesNoUpright": "no",
+    "yesNoReversed": "leaning_no",
+    "id": 27
+  },
+  {
+    "slug": "six-of-wands",
+    "nameEn": "Six of Wands",
+    "nameVi": "Lục Gậy",
+    "arcana": "minor",
+    "suit": "wands",
+    "number": 6,
+    "keywordsUpright": [
+      "chiến thắng",
+      "công nhận",
+      "tự tin"
+    ],
+    "keywordsReversed": [
+      "thiếu công nhận",
+      "tự cao",
+      "chiến thắng riêng tư"
+    ],
+    "meaningUpright": "Six of Wands là lá bài của chiến thắng và sự công nhận từ người khác. Nỗ lực của bạn đang được đền đáp xứng đáng, mang lại sự tự tin và vị thế tốt hơn trong mắt mọi người.",
+    "meaningReversed": "Khi ngược, thành quả có thể chưa được công nhận đúng mức, hoặc bạn đang tự cao thái quá về những gì đã đạt được.",
+    "dailyMessageUpright": "Hôm nay có thể nhận được sự công nhận xứng đáng cho nỗ lực đã bỏ ra.",
+    "dailyMessageReversed": "Hôm nay đừng quá kỳ vọng vào sự công nhận từ người khác — hãy tự hào về nỗ lực của chính mình.",
+    "yesNoUpright": "yes",
+    "yesNoReversed": "leaning_no",
+    "id": 28
+  },
+  {
+    "slug": "seven-of-wands",
+    "nameEn": "Seven of Wands",
+    "nameVi": "Thất Gậy",
+    "arcana": "minor",
+    "suit": "wands",
+    "number": 7,
+    "keywordsUpright": [
+      "kiên định bảo vệ lập trường",
+      "thử thách",
+      "quyết tâm"
+    ],
+    "keywordsReversed": [
+      "kiệt sức",
+      "bỏ cuộc",
+      "áp lực quá lớn"
+    ],
+    "meaningUpright": "Seven of Wands khuyên bạn giữ vững lập trường trước thử thách hoặc sự cạnh tranh. Dù có áp lực từ nhiều phía, bạn vẫn có đủ vị thế và quyết tâm để bảo vệ những gì mình đã xây dựng.",
+    "meaningReversed": "Khi ngược, bạn có thể đang cảm thấy kiệt sức vì phải liên tục phòng thủ, hoặc bắt đầu muốn từ bỏ trước áp lực quá lớn.",
+    "dailyMessageUpright": "Hôm nay cần giữ vững lập trường của mình trước những ý kiến trái chiều.",
+    "dailyMessageReversed": "Hôm nay nếu cảm thấy quá tải, hãy cho phép bản thân nghỉ ngơi thay vì cố gắng quá sức.",
+    "yesNoUpright": "leaning_yes",
+    "yesNoReversed": "leaning_no",
+    "id": 29
+  },
+  {
+    "slug": "eight-of-wands",
+    "nameEn": "Eight of Wands",
+    "nameVi": "Bát Gậy",
+    "arcana": "minor",
+    "suit": "wands",
+    "number": 8,
+    "keywordsUpright": [
+      "tốc độ",
+      "hành động nhanh",
+      "chuyển biến nhanh chóng"
+    ],
+    "keywordsReversed": [
+      "trì hoãn",
+      "chậm trễ",
+      "bực bội vì chờ đợi"
+    ],
+    "meaningUpright": "Eight of Wands mang năng lượng nhanh chóng — mọi việc có xu hướng tiến triển và thay đổi tốc độ cao. Đây là lúc mọi thứ diễn ra thuận lợi nếu bạn sẵn sàng hành động kịp thời.",
+    "meaningReversed": "Khi ngược, có thể xuất hiện sự trì hoãn hoặc chậm trễ ngoài ý muốn, gây cảm giác bực bội vì phải chờ đợi lâu hơn dự kiến.",
+    "dailyMessageUpright": "Hôm nay mọi việc có thể diễn ra nhanh chóng. Hãy sẵn sàng hành động khi cơ hội đến.",
+    "dailyMessageReversed": "Hôm nay có thể có chậm trễ ngoài ý muốn. Kiên nhẫn thay vì nóng vội.",
+    "yesNoUpright": "yes",
+    "yesNoReversed": "leaning_no",
+    "id": 30
+  },
+  {
+    "slug": "nine-of-wands",
+    "nameEn": "Nine of Wands",
+    "nameVi": "Cửu Gậy",
+    "arcana": "minor",
+    "suit": "wands",
+    "number": 9,
+    "keywordsUpright": [
+      "kiên cường",
+      "bền bỉ",
+      "gần đến đích"
+    ],
+    "keywordsReversed": [
+      "kiệt sức",
+      "phòng thủ quá mức",
+      "nghi ngờ"
+    ],
+    "meaningUpright": "Nine of Wands là lá bài của sự kiên cường sau một chặng đường dài gian nan. Dù mệt mỏi, bạn vẫn còn đủ sức để hoàn thành chặng cuối — chỉ cần thêm một chút bền bỉ nữa.",
+    "meaningReversed": "Khi ngược, sự kiệt sức có thể khiến bạn trở nên phòng thủ quá mức hoặc nghi ngờ mọi thứ xung quanh mà không có cơ sở rõ ràng.",
+    "dailyMessageUpright": "Hôm nay dù mệt mỏi, bạn vẫn đủ sức hoàn thành điều đang dang dở. Cố thêm một chút nữa.",
+    "dailyMessageReversed": "Hôm nay nên nghỉ ngơi nếu cảm thấy kiệt sức, tránh phản ứng thái quá vì mệt mỏi.",
+    "yesNoUpright": "leaning_yes",
+    "yesNoReversed": "leaning_no",
+    "id": 31
+  },
+  {
+    "slug": "ten-of-wands",
+    "nameEn": "Ten of Wands",
+    "nameVi": "Thập Gậy",
+    "arcana": "minor",
+    "suit": "wands",
+    "number": 10,
+    "keywordsUpright": [
+      "gánh nặng",
+      "trách nhiệm",
+      "quá tải"
+    ],
+    "keywordsReversed": [
+      "buông bớt gánh nặng",
+      "san sẻ trách nhiệm",
+      "giải tỏa áp lực"
+    ],
+    "meaningUpright": "Ten of Wands cho thấy bạn đang gánh vác quá nhiều trách nhiệm cùng lúc, dẫn đến cảm giác quá tải. Dù đang gần đạt được mục tiêu, cần xem xét lại những gì thực sự cần thiết để mang theo.",
+    "meaningReversed": "Khi ngược, đây là dấu hiệu tích cực của việc bắt đầu buông bớt gánh nặng, san sẻ trách nhiệm hoặc giải tỏa áp lực đã đeo mang quá lâu.",
+    "dailyMessageUpright": "Hôm nay có thể cảm thấy quá tải với trách nhiệm. Xem lại điều gì thực sự cần ưu tiên.",
+    "dailyMessageReversed": "Hôm nay là lúc thích hợp để san sẻ bớt công việc, đừng cố ôm đồm một mình.",
+    "yesNoUpright": "leaning_no",
+    "yesNoReversed": "leaning_yes",
+    "id": 32
+  },
+  {
+    "slug": "page-of-wands",
+    "nameEn": "Page of Wands",
+    "nameVi": "Thị Đồng Gậy",
+    "arcana": "minor",
+    "suit": "wands",
+    "number": 11,
+    "keywordsUpright": [
+      "cảm hứng",
+      "khám phá",
+      "tinh thần tự do"
+    ],
+    "keywordsReversed": [
+      "thiếu định hướng",
+      "trì hoãn",
+      "ý tưởng chưa thành hình"
+    ],
+    "meaningUpright": "Page of Wands tượng trưng cho nguồn cảm hứng mới mẻ và tinh thần ham khám phá. Đây là năng lượng của người trẻ nhiệt huyết, sẵn sàng thử nghiệm điều mới mà chưa quá lo lắng về kết quả.",
+    "meaningReversed": "Khi ngược, cảm hứng có thể chưa được định hình rõ ràng thành hành động cụ thể, dẫn đến trì hoãn hoặc thiếu định hướng.",
+    "dailyMessageUpright": "Hôm nay có thể xuất hiện một ý tưởng thú vị đáng để khám phá thêm.",
+    "dailyMessageReversed": "Hôm nay ý tưởng có thể còn mơ hồ. Hãy dành thời gian làm rõ trước khi hành động.",
+    "yesNoUpright": "leaning_yes",
+    "yesNoReversed": "uncertain",
+    "id": 33
+  },
+  {
+    "slug": "knight-of-wands",
+    "nameEn": "Knight of Wands",
+    "nameVi": "Kỵ Sĩ Gậy",
+    "arcana": "minor",
+    "suit": "wands",
+    "number": 12,
+    "keywordsUpright": [
+      "hành động",
+      "phiêu lưu",
+      "năng lượng mạnh mẽ"
+    ],
+    "keywordsReversed": [
+      "bốc đồng",
+      "vội vàng",
+      "năng lượng phân tán"
+    ],
+    "meaningUpright": "Knight of Wands mang năng lượng hành động mạnh mẽ, thích phiêu lưu và không ngại thử thách mới. Đây là lúc thích hợp để chủ động theo đuổi điều mình muốn với sự nhiệt huyết cao độ.",
+    "meaningReversed": "Khi ngược, năng lượng này có thể trở nên bốc đồng, thiếu suy nghĩ kỹ trước khi hành động, dẫn đến quyết định vội vàng.",
+    "dailyMessageUpright": "Hôm nay là ngày tốt để hành động chủ động và theo đuổi điều bạn đam mê.",
+    "dailyMessageReversed": "Hôm nay nên tránh hành động quá vội vàng mà chưa suy nghĩ kỹ hậu quả.",
+    "yesNoUpright": "leaning_yes",
+    "yesNoReversed": "leaning_no",
+    "id": 34
+  },
+  {
+    "slug": "queen-of-wands",
+    "nameEn": "Queen of Wands",
+    "nameVi": "Hoàng Hậu Gậy",
+    "arcana": "minor",
+    "suit": "wands",
+    "number": 13,
+    "keywordsUpright": [
+      "tự tin",
+      "độc lập",
+      "sức hút cá nhân"
+    ],
+    "keywordsReversed": [
+      "tự nghi ngờ",
+      "ghen tị",
+      "mất tự tin"
+    ],
+    "meaningUpright": "Queen of Wands là hình mẫu của sự tự tin, độc lập và sức hút cá nhân mạnh mẽ. Bạn có khả năng truyền cảm hứng cho người khác thông qua chính năng lượng tích cực và quyết đoán của mình.",
+    "meaningReversed": "Khi ngược, có thể bạn đang tự nghi ngờ bản thân hoặc cảm thấy ghen tị, bất an trước thành công của người khác.",
+    "dailyMessageUpright": "Hôm nay hãy tự tin thể hiện bản thân — năng lượng của bạn có thể truyền cảm hứng cho người khác.",
+    "dailyMessageReversed": "Hôm nay nếu cảm thấy thiếu tự tin, hãy nhớ lại những điều bạn đã từng làm tốt.",
+    "yesNoUpright": "yes",
+    "yesNoReversed": "uncertain",
+    "id": 35
+  },
+  {
+    "slug": "king-of-wands",
+    "nameEn": "King of Wands",
+    "nameVi": "Vua Gậy",
+    "arcana": "minor",
+    "suit": "wands",
+    "number": 14,
+    "keywordsUpright": [
+      "lãnh đạo",
+      "tầm nhìn lớn",
+      "quyết đoán"
+    ],
+    "keywordsReversed": [
+      "độc đoán",
+      "kỳ vọng quá cao",
+      "nóng nảy"
+    ],
+    "meaningUpright": "King of Wands tượng trưng cho khả năng lãnh đạo tự nhiên, tầm nhìn lớn và sự quyết đoán trong hành động. Đây là năng lượng của người dám nghĩ lớn và truyền cảm hứng để người khác cùng hành động.",
+    "meaningReversed": "Khi ngược, phong cách lãnh đạo có thể trở nên độc đoán, đặt kỳ vọng quá cao lên người khác, hoặc dễ nóng nảy khi mọi việc không như ý.",
+    "dailyMessageUpright": "Hôm nay phù hợp để đưa ra quyết định lớn với sự tự tin và tầm nhìn rõ ràng.",
+    "dailyMessageReversed": "Hôm nay nên tránh áp đặt kỳ vọng quá cao lên người khác hoặc chính mình.",
+    "yesNoUpright": "yes",
+    "yesNoReversed": "leaning_no",
+    "id": 36
+  },
+  {
+    "id": 37,
+    "slug": "ace-of-cups",
+    "nameEn": "Ace of Cups",
+    "nameVi": "Át Cốc",
+    "arcana": "minor",
+    "suit": "cups",
+    "number": 1,
+    "keywordsUpright": [
+      "cảm xúc mới",
+      "yêu thương",
+      "khởi đầu trong tình cảm"
+    ],
+    "keywordsReversed": [
+      "cảm xúc kìm nén",
+      "thất vọng nhẹ",
+      "chưa sẵn sàng mở lòng"
+    ],
+    "meaningUpright": "Ace of Cups tượng trưng cho một khởi đầu mới về mặt cảm xúc — có thể là một mối quan hệ, một sự kết nối sâu sắc, hoặc cảm giác được yêu thương và thấu hiểu. Đây là lá bài của trái tim rộng mở, tràn đầy cảm xúc tích cực.",
+    "meaningReversed": "Khi ngược, cảm xúc có thể đang bị kìm nén hoặc bạn chưa sẵn sàng mở lòng với ai đó. Có thể có một chút thất vọng trong các mối quan hệ gần đây.",
+    "dailyMessageUpright": "Hôm nay thuận lợi cho các kết nối cảm xúc mới. Hãy để trái tim rộng mở hơn một chút.",
+    "dailyMessageReversed": "Hôm nay nên chú ý đến cảm xúc bị kìm nén, tránh để nó tích tụ lâu ngày.",
+    "yesNoUpright": "yes",
+    "yesNoReversed": "uncertain"
+  },
+  {
+    "slug": "two-of-cups",
+    "nameEn": "Two of Cups",
+    "nameVi": "Nhị Cốc",
+    "arcana": "minor",
+    "suit": "cups",
+    "number": 2,
+    "keywordsUpright": [
+      "kết nối",
+      "hợp tác",
+      "thu hút lẫn nhau"
+    ],
+    "keywordsReversed": [
+      "mất cân bằng trong quan hệ",
+      "hiểu lầm",
+      "chia rẽ"
+    ],
+    "meaningUpright": "Two of Cups tượng trưng cho sự kết nối hài hòa giữa hai người — có thể là tình yêu, tình bạn hoặc hợp tác. Đây là lá bài của sự thu hút lẫn nhau, tôn trọng và cùng hướng về một mục tiêu chung.",
+    "meaningReversed": "Khi ngược, mối quan hệ có thể đang mất cân bằng, xuất hiện hiểu lầm hoặc khoảng cách giữa hai bên cần được hàn gắn.",
+    "dailyMessageUpright": "Hôm nay thuận lợi cho việc kết nối, hợp tác hoặc hàn gắn một mối quan hệ quan trọng.",
+    "dailyMessageReversed": "Hôm nay nên chủ động trao đổi để tránh hiểu lầm trong một mối quan hệ.",
+    "yesNoUpright": "yes",
+    "yesNoReversed": "uncertain",
+    "id": 38
+  },
+  {
+    "slug": "three-of-cups",
+    "nameEn": "Three of Cups",
+    "nameVi": "Tam Cốc",
+    "arcana": "minor",
+    "suit": "cups",
+    "number": 3,
+    "keywordsUpright": [
+      "tình bạn",
+      "ăn mừng",
+      "cộng đồng"
+    ],
+    "keywordsReversed": [
+      "mâu thuẫn nhóm",
+      "cô lập",
+      "ăn mừng thái quá"
+    ],
+    "meaningUpright": "Three of Cups mang năng lượng vui tươi của tình bạn, sự ăn mừng và kết nối cộng đồng. Đây là thời điểm tốt để chia sẻ niềm vui cùng bạn bè, đồng nghiệp hoặc những người cùng chí hướng.",
+    "meaningReversed": "Khi ngược, có thể xuất hiện mâu thuẫn trong nhóm bạn hoặc cảm giác bị cô lập khỏi tập thể mà bạn từng gắn bó.",
+    "dailyMessageUpright": "Hôm nay phù hợp để gặp gỡ bạn bè và tận hưởng những khoảnh khắc vui vẻ cùng nhau.",
+    "dailyMessageReversed": "Hôm nay nên chú ý những rạn nứt nhỏ trong nhóm bạn trước khi chúng lớn hơn.",
+    "yesNoUpright": "yes",
+    "yesNoReversed": "leaning_no",
+    "id": 39
+  },
+  {
+    "slug": "four-of-cups",
+    "nameEn": "Four of Cups",
+    "nameVi": "Tứ Cốc",
+    "arcana": "minor",
+    "suit": "cups",
+    "number": 4,
+    "keywordsUpright": [
+      "thờ ơ",
+      "suy ngẫm lại",
+      "bỏ lỡ cơ hội"
+    ],
+    "keywordsReversed": [
+      "tỉnh táo trở lại",
+      "chấp nhận cơ hội mới",
+      "thoát khỏi trì trệ"
+    ],
+    "meaningUpright": "Four of Cups cho thấy trạng thái thờ ơ hoặc chán nản, khi bạn không còn hứng thú với những gì đang có, dù cơ hội mới có thể đang ở ngay trước mắt mà chưa nhận ra.",
+    "meaningReversed": "Khi ngược, bạn đang dần tỉnh táo trở lại, sẵn sàng chấp nhận cơ hội mới thay vì tiếp tục thờ ơ với mọi thứ xung quanh.",
+    "dailyMessageUpright": "Hôm nay hãy để ý xem có cơ hội nào đang bị bỏ lỡ vì sự thờ ơ không.",
+    "dailyMessageReversed": "Hôm nay là lúc thoát khỏi trạng thái trì trệ và mở lòng đón nhận điều mới.",
+    "yesNoUpright": "leaning_no",
+    "yesNoReversed": "leaning_yes",
+    "id": 40
+  },
+  {
+    "id": 41,
+    "slug": "five-of-cups",
+    "nameEn": "Five of Cups",
+    "nameVi": "Ngũ Cốc",
+    "arcana": "minor",
+    "suit": "cups",
+    "number": 5,
+    "keywordsUpright": [
+      "mất mát",
+      "tiếc nuối",
+      "tập trung vào điều đã mất"
+    ],
+    "keywordsReversed": [
+      "chấp nhận",
+      "bắt đầu buông bỏ",
+      "nhìn thấy hy vọng"
+    ],
+    "meaningUpright": "Five of Cups nói về cảm giác mất mát hoặc thất vọng, khi bạn đang tập trung quá nhiều vào những gì đã mất mà quên nhìn sang những gì vẫn còn. Đây là lá bài nhắc nhở rằng dù buồn bã là điều tự nhiên, vẫn còn cơ hội phía trước nếu biết nhìn nhận lại.",
+    "meaningReversed": "Khi ngược, đây là dấu hiệu tích cực cho thấy bạn đang bắt đầu chấp nhận và buông bỏ nỗi buồn, dần nhìn thấy hy vọng và những điều tích cực còn lại xung quanh mình.",
+    "dailyMessageUpright": "Hôm nay có thể gợi lại một chút tiếc nuối. Hãy cho phép bản thân buồn, nhưng đừng ở lại đó quá lâu.",
+    "dailyMessageReversed": "Hôm nay là lúc thích hợp để buông bỏ điều cũ và nhìn về phía trước.",
+    "yesNoUpright": "leaning_no",
+    "yesNoReversed": "uncertain"
+  },
+  {
+    "slug": "six-of-cups",
+    "nameEn": "Six of Cups",
+    "nameVi": "Lục Cốc",
+    "arcana": "minor",
+    "suit": "cups",
+    "number": 6,
+    "keywordsUpright": [
+      "hoài niệm",
+      "ký ức tuổi thơ",
+      "tái ngộ"
+    ],
+    "keywordsReversed": [
+      "mắc kẹt trong quá khứ",
+      "lý tưởng hóa ký ức",
+      "khó buông bỏ"
+    ],
+    "meaningUpright": "Six of Cups gợi nhắc về những kỷ niệm đẹp, sự hồn nhiên của tuổi thơ, hoặc một cuộc tái ngộ với người quen cũ. Đây là lá bài của sự ấm áp, gắn kết với những giá trị giản dị từ quá khứ.",
+    "meaningReversed": "Khi ngược, bạn có thể đang mắc kẹt trong quá khứ hoặc lý tưởng hóa những kỷ niệm cũ, khiến khó tiến về phía trước.",
+    "dailyMessageUpright": "Hôm nay có thể gặp lại người quen cũ hoặc gợi nhớ những kỷ niệm ấm áp.",
+    "dailyMessageReversed": "Hôm nay đừng để quá khứ giữ chân bạn lại quá lâu.",
+    "yesNoUpright": "leaning_yes",
+    "yesNoReversed": "uncertain",
+    "id": 42
+  },
+  {
+    "slug": "seven-of-cups",
+    "nameEn": "Seven of Cups",
+    "nameVi": "Thất Cốc",
+    "arcana": "minor",
+    "suit": "cups",
+    "number": 7,
+    "keywordsUpright": [
+      "nhiều lựa chọn",
+      "ảo tưởng",
+      "mơ mộng"
+    ],
+    "keywordsReversed": [
+      "rõ ràng hơn",
+      "loại bỏ lựa chọn không thực tế",
+      "quyết đoán"
+    ],
+    "meaningUpright": "Seven of Cups cho thấy bạn đang đứng trước nhiều lựa chọn hấp dẫn, nhưng một số trong đó có thể chỉ là ảo tưởng hoặc chưa thực tế. Cần tỉnh táo phân biệt điều gì thực sự khả thi.",
+    "meaningReversed": "Khi ngược, mọi thứ đang trở nên rõ ràng hơn, giúp bạn loại bỏ những lựa chọn viển vông và tập trung vào điều thực tế nhất.",
+    "dailyMessageUpright": "Hôm nay có nhiều lựa chọn hấp dẫn nhưng cần tỉnh táo, tránh chạy theo ảo tưởng.",
+    "dailyMessageReversed": "Hôm nay bạn nhìn nhận mọi thứ rõ ràng hơn, dễ đưa ra quyết định đúng đắn.",
+    "yesNoUpright": "uncertain",
+    "yesNoReversed": "leaning_yes",
+    "id": 43
+  },
+  {
+    "slug": "eight-of-cups",
+    "nameEn": "Eight of Cups",
+    "nameVi": "Bát Cốc",
+    "arcana": "minor",
+    "suit": "cups",
+    "number": 8,
+    "keywordsUpright": [
+      "rời bỏ",
+      "tìm kiếm ý nghĩa sâu hơn",
+      "buông bỏ điều không còn phù hợp"
+    ],
+    "keywordsReversed": [
+      "sợ thay đổi",
+      "ở lại vì thói quen",
+      "trì hoãn rời đi"
+    ],
+    "meaningUpright": "Eight of Cups là lá bài của việc chủ động rời bỏ điều gì đó — dù đã từng quan trọng — để tìm kiếm ý nghĩa sâu sắc hơn. Đây là bước đi can đảm khi nhận ra điều hiện tại không còn phù hợp.",
+    "meaningReversed": "Khi ngược, bạn có thể đang sợ thay đổi và chọn ở lại vì thói quen, dù trong lòng biết rằng đã đến lúc cần rời đi.",
+    "dailyMessageUpright": "Hôm nay có thể là lúc bạn nhận ra cần rời xa điều không còn phù hợp với mình.",
+    "dailyMessageReversed": "Hôm nay đừng vì sợ thay đổi mà tiếp tục ở lại nơi khiến bạn không hạnh phúc.",
+    "yesNoUpright": "leaning_no",
+    "yesNoReversed": "uncertain",
+    "id": 44
+  },
+  {
+    "slug": "nine-of-cups",
+    "nameEn": "Nine of Cups",
+    "nameVi": "Cửu Cốc",
+    "arcana": "minor",
+    "suit": "cups",
+    "number": 9,
+    "keywordsUpright": [
+      "mãn nguyện",
+      "biết ơn",
+      "điều ước thành hiện thực"
+    ],
+    "keywordsReversed": [
+      "mãn nguyện bề ngoài",
+      "thiếu thỏa mãn thật sự",
+      "kỳ vọng chưa đạt"
+    ],
+    "meaningUpright": "Nine of Cups thường được gọi là lá bài \"điều ước\", tượng trưng cho sự mãn nguyện, hài lòng và cảm giác biết ơn khi những gì mong muốn đang dần trở thành hiện thực.",
+    "meaningReversed": "Khi ngược, sự hài lòng có thể chỉ là bề ngoài, che giấu một cảm giác thiếu thỏa mãn thực sự bên trong.",
+    "dailyMessageUpright": "Hôm nay là ngày mang lại cảm giác hài lòng và biết ơn với những gì bạn đang có.",
+    "dailyMessageReversed": "Hôm nay nên nhìn lại xem sự hài lòng của mình có thực sự đến từ bên trong hay không.",
+    "yesNoUpright": "yes",
+    "yesNoReversed": "uncertain",
+    "id": 45
+  },
+  {
+    "slug": "ten-of-cups",
+    "nameEn": "Ten of Cups",
+    "nameVi": "Thập Cốc",
+    "arcana": "minor",
+    "suit": "cups",
+    "number": 10,
+    "keywordsUpright": [
+      "hạnh phúc trọn vẹn",
+      "hòa hợp gia đình",
+      "viên mãn cảm xúc"
+    ],
+    "keywordsReversed": [
+      "bất hòa gia đình",
+      "kỳ vọng không thực tế",
+      "hạnh phúc chưa trọn vẹn"
+    ],
+    "meaningUpright": "Ten of Cups là một trong những lá bài hạnh phúc nhất, tượng trưng cho sự viên mãn về mặt cảm xúc, hòa hợp gia đình và cuộc sống an yên bên những người thân yêu.",
+    "meaningReversed": "Khi ngược, có thể đang có bất hòa trong gia đình, hoặc kỳ vọng về một cuộc sống hoàn hảo chưa thực sự khớp với thực tế.",
+    "dailyMessageUpright": "Hôm nay thuận lợi cho các hoạt động gắn kết gia đình và tận hưởng hạnh phúc giản dị.",
+    "dailyMessageReversed": "Hôm nay nên nhẹ nhàng hàn gắn những bất đồng nhỏ trong gia đình.",
+    "yesNoUpright": "yes",
+    "yesNoReversed": "leaning_no",
+    "id": 46
+  },
+  {
+    "slug": "page-of-cups",
+    "nameEn": "Page of Cups",
+    "nameVi": "Thị Đồng Cốc",
+    "arcana": "minor",
+    "suit": "cups",
+    "number": 11,
+    "keywordsUpright": [
+      "thông điệp cảm xúc",
+      "sáng tạo",
+      "tò mò"
+    ],
+    "keywordsReversed": [
+      "cảm xúc bất ổn",
+      "thất vọng nhẹ",
+      "thiếu chín chắn"
+    ],
+    "meaningUpright": "Page of Cups mang đến những thông điệp nhẹ nhàng về cảm xúc, sự sáng tạo và tò mò khám phá thế giới nội tâm. Đây là năng lượng cởi mở, nhạy cảm và giàu trí tưởng tượng.",
+    "meaningReversed": "Khi ngược, cảm xúc có thể trở nên bất ổn hoặc bạn đang phản ứng có phần chưa chín chắn trước một tình huống nào đó.",
+    "dailyMessageUpright": "Hôm nay hãy để trí tưởng tượng và sự nhạy cảm dẫn lối cho một ý tưởng mới.",
+    "dailyMessageReversed": "Hôm nay cảm xúc có thể dao động. Hãy bình tĩnh trước khi phản ứng.",
+    "yesNoUpright": "leaning_yes",
+    "yesNoReversed": "uncertain",
+    "id": 47
+  },
+  {
+    "slug": "knight-of-cups",
+    "nameEn": "Knight of Cups",
+    "nameVi": "Kỵ Sĩ Cốc",
+    "arcana": "minor",
+    "suit": "cups",
+    "number": 12,
+    "keywordsUpright": [
+      "lãng mạn",
+      "theo đuổi trái tim",
+      "lý tưởng hóa"
+    ],
+    "keywordsReversed": [
+      "hứa hẹn suông",
+      "mơ mộng thái quá",
+      "thiếu thực tế"
+    ],
+    "meaningUpright": "Knight of Cups là hình mẫu lãng mạn, theo đuổi tình cảm và lý tưởng bằng cả trái tim. Đây là năng lượng của người đưa ra lời đề nghị chân thành, hành động theo cảm xúc nhiều hơn lý trí.",
+    "meaningReversed": "Khi ngược, có thể là những lời hứa hẹn chưa thực sự đi cùng hành động, hoặc sự mơ mộng thái quá thiếu tính thực tế.",
+    "dailyMessageUpright": "Hôm nay thuận lợi để bày tỏ tình cảm chân thành với người bạn quan tâm.",
+    "dailyMessageReversed": "Hôm nay nên xem xét lời hứa hẹn có đi kèm hành động thực tế hay không.",
+    "yesNoUpright": "leaning_yes",
+    "yesNoReversed": "uncertain",
+    "id": 48
+  },
+  {
+    "slug": "queen-of-cups",
+    "nameEn": "Queen of Cups",
+    "nameVi": "Hoàng Hậu Cốc",
+    "arcana": "minor",
+    "suit": "cups",
+    "number": 13,
+    "keywordsUpright": [
+      "thấu cảm",
+      "trực giác",
+      "an yên nội tâm"
+    ],
+    "keywordsReversed": [
+      "quá nhạy cảm",
+      "phụ thuộc cảm xúc",
+      "mất cân bằng nội tâm"
+    ],
+    "meaningUpright": "Queen of Cups là hình mẫu của sự thấu cảm sâu sắc, trực giác mạnh mẽ và khả năng nuôi dưỡng cảm xúc cho người xung quanh. Đây là năng lượng của sự an yên nội tâm và lòng bao dung.",
+    "meaningReversed": "Khi ngược, sự nhạy cảm có thể trở nên quá mức, dẫn đến phụ thuộc cảm xúc vào người khác hoặc mất cân bằng nội tâm.",
+    "dailyMessageUpright": "Hôm nay hãy lắng nghe cảm xúc của mình và của người xung quanh bằng sự thấu hiểu.",
+    "dailyMessageReversed": "Hôm nay nên giữ ranh giới cảm xúc lành mạnh, tránh để bản thân bị cuốn theo cảm xúc người khác.",
+    "yesNoUpright": "yes",
+    "yesNoReversed": "uncertain",
+    "id": 49
+  },
+  {
+    "slug": "king-of-cups",
+    "nameEn": "King of Cups",
+    "nameVi": "Vua Cốc",
+    "arcana": "minor",
+    "suit": "cups",
+    "number": 14,
+    "keywordsUpright": [
+      "cân bằng cảm xúc",
+      "điềm tĩnh",
+      "khôn khéo"
+    ],
+    "keywordsReversed": [
+      "kìm nén cảm xúc",
+      "tâm trạng thất thường",
+      "thao túng"
+    ],
+    "meaningUpright": "King of Cups tượng trưng cho sự cân bằng cảm xúc, điềm tĩnh và khôn khéo trong cách xử lý các tình huống nhạy cảm. Đây là năng lượng của người biết kiểm soát cảm xúc mà không đánh mất sự ấm áp.",
+    "meaningReversed": "Khi ngược, cảm xúc có thể đang bị kìm nén quá mức, dẫn đến tâm trạng thất thường hoặc cách hành xử thiếu chân thành.",
+    "dailyMessageUpright": "Hôm nay hãy xử lý các tình huống nhạy cảm bằng sự điềm tĩnh và khôn khéo.",
+    "dailyMessageReversed": "Hôm nay nên tránh kìm nén cảm xúc quá lâu — hãy tìm cách chia sẻ phù hợp.",
+    "yesNoUpright": "yes",
+    "yesNoReversed": "leaning_no",
+    "id": 50
+  },
+  {
+    "id": 51,
+    "slug": "three-of-swords",
+    "nameEn": "Three of Swords",
+    "nameVi": "Tam Kiếm",
+    "arcana": "minor",
+    "suit": "swords",
+    "number": 3,
+    "keywordsUpright": [
+      "tổn thương",
+      "chia ly",
+      "sự thật đau lòng"
+    ],
+    "keywordsReversed": [
+      "đang hồi phục",
+      "tha thứ",
+      "vượt qua nỗi đau"
+    ],
+    "meaningUpright": "Three of Swords là lá bài của tổn thương và những cảm xúc đau lòng, thường liên quan đến chia ly hoặc một sự thật khó chấp nhận. Dù không dễ chịu, lá bài này cũng mang ý nghĩa về sự trung thực cần thiết để bước tiếp.",
+    "meaningReversed": "Khi ngược, đây là dấu hiệu của quá trình hồi phục sau tổn thương, học cách tha thứ cho bản thân hoặc người khác, và dần vượt qua giai đoạn khó khăn.",
+    "dailyMessageUpright": "Hôm nay có thể có một tin tức hoặc cảm xúc không dễ chịu. Hãy cho phép bản thân cảm nhận thay vì né tránh.",
+    "dailyMessageReversed": "Hôm nay là bước tiến trong quá trình chữa lành. Bạn đang mạnh mẽ hơn mình nghĩ.",
+    "yesNoUpright": "no",
+    "yesNoReversed": "leaning_no"
+  },
+  {
+    "id": 52,
+    "slug": "ten-of-pentacles",
+    "nameEn": "Ten of Pentacles",
+    "nameVi": "Thập Bảo",
+    "arcana": "minor",
+    "suit": "pentacles",
+    "number": 10,
+    "keywordsUpright": [
+      "thịnh vượng",
+      "bền vững",
+      "di sản gia đình"
+    ],
+    "keywordsReversed": [
+      "bất ổn tài chính",
+      "mâu thuẫn gia đình",
+      "kế hoạch chưa vững"
+    ],
+    "meaningUpright": "Ten of Pentacles tượng trưng cho sự thịnh vượng lâu dài, ổn định về tài chính và những giá trị được xây dựng bền vững qua thời gian, thường gắn liền với gia đình. Đây là lá bài của thành quả tích lũy, không phải may mắn nhất thời.",
+    "meaningReversed": "Khi ngược, có thể xuất hiện bất ổn về tài chính hoặc mâu thuẫn liên quan đến gia đình, tài sản. Kế hoạch dài hạn cần được xem xét lại cho vững chắc hơn.",
+    "dailyMessageUpright": "Hôm nay thuận lợi cho các quyết định tài chính dài hạn và các vấn đề liên quan đến gia đình.",
+    "dailyMessageReversed": "Hôm nay nên thận trọng với các quyết định tài chính lớn, tránh mâu thuẫn không cần thiết trong gia đình.",
+    "yesNoUpright": "yes",
+    "yesNoReversed": "leaning_no"
+  }
+]

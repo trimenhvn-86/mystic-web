@@ -121,24 +121,26 @@ export default function YearToolPage({ type, year, menh, tuoiHop, hub, dictionar
           <h1 className="font-display text-2xl sm:text-3xl text-parchment mb-2 text-center">{hub.name}</h1>
           <p className="text-moon/80 text-center max-w-lg mx-auto mb-10">{hub.desc}</p>
 
-          <section className="mb-10">
-            <h2 className="font-display text-xl text-parchment mb-4">Công cụ trong {hub.name}</h2>
-            <div className="grid sm:grid-cols-2 gap-3">
-              {hub.tools.map((tool) =>
-                tool.active ? (
-                  <Link key={tool.label} href={tool.href} className="mystic-card px-4 py-3.5 flex items-center justify-between hover:border-gold/40 transition-colors">
-                    <span className="text-parchment">{tool.label}</span>
-                    <ArrowRight size={16} className="text-gold" />
-                  </Link>
-                ) : (
-                  <div key={tool.label} className="mystic-card px-4 py-3.5 flex items-center justify-between opacity-50">
-                    <span className="text-parchment/70">{tool.label}</span>
-                    <span className="text-[10px] uppercase text-moon/60">Sắp ra mắt</span>
-                  </div>
-                )
-              )}
-            </div>
-          </section>
+          {hub.slug !== 'than-so-hoc-hub' && (
+            <section className="mb-10">
+              <h2 className="font-display text-xl text-parchment mb-4">Công cụ trong {hub.name}</h2>
+              <div className="grid sm:grid-cols-2 gap-3">
+                {hub.tools.map((tool) =>
+                  tool.active ? (
+                    <Link key={tool.label} href={tool.href} className="mystic-card px-4 py-3.5 flex items-center justify-between hover:border-gold/40 transition-colors">
+                      <span className="text-parchment">{tool.label}</span>
+                      <ArrowRight size={16} className="text-gold" />
+                    </Link>
+                  ) : (
+                    <div key={tool.label} className="mystic-card px-4 py-3.5 flex items-center justify-between opacity-50">
+                      <span className="text-parchment/70">{tool.label}</span>
+                      <span className="text-[10px] uppercase text-moon/60">Sắp ra mắt</span>
+                    </div>
+                  )
+                )}
+              </div>
+            </section>
+          )}
 
           {hub.slug === 'lich-ngay-tot' && (
             <section className="mb-10">
@@ -155,7 +157,7 @@ export default function YearToolPage({ type, year, menh, tuoiHop, hub, dictionar
 
           {hub.slug === 'than-so-hoc-hub' && (
             <section className="mb-10">
-              <h2 className="font-display text-xl text-parchment mb-4">Tra cứu nhanh</h2>
+              <h2 className="font-display text-xl text-parchment mb-4">Công cụ trong {hub.name}</h2>
               <NumerologyQuickForm />
             </section>
           )}

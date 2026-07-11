@@ -54,8 +54,8 @@ export async function getStaticProps() {
     props: {
       today: { dd, mm, yyyy, lunar, canChiNam, canChiNgay, isGoodDay: activities.isGoodDay, rating, gioHoangDao },
       dailyCard, dailyCardUpright, napAmNgay,
-      dictionaryTerms: dictionaryTerms.slice(0, 12),
-      guidePosts: guidePosts.slice(0, 5)
+      dictionaryTerms: dictionaryTerms.slice(0, 6),
+      guidePosts: guidePosts.slice(0, 6)
     },
     revalidate: 3600
   };

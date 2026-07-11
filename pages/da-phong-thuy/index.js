@@ -61,7 +61,7 @@ export default function DaPhongThuyForm({ dictionaryPreview, guidePreview }) {
         <div className="w-14 h-14 rounded-full bg-ink-soft border border-gold/30 flex items-center justify-center mx-auto mb-4">
           <Gem size={26} className="text-gold" />
         </div>
-        <h1 className="font-display text-2xl sm:text-3xl text-parchment mb-2 text-center">Đá Phong Thủy Hợp Mệnh</h1>
+        <h1 className="font-display text-2xl sm:text-3xl text-parchment mb-2 text-center">Vật Phẩm Phong Thủy — Đá Hợp Mệnh</h1>
         <p className="text-moon/70 text-sm text-center mb-8">Nhập năm sinh Dương lịch để xem đá hợp mệnh.</p>
         <form onSubmit={handleSubmit} className="mystic-card p-6 flex flex-col gap-4">
           <label className="flex flex-col gap-1 text-xs text-moon">

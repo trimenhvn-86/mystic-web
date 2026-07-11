@@ -174,12 +174,12 @@ export default function ThanSoHoc({ dictionaryPreview, guidePreview }) {
   return (
     <>
       <Head>
-        <title>Tra Cứu Thần Số Học Miễn Phí — Số Chủ Đạo, Số Sứ Mệnh</title>
+        <title>Lập Biểu Đồ Thần Số Học Miễn Phí — Số Chủ Đạo, Số Sứ Mệnh</title>
         <meta name="description" content="Tính Số Chủ Đạo, Số Sứ Mệnh, Số Linh Hồn, Số Biểu Đạt, Số Trưởng Thành theo hệ Pythagoras từ họ tên và ngày sinh." />
       </Head>
       <Header />
       <main className="max-w-md mx-auto px-5 py-10 sm:py-14">
-        <h1 className="font-display text-2xl sm:text-3xl text-parchment mb-2 text-center">Tra Cứu Thần Số Học</h1>
+        <h1 className="font-display text-2xl sm:text-3xl text-parchment mb-2 text-center">Lập Biểu Đồ Thần Số Học</h1>
         <p className="text-moon/70 text-sm text-center mb-8">Khám phá bản thân qua ngày sinh và họ tên</p>
         <form onSubmit={handleSubmit} className="mystic-card p-6 flex flex-col gap-4">
           <label className="flex flex-col gap-1 text-xs text-moon">

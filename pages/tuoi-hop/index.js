@@ -37,12 +37,12 @@ export default function TuoiHopForm({ dictionaryPreview, guidePreview }) {
   return (
     <>
       <Head>
-        <title>Xem Tuổi Hợp Theo Năm Sinh — TriMenh</title>
+        <title>Tra Cứu Tuổi Hợp Theo Năm Sinh — TriMenh</title>
         <meta name="description" content="Tra cứu tuổi hợp theo năm sinh: Tam hợp, Tứ hành xung, Lục hại. Xem tuổi nào hợp làm ăn, kết hôn với bạn." />
       </Head>
       <Header />
       <main className="max-w-md mx-auto px-5 py-10 sm:py-14">
-        <h1 className="font-display text-2xl sm:text-3xl text-parchment mb-2 text-center">Xem Tuổi Hợp</h1>
+        <h1 className="font-display text-2xl sm:text-3xl text-parchment mb-2 text-center">Tra Cứu Tuổi Hợp</h1>
         <p className="text-moon/70 text-sm text-center mb-8">Nhập năm sinh Dương lịch để xem tuổi hợp với bạn.</p>
         <form onSubmit={handleSubmit} className="mystic-card p-6 flex flex-col gap-4">
           <label className="flex flex-col gap-1 text-xs text-moon">

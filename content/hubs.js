@@ -29,7 +29,7 @@ const HUBS = [
     priority: 3,
     cmsHub: 'than-so-hoc', // giá trị field "hub" thực tế trong Sanity (khác slug URL vì /than-so-hoc đã là trang Tool)
     tools: [
-      { href: '/than-so-hoc', label: 'Tra cứu thần số học', active: true },
+      { href: '/than-so-hoc', label: 'Lập biểu đồ thần số học', active: true },
       { href: '/con-so-may-man', label: 'Con số may mắn', active: true }
     ]
   },
@@ -43,7 +43,7 @@ const HUBS = [
       { href: '/menh-ngu-hanh', label: 'Tra cứu mệnh', active: true },
       { href: '/mau-sac-hop-menh', label: 'Màu hợp mệnh', active: true },
       { href: '/huong-nha-hop-tuoi', label: 'Hướng nhà hợp tuổi', active: true },
-      { href: '/da-phong-thuy', label: 'Đá phong thủy', active: true }
+      { href: '/da-phong-thuy', label: 'Vật phẩm phong thủy', active: true }
     ]
   },
   {
@@ -53,7 +53,7 @@ const HUBS = [
     desc: 'Xem tuổi hợp làm ăn, kết hôn, Tam hợp - Tứ hành xung.',
     priority: 4,
     tools: [
-      { href: '/tuoi-hop', label: 'Tuổi hợp', active: true },
+      { href: '/tuoi-hop', label: 'Tra cứu tuổi', active: true },
       { href: '/so-sanh-tuoi', label: 'So sánh tuổi 2 người', active: true },
       { href: '/xem-tuoi-ket-hon', label: 'Xem tuổi kết hôn', active: true },
       { href: '/xem-tuoi-lam-an', label: 'Xem tuổi làm ăn', active: true }

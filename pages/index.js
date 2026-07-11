@@ -19,6 +19,8 @@ import { getDayRating } from '../lib/dayRating';
 import { getGioHoangDao } from '../lib/gioHoangDao';
 import { CHI_SLUG } from '../lib/chiSlug';
 import { CHI } from '../lib/lunar';
+import { getDailyCard } from '../lib/tarot';
+import { getNapAmByCanChi } from '../lib/nguHanh';
 
 const HUB_ICONS = { CalendarDays, Hash, Layers, Users, Sun, CircleDot };
 
@@ -43,12 +45,15 @@ export async function getStaticProps() {
   const activities = getSuggestedActivities(truc);
   const rating = getDayRating(truc);
   const gioHoangDao = getGioHoangDao(dd, mm, yyyy).slice(0, 3);
+  const { card: dailyCard, upright: dailyCardUpright } = getDailyCard(dd, mm, yyyy);
+  const napAmNgay = getNapAmByCanChi(canChiNgay);
 
   const [dictionaryTerms, guidePosts] = await Promise.all([getDictionaryTerms(), getGuidePosts()]);
 
   return {
     props: {
       today: { dd, mm, yyyy, lunar, canChiNam, canChiNgay, isGoodDay: activities.isGoodDay, rating, gioHoangDao },
+      dailyCard, dailyCardUpright, napAmNgay,
       dictionaryTerms: dictionaryTerms.slice(0, 12),
       guidePosts: guidePosts.slice(0, 5)
     },
@@ -80,7 +85,7 @@ function HeroSearch() {
   );
 }
 
-export default function Home({ today, dictionaryTerms, guidePosts }) {
+export default function Home({ today, dailyCard, dailyCardUpright, napAmNgay, dictionaryTerms, guidePosts }) {
   const todaySlug = `ngay-${pad(today.dd)}-thang-${pad(today.mm)}-nam-${today.yyyy}`;
   const currentYear = new Date().getFullYear();
   const years = Array.from({ length: currentYear - 1990 + 1 }, (_, i) => currentYear - i).slice(0, 20);
@@ -152,8 +157,8 @@ export default function Home({ today, dictionaryTerms, guidePosts }) {
 
         {/* SECTION 6 - HOM NAY */}
         <section className="max-w-4xl mx-auto px-5 pb-14">
-          <h2 className="font-display text-2xl text-parchment mb-6">Hôm nay {today.dd}/{today.mm}/{today.yyyy}</h2>
-          <div className="mystic-card p-6 grid sm:grid-cols-2 gap-6">
+          <h2 className="font-display text-2xl text-parchment mb-6">🔥 Hôm nay {today.dd}/{today.mm}/{today.yyyy}</h2>
+          <div className="mystic-card p-6 grid sm:grid-cols-2 gap-6 mb-4">
             <div>
               <p className="text-xs text-moon uppercase mb-1">Âm lịch</p>
               <p className="text-xl text-gold-soft font-display mb-3">{today.lunar.day}/{today.lunar.month}/{today.lunar.year}</p>
@@ -175,6 +180,29 @@ export default function Home({ today, dictionaryTerms, guidePosts }) {
               <Link href={`/xem-ngay-tot/${todaySlug}`} className="inline-flex items-center gap-1 text-sm text-gold-soft hover:underline mt-4">
                 Xem chi tiết hôm nay <ArrowRight size={14} />
               </Link>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+            <Link href="/tarot-hom-nay" className="mystic-card p-4 hover:border-gold/40 transition-colors">
+              <p className="text-xs text-moon uppercase mb-1">Tarot hôm nay</p>
+              <p className="text-gold-soft font-display text-lg">{dailyCard.nameVi}</p>
+              <p className="text-xs text-moon/70">{dailyCardUpright ? 'Xuôi' : 'Ngược'}</p>
+            </Link>
+            <Link href="/tu-vi-hom-nay" className="mystic-card p-4 hover:border-gold/40 transition-colors">
+              <p className="text-xs text-moon uppercase mb-1">Tử vi hôm nay</p>
+              <p className="text-gold-soft font-display text-lg">12 con giáp</p>
+              <p className="text-xs text-moon/70">Xem vận trình →</p>
+            </Link>
+            <Link href="/con-so-may-man" className="mystic-card p-4 hover:border-gold/40 transition-colors">
+              <p className="text-xs text-moon uppercase mb-1">Con số may mắn</p>
+              <p className="text-gold-soft font-display text-lg">Của bạn</p>
+              <p className="text-xs text-moon/70">Nhập ngày sinh →</p>
+            </Link>
+            <div className="mystic-card p-4">
+              <p className="text-xs text-moon uppercase mb-1">Màu may mắn hôm nay</p>
+              <p className="text-gold-soft font-display text-lg">{napAmNgay?.mauHop?.[0] || '—'}</p>
+              <p className="text-xs text-moon/70">{napAmNgay?.hanh}</p>
             </div>
           </div>
         </section>

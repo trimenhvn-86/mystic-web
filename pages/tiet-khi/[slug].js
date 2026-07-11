@@ -4,6 +4,8 @@ import { Sun } from 'lucide-react';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import AdSlot from '../../components/AdSlot';
+import CalendarImageCard from '../../components/CalendarImageCard';
+import HubDayLinks from '../../components/HubDayLinks';
 import { getTietKhi, TIET_KHI, jdFromDate, jdToDate } from '../../lib/lunar';
 import tietKhiMeaning from '../../content/lunar/tiet-khi-meaning.json';
 
@@ -84,6 +86,10 @@ export default function TietKhiResult({ dd, mm, yyyy, current, startDate, next }
         </div>
         <h1 className="font-display text-2xl sm:text-3xl text-parchment mb-8 text-center">{title}</h1>
 
+        <div className="mb-6">
+          <CalendarImageCard dd={dd} mm={mm} yyyy={yyyy} />
+        </div>
+
         <div className="mystic-card p-6 text-center mb-6">
           <p className="text-xs text-moon uppercase mb-1">Tiết Khí hiện tại</p>
           <p className="font-display text-3xl text-gold-soft mb-2">{current}</p>
@@ -101,13 +107,7 @@ export default function TietKhiResult({ dd, mm, yyyy, current, startDate, next }
 
         <AdSlot label="Ad slot — tiết khí" className="mb-6" />
 
-        <div>
-          <p className="text-sm text-moon mb-3">Xem thêm:</p>
-          <div className="flex flex-wrap gap-2">
-            <Link href={`/can-chi/ngay-${pad(dd)}-thang-${pad(mm)}-nam-${yyyy}`} className="px-3 py-1.5 rounded-full border border-ink-line text-sm text-moon hover:border-gold/40 hover:text-gold-soft transition-colors">Xem Can Chi</Link>
-            <Link href={`/xem-ngay-tot/ngay-${pad(dd)}-thang-${pad(mm)}-nam-${yyyy}`} className="px-3 py-1.5 rounded-full border border-ink-line text-sm text-moon hover:border-gold/40 hover:text-gold-soft transition-colors">Xem ngày tốt</Link>
-          </div>
-        </div>
+        <HubDayLinks dd={dd} mm={mm} yyyy={yyyy} exclude="tiet-khi" />
 
         <p className="text-xs text-moon/50 mt-6 text-center">
           * Tính theo công thức thiên văn xấp xỉ, có thể lệch 1 ngày ở đúng thời điểm chuyển tiết so với nguồn chính thức.

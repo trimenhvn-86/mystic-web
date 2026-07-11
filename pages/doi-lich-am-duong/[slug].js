@@ -5,6 +5,7 @@ import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import AdSlot from '../../components/AdSlot';
 import CalendarImageCard from '../../components/CalendarImageCard';
+import HubDayLinks from '../../components/HubDayLinks';
 import DayRatingBox from '../../components/DayRatingBox';
 import MauSoHomNay from '../../components/MauSoHomNay';
 import MiniCalendar from '../../components/MiniCalendar';
@@ -155,6 +156,8 @@ export default function DoiLichResult({
                 <Link href={`/${yyyy}-menh-gi`} className="px-3 py-1.5 rounded-full border border-ink-line text-sm text-moon hover:border-gold/40 hover:text-gold-soft transition-colors">Mệnh ngũ hành</Link>
               </div>
             </div>
+
+            <HubDayLinks dd={dd} mm={mm} yyyy={yyyy} exclude="doi-lich-am-duong" />
 
             {/* Lich mini */}
             <MiniCalendar dd={dd} mm={mm} yyyy={yyyy} showQuality />

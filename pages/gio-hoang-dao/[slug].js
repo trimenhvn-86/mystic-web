@@ -3,6 +3,8 @@ import { Clock3 } from 'lucide-react';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import AdSlot from '../../components/AdSlot';
+import CalendarImageCard from '../../components/CalendarImageCard';
+import HubDayLinks from '../../components/HubDayLinks';
 import { getChiNgay, getGioHoangDao } from '../../lib/gioHoangDao';
 
 const SLUG_RE = /^ngay-(\d{1,2})-thang-(\d{1,2})-nam-(\d{4})$/;
@@ -48,6 +50,11 @@ export default function GioHoangDaoResult({ dd, mm, yyyy, chiNgay, gioList }) {
           <Clock3 size={26} className="text-gold" />
         </div>
         <h1 className="font-display text-2xl sm:text-3xl text-parchment mb-6 text-center">{title}</h1>
+
+        <div className="mb-6">
+          <CalendarImageCard dd={dd} mm={mm} yyyy={yyyy} />
+        </div>
+
         <div className="mystic-card p-6">
           <p className="text-moon mb-4">6 khung giờ Hoàng đạo tốt trong ngày:</p>
           <div className="grid sm:grid-cols-2 gap-3">
@@ -60,6 +67,7 @@ export default function GioHoangDaoResult({ dd, mm, yyyy, chiNgay, gioList }) {
           </div>
         </div>
         <AdSlot label="Ad slot — giờ hoàng đạo" className="mt-6" />
+        <HubDayLinks dd={dd} mm={mm} yyyy={yyyy} exclude="gio-hoang-dao" />
       </main>
       <Footer />
     </>

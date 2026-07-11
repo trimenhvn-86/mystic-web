@@ -11,6 +11,7 @@ import { getTruc, getSao28, getSuggestedActivities, getDecisionAssistant } from 
 import { getGioHoangDao } from '../../lib/gioHoangDao';
 import { getNgayKhongMinh } from '../../lib/khongMinh';
 import { getHubContentPreview } from '../../lib/sanity';
+import HubDayLinks from '../../components/HubDayLinks';
 
 const SLUG_RE = /^ngay-(\d{1,2})-thang-(\d{1,2})-nam-(\d{4})$/;
 
@@ -248,6 +249,8 @@ export default function NgayTotXauResult({ dd, mm, yyyy, lunar, canChiNam, canCh
             ))}
           </div>
         </div>
+
+        <HubDayLinks dd={dd} mm={mm} yyyy={yyyy} exclude="xem-ngay-tot" />
 
         <div className="mt-8">
           <HubContentPreview dictionaryPreview={dictionaryPreview} guidePreview={guidePreview} />

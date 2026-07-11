@@ -4,7 +4,8 @@ import { AlertTriangle } from 'lucide-react';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import AdSlot from '../../components/AdSlot';
-import CalendarSheet from '../../components/CalendarSheet';
+import CalendarImageCard from '../../components/CalendarImageCard';
+import HubDayLinks from '../../components/HubDayLinks';
 import { convertSolar2Lunar, getCanChiNam, getCanChiNgay, jdFromDate, jdToDate } from '../../lib/lunar';
 import { getTruc, getSao28, getSuggestedActivities } from '../../lib/dayQuality';
 import { getDayRating } from '../../lib/dayRating';
@@ -78,8 +79,8 @@ export default function NgayHacDaoResult({ dd, mm, yyyy, lunar, canChiNam, canCh
         </div>
         <h1 className={`font-display text-2xl sm:text-3xl mb-8 text-center ${isBadDay ? 'text-vermilion' : 'text-jade'}`}>{title}</h1>
 
-        <div className="grid md:grid-cols-[260px_1fr] gap-6 items-start">
-          <CalendarSheet dd={dd} mm={mm} yyyy={yyyy} lunar={lunar} canChiNgay={canChiNgay} isGoodDay={!isBadDay} />
+        <div className="grid md:grid-cols-[340px_1fr] gap-6 items-start">
+          <CalendarImageCard dd={dd} mm={mm} yyyy={yyyy} />
 
           <div className="space-y-6 min-w-0">
             <div className="mystic-card p-6">
@@ -121,12 +122,7 @@ export default function NgayHacDaoResult({ dd, mm, yyyy, lunar, canChiNam, canCh
 
             <AdSlot label="Ad slot — ngày hắc đạo" />
 
-            <div>
-              <p className="text-sm text-moon mb-3">Xem thêm:</p>
-              <div className="flex flex-wrap gap-2">
-                <Link href={`/xem-ngay-tot/ngay-${pad(dd)}-thang-${pad(mm)}-nam-${yyyy}`} className="px-3 py-1.5 rounded-full border border-ink-line text-sm text-moon hover:border-gold/40 hover:text-gold-soft transition-colors">Xem ngày tốt chi tiết</Link>
-              </div>
-            </div>
+            <HubDayLinks dd={dd} mm={mm} yyyy={yyyy} exclude="ngay-hac-dao" />
           </div>
         </div>
 

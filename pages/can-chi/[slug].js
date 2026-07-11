@@ -4,6 +4,8 @@ import { Layers } from 'lucide-react';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import AdSlot from '../../components/AdSlot';
+import CalendarImageCard from '../../components/CalendarImageCard';
+import HubDayLinks from '../../components/HubDayLinks';
 import { convertSolar2Lunar, getCanChiNam, getCanChiNgay, getCanChiThang } from '../../lib/lunar';
 import { getNapAmByCanChi } from '../../lib/nguHanh';
 
@@ -69,6 +71,10 @@ export default function CanChiResult({ dd, mm, yyyy, lunar, canChiNam, canChiTha
         </div>
         <h1 className="font-display text-2xl sm:text-3xl text-parchment mb-8 text-center">{title}</h1>
 
+        <div className="mb-6">
+          <CalendarImageCard dd={dd} mm={mm} yyyy={yyyy} />
+        </div>
+
         <div className="grid sm:grid-cols-3 gap-4 mb-6">
           <CanChiCard label="Năm" canChi={canChiNam} napAm={napAmNam} />
           <CanChiCard label="Tháng" canChi={canChiThang} napAm={napAmThang} />
@@ -81,14 +87,7 @@ export default function CanChiResult({ dd, mm, yyyy, lunar, canChiNam, canChiTha
 
         <AdSlot label="Ad slot — can chi" className="mt-6" />
 
-        <div className="mt-6">
-          <p className="text-sm text-moon mb-3">Xem thêm:</p>
-          <div className="flex flex-wrap gap-2">
-            <Link href={`/xem-ngay-tot/ngay-${pad(dd)}-thang-${pad(mm)}-nam-${yyyy}`} className="px-3 py-1.5 rounded-full border border-ink-line text-sm text-moon hover:border-gold/40 hover:text-gold-soft transition-colors">Xem ngày tốt</Link>
-            <Link href={`/ngay-hoang-dao/ngay-${pad(dd)}-thang-${pad(mm)}-nam-${yyyy}`} className="px-3 py-1.5 rounded-full border border-ink-line text-sm text-moon hover:border-gold/40 hover:text-gold-soft transition-colors">Ngày Hoàng đạo</Link>
-            <Link href={`/tiet-khi/ngay-${pad(dd)}-thang-${pad(mm)}-nam-${yyyy}`} className="px-3 py-1.5 rounded-full border border-ink-line text-sm text-moon hover:border-gold/40 hover:text-gold-soft transition-colors">Tiết khí</Link>
-          </div>
-        </div>
+        <HubDayLinks dd={dd} mm={mm} yyyy={yyyy} exclude="can-chi" />
       </main>
       <Footer />
     </>

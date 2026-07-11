@@ -1600,7 +1600,232 @@
     "id": 64
   },
   {
-    "id": 65,
+    "slug": "ace-of-pentacles",
+    "nameEn": "Ace of Pentacles",
+    "nameVi": "Át Tiền",
+    "arcana": "minor",
+    "suit": "pentacles",
+    "number": 1,
+    "keywordsUpright": [
+      "cơ hội tài chính mới",
+      "thịnh vượng",
+      "khởi đầu vững chắc"
+    ],
+    "keywordsReversed": [
+      "bỏ lỡ cơ hội",
+      "thiếu kế hoạch",
+      "nền tảng chưa vững"
+    ],
+    "meaningUpright": "Ace of Pentacles báo hiệu một cơ hội mới về tài chính hoặc sự nghiệp, mang tiềm năng phát triển vững chắc theo thời gian. Đây là khởi đầu tốt cho những dự định liên quan đến vật chất và ổn định lâu dài.",
+    "meaningReversed": "Khi ngược, có thể bạn đang bỏ lỡ một cơ hội tốt vì thiếu kế hoạch, hoặc nền tảng ban đầu chưa đủ vững để phát triển.",
+    "dailyMessageUpright": "Hôm nay có thể xuất hiện một cơ hội tài chính hoặc công việc đáng để cân nhắc nghiêm túc.",
+    "dailyMessageReversed": "Hôm nay nên chuẩn bị kỹ hơn trước khi nắm bắt một cơ hội mới.",
+    "yesNoUpright": "yes",
+    "yesNoReversed": "leaning_no",
+    "id": 65
+  },
+  {
+    "slug": "two-of-pentacles",
+    "nameEn": "Two of Pentacles",
+    "nameVi": "Nhị Tiền",
+    "arcana": "minor",
+    "suit": "pentacles",
+    "number": 2,
+    "keywordsUpright": [
+      "cân bằng",
+      "linh hoạt",
+      "quản lý nhiều việc"
+    ],
+    "keywordsReversed": [
+      "quá tải",
+      "mất cân bằng",
+      "thiếu tổ chức"
+    ],
+    "meaningUpright": "Two of Pentacles thể hiện khả năng cân bằng và linh hoạt khi phải xử lý nhiều việc cùng lúc. Đây là lá bài khuyên bạn giữ nhịp độ ổn định, ưu tiên hợp lý thay vì cố làm tất cả cùng một lúc.",
+    "meaningReversed": "Khi ngược, có thể bạn đang quá tải với quá nhiều trách nhiệm, dẫn đến mất cân bằng và thiếu tổ chức trong công việc.",
+    "dailyMessageUpright": "Hôm nay cần khéo léo cân bằng giữa nhiều việc cùng lúc — ưu tiên điều quan trọng nhất.",
+    "dailyMessageReversed": "Hôm nay nên xem lại thứ tự ưu tiên, tránh ôm đồm quá nhiều việc.",
+    "yesNoUpright": "leaning_yes",
+    "yesNoReversed": "uncertain",
+    "id": 66
+  },
+  {
+    "slug": "three-of-pentacles",
+    "nameEn": "Three of Pentacles",
+    "nameVi": "Tam Tiền",
+    "arcana": "minor",
+    "suit": "pentacles",
+    "number": 3,
+    "keywordsUpright": [
+      "hợp tác nhóm",
+      "học hỏi kỹ năng",
+      "xây dựng nền tảng"
+    ],
+    "keywordsReversed": [
+      "thiếu phối hợp",
+      "công việc thiếu chất lượng",
+      "bất đồng nhóm"
+    ],
+    "meaningUpright": "Three of Pentacles nói về sự hợp tác hiệu quả trong nhóm, khi mỗi người đóng góp thế mạnh riêng để xây dựng thành quả chung. Đây cũng là lá bài của việc học hỏi và trau dồi kỹ năng chuyên môn.",
+    "meaningReversed": "Khi ngược, có thể đang thiếu sự phối hợp trong nhóm, dẫn đến công việc kém chất lượng hoặc bất đồng giữa các thành viên.",
+    "dailyMessageUpright": "Hôm nay thuận lợi cho làm việc nhóm và học hỏi kỹ năng mới từ người khác.",
+    "dailyMessageReversed": "Hôm nay nên chú ý cải thiện sự phối hợp nếu đang làm việc cùng người khác.",
+    "yesNoUpright": "yes",
+    "yesNoReversed": "leaning_no",
+    "id": 67
+  },
+  {
+    "slug": "four-of-pentacles",
+    "nameEn": "Four of Pentacles",
+    "nameVi": "Tứ Tiền",
+    "arcana": "minor",
+    "suit": "pentacles",
+    "number": 4,
+    "keywordsUpright": [
+      "an toàn tài chính",
+      "kiểm soát",
+      "thận trọng"
+    ],
+    "keywordsReversed": [
+      "keo kiệt",
+      "bám giữ quá mức",
+      "sợ mất mát"
+    ],
+    "meaningUpright": "Four of Pentacles thể hiện mong muốn an toàn và kiểm soát tài chính, giữ vững những gì đã xây dựng được. Sự thận trọng ở đây là hợp lý, miễn là không biến thành nỗi sợ hãi cực đoan.",
+    "meaningReversed": "Khi ngược, sự thận trọng có thể trở thành keo kiệt hoặc bám giữ quá mức vì sợ mất mát, khiến bạn bỏ lỡ cơ hội chia sẻ hoặc phát triển.",
+    "dailyMessageUpright": "Hôm nay nên thận trọng trong chi tiêu, ưu tiên sự ổn định tài chính.",
+    "dailyMessageReversed": "Hôm nay đừng quá bám giữ vì sợ mất — đôi khi cần buông ra để nhận lại nhiều hơn.",
+    "yesNoUpright": "leaning_yes",
+    "yesNoReversed": "leaning_no",
+    "id": 68
+  },
+  {
+    "slug": "five-of-pentacles",
+    "nameEn": "Five of Pentacles",
+    "nameVi": "Ngũ Tiền",
+    "arcana": "minor",
+    "suit": "pentacles",
+    "number": 5,
+    "keywordsUpright": [
+      "khó khăn tài chính",
+      "cảm giác bị bỏ rơi",
+      "thiếu thốn"
+    ],
+    "keywordsReversed": [
+      "hồi phục",
+      "tìm được sự giúp đỡ",
+      "cải thiện tình hình"
+    ],
+    "meaningUpright": "Five of Pentacles phản ánh giai đoạn khó khăn về tài chính hoặc cảm giác bị bỏ rơi, thiếu thốn. Đây là lời nhắc rằng vẫn còn sự giúp đỡ xung quanh, chỉ cần bạn không ngại tìm đến.",
+    "meaningReversed": "Khi ngược, đây là dấu hiệu tích cực của sự hồi phục, khi bạn bắt đầu tìm được sự hỗ trợ và tình hình dần cải thiện.",
+    "dailyMessageUpright": "Hôm nay nếu gặp khó khăn, đừng ngại tìm kiếm sự giúp đỡ từ người xung quanh.",
+    "dailyMessageReversed": "Hôm nay tình hình khó khăn trước đó đang dần được cải thiện.",
+    "yesNoUpright": "no",
+    "yesNoReversed": "leaning_yes",
+    "id": 69
+  },
+  {
+    "slug": "six-of-pentacles",
+    "nameEn": "Six of Pentacles",
+    "nameVi": "Lục Tiền",
+    "arcana": "minor",
+    "suit": "pentacles",
+    "number": 6,
+    "keywordsUpright": [
+      "hào phóng",
+      "chia sẻ",
+      "cho và nhận cân bằng"
+    ],
+    "keywordsReversed": [
+      "cho đi có điều kiện",
+      "nợ nần",
+      "mất cân bằng cho-nhận"
+    ],
+    "meaningUpright": "Six of Pentacles tượng trưng cho sự hào phóng và chia sẻ, khi nguồn lực được phân bổ công bằng giữa các bên. Đây có thể là lúc bạn nhận được sự giúp đỡ, hoặc chính bạn là người chia sẻ với người khác.",
+    "meaningReversed": "Khi ngược, việc cho đi có thể đi kèm điều kiện ngầm, hoặc đang có sự mất cân bằng giữa cho và nhận trong một mối quan hệ.",
+    "dailyMessageUpright": "Hôm nay thuận lợi cho việc chia sẻ, giúp đỡ hoặc nhận được sự hỗ trợ từ người khác.",
+    "dailyMessageReversed": "Hôm nay nên xem xét lại liệu sự cho đi có đang thực sự công bằng hay không.",
+    "yesNoUpright": "yes",
+    "yesNoReversed": "uncertain",
+    "id": 70
+  },
+  {
+    "slug": "seven-of-pentacles",
+    "nameEn": "Seven of Pentacles",
+    "nameVi": "Thất Tiền",
+    "arcana": "minor",
+    "suit": "pentacles",
+    "number": 7,
+    "keywordsUpright": [
+      "kiên nhẫn đầu tư",
+      "đánh giá lại",
+      "tầm nhìn dài hạn"
+    ],
+    "keywordsReversed": [
+      "thiếu tầm nhìn",
+      "sốt ruột",
+      "kết quả chưa như ý"
+    ],
+    "meaningUpright": "Seven of Pentacles khuyên bạn kiên nhẫn nhìn lại những gì đã đầu tư công sức, đánh giá xem hướng đi hiện tại có còn phù hợp. Thành quả cần thời gian để chín muồi, không nên nóng vội.",
+    "meaningReversed": "Khi ngược, có thể bạn đang thiếu tầm nhìn dài hạn hoặc sốt ruột vì kết quả chưa như mong đợi dù đã bỏ nhiều công sức.",
+    "dailyMessageUpright": "Hôm nay nên dành thời gian nhìn lại tiến độ và đánh giá xem có cần điều chỉnh hướng đi.",
+    "dailyMessageReversed": "Hôm nay nếu cảm thấy sốt ruột vì chưa thấy kết quả, hãy kiên nhẫn thêm một chút.",
+    "yesNoUpright": "leaning_yes",
+    "yesNoReversed": "uncertain",
+    "id": 71
+  },
+  {
+    "slug": "eight-of-pentacles",
+    "nameEn": "Eight of Pentacles",
+    "nameVi": "Bát Tiền",
+    "arcana": "minor",
+    "suit": "pentacles",
+    "number": 8,
+    "keywordsUpright": [
+      "chăm chỉ",
+      "rèn luyện kỹ năng",
+      "tay nghề tinh xảo"
+    ],
+    "keywordsReversed": [
+      "cầu toàn quá mức",
+      "thiếu tập trung",
+      "chất lượng chưa đạt"
+    ],
+    "meaningUpright": "Eight of Pentacles là lá bài của sự chăm chỉ, tỉ mỉ rèn luyện kỹ năng để đạt đến trình độ tinh xảo. Đây là thời điểm phù hợp để tập trung nâng cao chuyên môn thông qua thực hành đều đặn.",
+    "meaningReversed": "Khi ngược, có thể bạn đang cầu toàn quá mức hoặc thiếu tập trung, khiến chất lượng công việc chưa đạt như kỳ vọng.",
+    "dailyMessageUpright": "Hôm nay phù hợp để tập trung rèn luyện, trau dồi kỹ năng chuyên môn.",
+    "dailyMessageReversed": "Hôm nay nên tập trung vào chất lượng thay vì cố gắng làm quá nhiều việc cùng lúc.",
+    "yesNoUpright": "yes",
+    "yesNoReversed": "leaning_no",
+    "id": 72
+  },
+  {
+    "slug": "nine-of-pentacles",
+    "nameEn": "Nine of Pentacles",
+    "nameVi": "Cửu Tiền",
+    "arcana": "minor",
+    "suit": "pentacles",
+    "number": 9,
+    "keywordsUpright": [
+      "độc lập tài chính",
+      "sung túc",
+      "tự chủ"
+    ],
+    "keywordsReversed": [
+      "phụ thuộc tài chính",
+      "bất ổn",
+      "làm việc quá sức"
+    ],
+    "meaningUpright": "Nine of Pentacles tượng trưng cho sự sung túc và độc lập tài chính đạt được nhờ nỗ lực của chính mình. Đây là lá bài của việc tận hưởng thành quả trong sự tự chủ, không phụ thuộc vào người khác.",
+    "meaningReversed": "Khi ngược, có thể đang có sự phụ thuộc tài chính vào người khác, hoặc bạn đang làm việc quá sức để duy trì mức sống hiện tại.",
+    "dailyMessageUpright": "Hôm nay là dịp tốt để tận hưởng thành quả từ sự độc lập và nỗ lực của chính mình.",
+    "dailyMessageReversed": "Hôm nay nên chú ý cân bằng giữa công việc và nghỉ ngơi, tránh làm việc quá sức.",
+    "yesNoUpright": "yes",
+    "yesNoReversed": "leaning_no",
+    "id": 73
+  },
+  {
+    "id": 74,
     "slug": "ten-of-pentacles",
     "nameEn": "Ten of Pentacles",
     "nameVi": "Thập Bảo",
@@ -1623,5 +1848,105 @@
     "dailyMessageReversed": "Hôm nay nên thận trọng với các quyết định tài chính lớn, tránh mâu thuẫn không cần thiết trong gia đình.",
     "yesNoUpright": "yes",
     "yesNoReversed": "leaning_no"
+  },
+  {
+    "slug": "page-of-pentacles",
+    "nameEn": "Page of Pentacles",
+    "nameVi": "Thị Đồng Tiền",
+    "arcana": "minor",
+    "suit": "pentacles",
+    "number": 11,
+    "keywordsUpright": [
+      "cơ hội học hỏi",
+      "khởi đầu thực tế",
+      "chăm chỉ"
+    ],
+    "keywordsReversed": [
+      "trì hoãn",
+      "thiếu cam kết",
+      "kế hoạch chưa rõ ràng"
+    ],
+    "meaningUpright": "Page of Pentacles mang năng lượng của một khởi đầu thực tế, thường liên quan đến học tập, công việc hoặc dự án tài chính mới. Đây là lúc thích hợp để đặt nền móng vững chắc bằng sự chăm chỉ và cụ thể.",
+    "meaningReversed": "Khi ngược, có thể đang có sự trì hoãn hoặc thiếu cam kết với một kế hoạch, khiến tiến độ chậm lại.",
+    "dailyMessageUpright": "Hôm nay phù hợp để bắt đầu một kế hoạch học tập hoặc công việc mang tính thực tế.",
+    "dailyMessageReversed": "Hôm nay nên làm rõ kế hoạch cụ thể hơn trước khi bắt tay vào thực hiện.",
+    "yesNoUpright": "leaning_yes",
+    "yesNoReversed": "uncertain",
+    "id": 75
+  },
+  {
+    "slug": "knight-of-pentacles",
+    "nameEn": "Knight of Pentacles",
+    "nameVi": "Kỵ Sĩ Tiền",
+    "arcana": "minor",
+    "suit": "pentacles",
+    "number": 12,
+    "keywordsUpright": [
+      "kiên trì",
+      "trách nhiệm",
+      "làm việc có phương pháp"
+    ],
+    "keywordsReversed": [
+      "trì trệ",
+      "cứng nhắc",
+      "ngại thay đổi"
+    ],
+    "meaningUpright": "Knight of Pentacles là hình mẫu của sự kiên trì, có trách nhiệm và làm việc theo phương pháp bài bản. Không phô trương, nhưng đây là năng lượng đáng tin cậy để hoàn thành mục tiêu dài hạn từng bước một.",
+    "meaningReversed": "Khi ngược, sự kiên trì có thể trở thành trì trệ hoặc cứng nhắc, ngại thử điều mới vì quá quen với lối mòn.",
+    "dailyMessageUpright": "Hôm nay phù hợp để làm việc theo kế hoạch đã đề ra, từng bước chắc chắn.",
+    "dailyMessageReversed": "Hôm nay đừng ngại thử một cách tiếp cận mới nếu cách cũ không còn hiệu quả.",
+    "yesNoUpright": "leaning_yes",
+    "yesNoReversed": "leaning_no",
+    "id": 76
+  },
+  {
+    "slug": "queen-of-pentacles",
+    "nameEn": "Queen of Pentacles",
+    "nameVi": "Hoàng Hậu Tiền",
+    "arcana": "minor",
+    "suit": "pentacles",
+    "number": 13,
+    "keywordsUpright": [
+      "chăm sóc thực tế",
+      "ổn định",
+      "gần gũi đời thường"
+    ],
+    "keywordsReversed": [
+      "mất cân bằng công việc-cuộc sống",
+      "quá lo cho người khác",
+      "bỏ bê bản thân"
+    ],
+    "meaningUpright": "Queen of Pentacles là hình mẫu của sự chăm sóc thực tế, ổn định và gần gũi với đời sống thường nhật. Bạn có khả năng tạo ra môi trường an toàn, sung túc cho bản thân và những người xung quanh.",
+    "meaningReversed": "Khi ngược, có thể đang có sự mất cân bằng giữa công việc và cuộc sống cá nhân, hoặc quá lo lắng cho người khác mà quên chăm sóc chính mình.",
+    "dailyMessageUpright": "Hôm nay hãy chăm sóc bản thân và những người thân yêu bằng những hành động thiết thực.",
+    "dailyMessageReversed": "Hôm nay nên dành thời gian cho chính mình, đừng chỉ lo cho người khác.",
+    "yesNoUpright": "yes",
+    "yesNoReversed": "uncertain",
+    "id": 77
+  },
+  {
+    "slug": "king-of-pentacles",
+    "nameEn": "King of Pentacles",
+    "nameVi": "Vua Tiền",
+    "arcana": "minor",
+    "suit": "pentacles",
+    "number": 14,
+    "keywordsUpright": [
+      "thành công vững chắc",
+      "an toàn tài chính",
+      "khả năng lãnh đạo thực tế"
+    ],
+    "keywordsReversed": [
+      "ám ảnh vật chất",
+      "cứng nhắc",
+      "khó thích nghi"
+    ],
+    "meaningUpright": "King of Pentacles tượng trưng cho thành công vững chắc, sự an toàn tài chính và khả năng lãnh đạo thực tế. Đây là năng lượng của người đã xây dựng được nền tảng ổn định qua nhiều năm nỗ lực bền bỉ.",
+    "meaningReversed": "Khi ngược, có thể xuất hiện sự ám ảnh quá mức về vật chất, hoặc thái độ cứng nhắc, khó thích nghi với thay đổi.",
+    "dailyMessageUpright": "Hôm nay phù hợp để đưa ra các quyết định tài chính hoặc kinh doanh mang tính lâu dài.",
+    "dailyMessageReversed": "Hôm nay nên linh hoạt hơn, tránh quá cứng nhắc trong cách quản lý tài chính hoặc công việc.",
+    "yesNoUpright": "yes",
+    "yesNoReversed": "leaning_no",
+    "id": 78
   }
 ]

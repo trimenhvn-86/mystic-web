@@ -15,6 +15,7 @@ import { FAQ_MENH, FAQ_TUOI_HOP } from '../content/faq-data';
 import napAmData from '../content/phong-thuy/menh/nap-am.json';
 import daPhongThuyData from '../content/phong-thuy/da-phong-thuy.json';
 import MiniCalendar from '../components/MiniCalendar';
+import NumerologyQuickForm from '../components/NumerologyQuickForm';
 
 const HUB_ICONS = { CalendarDays, Hash, Layers, Users, Sun, CircleDot };
 const MENH_RE = /^(\d{4})-menh-gi$/;
@@ -149,6 +150,13 @@ export default function YearToolPage({ type, year, menh, tuoiHop, hub, dictionar
                 basePath="/xem-ngay-tot"
                 showQuality
               />
+            </section>
+          )}
+
+          {hub.slug === 'than-so-hoc-hub' && (
+            <section className="mb-10">
+              <h2 className="font-display text-xl text-parchment mb-4">Tra cứu nhanh</h2>
+              <NumerologyQuickForm />
             </section>
           )}
 

@@ -1,6 +1,7 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import MysticLoader from '../../components/MysticLoader';
@@ -30,9 +31,17 @@ export async function getStaticProps() {
 }
 
 export default function ThanSoHoc({ dictionaryPreview, guidePreview }) {
+  const router = useRouter();
   const [form, setForm] = useState({ hoTen: '', dd: 1, mm: 1, yyyy: 1990 });
   const [step, setStep] = useState('form');
   const [result, setResult] = useState(null);
+
+  useEffect(() => {
+    const { dd, mm, yyyy } = router.query;
+    if (dd && mm && yyyy) {
+      setForm((f) => ({ ...f, dd: Number(dd), mm: Number(mm), yyyy: Number(yyyy) }));
+    }
+  }, [router.query]);
 
   function handleSubmit(e) {
     e.preventDefault();

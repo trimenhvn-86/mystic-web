@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import Link from 'next/link';
 import { Hash } from 'lucide-react';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
@@ -18,10 +19,11 @@ export async function getStaticProps({ params }) {
   const num = match[1];
   const info = dictionary[num];
   if (!info) return { notFound: true };
-  return { props: { num, info } };
+  const otherNumbers = CORE_NUMBERS.filter((n) => String(n) !== num).map((n) => ({ num: n, ten: dictionary[n]?.ten || `Số ${n}` }));
+  return { props: { num, info, otherNumbers } };
 }
 
-export default function SoChiTiet({ num, info }) {
+export default function SoChiTiet({ num, info, otherNumbers }) {
   return (
     <>
       <Head>
@@ -30,6 +32,12 @@ export default function SoChiTiet({ num, info }) {
       </Head>
       <Header />
       <main className="max-w-2xl mx-auto px-5 py-8 sm:py-12">
+        <div className="flex flex-wrap items-center gap-1.5 text-xs text-moon mb-6">
+          <Link href="/than-so-hoc-hub" className="hover:text-gold-soft transition-colors">Thần Số Học</Link>
+          <span>/</span>
+          <span className="text-parchment/70">{info.ten}</span>
+        </div>
+
         <div className="w-14 h-14 rounded-full bg-ink-soft border border-gold/30 flex items-center justify-center mx-auto mb-4">
           <Hash size={26} className="text-gold" />
         </div>
@@ -56,6 +64,21 @@ export default function SoChiTiet({ num, info }) {
           </div>
         </div>
         <AdSlot label="Ad slot — cuối bài" className="mt-6" />
+
+        <div className="mt-8">
+          <p className="text-sm text-moon mb-3">Xem thêm các số khác:</p>
+          <div className="flex flex-wrap gap-2">
+            {otherNumbers.map((o) => (
+              <Link
+                key={o.num}
+                href={`/than-so-hoc/so-chu-dao-${o.num}`}
+                className="px-3 py-1.5 rounded-full border border-ink-line text-sm text-moon hover:border-gold/40 hover:text-gold-soft transition-colors"
+              >
+                Số {o.num}
+              </Link>
+            ))}
+          </div>
+        </div>
       </main>
       <Footer />
     </>

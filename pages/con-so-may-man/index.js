@@ -1,14 +1,29 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Head from 'next/head';
+import { useRouter } from 'next/router';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import MysticLoader from '../../components/MysticLoader';
 import { getLuckyNumbers } from '../../lib/luckyNumber';
 
 export default function ConSoMayMan() {
+  const router = useRouter();
   const [form, setForm] = useState({ dd: 1, mm: 1, yyyy: 1990 });
   const [step, setStep] = useState('form');
   const [result, setResult] = useState(null);
+
+  useEffect(() => {
+    const { dd, mm, yyyy } = router.query;
+    if (dd && mm && yyyy) {
+      const d = Number(dd), m = Number(mm), y = Number(yyyy);
+      setForm((f) => ({ ...f, dd: d, mm: m, yyyy: y }));
+      setStep('loading');
+      setTimeout(() => {
+        setResult(getLuckyNumbers(d, m, y));
+        setStep('result');
+      }, 1500);
+    }
+  }, [router.query]);
 
   function handleSubmit(e) {
     e.preventDefault();

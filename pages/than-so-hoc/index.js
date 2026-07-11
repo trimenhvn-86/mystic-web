@@ -10,6 +10,7 @@ import NumerologyChart from '../../components/NumerologyChart';
 import HubContentPreview from '../../components/HubContentPreview';
 import dictionary from '../../content/numerology/life-path.json';
 import { getHubContentPreview } from '../../lib/sanity';
+import { trackToolUse } from '../../lib/analytics';
 import {
   calcLifePathNumber,
   calcDestinyNumber,
@@ -62,6 +63,7 @@ export default function ThanSoHoc({ dictionaryPreview, guidePreview }) {
       const compatible = getCompatibleNumbers(lifePath);
       const arrows = getPowerArrows(dd, mm, yyyy);
       setResult({ dd, mm, yyyy, lifePath, destiny, soul, personality, maturity, personalYear, personalMonth, personalDay, missing, compatible, arrows });
+      trackToolUse('than_so_hoc');
       setStep('result');
     }, 2200);
   }

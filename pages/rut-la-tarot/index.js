@@ -8,6 +8,7 @@ import AdSlot from '../../components/AdSlot';
 import TarotCardFlip from '../../components/TarotCardFlip';
 import HubContentPreview from '../../components/HubContentPreview';
 import { getRandomCard } from '../../lib/tarot';
+import { trackToolUse } from '../../lib/analytics';
 import { getHubContentPreview } from '../../lib/sanity';
 
 const STORAGE_KEY = 'trimenh_rut_la_tarot';
@@ -34,6 +35,7 @@ export default function RutLaTarot({ dictionaryPreview, guidePreview }) {
     const drawn = getRandomCard();
     setResult(drawn);
     sessionStorage.setItem(STORAGE_KEY, JSON.stringify(drawn));
+    trackToolUse('rut_la_tarot', { card_name: drawn.card.nameVi });
   }
 
   function handleFlip() {

@@ -8,6 +8,7 @@ import AdSlot from '../../components/AdSlot';
 import TarotCardFlip from '../../components/TarotCardFlip';
 import HubContentPreview from '../../components/HubContentPreview';
 import { getRandomCard, getYesNoResult } from '../../lib/tarot';
+import { trackToolUse } from '../../lib/analytics';
 import { getHubContentPreview } from '../../lib/sanity';
 
 export async function getStaticProps() {
@@ -35,6 +36,7 @@ export default function TarotYesNo({ dictionaryPreview, guidePreview }) {
     setResult({ ...drawn, yesNo });
     setAskedQuestion(question);
     setFlipped(true);
+    trackToolUse('tarot_yes_no', { result: yesNo.key });
   }
 
   function handleReset() {

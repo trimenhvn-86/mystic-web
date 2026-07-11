@@ -8,6 +8,7 @@ import AdSlot from '../../components/AdSlot';
 import TarotCardFlip from '../../components/TarotCardFlip';
 import HubContentPreview from '../../components/HubContentPreview';
 import { getUniqueCardSpread } from '../../lib/tarot';
+import { trackToolUse } from '../../lib/analytics';
 import { getHubContentPreview } from '../../lib/sanity';
 import spreads from '../../content/tarot-spreads.json';
 
@@ -30,6 +31,7 @@ export default function TraiBai3La({ spread, dictionaryPreview, guidePreview }) 
     const result = getUniqueCardSpread(3);
     setDrawn(result);
     setTimeout(() => setRevealed(true), 100);
+    trackToolUse('trai_bai_3_la', { spread_type: spread.slug });
   }
 
   function handleReset() {

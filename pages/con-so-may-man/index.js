@@ -6,6 +6,7 @@ import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import MysticLoader from '../../components/MysticLoader';
 import { getLuckyNumbers } from '../../lib/luckyNumber';
+import { trackToolUse } from '../../lib/analytics';
 
 export default function ConSoMayMan() {
   const router = useRouter();
@@ -22,6 +23,7 @@ export default function ConSoMayMan() {
       setTimeout(() => {
         setResult(getLuckyNumbers(d, m, y));
         setStep('result');
+        trackToolUse('con_so_may_man');
       }, 1500);
     }
   }, [router.query]);
@@ -32,6 +34,7 @@ export default function ConSoMayMan() {
     setTimeout(() => {
       setResult(getLuckyNumbers(Number(form.dd), Number(form.mm), Number(form.yyyy)));
       setStep('result');
+      trackToolUse('con_so_may_man');
     }, 2000);
   }
 

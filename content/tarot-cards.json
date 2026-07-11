@@ -1250,7 +1250,57 @@
     "id": 50
   },
   {
-    "id": 51,
+    "slug": "ace-of-swords",
+    "nameEn": "Ace of Swords",
+    "nameVi": "Át Kiếm",
+    "arcana": "minor",
+    "suit": "swords",
+    "number": 1,
+    "keywordsUpright": [
+      "minh mẫn",
+      "đột phá",
+      "sự thật rõ ràng"
+    ],
+    "keywordsReversed": [
+      "nhầm lẫn",
+      "giao tiếp sai lệch",
+      "thiếu rõ ràng"
+    ],
+    "meaningUpright": "Ace of Swords mang đến sự minh mẫn đột phá — một ý tưởng, sự thật hoặc giải pháp rõ ràng xuất hiện, giúp bạn nhìn vấn đề sắc bén hơn. Đây là năng lượng của trí tuệ sắc sảo và khả năng cắt bỏ những điều không cần thiết.",
+    "meaningReversed": "Khi ngược, có thể đang có sự nhầm lẫn hoặc giao tiếp sai lệch, khiến thông tin bị hiểu sai hoặc thiếu rõ ràng.",
+    "dailyMessageUpright": "Hôm nay có thể xuất hiện một ý tưởng hoặc sự thật giúp bạn nhìn vấn đề rõ ràng hơn.",
+    "dailyMessageReversed": "Hôm nay nên xác nhận lại thông tin trước khi hành động, tránh hiểu nhầm.",
+    "yesNoUpright": "yes",
+    "yesNoReversed": "uncertain",
+    "id": 51
+  },
+  {
+    "slug": "two-of-swords",
+    "nameEn": "Two of Swords",
+    "nameVi": "Nhị Kiếm",
+    "arcana": "minor",
+    "suit": "swords",
+    "number": 2,
+    "keywordsUpright": [
+      "quyết định khó khăn",
+      "bế tắc",
+      "cảm xúc bị kìm nén"
+    ],
+    "keywordsReversed": [
+      "do dự kéo dài",
+      "quá tải thông tin",
+      "sẵn sàng quyết định"
+    ],
+    "meaningUpright": "Two of Swords thể hiện tình huống bế tắc, khi bạn đang né tránh một quyết định khó khăn bằng cách giữ mọi thứ ở trạng thái cân bằng giả tạo. Cảm xúc thật có thể đang bị kìm nén để tránh đối mặt.",
+    "meaningReversed": "Khi ngược, sự do dự có thể đã kéo dài quá lâu, hoặc bạn đang quá tải thông tin — nhưng đây cũng là lúc bắt đầu sẵn sàng đưa ra quyết định.",
+    "dailyMessageUpright": "Hôm nay có thể cần đối mặt với một quyết định đã né tránh từ lâu.",
+    "dailyMessageReversed": "Hôm nay là lúc thích hợp để dừng do dự và đưa ra lựa chọn.",
+    "yesNoUpright": "uncertain",
+    "yesNoReversed": "leaning_yes",
+    "id": 52
+  },
+  {
+    "id": 53,
     "slug": "three-of-swords",
     "nameEn": "Three of Swords",
     "nameVi": "Tam Kiếm",
@@ -1275,7 +1325,282 @@
     "yesNoReversed": "leaning_no"
   },
   {
-    "id": 52,
+    "slug": "four-of-swords",
+    "nameEn": "Four of Swords",
+    "nameVi": "Tứ Kiếm",
+    "arcana": "minor",
+    "suit": "swords",
+    "number": 4,
+    "keywordsUpright": [
+      "nghỉ ngơi",
+      "phục hồi",
+      "tĩnh tâm"
+    ],
+    "keywordsReversed": [
+      "kiệt sức",
+      "bồn chồn",
+      "buộc phải nghỉ"
+    ],
+    "meaningUpright": "Four of Swords khuyên bạn dành thời gian nghỉ ngơi và phục hồi sau giai đoạn căng thẳng. Đây là lúc tĩnh tâm, tạm gác lại mọi lo toan để nạp lại năng lượng trước khi tiếp tục.",
+    "meaningReversed": "Khi ngược, có thể bạn đang kiệt sức nhưng không cho phép bản thân nghỉ ngơi, dẫn đến cảm giác bồn chồn hoặc bị buộc phải dừng lại ngoài ý muốn.",
+    "dailyMessageUpright": "Hôm nay nên dành thời gian nghỉ ngơi thực sự, tạm gác công việc sang một bên.",
+    "dailyMessageReversed": "Hôm nay nếu cơ thể đang báo hiệu mệt mỏi, đừng cố gắng phớt lờ nó.",
+    "yesNoUpright": "uncertain",
+    "yesNoReversed": "leaning_no",
+    "id": 54
+  },
+  {
+    "slug": "five-of-swords",
+    "nameEn": "Five of Swords",
+    "nameVi": "Ngũ Kiếm",
+    "arcana": "minor",
+    "suit": "swords",
+    "number": 5,
+    "keywordsUpright": [
+      "thắng bằng mọi giá",
+      "xung đột",
+      "chiến thắng rỗng tuếch"
+    ],
+    "keywordsReversed": [
+      "hòa giải",
+      "buông bỏ oán giận",
+      "học từ thất bại"
+    ],
+    "meaningUpright": "Five of Swords cảnh báo về một chiến thắng đạt được bằng cái giá không xứng đáng — thắng trong tranh cãi nhưng có thể mất đi mối quan hệ hoặc sự tôn trọng. Cần cân nhắc điều gì thực sự quan trọng hơn.",
+    "meaningReversed": "Khi ngược, đây là dấu hiệu của sự hòa giải, buông bỏ oán giận cũ, hoặc rút ra bài học từ một thất bại trước đó.",
+    "dailyMessageUpright": "Hôm nay nên cân nhắc kỹ trước khi lao vào một cuộc tranh cãi không đáng có.",
+    "dailyMessageReversed": "Hôm nay là cơ hội tốt để hòa giải và buông bỏ một mâu thuẫn cũ.",
+    "yesNoUpright": "no",
+    "yesNoReversed": "leaning_yes",
+    "id": 55
+  },
+  {
+    "slug": "six-of-swords",
+    "nameEn": "Six of Swords",
+    "nameVi": "Lục Kiếm",
+    "arcana": "minor",
+    "suit": "swords",
+    "number": 6,
+    "keywordsUpright": [
+      "chuyển tiếp",
+      "rời xa khó khăn",
+      "hướng tới bình yên"
+    ],
+    "keywordsReversed": [
+      "chống lại thay đổi",
+      "việc dang dở",
+      "khó rời đi"
+    ],
+    "meaningUpright": "Six of Swords tượng trưng cho giai đoạn chuyển tiếp, khi bạn đang rời xa giai đoạn khó khăn để hướng tới một nơi bình yên hơn. Quá trình có thể chưa hoàn toàn dễ chịu nhưng đang đi đúng hướng.",
+    "meaningReversed": "Khi ngược, bạn có thể đang chống lại một sự thay đổi cần thiết, hoặc có việc dang dở khiến khó lòng rời đi hoàn toàn.",
+    "dailyMessageUpright": "Hôm nay là bước tiến trên hành trình rời xa khó khăn để hướng tới điều bình yên hơn.",
+    "dailyMessageReversed": "Hôm nay nên giải quyết nốt việc còn dang dở trước khi thực sự có thể bước tiếp.",
+    "yesNoUpright": "leaning_yes",
+    "yesNoReversed": "uncertain",
+    "id": 56
+  },
+  {
+    "slug": "seven-of-swords",
+    "nameEn": "Seven of Swords",
+    "nameVi": "Thất Kiếm",
+    "arcana": "minor",
+    "suit": "swords",
+    "number": 7,
+    "keywordsUpright": [
+      "chiến lược",
+      "che giấu",
+      "hành động một mình"
+    ],
+    "keywordsReversed": [
+      "thành thật trở lại",
+      "bị phát hiện",
+      "lương tâm cắn rứt"
+    ],
+    "meaningUpright": "Seven of Swords liên quan đến chiến lược, đôi khi là việc che giấu điều gì đó hoặc hành động một mình mà không chia sẻ đầy đủ với người khác. Cần cân nhắc liệu cách tiếp cận này có thực sự bền vững.",
+    "meaningReversed": "Khi ngược, sự thật có xu hướng được phơi bày, hoặc bạn cảm thấy cắn rứt lương tâm và muốn thành thật trở lại.",
+    "dailyMessageUpright": "Hôm nay nên cân nhắc kỹ nếu đang định giữ bí mật điều gì quan trọng.",
+    "dailyMessageReversed": "Hôm nay là lúc thích hợp để thành thật, dù điều đó không dễ dàng.",
+    "yesNoUpright": "leaning_no",
+    "yesNoReversed": "uncertain",
+    "id": 57
+  },
+  {
+    "slug": "eight-of-swords",
+    "nameEn": "Eight of Swords",
+    "nameVi": "Bát Kiếm",
+    "arcana": "minor",
+    "suit": "swords",
+    "number": 8,
+    "keywordsUpright": [
+      "cảm giác mắc kẹt",
+      "giới hạn tự đặt ra",
+      "bất lực"
+    ],
+    "keywordsReversed": [
+      "tự giải thoát",
+      "góc nhìn mới",
+      "vượt qua giới hạn"
+    ],
+    "meaningUpright": "Eight of Swords thể hiện cảm giác mắc kẹt, nhưng thực chất phần lớn giới hạn đó là do chính bạn tự đặt ra trong suy nghĩ. Sự thật thường có nhiều lối thoát hơn những gì bạn đang cho phép mình thấy.",
+    "meaningReversed": "Khi ngược, bạn đang bắt đầu nhận ra và tự giải thoát bản thân khỏi những giới hạn tự áp đặt, mở ra góc nhìn mới.",
+    "dailyMessageUpright": "Hôm nay nếu cảm thấy bế tắc, hãy tự hỏi liệu giới hạn đó có thực sự tồn tại hay chỉ do mình tự nghĩ ra.",
+    "dailyMessageReversed": "Hôm nay bạn đang dần thoát khỏi một giới hạn đã tự đặt ra cho chính mình.",
+    "yesNoUpright": "leaning_no",
+    "yesNoReversed": "leaning_yes",
+    "id": 58
+  },
+  {
+    "slug": "nine-of-swords",
+    "nameEn": "Nine of Swords",
+    "nameVi": "Cửu Kiếm",
+    "arcana": "minor",
+    "suit": "swords",
+    "number": 9,
+    "keywordsUpright": [
+      "lo âu",
+      "suy nghĩ quá mức",
+      "mất ngủ vì lo lắng"
+    ],
+    "keywordsReversed": [
+      "giải tỏa lo âu",
+      "tìm kiếm sự giúp đỡ",
+      "hy vọng trở lại"
+    ],
+    "meaningUpright": "Nine of Swords phản ánh trạng thái lo âu, suy nghĩ quá mức về những điều tồi tệ có thể xảy ra. Phần lớn nỗi sợ này thường lớn hơn thực tế — cần tách bạch giữa lo lắng và sự thật.",
+    "meaningReversed": "Khi ngược, đây là dấu hiệu bắt đầu giải tỏa lo âu, có thể thông qua việc tìm kiếm sự giúp đỡ hoặc chia sẻ với người khác.",
+    "dailyMessageUpright": "Hôm nay nếu lo lắng quá nhiều, hãy tự hỏi điều đó có thực sự dựa trên sự thật hay chỉ là suy diễn.",
+    "dailyMessageReversed": "Hôm nay là lúc thích hợp để chia sẻ nỗi lo với người bạn tin tưởng.",
+    "yesNoUpright": "no",
+    "yesNoReversed": "leaning_yes",
+    "id": 59
+  },
+  {
+    "slug": "ten-of-swords",
+    "nameEn": "Ten of Swords",
+    "nameVi": "Thập Kiếm",
+    "arcana": "minor",
+    "suit": "swords",
+    "number": 10,
+    "keywordsUpright": [
+      "kết thúc đau đớn",
+      "chạm đáy",
+      "phản bội"
+    ],
+    "keywordsReversed": [
+      "hồi phục",
+      "chống lại việc kết thúc",
+      "điều tất yếu"
+    ],
+    "meaningUpright": "Ten of Swords là lá bài của một kết thúc đau đớn, đôi khi cảm giác như chạm đáy. Dù khó khăn, đây thường là điểm thấp nhất trước khi mọi thứ bắt đầu tốt lên — không còn gì để mất thêm nữa.",
+    "meaningReversed": "Khi ngược, bạn đang trong quá trình hồi phục sau tổn thương, hoặc đang cố chống lại một kết thúc đã trở nên tất yếu.",
+    "dailyMessageUpright": "Hôm nay dù khó khăn đến đâu, hãy nhớ rằng đây có thể là điểm thấp nhất trước khi mọi thứ tốt lên.",
+    "dailyMessageReversed": "Hôm nay là bước đầu của quá trình hồi phục — hãy kiên nhẫn với chính mình.",
+    "yesNoUpright": "no",
+    "yesNoReversed": "leaning_no",
+    "id": 60
+  },
+  {
+    "slug": "page-of-swords",
+    "nameEn": "Page of Swords",
+    "nameVi": "Thị Đồng Kiếm",
+    "arcana": "minor",
+    "suit": "swords",
+    "number": 11,
+    "keywordsUpright": [
+      "ham học hỏi",
+      "giao tiếp",
+      "năng lượng tinh thần"
+    ],
+    "keywordsReversed": [
+      "tin đồn",
+      "nói nhiều hơn làm",
+      "hấp tấp"
+    ],
+    "meaningUpright": "Page of Swords mang năng lượng ham học hỏi, thích giao tiếp và trao đổi ý tưởng. Đây là lúc thích hợp để đặt câu hỏi, tìm hiểu thông tin mới hoặc rèn luyện tư duy sắc bén.",
+    "meaningReversed": "Khi ngược, có thể xuất hiện tin đồn, nói nhiều hơn hành động thực tế, hoặc đưa ra quyết định hấp tấp thiếu suy nghĩ.",
+    "dailyMessageUpright": "Hôm nay phù hợp để tìm hiểu, đặt câu hỏi và trao đổi ý tưởng với người khác.",
+    "dailyMessageReversed": "Hôm nay nên cẩn trọng với lời đồn đoán chưa được kiểm chứng.",
+    "yesNoUpright": "leaning_yes",
+    "yesNoReversed": "uncertain",
+    "id": 61
+  },
+  {
+    "slug": "knight-of-swords",
+    "nameEn": "Knight of Swords",
+    "nameVi": "Kỵ Sĩ Kiếm",
+    "arcana": "minor",
+    "suit": "swords",
+    "number": 12,
+    "keywordsUpright": [
+      "hành động nhanh",
+      "quyết đoán",
+      "tham vọng"
+    ],
+    "keywordsReversed": [
+      "hấp tấp",
+      "thiếu định hướng",
+      "hành động thiếu suy nghĩ"
+    ],
+    "meaningUpright": "Knight of Swords mang năng lượng hành động nhanh, quyết đoán và đầy tham vọng. Bạn có xu hướng lao vào giải quyết vấn đề ngay lập tức, không ngại đối đầu trực diện.",
+    "meaningReversed": "Khi ngược, tốc độ này có thể trở thành hấp tấp, thiếu định hướng rõ ràng, dẫn đến hành động thiếu suy nghĩ kỹ.",
+    "dailyMessageUpright": "Hôm nay bạn có thể hành động nhanh và quyết đoán để giải quyết vấn đề.",
+    "dailyMessageReversed": "Hôm nay nên chậm lại một chút trước khi hành động, tránh hấp tấp.",
+    "yesNoUpright": "leaning_yes",
+    "yesNoReversed": "leaning_no",
+    "id": 62
+  },
+  {
+    "slug": "queen-of-swords",
+    "nameEn": "Queen of Swords",
+    "nameVi": "Hoàng Hậu Kiếm",
+    "arcana": "minor",
+    "suit": "swords",
+    "number": 13,
+    "keywordsUpright": [
+      "tư duy rõ ràng",
+      "độc lập",
+      "thẳng thắn"
+    ],
+    "keywordsReversed": [
+      "lạnh lùng",
+      "khắt khe quá mức",
+      "cay nghiệt"
+    ],
+    "meaningUpright": "Queen of Swords là hình mẫu của tư duy rõ ràng, độc lập và giao tiếp thẳng thắn. Bạn nhìn nhận vấn đề bằng lý trí sắc bén, không để cảm xúc chi phối các quyết định quan trọng.",
+    "meaningReversed": "Khi ngược, sự thẳng thắn có thể trở nên lạnh lùng hoặc cay nghiệt quá mức, khiến người khác cảm thấy bị tổn thương.",
+    "dailyMessageUpright": "Hôm nay hãy giao tiếp thẳng thắn nhưng vẫn giữ sự tôn trọng với người khác.",
+    "dailyMessageReversed": "Hôm nay nên chú ý cách diễn đạt, tránh để lời nói trở nên quá gay gắt.",
+    "yesNoUpright": "yes",
+    "yesNoReversed": "leaning_no",
+    "id": 63
+  },
+  {
+    "slug": "king-of-swords",
+    "nameEn": "King of Swords",
+    "nameVi": "Vua Kiếm",
+    "arcana": "minor",
+    "suit": "swords",
+    "number": 14,
+    "keywordsUpright": [
+      "quyền lực trí tuệ",
+      "công bằng",
+      "tư duy có cấu trúc"
+    ],
+    "keywordsReversed": [
+      "lạm quyền",
+      "thao túng",
+      "lạnh lùng vô cảm"
+    ],
+    "meaningUpright": "King of Swords tượng trưng cho quyền lực dựa trên trí tuệ, sự công bằng và tư duy có cấu trúc rõ ràng. Đây là năng lượng của người ra quyết định dựa trên logic và sự thật, không thiên vị.",
+    "meaningReversed": "Khi ngược, quyền lực này có thể bị lạm dụng, dẫn đến thao túng người khác hoặc thái độ lạnh lùng, vô cảm.",
+    "dailyMessageUpright": "Hôm nay phù hợp để đưa ra quyết định dựa trên lý trí và sự công bằng.",
+    "dailyMessageReversed": "Hôm nay nên tránh dùng quyền lực hoặc vị thế để áp đặt lên người khác.",
+    "yesNoUpright": "yes",
+    "yesNoReversed": "leaning_no",
+    "id": 64
+  },
+  {
+    "id": 65,
     "slug": "ten-of-pentacles",
     "nameEn": "Ten of Pentacles",
     "nameVi": "Thập Bảo",

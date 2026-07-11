@@ -4,6 +4,7 @@ import { Compass } from 'lucide-react';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import AdSlot from '../../components/AdSlot';
+import MenhPhongThuyLinks from '../../components/MenhPhongThuyLinks';
 import { getCungMenh, getHuongNha } from '../../lib/huongNha';
 
 const SLUG_RE = /^(nam|nu)-(\d{4})$/;
@@ -77,13 +78,7 @@ export default function HuongNhaResult({ gender, year, cungMenh, huong }) {
 
         <AdSlot label="Ad slot — hướng nhà hợp tuổi" className="mb-6" />
 
-        <div>
-          <p className="text-sm text-moon mb-3">Xem thêm:</p>
-          <div className="flex flex-wrap gap-2">
-            <Link href={`/${year}-menh-gi`} className="px-3 py-1.5 rounded-full border border-ink-line text-sm text-moon hover:border-gold/40 hover:text-gold-soft transition-colors">Xem mệnh Ngũ hành</Link>
-            <Link href="/mau-sac-hop-menh" className="px-3 py-1.5 rounded-full border border-ink-line text-sm text-moon hover:border-gold/40 hover:text-gold-soft transition-colors">Màu hợp mệnh</Link>
-          </div>
-        </div>
+        <MenhPhongThuyLinks year={year} exclude="huong" />
 
         <p className="text-xs text-moon/50 mt-8 text-center">
           Công thức tham khảo theo Bát Trạch Minh Cảnh — mang tính tham khảo, chiêm nghiệm dân gian, chưa qua kiểm duyệt chuyên gia.

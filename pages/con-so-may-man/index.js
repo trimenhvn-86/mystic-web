@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import Head from 'next/head';
+import Link from 'next/link';
 import { useRouter } from 'next/router';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
@@ -59,6 +60,15 @@ export default function ConSoMayMan() {
               ))}
             </div>
           </div>
+
+          <div className="mt-6">
+            <p className="text-sm text-moon mb-3 text-center">Công cụ liên quan:</p>
+            <div className="flex flex-wrap justify-center gap-2">
+              <Link href="/than-so-hoc" className="px-3 py-1.5 rounded-full border border-ink-line text-sm text-moon hover:border-gold/40 hover:text-gold-soft transition-colors">Tra cứu Thần số học đầy đủ</Link>
+              <Link href={`/than-so-hoc/so-chu-dao-${result.lifePath}`} className="px-3 py-1.5 rounded-full border border-ink-line text-sm text-moon hover:border-gold/40 hover:text-gold-soft transition-colors">Ý nghĩa Số {result.lifePath}</Link>
+            </div>
+          </div>
+
           <button onClick={() => setStep('form')} className="mt-6 text-sm text-moon hover:text-gold-soft underline block mx-auto">← Tra cứu lại</button>
         </main>
         <Footer />

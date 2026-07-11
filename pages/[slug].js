@@ -17,6 +17,7 @@ import daPhongThuyData from '../content/phong-thuy/da-phong-thuy.json';
 import MiniCalendar from '../components/MiniCalendar';
 import NumerologyQuickForm from '../components/NumerologyQuickForm';
 import TuoiHopLinks from '../components/TuoiHopLinks';
+import MenhPhongThuyLinks from '../components/MenhPhongThuyLinks';
 
 const HUB_ICONS = { CalendarDays, Hash, Layers, Users, Sun, CircleDot };
 const MENH_RE = /^(\d{4})-menh-gi$/;
@@ -369,6 +370,8 @@ export default function YearToolPage({ type, year, menh, tuoiHop, hub, dictionar
               </div>
             </div>
 
+            <MenhPhongThuyLinks year={year} exclude="menh" />
+
             <FaqSection faqs={FAQ_MENH} />
 
             <HubContentPreview dictionaryPreview={dictionaryPreview} guidePreview={guidePreview} />
@@ -452,11 +455,12 @@ export default function YearToolPage({ type, year, menh, tuoiHop, hub, dictionar
           <AdSlot label="Ad slot — màu hợp mệnh" className="mt-6" />
 
           <div className="mt-6">
-            <p className="text-sm text-moon mb-3">Xem thêm về mệnh {menh.hanh}:</p>
             <Link href={`/${year}-menh-gi`} className="px-3 py-1.5 rounded-full border border-ink-line text-sm text-moon hover:border-gold/40 hover:text-gold-soft transition-colors inline-block">
               Xem chi tiết mệnh, hướng hợp, nghề nghiệp →
             </Link>
           </div>
+
+          <MenhPhongThuyLinks year={year} exclude="mau" />
 
           <div className="mt-8">
             <HubContentPreview dictionaryPreview={dictionaryPreview} guidePreview={guidePreview} />
@@ -514,13 +518,7 @@ export default function YearToolPage({ type, year, menh, tuoiHop, hub, dictionar
 
           <AdSlot label="Ad slot — đá phong thủy" className="mt-6" />
 
-          <div className="mt-6">
-            <p className="text-sm text-moon mb-3">Xem thêm về mệnh {menh.hanh}:</p>
-            <div className="flex flex-wrap gap-2">
-              <Link href={`/${year}-menh-gi`} className="px-3 py-1.5 rounded-full border border-ink-line text-sm text-moon hover:border-gold/40 hover:text-gold-soft transition-colors">Xem chi tiết mệnh</Link>
-              <Link href={`/${year}-hop-mau-gi`} className="px-3 py-1.5 rounded-full border border-ink-line text-sm text-moon hover:border-gold/40 hover:text-gold-soft transition-colors">Màu hợp mệnh</Link>
-            </div>
-          </div>
+          <MenhPhongThuyLinks year={year} exclude="da" />
 
           <div className="mt-8">
             <HubContentPreview dictionaryPreview={dictionaryPreview} guidePreview={guidePreview} />

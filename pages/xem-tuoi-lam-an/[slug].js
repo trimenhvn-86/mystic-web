@@ -4,6 +4,7 @@ import { Briefcase } from 'lucide-react';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import AdSlot from '../../components/AdSlot';
+import TuoiHopLinks from '../../components/TuoiHopLinks';
 import { compareTuoi, getBusinessAdvice } from '../../lib/tuoiHop';
 
 const SLUG_RE = /^doi-tac-(\d{4})-va-(\d{4})$/;
@@ -83,9 +84,10 @@ export default function XemTuoiLamAnResult({ result, advice, yearA, yearB }) {
           <p className="text-sm text-moon mb-3">Xem thêm:</p>
           <div className="flex flex-wrap gap-2">
             <Link href="/xem-ngay-tot" className="px-3 py-1.5 rounded-full border border-ink-line text-sm text-moon hover:border-gold/40 hover:text-gold-soft transition-colors">Xem ngày khai trương tốt</Link>
-            <Link href="/xem-tuoi-ket-hon" className="px-3 py-1.5 rounded-full border border-ink-line text-sm text-moon hover:border-gold/40 hover:text-gold-soft transition-colors">Xem tuổi kết hôn</Link>
           </div>
         </div>
+
+        <TuoiHopLinks exclude="xem-tuoi-lam-an" />
 
         <p className="text-xs text-moon/50 mt-8 text-center">
           Nội dung mang tính tham khảo, chiêm nghiệm dân gian — không thay thế quyết định cá nhân.

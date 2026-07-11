@@ -4,6 +4,7 @@ import { HeartHandshake } from 'lucide-react';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import AdSlot from '../../components/AdSlot';
+import TuoiHopLinks from '../../components/TuoiHopLinks';
 import { compareTuoi } from '../../lib/tuoiHop';
 
 const SLUG_RE = /^nam-(\d{4})-va-nam-(\d{4})$/;
@@ -86,6 +87,8 @@ export default function SoSanhTuoiResult({ result }) {
             <Link href={`/${yearA}-hop-tuoi-nao`} className="px-3 py-1.5 rounded-full border border-ink-line text-sm text-moon hover:border-gold/40 hover:text-gold-soft transition-colors">Danh sách tuổi hợp {yearA}</Link>
           </div>
         </div>
+
+        <TuoiHopLinks exclude="so-sanh-tuoi" />
 
         <p className="text-xs text-moon/50 mt-6 text-center">
           Nội dung mang tính tham khảo, chiêm nghiệm dân gian — không thay thế quyết định cá nhân.

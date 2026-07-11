@@ -4,6 +4,7 @@ import { HeartHandshake } from 'lucide-react';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import AdSlot from '../../components/AdSlot';
+import TuoiHopLinks from '../../components/TuoiHopLinks';
 import { compareTuoi, getMarriageAdvice } from '../../lib/tuoiHop';
 
 const SLUG_RE = /^co-dau-(\d{4})-chu-re-(\d{4})$/;
@@ -83,9 +84,10 @@ export default function XemTuoiKetHonResult({ result, advice, yearBride, yearGro
           <p className="text-sm text-moon mb-3">Xem thêm:</p>
           <div className="flex flex-wrap gap-2">
             <Link href="/xem-ngay-tot" className="px-3 py-1.5 rounded-full border border-ink-line text-sm text-moon hover:border-gold/40 hover:text-gold-soft transition-colors">Xem ngày cưới tốt</Link>
-            <Link href="/xem-tuoi-lam-an" className="px-3 py-1.5 rounded-full border border-ink-line text-sm text-moon hover:border-gold/40 hover:text-gold-soft transition-colors">Xem tuổi làm ăn</Link>
           </div>
         </div>
+
+        <TuoiHopLinks exclude="xem-tuoi-ket-hon" />
 
         <p className="text-xs text-moon/50 mt-8 text-center">
           Nội dung mang tính tham khảo, chiêm nghiệm dân gian — không thay thế quyết định cá nhân.

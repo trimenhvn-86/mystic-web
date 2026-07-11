@@ -16,6 +16,7 @@ import napAmData from '../content/phong-thuy/menh/nap-am.json';
 import daPhongThuyData from '../content/phong-thuy/da-phong-thuy.json';
 import MiniCalendar from '../components/MiniCalendar';
 import NumerologyQuickForm from '../components/NumerologyQuickForm';
+import TuoiHopLinks from '../components/TuoiHopLinks';
 
 const HUB_ICONS = { CalendarDays, Hash, Layers, Users, Sun, CircleDot };
 const MENH_RE = /^(\d{4})-menh-gi$/;
@@ -572,12 +573,7 @@ export default function YearToolPage({ type, year, menh, tuoiHop, hub, dictionar
         </div>
         <AdSlot label="Ad slot — tuổi hợp" className="mt-6" />
 
-        <div className="mt-6">
-          <p className="text-sm text-moon mb-3">Muốn xem điểm cụ thể với 1 tuổi khác?</p>
-          <Link href="/so-sanh-tuoi" className="px-3 py-1.5 rounded-full border border-ink-line text-sm text-moon hover:border-gold/40 hover:text-gold-soft transition-colors inline-block">
-            So sánh tuổi hợp (tính điểm) →
-          </Link>
-        </div>
+        <TuoiHopLinks exclude="tuoi-hop" />
 
         <div className="mt-8">
           <FaqSection faqs={FAQ_TUOI_HOP} />

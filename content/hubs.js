@@ -18,7 +18,8 @@ const HUBS = [
       { href: '/ngay-hoang-dao', label: 'Ngày Hoàng đạo', active: true },
       { href: '/ngay-hac-dao', label: 'Ngày Hắc đạo', active: true },
       { href: '/can-chi', label: 'Can Chi', active: true },
-      { href: '/tiet-khi', label: 'Tiết khí', active: true }
+      { href: '/tiet-khi', label: 'Tiết khí', active: true },
+      { href: '/xem-ngay', label: 'Xem ngày theo việc cụ thể', active: true }
     ]
   },
   {
@@ -56,7 +57,10 @@ const HUBS = [
       { href: '/tuoi-hop', label: 'Tra cứu tuổi', active: true },
       { href: '/so-sanh-tuoi', label: 'So sánh tuổi 2 người', active: true },
       { href: '/xem-tuoi-ket-hon', label: 'Xem tuổi kết hôn', active: true },
-      { href: '/xem-tuoi-lam-an', label: 'Xem tuổi làm ăn', active: true }
+      { href: '/xem-tuoi-lam-an', label: 'Xem tuổi làm ăn', active: true },
+      { href: '/tam-hop', label: 'Tam hợp là gì', active: true },
+      { href: '/luc-hop', label: 'Lục hợp là gì', active: true },
+      { href: '/tu-hanh-xung', label: 'Tứ hành xung là gì', active: true }
     ]
   },
   {
@@ -81,6 +85,7 @@ const HUBS = [
       { href: '/tarot-hom-nay', label: 'Tarot hôm nay', active: true },
       { href: '/rut-la-tarot', label: 'Rút 1 lá', active: true },
       { href: '/tarot-yes-no', label: 'Yes / No', active: true },
+      { href: '/trai-bai-3-la', label: 'Trải bài 3 lá', active: true },
       { href: '/tarot/bo-bai', label: 'Bộ bài 78 lá', active: true }
     ]
   }

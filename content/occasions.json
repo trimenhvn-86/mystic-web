@@ -1,0 +1,12 @@
+[
+  { "slug": "khai-truong", "label": "Khai trương", "tip": "Nên chọn ngày Hoàng đạo, giờ đẹp phù hợp, tránh các ngày Tam Nương, Nguyệt Kỵ nếu có thể sắp xếp." },
+  { "slug": "cuoi-hoi", "label": "Cưới hỏi", "tip": "Nên đối chiếu thêm tuổi cô dâu chú rể (Tam hợp - Tứ hành xung) bên cạnh việc chọn ngày Hoàng đạo." },
+  { "slug": "dong-tho", "label": "Động thổ", "tip": "Nên chọn ngày Hoàng đạo, tránh động thổ vào ngày Hắc đạo hoặc ngày xung với tuổi gia chủ." },
+  { "slug": "mo-cua-hang", "label": "Mở cửa hàng", "tip": "Tương tự khai trương — ưu tiên ngày Hoàng đạo và giờ đẹp đầu ngày để thuận lợi buôn bán." },
+  { "slug": "xuat-hanh", "label": "Xuất hành", "tip": "Nên chọn giờ Hoàng đạo trong ngày, đối chiếu thêm mục Khổng Minh, Lục Nhâm để chọn hướng đi tốt." },
+  { "slug": "ky-hop-dong", "label": "Ký hợp đồng", "tip": "Ưu tiên ngày Hoàng đạo, nên ký vào khung giờ Hoàng đạo đầu tiên trong ngày nếu có thể." },
+  { "slug": "nhap-trach", "label": "Nhập trạch (về nhà mới)", "tip": "Nên chọn ngày Hoàng đạo hợp tuổi gia chủ, tránh chuyển vào nhà mới trong ngày Hắc đạo." },
+  { "slug": "cat-toc", "label": "Cắt tóc", "tip": "Việc nhỏ, có thể linh hoạt hơn, nhưng nếu cần chọn kỹ thì vẫn nên ưu tiên ngày Hoàng đạo." },
+  { "slug": "mua-xe", "label": "Mua xe", "tip": "Nên chọn ngày Hoàng đạo, giờ đẹp để nhận xe hoặc ký hợp đồng mua xe." },
+  { "slug": "chuyen-nha", "label": "Chuyển nhà", "tip": "Nên chọn ngày Hoàng đạo hợp tuổi, tránh chuyển nhà vào ngày Hắc đạo hoặc giờ xấu." }
+]

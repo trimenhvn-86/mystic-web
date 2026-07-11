@@ -1,0 +1,26 @@
+[
+  {
+    "slug": "tong-quat",
+    "label": "Trải Bài 3 Lá — Tổng Quát",
+    "desc": "Nhìn tổng quan về tình huống hiện tại của bạn qua 3 mốc thời gian.",
+    "positions": ["Quá Khứ", "Hiện Tại", "Tương Lai"]
+  },
+  {
+    "slug": "tinh-yeu",
+    "label": "Trải Bài Tình Yêu",
+    "desc": "Khám phá góc nhìn về mối quan hệ tình cảm hiện tại của bạn.",
+    "positions": ["Bạn", "Đối Phương", "Mối Quan Hệ"]
+  },
+  {
+    "slug": "cong-viec",
+    "label": "Trải Bài Công Việc",
+    "desc": "Nhìn nhận tình hình công việc, thách thức và lời khuyên phù hợp.",
+    "positions": ["Hiện Trạng", "Thách Thức", "Lời Khuyên"]
+  },
+  {
+    "slug": "tai-chinh",
+    "label": "Trải Bài Tài Chính",
+    "desc": "Đánh giá tình hình tài chính hiện tại và hướng đi phù hợp.",
+    "positions": ["Hiện Trạng", "Cơ Hội", "Lời Khuyên"]
+  }
+]

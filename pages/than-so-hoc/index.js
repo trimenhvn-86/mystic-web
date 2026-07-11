@@ -20,6 +20,7 @@ import {
   calcPersonalMonthNumber,
   calcPersonalDayNumber,
   getMissingNumbers,
+  getPowerArrows,
   getCompatibleNumbers
 } from '../../lib/numerology';
 
@@ -59,7 +60,8 @@ export default function ThanSoHoc({ dictionaryPreview, guidePreview }) {
       const personalDay = calcPersonalDayNumber(personalMonth, today.getDate());
       const missing = getMissingNumbers(dd, mm, yyyy);
       const compatible = getCompatibleNumbers(lifePath);
-      setResult({ dd, mm, yyyy, lifePath, destiny, soul, personality, maturity, personalYear, personalMonth, personalDay, missing, compatible });
+      const arrows = getPowerArrows(dd, mm, yyyy);
+      setResult({ dd, mm, yyyy, lifePath, destiny, soul, personality, maturity, personalYear, personalMonth, personalDay, missing, compatible, arrows });
       setStep('result');
     }, 2200);
   }
@@ -107,6 +109,17 @@ export default function ThanSoHoc({ dictionaryPreview, guidePreview }) {
               <p className="text-sm text-moon text-center mt-4">
                 Số còn thiếu: <strong className="text-vermilion">{result.missing.join(', ')}</strong>
               </p>
+            )}
+            {result.arrows.length > 0 && (
+              <div className="mt-6 space-y-3">
+                <p className="text-xs text-moon uppercase text-center">Mũi tên sức mạnh</p>
+                {result.arrows.map((a) => (
+                  <div key={a.ten} className="bg-ink-soft rounded-lg px-4 py-3 border border-gold/20">
+                    <p className="text-gold-soft font-display">{a.ten}</p>
+                    <p className="text-sm text-parchment/80">{a.mota}</p>
+                  </div>
+                ))}
+              </div>
             )}
           </div>
         )

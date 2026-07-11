@@ -45,10 +45,15 @@ const staticUrls = [
   '/tarot-hom-nay',
   '/rut-la-tarot',
   '/tarot-yes-no',
+  '/trai-bai-3-la',
   '/tarot/bo-bai',
   '/huong-nha-hop-tuoi',
   '/tuoi-hop',
   '/so-sanh-tuoi',
+  '/tam-hop',
+  '/luc-hop',
+  '/tu-hanh-xung',
+  '/xem-ngay',
   '/xem-tuoi-ket-hon',
   '/xem-tuoi-lam-an',
   ...HUBS.map((h) => `/${h.slug}`),
@@ -56,7 +61,9 @@ const staticUrls = [
   ...Object.values(CHI_SLUG).map((slug) => `/tu-vi-hom-nay/${slug}`),
   ...Object.values(CHI_SLUG).map((slug) => `/tu-vi-tuan/${slug}`),
   ...Object.values(CHI_SLUG).map((slug) => `/tu-vi-thang/${slug}`),
-  ...require('../content/tarot-cards.json').map((c) => `/tarot/${c.slug}`)
+  ...require('../content/tarot-cards.json').map((c) => `/tarot/${c.slug}`),
+  ...require('../content/occasions.json').map((o) => `/xem-ngay/${o.slug}`),
+  ...require('../content/tarot-spreads.json').map((s) => `/trai-bai-3-la/${s.slug}`)
 ];
 
 // Cac tool theo ngay - sinh cho 60 ngay toi (ISR fallback:'blocking' se tu render neu Google

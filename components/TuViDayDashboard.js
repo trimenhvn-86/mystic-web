@@ -164,6 +164,8 @@ export default function TuViDayDashboard({ dashboard, dateStr, prevSlug, nextSlu
           <Link href="/doi-lich-am-duong" className="px-3 py-1.5 rounded-full border border-ink-line text-sm text-moon hover:border-gold/40 hover:text-gold-soft transition-colors">Đổi lịch âm</Link>
           <Link href="/can-chi" className="px-3 py-1.5 rounded-full border border-ink-line text-sm text-moon hover:border-gold/40 hover:text-gold-soft transition-colors">Can Chi</Link>
           <Link href="/ngay-hoang-dao" className="px-3 py-1.5 rounded-full border border-ink-line text-sm text-moon hover:border-gold/40 hover:text-gold-soft transition-colors">Ngày Hoàng đạo</Link>
+          <Link href="/tu-vi-tuan" className="px-3 py-1.5 rounded-full border border-ink-line text-sm text-moon hover:border-gold/40 hover:text-gold-soft transition-colors">Tử vi tuần</Link>
+          <Link href="/tu-vi-thang" className="px-3 py-1.5 rounded-full border border-ink-line text-sm text-moon hover:border-gold/40 hover:text-gold-soft transition-colors">Tử vi tháng</Link>
         </div>
       </div>
 

@@ -7,7 +7,8 @@ import AdSlot from '../../components/AdSlot';
 import TuViWeekDashboard from '../../components/TuViWeekDashboard';
 import { buildWeekDashboard } from '../../lib/tuViDashboard';
 import { getTuViTuan } from '../../lib/tuViHomNay';
-import { SLUG_TO_CHI } from '../../lib/chiSlug';
+import { SLUG_TO_CHI, CHI_SLUG } from '../../lib/chiSlug';
+import ConGiapLinks from '../../components/ConGiapLinks';
 import { getHubContentPreview } from '../../lib/sanity';
 
 const WEEK_RE = /^tuan-(\d{1,2})-nam-(\d{4})$/;
@@ -97,6 +98,7 @@ export default function TuViTuanSlug(props) {
           </div>
         </div>
         <AdSlot label="Ad slot — tử vi tuần" className="mt-6" />
+        <ConGiapLinks basePath="/tu-vi-tuan" exclude={CHI_SLUG[data.conGiap]} />
         <Link href="/tu-vi-tuan" className="block text-center text-sm text-moon hover:text-gold-soft mt-6">← Xem đầy đủ Tử vi tuần này</Link>
       </main>
       <Footer />

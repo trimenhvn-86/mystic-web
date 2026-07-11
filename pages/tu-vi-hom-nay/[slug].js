@@ -8,8 +8,9 @@ import TuViDayDashboard from '../../components/TuViDayDashboard';
 import { buildDayDashboard } from '../../lib/tuViDashboard';
 import { getTuViHomNay } from '../../lib/tuViHomNay';
 import { jdFromDate, jdToDate } from '../../lib/lunar';
-import { SLUG_TO_CHI } from '../../lib/chiSlug';
+import { SLUG_TO_CHI, CHI_SLUG } from '../../lib/chiSlug';
 import { getHubContentPreview } from '../../lib/sanity';
+import ConGiapLinks from '../../components/ConGiapLinks';
 
 const DATE_RE = /^ngay-(\d{1,2})-thang-(\d{1,2})-nam-(\d{4})$/;
 
@@ -116,6 +117,7 @@ export default function TuViHomNaySlug(props) {
           </div>
         </div>
         <AdSlot label="Ad slot — tử vi hôm nay" className="mt-6" />
+        <ConGiapLinks basePath="/tu-vi-hom-nay" exclude={CHI_SLUG[data.conGiap]} />
         <Link href="/tu-vi-hom-nay" className="block text-center text-sm text-moon hover:text-gold-soft mt-6">← Xem đầy đủ Tử vi hôm nay</Link>
       </main>
       <Footer />

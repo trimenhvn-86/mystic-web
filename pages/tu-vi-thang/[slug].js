@@ -7,7 +7,8 @@ import AdSlot from '../../components/AdSlot';
 import TuViMonthDashboard from '../../components/TuViMonthDashboard';
 import { buildMonthDashboard } from '../../lib/tuViDashboard';
 import { getTuViThang } from '../../lib/tuViHomNay';
-import { SLUG_TO_CHI } from '../../lib/chiSlug';
+import { SLUG_TO_CHI, CHI_SLUG } from '../../lib/chiSlug';
+import ConGiapLinks from '../../components/ConGiapLinks';
 import { getHubContentPreview } from '../../lib/sanity';
 
 const MONTH_RE = /^thang-(\d{1,2})-nam-(\d{4})$/;
@@ -94,6 +95,7 @@ export default function TuViThangSlug(props) {
           </div>
         </div>
         <AdSlot label="Ad slot — tử vi tháng" className="mt-6" />
+        <ConGiapLinks basePath="/tu-vi-thang" exclude={CHI_SLUG[data.conGiap]} />
         <Link href="/tu-vi-thang" className="block text-center text-sm text-moon hover:text-gold-soft mt-6">← Xem đầy đủ Tử vi tháng này</Link>
       </main>
       <Footer />

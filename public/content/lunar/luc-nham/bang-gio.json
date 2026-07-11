@@ -1,0 +1,12 @@
+{
+  "_note": "Số hóa từ tài liệu 'Lục Nhân Tướng Pháp - Cách tính giờ tốt xấu của Lý Thuần Phong'. Cần kiểm duyệt lại với chuyên gia trước khi công bố chính thức.",
+  "gio": [
+    null,
+    { "ten": "Đại An", "tot": true, "huong": "Tây Nam", "text": "Mọi việc đều tốt lành. Cầu tài đi hướng Tây Nam. Nhà cửa yên lành, người xuất hành đều bình yên." },
+    { "ten": "Tốc Hỷ", "tot": true, "huong": "Nam", "text": "Vui sắp tới, cầu tài đi hướng Nam. Đi gặp việc quan may mắn. Chăn nuôi thuận, người đi có tin về." },
+    { "ten": "Lưu Niên", "tot": false, "huong": "Nam", "text": "Nghiệp khó thành, cầu tài mờ mịt, kiện cáo nên hoãn lại. Người đi chưa có tin về. Mất của đi hướng Nam tìm nhanh mới tới. Nên đề phòng cãi cọ, việc làm chậm vẫn làm nhưng làm điều gì chắc điều đó." },
+    { "ten": "Xích Khẩu", "tot": false, "huong": null, "text": "Hay cãi cọ, không nên xuất hành, tránh lây bệnh." },
+    { "ten": "Tiểu Cát", "tot": true, "huong": null, "text": "Rất tốt lành. Đi thường gặp may mắn. Buôn bán có lời. Phụ nữ có tin mừng. Người đi sắp về nhà. Mọi việc đều hoà hợp. Có bệnh cầu sẽ khỏi." },
+    { "ten": "Tuyệt Lộ", "tot": false, "huong": null, "text": "Cầu tài không có lợi, hay bị trái ý, ra đi gặp nạn, gặp nhau phải đòn." }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "_note": "Bảng giờ Hoàng Đạo theo nhóm Chi ngày — kiến thức truyền thống phổ biến (Lục Giáp Thời), cần kiểm duyệt lại trước production.",
+  "nhomNgay": [
+    { "chiNgay": ["Tý", "Ngọ"], "gioHoangDao": ["Tý", "Sửu", "Mão", "Ngọ", "Thân", "Dậu"] },
+    { "chiNgay": ["Sửu", "Mùi"], "gioHoangDao": ["Dần", "Mão", "Tỵ", "Thân", "Tuất", "Hợi"] },
+    { "chiNgay": ["Dần", "Thân"], "gioHoangDao": ["Tý", "Sửu", "Thìn", "Ngọ", "Mùi", "Tuất"] },
+    { "chiNgay": ["Mão", "Dậu"], "gioHoangDao": ["Tý", "Dần", "Mão", "Ngọ", "Mùi", "Dậu"] },
+    { "chiNgay": ["Thìn", "Tuất"], "gioHoangDao": ["Dần", "Thìn", "Tỵ", "Thân", "Dậu", "Hợi"] },
+    { "chiNgay": ["Tỵ", "Hợi"], "gioHoangDao": ["Sửu", "Thìn", "Ngọ", "Mùi", "Tuất", "Hợi"] }
+  ],
+  "khungGio": {
+    "Tý": "23h-1h", "Sửu": "1h-3h", "Dần": "3h-5h", "Mão": "5h-7h",
+    "Thìn": "7h-9h", "Tỵ": "9h-11h", "Ngọ": "11h-13h", "Mùi": "13h-15h",
+    "Thân": "15h-17h", "Dậu": "17h-19h", "Tuất": "19h-21h", "Hợi": "21h-23h"
+  }
+}

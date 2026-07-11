@@ -1,0 +1,28 @@
+{
+  "_note": "Đá phong thủy theo Ngũ hành - kiến thức phong thủy truyền thống phổ biến, mang tính tham khảo văn hóa, không phải công dụng y học. Cần kiểm duyệt lại với chuyên gia trước khi công bố chính thức.",
+  "Kim": {
+    "daHop": ["Thạch anh trắng", "Đá Mặt Trăng", "Ngọc trai", "Kim cương"],
+    "moTa": "Người mệnh Kim hợp với các loại đá màu trắng, bạc, ánh kim — tượng trưng cho sự sắc bén, quyết đoán và minh mẫn.",
+    "congDung": "Hỗ trợ sự tập trung, tăng cường quyết đoán trong công việc và giữ tâm trí sáng suốt."
+  },
+  "Mộc": {
+    "daHop": ["Ngọc bích (Jade)", "Thạch anh xanh lá", "Malachite", "Aventurine xanh"],
+    "moTa": "Người mệnh Mộc hợp với các loại đá xanh lá — tượng trưng cho sự sinh trưởng, phát triển và sức sống.",
+    "congDung": "Hỗ trợ tinh thần phát triển, thúc đẩy sự sáng tạo và cảm giác cân bằng trong cuộc sống."
+  },
+  "Thủy": {
+    "daHop": ["Obsidian đen", "Sapphire xanh", "Lapis Lazuli", "Thạch anh đen"],
+    "moTa": "Người mệnh Thủy hợp với các loại đá đen, xanh dương đậm — tượng trưng cho sự linh hoạt, trí tuệ và chiều sâu nội tâm.",
+    "congDung": "Hỗ trợ sự bình tĩnh, tăng cường trực giác và khả năng thích ứng."
+  },
+  "Hỏa": {
+    "daHop": ["Ruby", "Garnet đỏ", "Mã não đỏ cam (Carnelian)"],
+    "moTa": "Người mệnh Hỏa hợp với các loại đá đỏ, cam — tượng trưng cho nhiệt huyết, năng lượng và sự tự tin.",
+    "congDung": "Hỗ trợ sự tự tin, khơi dậy nhiệt huyết và tinh thần chủ động."
+  },
+  "Thổ": {
+    "daHop": ["Citrine (vàng)", "Mắt Hổ (Tiger's Eye)", "Thạch anh vàng"],
+    "moTa": "Người mệnh Thổ hợp với các loại đá vàng, nâu đất — tượng trưng cho sự ổn định, bền vững và tích lũy.",
+    "congDung": "Hỗ trợ sự ổn định tinh thần, tăng cường cảm giác an toàn và tập trung vào mục tiêu dài hạn."
+  }
+}

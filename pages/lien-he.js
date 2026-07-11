@@ -68,7 +68,7 @@ export default function LienHe() {
           </div>
         ) : (
           <form onSubmit={handleSubmit} className="mystic-card p-6 flex flex-col gap-4">
-            <label className="flex flex-col gap-1 text-xs text-moon">
+            <label className="flex flex-col gap-1 text-xs text-moon min-w-0">
               Họ tên
               <input
                 type="text" required value={form.name}
@@ -76,7 +76,7 @@ export default function LienHe() {
                 className="bg-ink-soft border border-ink-line rounded-lg px-3 py-3 text-parchment text-base"
               />
             </label>
-            <label className="flex flex-col gap-1 text-xs text-moon">
+            <label className="flex flex-col gap-1 text-xs text-moon min-w-0">
               Email
               <input
                 type="email" required value={form.email}
@@ -84,7 +84,7 @@ export default function LienHe() {
                 className="bg-ink-soft border border-ink-line rounded-lg px-3 py-3 text-parchment text-base"
               />
             </label>
-            <label className="flex flex-col gap-1 text-xs text-moon">
+            <label className="flex flex-col gap-1 text-xs text-moon min-w-0">
               Chủ đề
               <input
                 type="text" value={form.subject}
@@ -93,7 +93,7 @@ export default function LienHe() {
                 className="bg-ink-soft border border-ink-line rounded-lg px-3 py-3 text-parchment text-base"
               />
             </label>
-            <label className="flex flex-col gap-1 text-xs text-moon">
+            <label className="flex flex-col gap-1 text-xs text-moon min-w-0">
               Nội dung
               <textarea
                 required rows={5} value={form.message}

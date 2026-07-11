@@ -197,7 +197,7 @@ export default function ThanSoHoc({ dictionaryPreview, guidePreview }) {
         <h1 className="font-display text-2xl sm:text-3xl text-parchment mb-2 text-center">Lập Biểu Đồ Thần Số Học</h1>
         <p className="text-moon/70 text-sm text-center mb-8">Khám phá bản thân qua ngày sinh và họ tên</p>
         <form onSubmit={handleSubmit} className="mystic-card p-6 flex flex-col gap-4">
-          <label className="flex flex-col gap-1 text-xs text-moon">
+          <label className="flex flex-col gap-1 text-xs text-moon min-w-0">
             Họ và tên (không dấu hoặc có dấu đều được)
             <input
               type="text" required
@@ -208,19 +208,19 @@ export default function ThanSoHoc({ dictionaryPreview, guidePreview }) {
             />
           </label>
           <div className="grid grid-cols-3 gap-3">
-            <label className="flex flex-col gap-1 text-xs text-moon">
+            <label className="flex flex-col gap-1 text-xs text-moon min-w-0">
               Ngày
               <input type="number" min="1" max="31" required value={form.dd}
                 onChange={(e) => setForm({ ...form, dd: e.target.value })}
                 className="bg-ink-soft border border-ink-line rounded-lg px-3 py-3 text-parchment text-base" />
             </label>
-            <label className="flex flex-col gap-1 text-xs text-moon">
+            <label className="flex flex-col gap-1 text-xs text-moon min-w-0">
               Tháng
               <input type="number" min="1" max="12" required value={form.mm}
                 onChange={(e) => setForm({ ...form, mm: e.target.value })}
                 className="bg-ink-soft border border-ink-line rounded-lg px-3 py-3 text-parchment text-base" />
             </label>
-            <label className="flex flex-col gap-1 text-xs text-moon">
+            <label className="flex flex-col gap-1 text-xs text-moon min-w-0">
               Năm
               <input type="number" min="1900" max="2100" required value={form.yyyy}
                 onChange={(e) => setForm({ ...form, yyyy: e.target.value })}

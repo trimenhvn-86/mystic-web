@@ -76,7 +76,7 @@ export default function HuongNhaForm({ dictionaryPreview, guidePreview }) {
               Nữ
             </button>
           </div>
-          <label className="flex flex-col gap-1 text-xs text-moon">
+          <label className="flex flex-col gap-1 text-xs text-moon min-w-0">
             Năm sinh
             <input
               type="number" min="1900" max="2100" required

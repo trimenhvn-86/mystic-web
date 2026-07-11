@@ -61,7 +61,7 @@ export default function TarotYesNo({ dictionaryPreview, guidePreview }) {
 
         {!flipped && (
           <div className="mystic-card p-5 mb-6">
-            <label className="flex flex-col gap-1 text-xs text-moon">
+            <label className="flex flex-col gap-1 text-xs text-moon min-w-0">
               Câu hỏi của bạn (không bắt buộc)
               <input
                 type="text"

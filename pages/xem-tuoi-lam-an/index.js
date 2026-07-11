@@ -52,13 +52,13 @@ export default function XemTuoiLamAnForm({ dictionaryPreview, guidePreview }) {
         <p className="text-moon/70 text-sm text-center mb-8">Nhập năm sinh 2 người để xem mức độ hợp tác kinh doanh</p>
         <form onSubmit={handleSubmit} className="mystic-card p-6 flex flex-col gap-4">
           <div className="grid grid-cols-2 gap-3">
-            <label className="flex flex-col gap-1 text-xs text-moon">
+            <label className="flex flex-col gap-1 text-xs text-moon min-w-0">
               Năm sinh Đối tác 1
               <input type="number" min="1900" max="2100" required value={yearA}
                 onChange={(e) => setYearA(e.target.value)}
                 className="bg-ink-soft border border-ink-line rounded-lg px-3 py-3 text-parchment text-base" />
             </label>
-            <label className="flex flex-col gap-1 text-xs text-moon">
+            <label className="flex flex-col gap-1 text-xs text-moon min-w-0">
               Năm sinh Đối tác 2
               <input type="number" min="1900" max="2100" required value={yearB}
                 onChange={(e) => setYearB(e.target.value)}

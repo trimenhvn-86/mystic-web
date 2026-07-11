@@ -46,7 +46,7 @@ export default function MauSacHopMenhForm({ dictionaryPreview, guidePreview }) {
         <h1 className="font-display text-2xl sm:text-3xl text-parchment mb-2 text-center">Màu Sắc Hợp Mệnh</h1>
         <p className="text-moon/70 text-sm text-center mb-8">Nhập năm sinh Dương lịch để xem màu hợp và màu nên tránh.</p>
         <form onSubmit={handleSubmit} className="mystic-card p-6 flex flex-col gap-4">
-          <label className="flex flex-col gap-1 text-xs text-moon">
+          <label className="flex flex-col gap-1 text-xs text-moon min-w-0">
             Năm sinh
             <input
               type="number" min="1900" max="2100" required

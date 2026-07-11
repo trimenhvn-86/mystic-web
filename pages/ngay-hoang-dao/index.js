@@ -59,17 +59,17 @@ export default function NgayHoangDaoForm({ dictionaryPreview, guidePreview }) {
         <p className="text-moon/70 text-sm text-center mb-8">Tra cứu ngày Hoàng đạo theo ngày, tháng, năm.</p>
         <form onSubmit={handleSubmit} className="mystic-card p-6 flex flex-col gap-4">
           <div className="grid grid-cols-3 gap-3">
-            <label className="flex flex-col gap-1 text-xs text-moon">Ngày
+            <label className="flex flex-col gap-1 text-xs text-moon min-w-0">Ngày
               <input type="number" min="1" max="31" required value={date.dd}
                 onChange={(e) => setDate({ ...date, dd: e.target.value })}
                 className="bg-ink-soft border border-ink-line rounded-lg px-3 py-3 text-parchment text-base" />
             </label>
-            <label className="flex flex-col gap-1 text-xs text-moon">Tháng
+            <label className="flex flex-col gap-1 text-xs text-moon min-w-0">Tháng
               <input type="number" min="1" max="12" required value={date.mm}
                 onChange={(e) => setDate({ ...date, mm: e.target.value })}
                 className="bg-ink-soft border border-ink-line rounded-lg px-3 py-3 text-parchment text-base" />
             </label>
-            <label className="flex flex-col gap-1 text-xs text-moon">Năm
+            <label className="flex flex-col gap-1 text-xs text-moon min-w-0">Năm
               <input type="number" min="1900" max="2100" required value={date.yyyy}
                 onChange={(e) => setDate({ ...date, yyyy: e.target.value })}
                 className="bg-ink-soft border border-ink-line rounded-lg px-3 py-3 text-parchment text-base" />

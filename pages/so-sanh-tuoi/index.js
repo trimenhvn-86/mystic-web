@@ -45,13 +45,13 @@ export default function SoSanhTuoiForm() {
         <p className="text-moon/70 text-sm text-center mb-8">Nhập 2 năm sinh để xem điểm tương hợp chi tiết</p>
         <form onSubmit={handleSubmit} className="mystic-card p-6 flex flex-col gap-4">
           <div className="grid grid-cols-2 gap-3">
-            <label className="flex flex-col gap-1 text-xs text-moon">
+            <label className="flex flex-col gap-1 text-xs text-moon min-w-0">
               Năm sinh (Tuổi A)
               <input type="number" min="1900" max="2100" required value={yearA}
                 onChange={(e) => setYearA(e.target.value)}
                 className="bg-ink-soft border border-ink-line rounded-lg px-3 py-3 text-parchment text-base" />
             </label>
-            <label className="flex flex-col gap-1 text-xs text-moon">
+            <label className="flex flex-col gap-1 text-xs text-moon min-w-0">
               Năm sinh (Tuổi B)
               <input type="number" min="1900" max="2100" required value={yearB}
                 onChange={(e) => setYearB(e.target.value)}

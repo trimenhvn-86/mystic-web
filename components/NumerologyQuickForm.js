@@ -17,17 +17,17 @@ export default function NumerologyQuickForm() {
     <div className="mystic-card p-6">
       <p className="text-sm text-moon mb-4">Nhập ngày sinh, sau đó chọn nội dung muốn tra cứu:</p>
       <div className="grid grid-cols-3 gap-3 mb-4">
-        <label className="flex flex-col gap-1 text-xs text-moon">
+        <label className="flex flex-col gap-1 text-xs text-moon min-w-0">
           Ngày
           <input type="number" min="1" max="31" value={dd} onChange={(e) => setDd(e.target.value)}
             className="bg-ink-soft border border-ink-line rounded-lg px-3 py-3 text-parchment text-base" />
         </label>
-        <label className="flex flex-col gap-1 text-xs text-moon">
+        <label className="flex flex-col gap-1 text-xs text-moon min-w-0">
           Tháng
           <input type="number" min="1" max="12" value={mm} onChange={(e) => setMm(e.target.value)}
             className="bg-ink-soft border border-ink-line rounded-lg px-3 py-3 text-parchment text-base" />
         </label>
-        <label className="flex flex-col gap-1 text-xs text-moon">
+        <label className="flex flex-col gap-1 text-xs text-moon min-w-0">
           Năm
           <input type="number" min="1900" max="2100" value={yyyy} onChange={(e) => setYyyy(e.target.value)}
             className="bg-ink-soft border border-ink-line rounded-lg px-3 py-3 text-parchment text-base" />

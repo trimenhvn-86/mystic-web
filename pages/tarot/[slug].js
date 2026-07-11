@@ -4,7 +4,9 @@ import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import AdSlot from '../../components/AdSlot';
 import TarotCardArt from '../../components/TarotCardArt';
-import { cards, getCardBySlug } from '../../lib/tarot';
+import { cards, getCardBySlug, getRelatedCards } from '../../lib/tarot';
+
+const SUIT_NAME = { wands: 'Gậy', cups: 'Cốc', swords: 'Kiếm', pentacles: 'Tiền' };
 
 export async function getStaticPaths() {
   return { paths: cards.map((c) => ({ params: { slug: c.slug } })), fallback: false };
@@ -13,11 +15,13 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params }) {
   const card = getCardBySlug(params.slug);
   if (!card) return { notFound: true };
-  return { props: { card } };
+  const related = getRelatedCards(card, 6);
+  return { props: { card, related } };
 }
 
-export default function TarotCardDetail({ card }) {
+export default function TarotCardDetail({ card, related }) {
   const title = `Ý Nghĩa Lá ${card.nameVi} (${card.nameEn}) Trong Tarot`;
+  const groupLabel = card.arcana === 'major' ? 'Ẩn Chính (Major Arcana)' : `Bộ ${SUIT_NAME[card.suit]}`;
   return (
     <>
       <Head>
@@ -26,6 +30,14 @@ export default function TarotCardDetail({ card }) {
       </Head>
       <Header />
       <main className="max-w-2xl mx-auto px-5 py-8 sm:py-12">
+        <div className="flex flex-wrap items-center gap-1.5 text-xs text-moon mb-6">
+          <Link href="/tarot" className="hover:text-gold-soft transition-colors">Tarot</Link>
+          <span>/</span>
+          <Link href="/tarot/bo-bai" className="hover:text-gold-soft transition-colors">Bộ bài 78 lá</Link>
+          <span>/</span>
+          <span className="text-parchment/70">{card.nameVi}</span>
+        </div>
+
         <h1 className="font-display text-2xl sm:text-3xl text-parchment mb-8 text-center">{title}</h1>
 
         <div className="flex justify-center mb-8">
@@ -62,6 +74,23 @@ export default function TarotCardDetail({ card }) {
         </div>
 
         <AdSlot label="Ad slot — chi tiết lá tarot" className="mb-6" />
+
+        <div className="mb-8">
+          <p className="text-sm text-moon mb-4">Các lá khác trong {groupLabel}:</p>
+          <div className="grid grid-cols-3 sm:grid-cols-6 gap-4">
+            {related.map((r) => (
+              <Link key={r.slug} href={`/tarot/${r.slug}`} className="flex flex-col items-center group">
+                <div className="scale-[0.5] origin-top -mb-12 group-hover:scale-[0.55] transition-transform">
+                  <TarotCardArt card={r} upright={true} size={140} />
+                </div>
+                <p className="text-xs text-center text-moon group-hover:text-gold-soft transition-colors">{r.nameVi}</p>
+              </Link>
+            ))}
+          </div>
+          <Link href="/tarot/bo-bai" className="block text-center text-sm text-gold-soft hover:underline mt-6">
+            Xem toàn bộ 78 lá →
+          </Link>
+        </div>
 
         <div className="flex flex-wrap justify-center gap-2">
           <Link href="/tarot-hom-nay" className="px-3 py-1.5 rounded-full border border-ink-line text-sm text-moon hover:border-gold/40 hover:text-gold-soft transition-colors">Tarot hôm nay</Link>

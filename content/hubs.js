@@ -80,7 +80,8 @@ const HUBS = [
     tools: [
       { href: '/tarot-hom-nay', label: 'Tarot hôm nay', active: true },
       { href: '/rut-la-tarot', label: 'Rút 1 lá', active: true },
-      { href: '/tarot-yes-no', label: 'Yes / No', active: true }
+      { href: '/tarot-yes-no', label: 'Yes / No', active: true },
+      { href: '/tarot/bo-bai', label: 'Bộ bài 78 lá', active: true }
     ]
   }
 ];

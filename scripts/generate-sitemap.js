@@ -45,6 +45,7 @@ const staticUrls = [
   '/tarot-hom-nay',
   '/rut-la-tarot',
   '/tarot-yes-no',
+  '/tarot/bo-bai',
   '/huong-nha-hop-tuoi',
   '/tuoi-hop',
   '/so-sanh-tuoi',

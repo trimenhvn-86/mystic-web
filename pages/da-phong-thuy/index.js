@@ -26,7 +26,7 @@ const FAQ = [
 
 export async function getStaticProps() {
   const preview = await getHubContentPreview('menh-phong-thuy');
-  return { props: preview, revalidate: 3600 };
+  return { props: preview, revalidate: 86400 };
 }
 
 export default function DaPhongThuyForm({ dictionaryPreview, guidePreview }) {

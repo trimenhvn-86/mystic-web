@@ -80,7 +80,7 @@ export async function getStaticProps({ params }) {
       prevDate: { dd: prevDd, mm: prevMm, yyyy: prevYyyy },
       nextDate: { dd: nextDd, mm: nextMm, yyyy: nextYyyy }
     },
-    revalidate: 86400
+    revalidate: 2592000
   };
 }
 

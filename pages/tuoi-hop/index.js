@@ -10,7 +10,7 @@ import { getHubContentPreview } from '../../lib/sanity';
 
 export async function getStaticProps() {
   const preview = await getHubContentPreview('tuoi-tuong-hop');
-  return { props: preview, revalidate: 3600 };
+  return { props: preview, revalidate: 86400 };
 }
 
 export default function TuoiHopForm({ dictionaryPreview, guidePreview }) {

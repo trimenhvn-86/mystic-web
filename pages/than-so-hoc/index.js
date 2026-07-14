@@ -29,7 +29,7 @@ const CORE_NUMBERS = [1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 22, 33];
 
 export async function getStaticProps() {
   const preview = await getHubContentPreview('than-so-hoc');
-  return { props: preview, revalidate: 3600 };
+  return { props: preview, revalidate: 86400 };
 }
 
 export default function ThanSoHoc({ dictionaryPreview, guidePreview }) {

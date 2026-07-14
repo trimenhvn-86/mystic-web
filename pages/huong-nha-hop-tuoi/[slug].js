@@ -22,7 +22,7 @@ export async function getStaticProps({ params }) {
 
   const cungMenh = getCungMenh(year, gender);
   const huong = getHuongNha(cungMenh);
-  return { props: { gender, year, cungMenh, huong }, revalidate: 604800 };
+  return { props: { gender, year, cungMenh, huong }, revalidate: 2592000 };
 }
 
 export default function HuongNhaResult({ gender, year, cungMenh, huong }) {

@@ -66,7 +66,7 @@ export async function getStaticProps({ params }) {
 
   const boundaries = findTietKhiBoundaries(dd, mm, yyyy);
 
-  return { props: { dd, mm, yyyy, ...boundaries }, revalidate: 86400 };
+  return { props: { dd, mm, yyyy, ...boundaries }, revalidate: 2592000 };
 }
 
 export default function TietKhiResult({ dd, mm, yyyy, current, startDate, next }) {

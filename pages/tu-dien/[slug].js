@@ -14,7 +14,7 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params }) {
   const term = await getDictionaryTermBySlug(params.slug);
   if (!term) return { notFound: true };
-  return { props: { term }, revalidate: 3600 };
+  return { props: { term }, revalidate: 86400 };
 }
 
 export default function TuDienDetail({ term }) {

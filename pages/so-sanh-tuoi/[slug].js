@@ -21,7 +21,7 @@ export async function getStaticProps({ params }) {
   if (yearA < 1900 || yearA > 2100 || yearB < 1900 || yearB > 2100) return { notFound: true };
 
   const result = compareTuoi(yearA, yearB);
-  return { props: { result }, revalidate: 604800 };
+  return { props: { result }, revalidate: 2592000 };
 }
 
 const RELATION_LABEL = {

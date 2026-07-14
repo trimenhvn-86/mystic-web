@@ -20,7 +20,7 @@ export async function getStaticProps() {
     label: SUIT_LABEL[suit],
     cards: cards.filter((c) => c.suit === suit).sort((a, b) => a.number - b.number)
   }));
-  return { props: { major, minorBySuit }, revalidate: 86400 };
+  return { props: { major, minorBySuit }, revalidate: 2592000 };
 }
 
 function CardGridItem({ card }) {

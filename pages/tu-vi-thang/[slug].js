@@ -28,14 +28,14 @@ export async function getStaticProps({ params }) {
     if (mm < 1 || mm > 12) return { notFound: true };
     const dashboard = buildMonthDashboard(mm, yyyy);
     const preview = await getHubContentPreview('tu-vi');
-    return { props: { type: 'thang', ...dashboard, ...preview }, revalidate: 3600 };
+    return { props: { type: 'thang', ...dashboard, ...preview }, revalidate: 86400 };
   }
 
   const chi = SLUG_TO_CHI[slug];
   if (chi) {
     const today = new Date();
     const data = getTuViThang(today.getMonth() + 1, today.getFullYear(), chi);
-    return { props: { type: 'con-giap', data }, revalidate: 3600 };
+    return { props: { type: 'con-giap', data }, revalidate: 86400 };
   }
 
   return { notFound: true };

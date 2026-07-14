@@ -30,7 +30,7 @@ export async function getStaticProps({ params }) {
     if (week < 1 || week > 53) return { notFound: true };
     const dashboard = buildWeekDashboard(week, year);
     const preview = await getHubContentPreview('tu-vi');
-    return { props: { type: 'tuan', ...dashboard, ...preview }, revalidate: 3600 };
+    return { props: { type: 'tuan', ...dashboard, ...preview }, revalidate: 86400 };
   }
 
   const chi = SLUG_TO_CHI[slug];
@@ -38,7 +38,7 @@ export async function getStaticProps({ params }) {
     const today = new Date();
     const data = getTuViTuan(today.getDate(), today.getMonth() + 1, today.getFullYear(), chi);
     const rangeStr = `${pad(data.tuNgay.dd)}/${pad(data.tuNgay.mm)} - ${pad(data.denNgay.dd)}/${pad(data.denNgay.mm)}/${data.denNgay.yyyy}`;
-    return { props: { type: 'con-giap', data, rangeStr }, revalidate: 3600 };
+    return { props: { type: 'con-giap', data, rangeStr }, revalidate: 86400 };
   }
 
   return { notFound: true };

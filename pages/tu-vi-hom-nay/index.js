@@ -26,7 +26,7 @@ export async function getStaticProps() {
       nextSlug: slugOf(nd, nm, ny),
       ...preview
     },
-    revalidate: 3600
+    revalidate: 86400
   };
 }
 

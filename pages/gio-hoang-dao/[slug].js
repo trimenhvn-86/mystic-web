@@ -31,7 +31,7 @@ export async function getStaticProps({ params }) {
   const chiNgay = getChiNgay(dd, mm, yyyy);
   const gioList = getGioHoangDao(dd, mm, yyyy);
 
-  return { props: { dd, mm, yyyy, chiNgay, gioList }, revalidate: 86400 };
+  return { props: { dd, mm, yyyy, chiNgay, gioList }, revalidate: 2592000 };
 }
 
 export default function GioHoangDaoResult({ dd, mm, yyyy, chiNgay, gioList }) {

@@ -16,7 +16,7 @@ export async function getStaticProps() {
     ...terms.map((t) => ({ type: 'Từ điển', title: t.title, href: `/tu-dien/${t.slug}` })),
     ...posts.map((p) => ({ type: 'Cẩm nang', title: p.title, href: `/cam-nang/${p.slug}` }))
   ];
-  return { props: { index }, revalidate: 3600 };
+  return { props: { index }, revalidate: 86400 };
 }
 
 export default function TimKiem({ index }) {

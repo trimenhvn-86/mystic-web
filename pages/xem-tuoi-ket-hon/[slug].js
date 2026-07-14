@@ -27,7 +27,7 @@ export async function getStaticProps({ params }) {
 
   const result = compareTuoi(yearBride, yearGroom);
   const advice = getMarriageAdvice(result.score);
-  return { props: { result, advice, yearBride, yearGroom }, revalidate: 604800 };
+  return { props: { result, advice, yearBride, yearGroom }, revalidate: 2592000 };
 }
 
 export default function XemTuoiKetHonResult({ result, advice, yearBride, yearGroom }) {

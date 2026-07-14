@@ -22,7 +22,7 @@ const FAQ = [
 
 export async function getStaticProps() {
   const preview = await getHubContentPreview('lich-ngay-tot');
-  return { props: preview, revalidate: 3600 };
+  return { props: preview, revalidate: 86400 };
 }
 
 export default function GioHoangDaoForm({ dictionaryPreview, guidePreview }) {

@@ -16,7 +16,7 @@ export async function getStaticProps() {
   const preview = await getHubContentPreview('tarot');
   return {
     props: { card, upright, dateStr: `${dd}/${mm}/${yyyy}`, ...preview },
-    revalidate: 3600
+    revalidate: 86400
   };
 }
 

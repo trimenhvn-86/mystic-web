@@ -13,7 +13,7 @@ export async function getStaticProps() {
   const { week, year } = getISOWeekInfo(today.getDate(), today.getMonth() + 1, today.getFullYear());
   const dashboard = buildWeekDashboard(week, year);
   const preview = await getHubContentPreview('tu-vi');
-  return { props: { ...dashboard, ...preview }, revalidate: 3600 };
+  return { props: { ...dashboard, ...preview }, revalidate: 86400 };
 }
 
 export default function TuViTuanIndex(props) {

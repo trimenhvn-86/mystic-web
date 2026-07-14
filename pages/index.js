@@ -57,7 +57,7 @@ export async function getStaticProps() {
       dictionaryTerms: dictionaryTerms.slice(0, 6),
       guidePosts: guidePosts.slice(0, 6)
     },
-    revalidate: 3600
+    revalidate: 86400
   };
 }
 

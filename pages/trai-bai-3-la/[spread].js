@@ -20,7 +20,7 @@ export async function getStaticProps({ params }) {
   const spread = spreads.find((s) => s.slug === params.spread);
   if (!spread) return { notFound: true };
   const preview = await getHubContentPreview('tarot');
-  return { props: { spread, ...preview }, revalidate: 3600 };
+  return { props: { spread, ...preview }, revalidate: 86400 };
 }
 
 export default function TraiBai3La({ spread, dictionaryPreview, guidePreview }) {

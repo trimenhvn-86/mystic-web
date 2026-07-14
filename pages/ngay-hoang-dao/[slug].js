@@ -46,7 +46,7 @@ export async function getStaticProps({ params }) {
 
   return {
     props: { dd, mm, yyyy, lunar, canChiNam, canChiNgay, truc, sao, loaiNgay, activities, gioHoangDao, napAmNgay, rating },
-    revalidate: 86400
+    revalidate: 2592000
   };
 }
 

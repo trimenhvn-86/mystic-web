@@ -28,7 +28,7 @@ export async function getStaticProps({ params }) {
 
   return {
     props: { occasion, bestDays: best, monthLabel: `${today.getMonth() + 1}/${today.getFullYear()}` },
-    revalidate: 86400
+    revalidate: 2592000
   };
 }
 

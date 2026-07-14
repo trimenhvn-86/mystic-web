@@ -27,7 +27,7 @@ export async function getStaticProps({ params }) {
 
   const result = compareTuoi(yearA, yearB);
   const advice = getBusinessAdvice(result.score);
-  return { props: { result, advice, yearA, yearB }, revalidate: 604800 };
+  return { props: { result, advice, yearA, yearB }, revalidate: 2592000 };
 }
 
 export default function XemTuoiLamAnResult({ result, advice, yearA, yearB }) {

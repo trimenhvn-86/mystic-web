@@ -55,7 +55,7 @@ export async function getStaticProps({ params }) {
 
   return {
     props: { dd, mm, yyyy, lunar, canChiNam, canChiNgay, truc, sao, activities, gioHoangDao, khongMinh, decisionAssistant, ...preview },
-    revalidate: 86400 // ISR: cập nhật lại mỗi 24h
+    revalidate: 2592000 // ISR: cập nhật lại mỗi 24h
   };
 }
 

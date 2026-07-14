@@ -50,7 +50,7 @@ export async function getStaticProps({ params }) {
         nextSlug: slugOf(nd, nm, ny),
         ...preview
       },
-      revalidate: 3600
+      revalidate: 86400
     };
   }
 
@@ -60,7 +60,7 @@ export async function getStaticProps({ params }) {
     const today = new Date();
     const data = getTuViHomNay(today.getDate(), today.getMonth() + 1, today.getFullYear(), chi);
     const dateStr = `${today.getDate()}/${today.getMonth() + 1}/${today.getFullYear()}`;
-    return { props: { type: 'con-giap', data, dateStr }, revalidate: 3600 };
+    return { props: { type: 'con-giap', data, dateStr }, revalidate: 86400 };
   }
 
   return { notFound: true };

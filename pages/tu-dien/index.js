@@ -7,7 +7,7 @@ import { getDictionaryTerms, isConfigured } from '../../lib/sanity';
 
 export async function getStaticProps() {
   const terms = await getDictionaryTerms();
-  return { props: { terms, cmsConfigured: isConfigured }, revalidate: 3600 };
+  return { props: { terms, cmsConfigured: isConfigured }, revalidate: 86400 };
 }
 
 export default function TuDienIndex({ terms, cmsConfigured }) {

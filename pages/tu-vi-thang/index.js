@@ -10,7 +10,7 @@ export async function getStaticProps() {
   const mm = today.getMonth() + 1, yyyy = today.getFullYear();
   const dashboard = buildMonthDashboard(mm, yyyy);
   const preview = await getHubContentPreview('tu-vi');
-  return { props: { ...dashboard, ...preview }, revalidate: 3600 };
+  return { props: { ...dashboard, ...preview }, revalidate: 86400 };
 }
 
 export default function TuViThangIndex(props) {

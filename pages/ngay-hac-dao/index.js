@@ -14,7 +14,7 @@ function pad(n) { return String(n).padStart(2, '0'); }
 
 export async function getStaticProps() {
   const preview = await getHubContentPreview('lich-ngay-tot');
-  return { props: preview, revalidate: 3600 };
+  return { props: preview, revalidate: 86400 };
 }
 
 const FAQ = [

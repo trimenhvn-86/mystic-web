@@ -11,7 +11,7 @@ import { FAQ_MAU_MENH } from '../../content/faq-data';
 
 export async function getStaticProps() {
   const preview = await getHubContentPreview('menh-phong-thuy');
-  return { props: preview, revalidate: 3600 };
+  return { props: preview, revalidate: 86400 };
 }
 
 export default function MauSacHopMenhForm({ dictionaryPreview, guidePreview }) {

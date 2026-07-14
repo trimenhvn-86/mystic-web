@@ -15,7 +15,7 @@ const STORAGE_KEY = 'trimenh_rut_la_tarot';
 
 export async function getStaticProps() {
   const preview = await getHubContentPreview('tarot');
-  return { props: preview, revalidate: 3600 };
+  return { props: preview, revalidate: 86400 };
 }
 
 export default function RutLaTarot({ dictionaryPreview, guidePreview }) {

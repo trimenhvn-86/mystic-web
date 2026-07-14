@@ -13,7 +13,7 @@ import { getHubContentPreview } from '../../lib/sanity';
 
 export async function getStaticProps() {
   const preview = await getHubContentPreview('tarot');
-  return { props: preview, revalidate: 3600 };
+  return { props: preview, revalidate: 86400 };
 }
 
 const RESULT_COLOR = {

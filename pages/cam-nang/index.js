@@ -8,7 +8,7 @@ import { getGuidePosts, isConfigured } from '../../lib/sanity';
 
 export async function getStaticProps() {
   const posts = await getGuidePosts();
-  return { props: { posts, cmsConfigured: isConfigured }, revalidate: 3600 };
+  return { props: { posts, cmsConfigured: isConfigured }, revalidate: 86400 };
 }
 
 export default function CamNangIndex({ posts, cmsConfigured }) {

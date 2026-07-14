@@ -47,7 +47,7 @@ export async function getStaticProps({ params }) {
     const [allTerms, allGuides] = await Promise.all([getDictionaryTerms(), getGuidePosts()]);
     const dictionaryPreview = allTerms.filter((t) => t.hub === cmsHubValue).slice(0, 8);
     const guidePreview = allGuides.filter((g) => g.hub === cmsHubValue).slice(0, 6);
-    return { props: { type: 'hub', hub, dictionaryPreview, guidePreview }, revalidate: 3600 };
+    return { props: { type: 'hub', hub, dictionaryPreview, guidePreview }, revalidate: 86400 };
   }
 
   const menhMatch = slug.match(MENH_RE);
@@ -67,7 +67,7 @@ export async function getStaticProps({ params }) {
     const preview = await getHubContentPreview('menh-phong-thuy');
     return {
       props: { type: 'menh', year, menh, amDuong, extra, luckyNumbers, tuoiHopForMenh, mauKy, ...preview },
-      revalidate: 604800
+      revalidate: 2592000
     };
   }
 
@@ -77,7 +77,7 @@ export async function getStaticProps({ params }) {
     const chi = getChiFromYear(year);
     const tuoiHop = getTuoiHop(chi);
     const preview = await getHubContentPreview('tuoi-tuong-hop');
-    return { props: { type: 'hop-tuoi', year, tuoiHop, ...preview }, revalidate: 604800 };
+    return { props: { type: 'hop-tuoi', year, tuoiHop, ...preview }, revalidate: 2592000 };
   }
 
   const hopMauMatch = slug.match(HOP_MAU_RE);
@@ -89,7 +89,7 @@ export async function getStaticProps({ params }) {
     const extra = getNguHanhExtra(menh.hanh);
     const mauKy = extra.khacBoi ? napAmData.mauHopMenh[extra.khacBoi] : [];
     const preview = await getHubContentPreview('menh-phong-thuy');
-    return { props: { type: 'mau', year, menh, mauKy, ...preview }, revalidate: 604800 };
+    return { props: { type: 'mau', year, menh, mauKy, ...preview }, revalidate: 2592000 };
   }
 
   const hopDaMatch = slug.match(HOP_DA_RE);
@@ -100,7 +100,7 @@ export async function getStaticProps({ params }) {
     if (!menh) return { notFound: true };
     const daInfo = daPhongThuyData[menh.hanh];
     const preview = await getHubContentPreview('menh-phong-thuy');
-    return { props: { type: 'da', year, menh, daInfo, ...preview }, revalidate: 604800 };
+    return { props: { type: 'da', year, menh, daInfo, ...preview }, revalidate: 2592000 };
   }
 
   return { notFound: true };

@@ -7,14 +7,15 @@ import LucNhamPicker from '../../components/LucNhamPicker';
 import CalendarImageCard from '../../components/CalendarImageCard';
 import MauSoHomNay from '../../components/MauSoHomNay';
 import HubContentPreview from '../../components/HubContentPreview';
+import SidebarTools from '../../components/SidebarTools';
+import MiniCalendar from '../../components/MiniCalendar';
+import HubDayLinks from '../../components/HubDayLinks';
 import { convertSolar2Lunar, getCanChiNam, getCanChiNgay } from '../../lib/lunar';
 import { getTruc, getSao28, getSuggestedActivities, getDecisionAssistant } from '../../lib/dayQuality';
 import { getGioHoangDao } from '../../lib/gioHoangDao';
 import { getNgayKhongMinh } from '../../lib/khongMinh';
 import { getNapAmByCanChi } from '../../lib/nguHanh';
 import { getHubContentPreview } from '../../lib/sanity';
-import HubDayLinks from '../../components/HubDayLinks';
-import MiniCalendar from '../../components/MiniCalendar';
 
 const SLUG_RE = /^ngay-(\d{1,2})-thang-(\d{1,2})-nam-(\d{4})$/;
 
@@ -59,7 +60,7 @@ export async function getStaticProps({ params }) {
 
   return {
     props: { dd, mm, yyyy, lunar, canChiNam, canChiNgay, truc, sao, activities, gioHoangDao, khongMinh, napAmNgay, decisionAssistant, ...preview },
-    revalidate: 2592000 // ISR: cập nhật lại mỗi 24h
+    revalidate: 2592000
   };
 }
 
@@ -69,36 +70,6 @@ export default function NgayTotXauResult({ dd, mm, yyyy, lunar, canChiNam, canCh
   const summary = `Ngày ${dd}/${mm}/${yyyy} (Âm lịch ${lunar.day}/${lunar.month}${lunar.leap ? ' nhuận' : ''}/${lunar.year}) là ${activities.isGoodDay ? `ngày Hoàng đạo, Trực ${truc}, thuận lợi cho ${activities.nenLam.slice(0, 2).join(', ').toLowerCase()}` : `ngày Hắc đạo, Trực ${truc}, nên cân nhắc tránh ${activities.kiengKy.slice(0, 2).join(', ').toLowerCase()}`}.`;
 
   const tabs = [
-    {
-      key: 'tong-quan',
-      label: 'Tổng quan',
-      content: (
-        <div>
-          <h2 className="sr-only">Ngày âm lịch hôm nay</h2>
-          <div className="grid sm:grid-cols-2 gap-4 text-center mb-4">
-            <div>
-              <p className="text-xs text-moon uppercase mb-1">Dương lịch</p>
-              <p className="text-xl text-gold-soft font-display">{dd}/{mm}/{yyyy}</p>
-            </div>
-            <div>
-              <p className="text-xs text-moon uppercase mb-1">Âm lịch</p>
-              <p className="text-xl text-gold-soft font-display">
-                {lunar.day}/{lunar.month}{lunar.leap ? ' (nhuận)' : ''}/{lunar.year}
-              </p>
-            </div>
-          </div>
-          <div className="grid sm:grid-cols-2 gap-3 text-left mystic-divider pt-4">
-            <p className="text-moon">Năm: <strong className="text-parchment">{canChiNam}</strong></p>
-            <p className="text-moon">Ngày: <strong className="text-parchment">{canChiNgay}</strong></p>
-            <p className="text-moon">Trực: <strong className="text-parchment">{truc}</strong></p>
-            <p className="text-moon">Sao: <strong className="text-parchment">{sao}</strong></p>
-          </div>
-          <p className={`mt-4 pt-4 mystic-divider ${activities.isGoodDay ? 'text-jade font-semibold' : 'text-vermilion font-semibold'}`}>
-            {activities.isGoodDay ? '✓ Đây là ngày Hoàng đạo — thuận lợi cho việc lớn.' : '✗ Đây là ngày cần cân nhắc — nên tránh việc trọng đại.'}
-          </p>
-        </div>
-      )
-    },
     {
       key: 'gio-dep',
       label: 'Giờ đẹp',
@@ -186,33 +157,6 @@ export default function NgayTotXauResult({ dd, mm, yyyy, lunar, canChiNam, canCh
           </ul>
         </div>
       )
-    },
-    {
-      key: 'luan-giai',
-      label: 'Luận giải chi tiết',
-      content: (
-        <div className="space-y-3 text-sm leading-relaxed text-parchment/90">
-          <h2 className="sr-only">Luận giải chi tiết ngày {dd}/{mm}/{yyyy}</h2>
-          <p>
-            Ngày {dd}/{mm}/{yyyy} Dương lịch tương ứng {lunar.day}/{lunar.month}{lunar.leap ? ' (nhuận)' : ''}/{lunar.year} Âm lịch,
-            năm {canChiNam}, ngày {canChiNgay}. Ngày mang Trực <strong className="text-gold-soft">{truc}</strong> và
-            Sao <strong className="text-gold-soft">{sao}</strong> trong Nhị Thập Bát Tú, được xếp vào nhóm{' '}
-            {activities.isGoodDay ? <span className="text-jade">ngày Hoàng đạo</span> : <span className="text-vermilion">ngày cần cân nhắc</span>}.
-          </p>
-          <p>
-            Theo cách tính của Khổng Minh, đây là ngày <strong className="text-gold-soft">{khongMinh?.ten}</strong>{' '}
-            — {khongMinh?.tot ? 'thuận lợi cho việc xuất hành và cầu tài' : 'không thuận lợi cho việc xuất hành xa hoặc cầu tài lớn'}.
-            {' '}{khongMinh?.luanGiai}
-          </p>
-          <p>
-            Nếu cần chọn giờ xuất hành cụ thể trong ngày, nên tham khảo thêm tab Lục Nhâm (tính theo giờ dự định đi) và tab
-            Giờ đẹp (giờ Hoàng đạo cố định trong ngày) để chọn thời điểm phù hợp nhất.
-          </p>
-          <p className="text-xs text-moon/50 pt-1">
-            Toàn bộ nội dung trên mang tính tham khảo, chiêm nghiệm dân gian theo Lịch Vạn Niên — không thay thế quyết định cá nhân.
-          </p>
-        </div>
-      )
     }
   ];
 
@@ -224,55 +168,101 @@ export default function NgayTotXauResult({ dd, mm, yyyy, lunar, canChiNam, canCh
         <meta property="og:image" content={`https://trimenh.com/api/lich-anh?dd=${dd}&mm=${mm}&yyyy=${yyyy}`} />
       </Head>
       <Header />
-      <main className="max-w-3xl mx-auto px-5 py-8 sm:py-12">
+      <main className="max-w-6xl mx-auto px-5 py-8 sm:py-12">
         <div className="w-14 h-14 rounded-full bg-ink-soft border border-gold/30 flex items-center justify-center mx-auto mb-4">
           <Sparkles size={26} className="text-gold" />
         </div>
         <h1 className="font-display text-2xl sm:text-3xl text-parchment mb-4 text-center">{title}</h1>
-        <p className="text-moon/80 text-center max-w-2xl mx-auto mb-6 leading-relaxed">{summary}</p>
-        <div className="grid md:grid-cols-[340px_1fr] gap-6 items-start">
-          <div className="order-1">
-            <CalendarImageCard dd={dd} mm={mm} yyyy={yyyy} />
-          </div>
-          <div className="order-2 min-w-0">
-            <ResultTabs tabs={tabs} />
-          </div>
-        </div>
+        <p className="text-moon/80 text-center max-w-2xl mx-auto mb-8 leading-relaxed">{summary}</p>
 
-        <div className="mt-6">
-          <MiniCalendar dd={dd} mm={mm} yyyy={yyyy} basePath="/xem-ngay-tot" showQuality />
-        </div>
-
-        {napAmNgay && (
-          <div className="mt-6">
-            <MauSoHomNay hanh={napAmNgay.hanh} mauHop={napAmNgay.mauHop} />
-          </div>
-        )}
-
-        {/* Tro ly quyet dinh hom nay */}
-        <div className="mystic-card p-6 mt-6">
-          <p className="text-gold-soft font-semibold mb-1">Trợ lý quyết định hôm nay</p>
-          <p className="text-xs text-moon mb-4">Nếu hôm nay bạn đang dự định:</p>
-          <div className="space-y-2.5">
-            {decisionAssistant.map((item) => (
-              <div key={item.label} className="flex items-center justify-between gap-3 bg-ink-soft rounded-lg px-4 py-3 border border-ink-line">
-                <span className="text-parchment text-sm">{item.label}</span>
-                <span className={`flex items-center gap-1.5 text-sm font-medium ${item.good ? 'text-jade' : 'text-vermilion'}`}>
-                  {item.good ? <ThumbsUp size={14} /> : item.decision.startsWith('Có thể') ? <HelpCircle size={14} /> : <ThumbsDown size={14} />}
-                  {item.decision}
-                </span>
+        <div className="grid lg:grid-cols-[1fr_240px] gap-8">
+          <div className="space-y-6 min-w-0">
+            <div className="grid md:grid-cols-[1fr_340px] gap-6 items-start">
+              <div className="mystic-card p-6 order-2 md:order-1">
+                <h2 className="sr-only">Ngày âm lịch hôm nay</h2>
+                <div className="grid sm:grid-cols-2 gap-4 text-center mb-4">
+                  <div>
+                    <p className="text-xs text-moon uppercase mb-1">Dương lịch</p>
+                    <p className="text-xl text-gold-soft font-display">{dd}/{mm}/{yyyy}</p>
+                  </div>
+                  <div>
+                    <p className="text-xs text-moon uppercase mb-1">Âm lịch</p>
+                    <p className="text-xl text-gold-soft font-display">
+                      {lunar.day}/{lunar.month}{lunar.leap ? ' (nhuận)' : ''}/{lunar.year}
+                    </p>
+                  </div>
+                </div>
+                <div className="grid sm:grid-cols-2 gap-3 text-left mystic-divider pt-4">
+                  <p className="text-moon">Năm: <strong className="text-parchment">{canChiNam}</strong></p>
+                  <p className="text-moon">Ngày: <strong className="text-parchment">{canChiNgay}</strong></p>
+                  <p className="text-moon">Trực: <strong className="text-parchment">{truc}</strong></p>
+                  <p className="text-moon">Sao: <strong className="text-parchment">{sao}</strong></p>
+                </div>
+                <p className={`mt-4 pt-4 mystic-divider ${activities.isGoodDay ? 'text-jade font-semibold' : 'text-vermilion font-semibold'}`}>
+                  {activities.isGoodDay ? '✓ Đây là ngày Hoàng đạo — thuận lợi cho việc lớn.' : '✗ Đây là ngày cần cân nhắc — nên tránh việc trọng đại.'}
+                </p>
               </div>
-            ))}
+
+              <div className="order-1 md:order-2">
+                <CalendarImageCard dd={dd} mm={mm} yyyy={yyyy} />
+              </div>
+            </div>
+
+            <ResultTabs tabs={tabs} />
+
+            <div className="mystic-card p-6">
+              <h2 className="font-display text-lg text-gold-soft mb-3">Luận giải chi tiết</h2>
+              <div className="space-y-3 text-sm leading-relaxed text-parchment/90">
+                <p>
+                  Ngày {dd}/{mm}/{yyyy} Dương lịch tương ứng {lunar.day}/{lunar.month}{lunar.leap ? ' (nhuận)' : ''}/{lunar.year} Âm lịch,
+                  năm {canChiNam}, ngày {canChiNgay}. Ngày mang Trực <strong className="text-gold-soft">{truc}</strong> và
+                  Sao <strong className="text-gold-soft">{sao}</strong> trong Nhị Thập Bát Tú, được xếp vào nhóm{' '}
+                  {activities.isGoodDay ? <span className="text-jade">ngày Hoàng đạo</span> : <span className="text-vermilion">ngày cần cân nhắc</span>}.
+                </p>
+                <p>
+                  Theo cách tính của Khổng Minh, đây là ngày <strong className="text-gold-soft">{khongMinh?.ten}</strong>{' '}
+                  — {khongMinh?.tot ? 'thuận lợi cho việc xuất hành và cầu tài' : 'không thuận lợi cho việc xuất hành xa hoặc cầu tài lớn'}.
+                  {' '}{khongMinh?.luanGiai}
+                </p>
+                <p>
+                  Nếu cần chọn giờ xuất hành cụ thể trong ngày, nên tham khảo thêm mục Lục Nhâm (tính theo giờ dự định đi) và mục
+                  Giờ đẹp (giờ Hoàng đạo cố định trong ngày) để chọn thời điểm phù hợp nhất.
+                </p>
+                <p className="text-xs text-moon/50 pt-1">
+                  Toàn bộ nội dung trên mang tính tham khảo, chiêm nghiệm dân gian theo Lịch Vạn Niên — không thay thế quyết định cá nhân.
+                </p>
+              </div>
+            </div>
+
+            <MiniCalendar dd={dd} mm={mm} yyyy={yyyy} basePath="/xem-ngay-tot" showQuality />
+
+            {napAmNgay && <MauSoHomNay hanh={napAmNgay.hanh} mauHop={napAmNgay.mauHop} />}
+
+            <div className="mystic-card p-6">
+              <p className="text-gold-soft font-semibold mb-1">Trợ lý quyết định hôm nay</p>
+              <p className="text-xs text-moon mb-4">Nếu hôm nay bạn đang dự định:</p>
+              <div className="space-y-2.5">
+                {decisionAssistant.map((item) => (
+                  <div key={item.label} className="flex items-center justify-between gap-3 bg-ink-soft rounded-lg px-4 py-3 border border-ink-line">
+                    <span className="text-parchment text-sm">{item.label}</span>
+                    <span className={`flex items-center gap-1.5 text-sm font-medium ${item.good ? 'text-jade' : 'text-vermilion'}`}>
+                      {item.good ? <ThumbsUp size={14} /> : item.decision.startsWith('Có thể') ? <HelpCircle size={14} /> : <ThumbsDown size={14} />}
+                      {item.decision}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <HubDayLinks dd={dd} mm={mm} yyyy={yyyy} exclude="xem-ngay-tot" />
+
+            <HubContentPreview dictionaryPreview={dictionaryPreview} guidePreview={guidePreview} />
           </div>
+
+          <SidebarTools year={yyyy} />
         </div>
 
-        <HubDayLinks dd={dd} mm={mm} yyyy={yyyy} exclude="xem-ngay-tot" />
-
-        <div className="mt-8">
-          <HubContentPreview dictionaryPreview={dictionaryPreview} guidePreview={guidePreview} />
-        </div>
-
-        <p className="text-xs text-moon/50 mt-6 text-center">
+        <p className="text-xs text-moon/50 mt-8 text-center">
           Nội dung mang tính tham khảo, chiêm nghiệm dân gian — không thay thế quyết định cá nhân.
         </p>
       </main>

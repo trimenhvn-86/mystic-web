@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { CHI_SLUG } from '../lib/chiSlug';
 import { Calendar } from 'lucide-react';
 import AdSlot from './AdSlot';
 import ResultTabs from './ResultTabs';
@@ -11,20 +12,28 @@ function pad(n) { return String(n).padStart(2, '0'); }
 function slugOfDay(dd, mm, yyyy) { return `ngay-${pad(dd)}-thang-${pad(mm)}-nam-${yyyy}`; }
 
 export default function TuViMonthDashboard({ mm, yyyy, tongQuan, indexScores, best, worst, timeline, all, dictionaryPreview, guidePreview }) {
-  const conGiapTabs = all.map((item) => ({
-    key: item.conGiap,
-    label: `Tuổi ${item.conGiap}`,
-    content: (
-      <div className="space-y-3 text-sm">
-        <p className="text-xs text-moon">Mệnh {item.hanh}</p>
-        <div><p className="text-gold-soft font-medium mb-1">Tổng quan</p><p>{item.tongQuan}</p></div>
-        <div><p className="text-gold-soft font-medium mb-1">Công danh</p><p>{item.congDanh}</p></div>
-        <div><p className="text-gold-soft font-medium mb-1">Tài lộc</p><p>{item.taiLoc}</p></div>
-        <div><p className="text-gold-soft font-medium mb-1">Tình duyên</p><p>{item.tinhDuyen}</p></div>
-        <p className="text-moon">Màu may mắn: <strong className="text-parchment">{item.mauMayMan}</strong></p>
-      </div>
-    )
-  }));
+  const conGiapTabs = all.map((item) => {
+    const slug = CHI_SLUG[item.conGiap];
+    return {
+      key: item.conGiap,
+      label: `Tuổi ${item.conGiap}`,
+      content: (
+        <div className="space-y-3 text-sm">
+          <p className="text-xs text-moon">Mệnh {item.hanh}</p>
+          <div><p className="text-gold-soft font-medium mb-1">Tổng quan</p><p>{item.tongQuan}</p></div>
+          <div><p className="text-gold-soft font-medium mb-1">Công danh</p><p>{item.congDanh}</p></div>
+          <div><p className="text-gold-soft font-medium mb-1">Tài lộc</p><p>{item.taiLoc}</p></div>
+          <div><p className="text-gold-soft font-medium mb-1">Tình duyên</p><p>{item.tinhDuyen}</p></div>
+          <p className="text-moon">Màu may mắn: <strong className="text-parchment">{item.mauMayMan}</strong></p>
+          <div className="flex flex-wrap gap-2 pt-2 mystic-divider">
+            <Link href={`/tu-vi-hom-nay/${slug}`} className="text-xs text-gold-soft hover:underline">Tử vi hôm nay tuổi {item.conGiap} →</Link>
+            <Link href={`/tu-vi-tuan/${slug}`} className="text-xs text-gold-soft hover:underline">Tử vi tuần tuổi {item.conGiap} →</Link>
+            <Link href={`/tu-vi-thang/${slug}`} className="text-xs text-gold-soft hover:underline">Tử vi tháng tuổi {item.conGiap} →</Link>
+          </div>
+        </div>
+      )
+    };
+  });
 
   return (
     <>

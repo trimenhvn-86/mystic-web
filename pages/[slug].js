@@ -16,6 +16,7 @@ import napAmData from '../content/phong-thuy/menh/nap-am.json';
 import daPhongThuyData from '../content/phong-thuy/da-phong-thuy.json';
 import MiniCalendar from '../components/MiniCalendar';
 import NumerologyQuickForm from '../components/NumerologyQuickForm';
+import TuViQuickLinks from '../components/TuViQuickLinks';
 import TuoiHopLinks from '../components/TuoiHopLinks';
 import MenhPhongThuyLinks from '../components/MenhPhongThuyLinks';
 
@@ -166,6 +167,13 @@ export default function YearToolPage({ type, year, menh, tuoiHop, hub, dictionar
             <section className="mb-10">
               <h2 className="font-display text-xl text-parchment mb-4">Công cụ trong {hub.name}</h2>
               <NumerologyQuickForm />
+            </section>
+          )}
+
+          {hub.slug === 'tu-vi' && (
+            <section className="mb-10">
+              <h2 className="font-display text-xl text-parchment mb-4">Tra cứu nhanh</h2>
+              <TuViQuickLinks />
             </section>
           )}
 

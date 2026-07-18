@@ -6,6 +6,7 @@ import ProgressBar from './ProgressBar';
 import FaqSection from './FaqSection';
 import HubContentPreview from './HubContentPreview';
 import { FAQ_TU_VI_NGAY } from '../content/faq-data';
+import { CHI_SLUG } from '../lib/chiSlug';
 
 const QUICK_ITEMS = [
   { key: 'cong-viec', label: 'Công việc', icon: Briefcase },
@@ -16,21 +17,30 @@ const QUICK_ITEMS = [
 ];
 
 export default function TuViDayDashboard({ dashboard, dateStr, prevSlug, nextSlug, dictionaryPreview, guidePreview }) {
-  const { canChiNgay, lunar, rating, tongQuan, indexScores, gioHoangDao, activities, tuoiHopHomNay, napAmNgay, all } = dashboard;
+  const { canChiNgay, lunar, rating, tongQuan, indexScores, gioHoangDao, gioHacDao, activities, tuoiHopHomNay, napAmNgay, all } = dashboard;
+  const summary = `Hôm nay là ngày ${canChiNgay}, Âm lịch ${lunar.day}/${lunar.month}${lunar.leap ? ' (nhuận)' : ''}/${lunar.year}. Vận trình chung ${rating.label.toLowerCase()}, chỉ số nổi bật nhất là ${indexScores.taiChinh >= indexScores.tinhCam ? 'tài chính' : 'tình cảm'}, nên lưu ý thêm ở phần ${Math.min(indexScores.congViec, indexScores.suckKhoe) === indexScores.congViec ? 'công việc' : 'sức khỏe'}.`;
 
-  const conGiapTabs = all.map((item) => ({
-    key: item.conGiap,
-    label: `Tuổi ${item.conGiap}`,
-    content: (
-      <div className="space-y-3 text-sm">
-        <p className="text-xs text-moon">Mệnh {item.hanh}</p>
-        <div><p className="text-gold-soft font-medium mb-1">Công danh</p><p>{item.congDanh}</p></div>
-        <div><p className="text-gold-soft font-medium mb-1">Tài lộc</p><p>{item.taiLoc}</p></div>
-        <div><p className="text-gold-soft font-medium mb-1">Tình duyên</p><p>{item.tinhDuyen}</p></div>
-        <p className="text-moon">Màu may mắn: <strong className="text-parchment">{item.mauMayMan}</strong></p>
-      </div>
-    )
-  }));
+  const conGiapTabs = all.map((item) => {
+    const slug = CHI_SLUG[item.conGiap];
+    return {
+      key: item.conGiap,
+      label: `Tuổi ${item.conGiap}`,
+      content: (
+        <div className="space-y-3 text-sm">
+          <p className="text-xs text-moon">Mệnh {item.hanh}</p>
+          <div><p className="text-gold-soft font-medium mb-1">Công danh</p><p>{item.congDanh}</p></div>
+          <div><p className="text-gold-soft font-medium mb-1">Tài lộc</p><p>{item.taiLoc}</p></div>
+          <div><p className="text-gold-soft font-medium mb-1">Tình duyên</p><p>{item.tinhDuyen}</p></div>
+          <p className="text-moon">Màu may mắn: <strong className="text-parchment">{item.mauMayMan}</strong></p>
+          <div className="flex flex-wrap gap-2 pt-2 mystic-divider">
+            <Link href={`/tu-vi-hom-nay/${slug}`} className="text-xs text-gold-soft hover:underline">Tử vi hôm nay tuổi {item.conGiap} →</Link>
+            <Link href={`/tu-vi-tuan/${slug}`} className="text-xs text-gold-soft hover:underline">Tử vi tuần tuổi {item.conGiap} →</Link>
+            <Link href={`/tu-vi-thang/${slug}`} className="text-xs text-gold-soft hover:underline">Tử vi tháng tuổi {item.conGiap} →</Link>
+          </div>
+        </div>
+      )
+    };
+  });
 
   return (
     <>
@@ -48,6 +58,8 @@ export default function TuViDayDashboard({ dashboard, dateStr, prevSlug, nextSlu
           <span className="text-sm text-moon ml-2">{rating.label}</span>
         </div>
       </div>
+
+      <p className="text-moon/80 text-center max-w-xl mx-auto mb-8 leading-relaxed">{summary}</p>
 
       {/* Xem nhanh */}
       <div className="flex flex-wrap justify-center gap-2 mb-8">
@@ -112,6 +124,19 @@ export default function TuViDayDashboard({ dashboard, dateStr, prevSlug, nextSlu
         </div>
       </div>
 
+      {/* Gio can tranh */}
+      <div className="mystic-card p-6 mb-6">
+        <p className="text-vermilion font-semibold mb-3">Giờ cần tránh</p>
+        <div className="grid sm:grid-cols-2 gap-2.5">
+          {gioHacDao.map((g) => (
+            <div key={g.chi} className="flex items-center justify-between bg-ink-soft rounded-lg px-4 py-2.5 border border-ink-line opacity-80">
+              <span className="text-vermilion/90 font-display">Giờ {g.chi}</span>
+              <span className="text-moon text-sm">{g.khung}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+
       <AdSlot label="Ad slot — tử vi hôm nay" className="mb-6" />
 
       {/* Mau sac / con so */}
@@ -145,7 +170,7 @@ export default function TuViDayDashboard({ dashboard, dateStr, prevSlug, nextSlu
             </div>
           </div>
           <div>
-            <p className="text-vermilion text-sm mb-2">Cần lưu ý</p>
+            <p className="text-vermilion text-sm mb-2">Tuổi xung</p>
             <div className="flex flex-wrap gap-2">
               {tuoiHopHomNay.xungTuoi.map((c) => (
                 <span key={c} className="px-3 py-1 rounded-full bg-ink-soft border border-vermilion/40 text-sm">Tuổi {c}</span>
@@ -159,13 +184,13 @@ export default function TuViDayDashboard({ dashboard, dateStr, prevSlug, nextSlu
       <div className="mb-6">
         <p className="text-sm text-moon mb-3">Công cụ liên quan:</p>
         <div className="flex flex-wrap gap-2">
+          <Link href="/tu-vi-tuan" className="px-3 py-1.5 rounded-full border border-gold/30 text-sm text-gold-soft hover:bg-gold/10 transition-colors">Tử vi tuần</Link>
+          <Link href="/tu-vi-thang" className="px-3 py-1.5 rounded-full border border-gold/30 text-sm text-gold-soft hover:bg-gold/10 transition-colors">Tử vi tháng</Link>
           <Link href="/xem-ngay-tot" className="px-3 py-1.5 rounded-full border border-ink-line text-sm text-moon hover:border-gold/40 hover:text-gold-soft transition-colors">Xem ngày tốt</Link>
           <Link href="/gio-hoang-dao" className="px-3 py-1.5 rounded-full border border-ink-line text-sm text-moon hover:border-gold/40 hover:text-gold-soft transition-colors">Giờ hoàng đạo</Link>
           <Link href="/doi-lich-am-duong" className="px-3 py-1.5 rounded-full border border-ink-line text-sm text-moon hover:border-gold/40 hover:text-gold-soft transition-colors">Đổi lịch âm</Link>
           <Link href="/can-chi" className="px-3 py-1.5 rounded-full border border-ink-line text-sm text-moon hover:border-gold/40 hover:text-gold-soft transition-colors">Can Chi</Link>
           <Link href="/ngay-hoang-dao" className="px-3 py-1.5 rounded-full border border-ink-line text-sm text-moon hover:border-gold/40 hover:text-gold-soft transition-colors">Ngày Hoàng đạo</Link>
-          <Link href="/tu-vi-tuan" className="px-3 py-1.5 rounded-full border border-ink-line text-sm text-moon hover:border-gold/40 hover:text-gold-soft transition-colors">Tử vi tuần</Link>
-          <Link href="/tu-vi-thang" className="px-3 py-1.5 rounded-full border border-ink-line text-sm text-moon hover:border-gold/40 hover:text-gold-soft transition-colors">Tử vi tháng</Link>
         </div>
       </div>
 

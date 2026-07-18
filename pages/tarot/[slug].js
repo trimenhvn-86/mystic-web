@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import Link from 'next/link';
 import Header from '../../components/Header';
+import Breadcrumb from '../../components/Breadcrumb';
 import Footer from '../../components/Footer';
 import AdSlot from '../../components/AdSlot';
 import TarotCardArt from '../../components/TarotCardArt';
@@ -30,13 +31,7 @@ export default function TarotCardDetail({ card, related }) {
       </Head>
       <Header />
       <main className="max-w-2xl mx-auto px-5 py-8 sm:py-12">
-        <div className="flex flex-wrap items-center gap-1.5 text-xs text-moon mb-6">
-          <Link href="/tarot" className="hover:text-gold-soft transition-colors">Tarot</Link>
-          <span>/</span>
-          <Link href="/tarot/bo-bai" className="hover:text-gold-soft transition-colors">Bộ bài 78 lá</Link>
-          <span>/</span>
-          <span className="text-parchment/70">{card.nameVi}</span>
-        </div>
+        <Breadcrumb trail={[{ label: 'Tarot', href: '/tarot' }, { label: 'Bộ bài 78 lá', href: '/tarot/bo-bai' }]} current={card.nameVi} />
 
         <h1 className="font-display text-2xl sm:text-3xl text-parchment mb-8 text-center">{title}</h1>
 

@@ -3,6 +3,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { CalendarDays, Hash, Layers, Users, Sun, CircleDot, Sparkle } from 'lucide-react';
 import Header from '../components/Header';
+import Breadcrumb from '../components/Breadcrumb';
 import Footer from '../components/Footer';
 import { HUBS, getAllActiveTools } from '../content/hubs';
 
@@ -24,6 +25,7 @@ export default function GioiThieu() {
       <main className="max-w-3xl mx-auto px-5 py-8 sm:py-14">
         <div className="text-center mb-8">
           <Image src="/brand/trimenh-logo.png" alt="TriMenh" width={96} height={96} className="mx-auto mb-4" />
+          <Breadcrumb trail={[]} current="Giới thiệu" />
           <h1 className="font-display text-2xl sm:text-3xl text-parchment mb-1">TriMenh — Khám phá vận mệnh, kiến tạo tương lai.</h1>
           <p className="text-gold-soft text-sm">Hiểu mình để sống tốt hơn</p>
         </div>

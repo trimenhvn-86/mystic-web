@@ -2,6 +2,7 @@ import Head from 'next/head';
 import Link from 'next/link';
 import { Sparkles } from 'lucide-react';
 import Header from '../../components/Header';
+import Breadcrumb from '../../components/Breadcrumb';
 import Footer from '../../components/Footer';
 import AdSlot from '../../components/AdSlot';
 import CalendarImageCard from '../../components/CalendarImageCard';
@@ -70,6 +71,7 @@ export default function NgayHoangDaoResult({ dd, mm, yyyy, lunar, canChiNam, can
         <div className="w-14 h-14 rounded-full bg-ink-soft border border-gold/30 flex items-center justify-center mx-auto mb-4">
           <Sparkles size={26} className="text-gold" />
         </div>
+        <Breadcrumb trail={[{ label: 'Lịch & Ngày Tốt', href: '/lich-ngay-tot' }, { label: 'Ngày Hoàng đạo', href: '/ngay-hoang-dao' }]} current={`Ngày ${dd}/${mm}/${yyyy}`} />
         <h1 className={`font-display text-2xl sm:text-3xl mb-4 text-center ${isGoodDay ? 'text-jade' : 'text-vermilion'}`}>{title}</h1>
         <p className="text-moon/80 text-center max-w-2xl mx-auto mb-8 leading-relaxed">{summary}</p>
 

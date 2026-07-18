@@ -2,6 +2,7 @@ import Head from 'next/head';
 import Link from 'next/link';
 import { BookOpen } from 'lucide-react';
 import Header from '../../components/Header';
+import Breadcrumb from '../../components/Breadcrumb';
 import Footer from '../../components/Footer';
 import AdSlot from '../../components/AdSlot';
 import { getDictionaryTerms, getDictionaryTermBySlug } from '../../lib/sanity';
@@ -29,6 +30,7 @@ export default function TuDienDetail({ term }) {
         <div className="w-14 h-14 rounded-full bg-ink-soft border border-gold/30 flex items-center justify-center mx-auto mb-4">
           <BookOpen size={26} className="text-gold" />
         </div>
+        <Breadcrumb trail={[{ label: 'Từ điển', href: '/tu-dien' }]} current={term.title} />
         <h1 className="font-display text-2xl sm:text-3xl text-parchment mb-6 text-center">{term.title}</h1>
         <div className="mystic-card p-6 space-y-5">
           <p className="text-lg text-gold-soft">{term.shortDefinition}</p>

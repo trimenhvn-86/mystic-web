@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { BookOpen } from 'lucide-react';
 import { PortableText } from '@portabletext/react';
 import Header from '../../components/Header';
+import Breadcrumb from '../../components/Breadcrumb';
 import Footer from '../../components/Footer';
 import AdSlot from '../../components/AdSlot';
 import { getGuidePosts, getGuidePostBySlug } from '../../lib/sanity';
@@ -55,6 +56,7 @@ export default function CamNangDetail({ post }) {
             <BookOpen size={26} className="text-gold" />
           </div>
         )}
+        <Breadcrumb trail={[{ label: 'Cẩm nang', href: '/cam-nang' }]} current={post.title} />
         <h1 className="font-display text-2xl sm:text-3xl text-parchment mb-6 text-center">{post.title}</h1>
         <div className="mystic-card p-6">
           {post.htmlContent ? (

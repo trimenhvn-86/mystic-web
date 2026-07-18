@@ -2,6 +2,7 @@ import Head from 'next/head';
 import Link from 'next/link';
 import { Compass } from 'lucide-react';
 import Header from '../../components/Header';
+import Breadcrumb from '../../components/Breadcrumb';
 import Footer from '../../components/Footer';
 import AdSlot from '../../components/AdSlot';
 import MenhPhongThuyLinks from '../../components/MenhPhongThuyLinks';
@@ -41,6 +42,7 @@ export default function HuongNhaResult({ gender, year, cungMenh, huong }) {
         <div className="w-14 h-14 rounded-full bg-ink-soft border border-gold/30 flex items-center justify-center mx-auto mb-4">
           <Compass size={26} className="text-gold" />
         </div>
+        <Breadcrumb trail={[{ label: 'Mệnh & Phong Thủy', href: '/menh-phong-thuy' }, { label: 'Hướng nhà hợp tuổi', href: '/huong-nha-hop-tuoi' }]} current={`Năm ${year}`} />
         <h1 className="font-display text-2xl sm:text-3xl text-parchment mb-8 text-center">{title}</h1>
 
         <div className="mystic-card p-6 text-center mb-6">

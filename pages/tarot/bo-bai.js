@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import Link from 'next/link';
 import Header from '../../components/Header';
+import Breadcrumb from '../../components/Breadcrumb';
 import Footer from '../../components/Footer';
 import TarotCardArt from '../../components/TarotCardArt';
 import { cards } from '../../lib/tarot';
@@ -43,6 +44,7 @@ export default function TarotBoBai({ major, minorBySuit }) {
       </Head>
       <Header />
       <main className="max-w-5xl mx-auto px-5 py-8 sm:py-12">
+        <Breadcrumb trail={[{ label: 'Tarot', href: '/tarot' }]} current="Bộ bài 78 lá" />
         <h1 className="font-display text-2xl sm:text-3xl text-parchment mb-2 text-center">Bộ Bài Tarot 78 Lá</h1>
         <p className="text-moon/70 text-sm text-center mb-10">Bấm vào từng lá để xem ý nghĩa xuôi và ngược đầy đủ</p>
 

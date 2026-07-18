@@ -3,6 +3,7 @@ import Head from 'next/head';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import Header from '../../components/Header';
+import Breadcrumb from '../../components/Breadcrumb';
 import Footer from '../../components/Footer';
 import MysticLoader from '../../components/MysticLoader';
 import { getLuckyNumbers } from '../../lib/luckyNumber';
@@ -54,7 +55,8 @@ export default function ConSoMayMan() {
         <Head><title>Con Số May Mắn Của Bạn — TriMenh</title></Head>
         <Header />
         <main className="max-w-md mx-auto px-5 py-10 sm:py-14">
-          <h1 className="font-display text-2xl sm:text-3xl text-parchment mb-6 text-center">Con Số May Mắn</h1>
+          <Breadcrumb trail={[{ label: 'Thần Số Học', href: '/than-so-hoc-hub' }]} current="Con số may mắn" />
+        <h1 className="font-display text-2xl sm:text-3xl text-parchment mb-6 text-center">Con Số May Mắn</h1>
           <div className="mystic-card p-6 text-center space-y-4">
             <p className="text-moon text-sm">Số Chủ Đạo: <strong className="text-parchment">{result.lifePath}</strong> — Mệnh: <strong className="text-parchment">{result.hanh}</strong></p>
             <div className="flex justify-center gap-3 flex-wrap pt-2">

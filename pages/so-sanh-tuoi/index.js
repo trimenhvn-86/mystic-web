@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { HeartHandshake } from 'lucide-react';
 import Header from '../../components/Header';
+import Breadcrumb from '../../components/Breadcrumb';
 import Footer from '../../components/Footer';
 import MysticLoader from '../../components/MysticLoader';
 
@@ -41,6 +42,7 @@ export default function SoSanhTuoiForm() {
         <div className="w-14 h-14 rounded-full bg-ink-soft border border-gold/30 flex items-center justify-center mx-auto mb-4">
           <HeartHandshake size={26} className="text-gold" />
         </div>
+        <Breadcrumb trail={[{ label: 'Tuổi & Tương Hợp', href: '/tuoi-tuong-hop' }]} current="So sánh tuổi 2 người" />
         <h1 className="font-display text-2xl sm:text-3xl text-parchment mb-2 text-center">So Sánh Tuổi Hợp</h1>
         <p className="text-moon/70 text-sm text-center mb-8">Nhập 2 năm sinh để xem điểm tương hợp chi tiết</p>
         <form onSubmit={handleSubmit} className="mystic-card p-6 flex flex-col gap-4">

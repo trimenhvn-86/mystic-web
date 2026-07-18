@@ -2,6 +2,7 @@ import Head from 'next/head';
 import Link from 'next/link';
 import { Sun } from 'lucide-react';
 import Header from '../../components/Header';
+import Breadcrumb from '../../components/Breadcrumb';
 import Footer from '../../components/Footer';
 import AdSlot from '../../components/AdSlot';
 import TuViDayDashboard from '../../components/TuViDayDashboard';
@@ -97,6 +98,7 @@ export default function TuViHomNaySlug(props) {
         <div className="w-14 h-14 rounded-full bg-ink-soft border border-gold/30 flex items-center justify-center mx-auto mb-4">
           <Sun size={26} className="text-gold" />
         </div>
+        <Breadcrumb trail={[{ label: 'Tử Vi', href: '/tu-vi' }, { label: 'Tử vi hôm nay', href: '/tu-vi-hom-nay' }]} current={`Tuổi ${data.conGiap}`} />
         <h1 className="font-display text-2xl sm:text-3xl text-parchment mb-1 text-center">Tuổi {data.conGiap}</h1>
         <p className="text-moon/70 text-sm text-center mb-8">{dateStr} — Mệnh {data.hanh}</p>
         <div className="mystic-card p-6 space-y-4">

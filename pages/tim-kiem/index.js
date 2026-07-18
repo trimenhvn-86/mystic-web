@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { Search as SearchIcon } from 'lucide-react';
 import Header from '../../components/Header';
+import Breadcrumb from '../../components/Breadcrumb';
 import Footer from '../../components/Footer';
 import { HUBS, getAllActiveTools } from '../../content/hubs';
 import { getDictionaryTerms, getGuidePosts } from '../../lib/sanity';
@@ -37,6 +38,7 @@ export default function TimKiem({ index }) {
       </Head>
       <Header />
       <main className="max-w-2xl mx-auto px-5 py-10 sm:py-14">
+        <Breadcrumb trail={[]} current="Tìm kiếm" />
         <h1 className="font-display text-2xl sm:text-3xl text-parchment mb-6 text-center">Tìm kiếm</h1>
         <div className="relative mb-6">
           <SearchIcon size={18} className="absolute left-4 top-1/2 -translate-y-1/2 text-moon" />

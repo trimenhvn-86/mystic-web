@@ -3,6 +3,7 @@ import Head from 'next/head';
 import Link from 'next/link';
 import { Sparkles, Share2 } from 'lucide-react';
 import Header from '../../components/Header';
+import Breadcrumb from '../../components/Breadcrumb';
 import Footer from '../../components/Footer';
 import AdSlot from '../../components/AdSlot';
 import TarotCardFlip from '../../components/TarotCardFlip';
@@ -67,6 +68,7 @@ export default function TarotHomNay({ card, upright, dateStr, dictionaryPreview,
         <div className="w-14 h-14 rounded-full bg-ink-soft border border-gold/30 flex items-center justify-center mx-auto mb-4">
           <Sparkles size={26} className="text-gold" />
         </div>
+        <Breadcrumb trail={[{ label: 'Tarot', href: '/tarot' }]} current="Tarot hôm nay" />
         <h1 className="font-display text-2xl sm:text-3xl text-parchment mb-1 text-center">Tarot Hôm Nay</h1>
         <p className="text-moon/70 text-sm text-center mb-8">{dateStr} — lá bài chung cho hôm nay</p>
 

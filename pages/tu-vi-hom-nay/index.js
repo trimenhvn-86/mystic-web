@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import Header from '../../components/Header';
+import Breadcrumb from '../../components/Breadcrumb';
 import Footer from '../../components/Footer';
 import TuViDayDashboard from '../../components/TuViDayDashboard';
 import { buildDayDashboard } from '../../lib/tuViDashboard';
@@ -39,7 +40,8 @@ export default function TuViHomNayIndex(props) {
       </Head>
       <Header />
       <main className="max-w-3xl mx-auto px-5 py-8 sm:py-12">
-        <TuViDayDashboard {...props} />
+        <Breadcrumb trail={[{ label: 'Tử Vi', href: '/tu-vi' }]} current="Tử vi hôm nay" />
+                <TuViDayDashboard {...props} />
       </main>
       <Footer />
     </>

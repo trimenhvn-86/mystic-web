@@ -2,6 +2,7 @@ import Head from 'next/head';
 import Link from 'next/link';
 import { Hash } from 'lucide-react';
 import Header from '../../components/Header';
+import Breadcrumb from '../../components/Breadcrumb';
 import Footer from '../../components/Footer';
 import AdSlot from '../../components/AdSlot';
 import dictionary from '../../content/numerology/life-path.json';
@@ -32,11 +33,7 @@ export default function SoChiTiet({ num, info, otherNumbers }) {
       </Head>
       <Header />
       <main className="max-w-2xl mx-auto px-5 py-8 sm:py-12">
-        <div className="flex flex-wrap items-center gap-1.5 text-xs text-moon mb-6">
-          <Link href="/than-so-hoc-hub" className="hover:text-gold-soft transition-colors">Thần Số Học</Link>
-          <span>/</span>
-          <span className="text-parchment/70">{info.ten}</span>
-        </div>
+        <Breadcrumb trail={[{ label: 'Thần Số Học', href: '/than-so-hoc-hub' }]} current={info.ten} />
 
         <div className="w-14 h-14 rounded-full bg-ink-soft border border-gold/30 flex items-center justify-center mx-auto mb-4">
           <Hash size={26} className="text-gold" />

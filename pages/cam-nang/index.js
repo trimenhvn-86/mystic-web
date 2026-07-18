@@ -3,6 +3,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { BookOpen } from 'lucide-react';
 import Header from '../../components/Header';
+import Breadcrumb from '../../components/Breadcrumb';
 import Footer from '../../components/Footer';
 import { getGuidePosts, isConfigured } from '../../lib/sanity';
 
@@ -23,6 +24,7 @@ export default function CamNangIndex({ posts, cmsConfigured }) {
         <div className="w-16 h-16 rounded-full bg-ink-soft border border-gold/30 flex items-center justify-center mx-auto mb-4">
           <BookOpen size={30} className="text-gold" />
         </div>
+        <Breadcrumb trail={[]} current="Cẩm nang" />
         <h1 className="font-display text-2xl sm:text-3xl text-parchment mb-2 text-center">Cẩm Nang</h1>
         <p className="text-moon/80 text-center max-w-lg mx-auto mb-10">
           Hướng dẫn thực tế trả lời đúng nhu cầu của bạn — từ chọn ngày cưới đến xem hướng nhà.

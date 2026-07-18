@@ -3,6 +3,7 @@ import Head from 'next/head';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import Header from '../../components/Header';
+import Breadcrumb from '../../components/Breadcrumb';
 import Footer from '../../components/Footer';
 import MysticLoader from '../../components/MysticLoader';
 import HubContentPreview from '../../components/HubContentPreview';
@@ -42,6 +43,7 @@ export default function TuoiHopForm({ dictionaryPreview, guidePreview }) {
       </Head>
       <Header />
       <main className="max-w-md mx-auto px-5 py-10 sm:py-14">
+        <Breadcrumb trail={[{ label: 'Tuổi & Tương Hợp', href: '/tuoi-tuong-hop' }]} current="Tra cứu tuổi" />
         <h1 className="font-display text-2xl sm:text-3xl text-parchment mb-2 text-center">Tra Cứu Tuổi Hợp</h1>
         <p className="text-moon/70 text-sm text-center mb-8">Nhập năm sinh Dương lịch để xem tuổi hợp với bạn.</p>
         <form onSubmit={handleSubmit} className="mystic-card p-6 flex flex-col gap-4">

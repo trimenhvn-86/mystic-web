@@ -2,6 +2,7 @@ import Head from 'next/head';
 import Link from 'next/link';
 import { Layers3 } from 'lucide-react';
 import Header from '../../components/Header';
+import Breadcrumb from '../../components/Breadcrumb';
 import Footer from '../../components/Footer';
 import spreads from '../../content/tarot-spreads.json';
 
@@ -17,6 +18,7 @@ export default function TraiBaiIndex() {
         <div className="w-14 h-14 rounded-full bg-ink-soft border border-gold/30 flex items-center justify-center mx-auto mb-4">
           <Layers3 size={26} className="text-gold" />
         </div>
+        <Breadcrumb trail={[{ label: 'Tarot', href: '/tarot' }]} current="Trải bài 3 lá" />
         <h1 className="font-display text-2xl sm:text-3xl text-parchment mb-2 text-center">Trải Bài 3 Lá</h1>
         <p className="text-moon/70 text-sm text-center mb-10">Chọn chủ đề bạn muốn xem</p>
 

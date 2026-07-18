@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import Header from '../../components/Header';
+import Breadcrumb from '../../components/Breadcrumb';
 import Footer from '../../components/Footer';
 import TuViMonthDashboard from '../../components/TuViMonthDashboard';
 import { buildMonthDashboard } from '../../lib/tuViDashboard';
@@ -22,7 +23,8 @@ export default function TuViThangIndex(props) {
       </Head>
       <Header />
       <main className="max-w-3xl mx-auto px-5 py-8 sm:py-12">
-        <TuViMonthDashboard {...props} />
+        <Breadcrumb trail={[{ label: 'Tử Vi', href: '/tu-vi' }]} current="Tử vi tháng" />
+                <TuViMonthDashboard {...props} />
       </main>
       <Footer />
     </>

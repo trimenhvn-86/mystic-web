@@ -3,6 +3,7 @@ import Head from 'next/head';
 import Link from 'next/link';
 import { CircleDot, RotateCcw } from 'lucide-react';
 import Header from '../../components/Header';
+import Breadcrumb from '../../components/Breadcrumb';
 import Footer from '../../components/Footer';
 import AdSlot from '../../components/AdSlot';
 import TarotCardFlip from '../../components/TarotCardFlip';
@@ -63,6 +64,7 @@ export default function RutLaTarot({ dictionaryPreview, guidePreview }) {
         <div className="w-14 h-14 rounded-full bg-ink-soft border border-gold/30 flex items-center justify-center mx-auto mb-4">
           <CircleDot size={26} className="text-gold" />
         </div>
+        <Breadcrumb trail={[{ label: 'Tarot', href: '/tarot' }]} current="Rút 1 lá" />
         <h1 className="font-display text-2xl sm:text-3xl text-parchment mb-1 text-center">Rút 1 Lá Tarot</h1>
         <p className="text-moon/70 text-sm text-center mb-8">Tĩnh tâm, đặt câu hỏi trong đầu, rồi bấm vào lá bài để rút</p>
 

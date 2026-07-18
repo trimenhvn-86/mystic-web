@@ -2,6 +2,7 @@ import Head from 'next/head';
 import Link from 'next/link';
 import { CalendarCheck } from 'lucide-react';
 import Header from '../../components/Header';
+import Breadcrumb from '../../components/Breadcrumb';
 import Footer from '../../components/Footer';
 import occasions from '../../content/occasions.json';
 
@@ -17,6 +18,7 @@ export default function XemNgayIndex() {
         <div className="w-14 h-14 rounded-full bg-ink-soft border border-gold/30 flex items-center justify-center mx-auto mb-4">
           <CalendarCheck size={26} className="text-gold" />
         </div>
+        <Breadcrumb trail={[{ label: 'Lịch & Ngày Tốt', href: '/lich-ngay-tot' }]} current="Xem ngày tốt theo việc" />
         <h1 className="font-display text-2xl sm:text-3xl text-parchment mb-2 text-center">Xem Ngày Tốt Theo Việc</h1>
         <p className="text-moon/70 text-sm text-center mb-8">Chọn đúng việc bạn đang cần xem ngày</p>
 

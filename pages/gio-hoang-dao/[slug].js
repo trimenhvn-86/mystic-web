@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import { Clock3 } from 'lucide-react';
 import Header from '../../components/Header';
+import Breadcrumb from '../../components/Breadcrumb';
 import Footer from '../../components/Footer';
 import AdSlot from '../../components/AdSlot';
 import CalendarImageCard from '../../components/CalendarImageCard';
@@ -51,6 +52,7 @@ export default function GioHoangDaoResult({ dd, mm, yyyy, chiNgay, gioList }) {
         <div className="w-14 h-14 rounded-full bg-ink-soft border border-gold/30 flex items-center justify-center mx-auto mb-4">
           <Clock3 size={26} className="text-gold" />
         </div>
+        <Breadcrumb trail={[{ label: 'Lịch & Ngày Tốt', href: '/lich-ngay-tot' }, { label: 'Giờ hoàng đạo', href: '/gio-hoang-dao' }]} current={`Ngày ${dd}/${mm}/${yyyy}`} />
         <h1 className="font-display text-2xl sm:text-3xl text-parchment mb-4 text-center">{title}</h1>
         <p className="text-moon/80 text-center max-w-2xl mx-auto mb-8 leading-relaxed">{summary}</p>
 

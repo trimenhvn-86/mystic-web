@@ -2,6 +2,7 @@ import Head from 'next/head';
 import Link from 'next/link';
 import { Briefcase } from 'lucide-react';
 import Header from '../../components/Header';
+import Breadcrumb from '../../components/Breadcrumb';
 import Footer from '../../components/Footer';
 import AdSlot from '../../components/AdSlot';
 import TuoiHopLinks from '../../components/TuoiHopLinks';
@@ -47,6 +48,7 @@ export default function XemTuoiLamAnResult({ result, advice, yearA, yearB }) {
         <div className="w-14 h-14 rounded-full bg-ink-soft border border-gold/30 flex items-center justify-center mx-auto mb-4">
           <Briefcase size={26} className="text-gold" />
         </div>
+        <Breadcrumb trail={[{ label: 'Tuổi & Tương Hợp', href: '/tuoi-tuong-hop' }, { label: 'Xem tuổi làm ăn', href: '/xem-tuoi-lam-an' }]} current="Kết quả" />
         <h1 className="font-display text-2xl sm:text-3xl text-parchment mb-8 text-center">{title}</h1>
 
         <div className="mystic-card p-6 text-center mb-6">

@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { Briefcase } from 'lucide-react';
 import Header from '../../components/Header';
+import Breadcrumb from '../../components/Breadcrumb';
 import Footer from '../../components/Footer';
 import MysticLoader from '../../components/MysticLoader';
 import HubContentPreview from '../../components/HubContentPreview';
@@ -48,6 +49,7 @@ export default function XemTuoiLamAnForm({ dictionaryPreview, guidePreview }) {
         <div className="w-14 h-14 rounded-full bg-ink-soft border border-gold/30 flex items-center justify-center mx-auto mb-4">
           <Briefcase size={26} className="text-gold" />
         </div>
+        <Breadcrumb trail={[{ label: 'Tuổi & Tương Hợp', href: '/tuoi-tuong-hop' }]} current="Xem tuổi làm ăn" />
         <h1 className="font-display text-2xl sm:text-3xl text-parchment mb-2 text-center">Xem Tuổi Làm Ăn</h1>
         <p className="text-moon/70 text-sm text-center mb-8">Nhập năm sinh 2 người để xem mức độ hợp tác kinh doanh</p>
         <form onSubmit={handleSubmit} className="mystic-card p-6 flex flex-col gap-4">

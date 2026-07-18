@@ -2,6 +2,7 @@ import Head from 'next/head';
 import Link from 'next/link';
 import { CalendarCheck } from 'lucide-react';
 import Header from '../../components/Header';
+import Breadcrumb from '../../components/Breadcrumb';
 import Footer from '../../components/Footer';
 import AdSlot from '../../components/AdSlot';
 import { getBestAndWorstDays } from '../../lib/periodRating';
@@ -47,6 +48,7 @@ export default function XemNgayOccasion({ occasion, bestDays, monthLabel }) {
         <div className="w-14 h-14 rounded-full bg-ink-soft border border-gold/30 flex items-center justify-center mx-auto mb-4">
           <CalendarCheck size={26} className="text-gold" />
         </div>
+        <Breadcrumb trail={[{ label: 'Lịch & Ngày Tốt', href: '/lich-ngay-tot' }, { label: 'Xem ngày tốt theo việc', href: '/xem-ngay' }]} current={occasion.label} />
         <h1 className="font-display text-2xl sm:text-3xl text-parchment mb-2 text-center">Xem Ngày Tốt {occasion.label}</h1>
         <p className="text-moon/70 text-sm text-center mb-8">Danh sách ngày Hoàng đạo tốt trong 60 ngày tới</p>
 

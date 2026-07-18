@@ -3,6 +3,7 @@ import Head from 'next/head';
 import Link from 'next/link';
 import { Layers3, RotateCcw } from 'lucide-react';
 import Header from '../../components/Header';
+import Breadcrumb from '../../components/Breadcrumb';
 import Footer from '../../components/Footer';
 import AdSlot from '../../components/AdSlot';
 import TarotCardFlip from '../../components/TarotCardFlip';
@@ -50,6 +51,7 @@ export default function TraiBai3La({ spread, dictionaryPreview, guidePreview }) 
         <div className="w-14 h-14 rounded-full bg-ink-soft border border-gold/30 flex items-center justify-center mx-auto mb-4">
           <Layers3 size={26} className="text-gold" />
         </div>
+        <Breadcrumb trail={[{ label: 'Tarot', href: '/tarot' }, { label: 'Trải bài 3 lá', href: '/trai-bai-3-la' }]} current={spread.label} />
         <h1 className="font-display text-2xl sm:text-3xl text-parchment mb-2 text-center">{spread.label}</h1>
         <p className="text-moon/70 text-sm text-center mb-10">{spread.desc}</p>
 

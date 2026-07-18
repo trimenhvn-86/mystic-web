@@ -1,8 +1,13 @@
 import '../styles/globals.css';
 import Head from 'next/head';
 import Script from 'next/script';
+import { useRouter } from 'next/router';
 
 export default function App({ Component, pageProps }) {
+  const router = useRouter();
+  const canonicalPath = router.asPath.split('?')[0].split('#')[0];
+  const canonicalUrl = `https://trimenh.com${canonicalPath === '/' ? '' : canonicalPath}`;
+
   return (
     <>
       {/* Google Analytics */}
@@ -21,6 +26,7 @@ export default function App({ Component, pageProps }) {
       </Script>
 
       <Head>
+        <link rel="canonical" href={canonicalUrl} />
         <meta name="google-site-verification" content="4Al67m0IrHmrKDCvrnmwrj2nujRtUbXkhIayyp5Dv08" />
         <link rel="icon" href="/favicon.ico" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />

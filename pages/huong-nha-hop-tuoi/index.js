@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { Compass } from 'lucide-react';
 import Header from '../../components/Header';
+import Breadcrumb from '../../components/Breadcrumb';
 import Footer from '../../components/Footer';
 import MysticLoader from '../../components/MysticLoader';
 import HubContentPreview from '../../components/HubContentPreview';
@@ -60,6 +61,7 @@ export default function HuongNhaForm({ dictionaryPreview, guidePreview }) {
       </Head>
       <Header />
       <main className="max-w-md mx-auto px-5 py-10 sm:py-14">
+        <Breadcrumb trail={[{ label: 'Mệnh & Phong Thủy', href: '/menh-phong-thuy' }]} current="Hướng nhà hợp tuổi" />
         <div className="w-14 h-14 rounded-full bg-ink-soft border border-gold/30 flex items-center justify-center mx-auto mb-4">
           <Compass size={26} className="text-gold" />
         </div>

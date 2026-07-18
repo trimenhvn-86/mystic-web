@@ -2,6 +2,7 @@ import Head from 'next/head';
 import Link from 'next/link';
 import { BookOpen } from 'lucide-react';
 import Header from '../../components/Header';
+import Breadcrumb from '../../components/Breadcrumb';
 import Footer from '../../components/Footer';
 import { getDictionaryTerms, isConfigured } from '../../lib/sanity';
 
@@ -22,6 +23,7 @@ export default function TuDienIndex({ terms, cmsConfigured }) {
         <div className="w-16 h-16 rounded-full bg-ink-soft border border-gold/30 flex items-center justify-center mx-auto mb-4">
           <BookOpen size={30} className="text-gold" />
         </div>
+        <Breadcrumb trail={[]} current="Từ điển" />
         <h1 className="font-display text-2xl sm:text-3xl text-parchment mb-2 text-center">Từ Điển Huyền Học</h1>
         <p className="text-moon/80 text-center max-w-lg mx-auto mb-10">
           Định nghĩa, nguồn gốc và ứng dụng của các thuật ngữ huyền học Đông - Tây.

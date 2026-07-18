@@ -18,6 +18,7 @@ import MiniCalendar from '../components/MiniCalendar';
 import NumerologyQuickForm from '../components/NumerologyQuickForm';
 import TuViQuickLinks from '../components/TuViQuickLinks';
 import TarotToolGroups, { TarotHeroCTA } from '../components/TarotHubExtras';
+import Breadcrumb from '../components/Breadcrumb';
 import TuoiHopLinks from '../components/TuoiHopLinks';
 import MenhPhongThuyLinks from '../components/MenhPhongThuyLinks';
 
@@ -240,6 +241,7 @@ export default function YearToolPage({ type, year, menh, tuoiHop, hub, dictionar
         </Head>
         <Header />
         <main className="max-w-3xl mx-auto px-5 py-8 sm:py-12">
+          <Breadcrumb trail={[{ label: 'Mệnh & Phong Thủy', href: '/menh-phong-thuy' }]} current={`Mệnh năm ${year}`} />
           <div className="w-14 h-14 rounded-full bg-ink-soft border border-gold/30 flex items-center justify-center mx-auto mb-4">
             <Layers size={26} className="text-gold" />
           </div>
@@ -427,6 +429,7 @@ export default function YearToolPage({ type, year, menh, tuoiHop, hub, dictionar
         </Head>
         <Header />
         <main className="max-w-2xl mx-auto px-5 py-8 sm:py-12">
+          <Breadcrumb trail={[{ label: 'Mệnh & Phong Thủy', href: '/menh-phong-thuy' }]} current={`Màu hợp mệnh năm ${year}`} />
           <div className="w-14 h-14 rounded-full bg-ink-soft border border-gold/30 flex items-center justify-center mx-auto mb-4">
             <Palette size={26} className="text-gold" />
           </div>
@@ -505,6 +508,7 @@ export default function YearToolPage({ type, year, menh, tuoiHop, hub, dictionar
         </Head>
         <Header />
         <main className="max-w-2xl mx-auto px-5 py-8 sm:py-12">
+          <Breadcrumb trail={[{ label: 'Mệnh & Phong Thủy', href: '/menh-phong-thuy' }]} current={`Vật phẩm phong thủy năm ${year}`} />
           <div className="w-14 h-14 rounded-full bg-ink-soft border border-gold/30 flex items-center justify-center mx-auto mb-4">
             <Gem size={26} className="text-gold" />
           </div>
@@ -563,6 +567,7 @@ export default function YearToolPage({ type, year, menh, tuoiHop, hub, dictionar
       </Head>
       <Header />
       <main className="max-w-2xl mx-auto px-5 py-8 sm:py-12">
+        <Breadcrumb trail={[{ label: 'Tuổi & Tương Hợp', href: '/tuoi-tuong-hop' }]} current={`Tuổi hợp năm ${year}`} />
         <div className="w-14 h-14 rounded-full bg-ink-soft border border-gold/30 flex items-center justify-center mx-auto mb-4">
           <Users size={26} className="text-gold" />
         </div>

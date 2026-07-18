@@ -117,6 +117,11 @@ export default function YearToolPage({ type, year, menh, tuoiHop, hub, dictionar
         </Head>
         <Header />
         <main className="max-w-4xl mx-auto px-5 py-8 sm:py-12">
+          <div className="flex flex-wrap items-center gap-1.5 text-xs text-moon mb-6">
+            <Link href="/" className="hover:text-gold-soft transition-colors">Trang chủ</Link>
+            <span>/</span>
+            <span className="text-parchment/70">{hub.name}</span>
+          </div>
           <div className="w-16 h-16 rounded-full bg-ink-soft border border-gold/30 flex items-center justify-center mx-auto mb-4">
             <Icon size={30} className="text-gold" />
           </div>

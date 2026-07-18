@@ -252,8 +252,6 @@ export default function ThanSoHoc({ dictionaryPreview, guidePreview }) {
             <p className="text-sm text-moon mb-3">Công cụ liên quan:</p>
             <div className="flex flex-wrap gap-2">
               <Link href="/con-so-may-man" className="px-3 py-1.5 rounded-full border border-ink-line text-sm text-moon hover:border-gold/40 hover:text-gold-soft transition-colors">Con số may mắn</Link>
-              <Link href="/xem-ngay-tot" className="px-3 py-1.5 rounded-full border border-ink-line text-sm text-moon hover:border-gold/40 hover:text-gold-soft transition-colors">Xem ngày tốt</Link>
-              <Link href="/tu-vi-hom-nay" className="px-3 py-1.5 rounded-full border border-ink-line text-sm text-moon hover:border-gold/40 hover:text-gold-soft transition-colors">Tử vi hôm nay</Link>
             </div>
           </div>
 
@@ -371,8 +369,6 @@ export default function ThanSoHoc({ dictionaryPreview, guidePreview }) {
             <p className="text-sm text-moon mb-3">Công cụ liên quan:</p>
             <div className="flex flex-wrap gap-2">
               <Link href="/con-so-may-man" className="px-3 py-1.5 rounded-full border border-ink-line text-sm text-moon hover:border-gold/40 hover:text-gold-soft transition-colors">Con số may mắn</Link>
-              <Link href="/xem-ngay-tot" className="px-3 py-1.5 rounded-full border border-ink-line text-sm text-moon hover:border-gold/40 hover:text-gold-soft transition-colors">Xem ngày tốt</Link>
-              <Link href="/tu-vi-hom-nay" className="px-3 py-1.5 rounded-full border border-ink-line text-sm text-moon hover:border-gold/40 hover:text-gold-soft transition-colors">Tử vi hôm nay</Link>
             </div>
           </div>
 

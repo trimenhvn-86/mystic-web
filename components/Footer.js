@@ -12,14 +12,6 @@ const SOCIALS = [
 export default function Footer() {
   return (
     <footer className="mt-16">
-      {/* Lien he quang cao - luon o tren cung, ca mobile va desktop */}
-      <div className="border-t border-b border-ink-line bg-ink-soft/40">
-        <div className="max-w-6xl mx-auto px-5 py-3 text-center text-sm text-gold-soft">
-          Liên hệ hợp tác quảng cáo:{' '}
-          <Link href="/lien-he" className="underline hover:no-underline">Gửi form liên hệ</Link>
-        </div>
-      </div>
-
       <div className="max-w-6xl mx-auto px-5 py-10">
         {/* Brand + social */}
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-8">

@@ -180,17 +180,12 @@ export default function TuViDayDashboard({ dashboard, dateStr, prevSlug, nextSlu
         </div>
       </div>
 
-      {/* Cong cu lien quan */}
+      {/* Cong cu lien quan - chi giu tool cung Hub Tu Vi */}
       <div className="mb-6">
         <p className="text-sm text-moon mb-3">Công cụ liên quan:</p>
         <div className="flex flex-wrap gap-2">
           <Link href="/tu-vi-tuan" className="px-3 py-1.5 rounded-full border border-gold/30 text-sm text-gold-soft hover:bg-gold/10 transition-colors">Tử vi tuần</Link>
           <Link href="/tu-vi-thang" className="px-3 py-1.5 rounded-full border border-gold/30 text-sm text-gold-soft hover:bg-gold/10 transition-colors">Tử vi tháng</Link>
-          <Link href="/xem-ngay-tot" className="px-3 py-1.5 rounded-full border border-ink-line text-sm text-moon hover:border-gold/40 hover:text-gold-soft transition-colors">Xem ngày tốt</Link>
-          <Link href="/gio-hoang-dao" className="px-3 py-1.5 rounded-full border border-ink-line text-sm text-moon hover:border-gold/40 hover:text-gold-soft transition-colors">Giờ hoàng đạo</Link>
-          <Link href="/doi-lich-am-duong" className="px-3 py-1.5 rounded-full border border-ink-line text-sm text-moon hover:border-gold/40 hover:text-gold-soft transition-colors">Đổi lịch âm</Link>
-          <Link href="/can-chi" className="px-3 py-1.5 rounded-full border border-ink-line text-sm text-moon hover:border-gold/40 hover:text-gold-soft transition-colors">Can Chi</Link>
-          <Link href="/ngay-hoang-dao" className="px-3 py-1.5 rounded-full border border-ink-line text-sm text-moon hover:border-gold/40 hover:text-gold-soft transition-colors">Ngày Hoàng đạo</Link>
         </div>
       </div>
 

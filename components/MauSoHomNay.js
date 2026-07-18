@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import { HA_DO } from '../lib/luckyNumber';
 
 const COLOR_DOT = {
@@ -29,16 +28,13 @@ export default function MauSoHomNay({ hanh, mauHop }) {
       </div>
       <div>
         <p className="text-xs text-moon uppercase mb-3">Hôm nay hợp số nào?</p>
-        <div className="flex gap-2 mb-3">
+        <div className="flex gap-2">
           {numbers.map((n) => (
             <span key={n} className="w-9 h-9 rounded-full bg-gold text-ink font-display text-lg flex items-center justify-center">
               {n}
             </span>
           ))}
         </div>
-        <Link href="/than-so-hoc" className="text-xs text-gold-soft hover:underline">
-          Xem thêm với Thần số học →
-        </Link>
       </div>
     </div>
   );

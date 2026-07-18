@@ -75,7 +75,6 @@ export default function XemTuoiLamAnForm({ dictionaryPreview, guidePreview }) {
             <p className="text-sm text-moon mb-3">Công cụ liên quan:</p>
             <div className="flex flex-wrap gap-2">
               <Link href="/tuoi-hop" className="px-3 py-1.5 rounded-full border border-ink-line text-sm text-moon hover:border-gold/40 hover:text-gold-soft transition-colors">Tuổi hợp theo năm sinh</Link>
-              <Link href="/xem-ngay-tot" className="px-3 py-1.5 rounded-full border border-ink-line text-sm text-moon hover:border-gold/40 hover:text-gold-soft transition-colors">Xem ngày khai trương tốt</Link>
             </div>
           </div>
 

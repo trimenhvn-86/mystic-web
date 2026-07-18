@@ -76,7 +76,6 @@ export default function XemTuoiKetHonForm({ dictionaryPreview, guidePreview }) {
             <div className="flex flex-wrap gap-2">
               <Link href="/tuoi-hop" className="px-3 py-1.5 rounded-full border border-ink-line text-sm text-moon hover:border-gold/40 hover:text-gold-soft transition-colors">Tuổi hợp theo năm sinh</Link>
               <Link href="/so-sanh-tuoi" className="px-3 py-1.5 rounded-full border border-ink-line text-sm text-moon hover:border-gold/40 hover:text-gold-soft transition-colors">So sánh tuổi (tổng quát)</Link>
-              <Link href="/xem-ngay-tot" className="px-3 py-1.5 rounded-full border border-ink-line text-sm text-moon hover:border-gold/40 hover:text-gold-soft transition-colors">Xem ngày cưới tốt</Link>
             </div>
           </div>
 

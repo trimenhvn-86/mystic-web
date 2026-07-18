@@ -82,13 +82,6 @@ export default function XemTuoiLamAnResult({ result, advice, yearA, yearB }) {
 
         <AdSlot label="Ad slot — xem tuổi làm ăn" className="mb-6" />
 
-        <div>
-          <p className="text-sm text-moon mb-3">Xem thêm:</p>
-          <div className="flex flex-wrap gap-2">
-            <Link href="/xem-ngay-tot" className="px-3 py-1.5 rounded-full border border-ink-line text-sm text-moon hover:border-gold/40 hover:text-gold-soft transition-colors">Xem ngày khai trương tốt</Link>
-          </div>
-        </div>
-
         <TuoiHopLinks exclude="xem-tuoi-lam-an" />
 
         <p className="text-xs text-moon/50 mt-8 text-center">

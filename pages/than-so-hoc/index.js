@@ -48,22 +48,23 @@ export default function ThanSoHoc({ dictionaryPreview, guidePreview }) {
   const [result, setResult] = useState(null);
 
   useEffect(() => {
-    const { dd, mm, yyyy } = router.query;
-    if (dd && mm && yyyy) {
+    const { dd, mm, yyyy, hoTen } = router.query;
+    if (dd && mm && yyyy && hoTen) {
+      setForm({ hoTen: String(hoTen), dd: Number(dd), mm: Number(mm), yyyy: Number(yyyy) });
+      computeResult(String(hoTen), Number(dd), Number(mm), Number(yyyy));
+    } else if (dd && mm && yyyy) {
       setForm((f) => ({ ...f, dd: Number(dd), mm: Number(mm), yyyy: Number(yyyy) }));
     }
   }, [router.query]);
 
-  function handleSubmit(e) {
-    e.preventDefault();
+  function computeResult(hoTen, dd, mm, yyyy) {
     setStep('loading');
     setTimeout(() => {
-      const dd = Number(form.dd), mm = Number(form.mm), yyyy = Number(form.yyyy);
       const today = new Date();
       const lifePath = calcLifePathNumber(dd, mm, yyyy);
-      const destiny = calcDestinyNumber(form.hoTen);
-      const soul = calcSoulUrgeNumber(form.hoTen);
-      const personality = calcPersonalityNumber(form.hoTen);
+      const destiny = calcDestinyNumber(hoTen);
+      const soul = calcSoulUrgeNumber(hoTen);
+      const personality = calcPersonalityNumber(hoTen);
       const maturity = calcMaturityNumber(lifePath, destiny);
       const personalYear = calcPersonalYearNumber(dd, mm, today.getFullYear());
       const personalMonth = calcPersonalMonthNumber(personalYear, today.getMonth() + 1);
@@ -75,6 +76,11 @@ export default function ThanSoHoc({ dictionaryPreview, guidePreview }) {
       trackToolUse('than_so_hoc');
       setStep('result');
     }, 2200);
+  }
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    computeResult(form.hoTen, Number(form.dd), Number(form.mm), Number(form.yyyy));
   }
 
   function handleShare() {
@@ -111,12 +117,17 @@ export default function ThanSoHoc({ dictionaryPreview, guidePreview }) {
               {[
                 ['Chủ Đạo', result.lifePath], ['Sứ Mệnh', result.destiny], ['Linh Hồn', result.soul],
                 ['Biểu Đạt', result.personality], ['Trưởng Thành', result.maturity], [`Năm ${new Date().getFullYear()}`, result.personalYear]
-              ].map(([label, val]) => (
-                <div key={label} className="bg-ink-soft rounded-lg border border-ink-line px-2 py-3">
-                  <p className="text-2xl font-display text-gold-soft">{val}</p>
-                  <p className="text-[11px] text-moon mt-1">{label}</p>
-                </div>
-              ))}
+              ].map(([label, val]) => {
+                const hasPage = Boolean(dictionary[String(val)]);
+                const Wrapper = hasPage ? Link : 'div';
+                const wrapperProps = hasPage ? { href: `/than-so-hoc/so-chu-dao-${val}` } : {};
+                return (
+                  <Wrapper key={label} {...wrapperProps} className={`bg-ink-soft rounded-lg border border-ink-line px-2 py-3 ${hasPage ? 'hover:border-gold/40 transition-colors cursor-pointer' : ''}`}>
+                    <p className="text-2xl font-display text-gold-soft">{val}</p>
+                    <p className="text-[11px] text-moon mt-1">{label}</p>
+                  </Wrapper>
+                );
+              })}
             </div>
             <p className="text-sm text-parchment/85">{info?.tongQuan}</p>
           </div>

@@ -1,98 +1,194 @@
 {
   "1": {
     "ten": "Số Chủ Đạo 1 - Nhà Lãnh Đạo",
-    "tongQuan": "Người mang số 1 có tinh thần độc lập, tiên phong và khả năng lãnh đạo bẩm sinh. Họ thường là người khởi xướng, không ngại đi đầu và luôn tìm cách tạo ra dấu ấn riêng.",
+    "tongQuan": "Người mang Số Chủ Đạo 1 mang năng lượng của người khởi đầu — luôn là người đầu tiên bước ra khỏi vùng an toàn để mở đường cho những điều mới mẻ. Tinh thần độc lập, tiên phong và khả năng lãnh đạo gần như là bản năng bẩm sinh, khiến họ khó chấp nhận việc chỉ đi theo lối mòn của người khác. Số 1 thường là người khởi xướng trong nhóm, sẵn sàng chịu trách nhiệm và đứng ra dẫn dắt khi cần thiết, dù đôi khi điều đó khiến họ phải đơn độc trên hành trình của riêng mình. Bài học lớn nhất của số 1 trong đời là học cách cân bằng giữa sự quyết đoán cá nhân và khả năng hợp tác, lắng nghe người khác — vì sức mạnh thật sự không đến từ việc luôn đứng đầu, mà từ việc biết khi nào nên dẫn dắt và khi nào nên đồng hành.",
     "conDuong": "Sự nghiệp phù hợp với vai trò quản lý, khởi nghiệp, hoặc bất kỳ lĩnh vực đòi hỏi tính sáng tạo và quyết đoán cao.",
     "tinhDuyen": "Trong tình yêu, người số 1 cần một đối tác tôn trọng sự độc lập của họ, đồng thời cũng cần học cách lắng nghe và chia sẻ nhiều hơn.",
-    "diemManh": ["Quyết đoán", "Sáng tạo", "Tự lập"],
-    "diemYeu": ["Dễ nóng nảy", "Đôi khi cứng đầu", "Khó thỏa hiệp"]
+    "diemManh": [
+      "Quyết đoán",
+      "Sáng tạo",
+      "Tự lập"
+    ],
+    "diemYeu": [
+      "Dễ nóng nảy",
+      "Đôi khi cứng đầu",
+      "Khó thỏa hiệp"
+    ]
   },
   "2": {
     "ten": "Số Chủ Đạo 2 - Người Hòa Giải",
-    "tongQuan": "Người mang số 2 nhạy cảm, tinh tế và có khả năng kết nối con người. Họ hướng đến sự hòa hợp và thường đóng vai trò trung gian trong các mối quan hệ.",
+    "tongQuan": "Số Chủ Đạo 2 tượng trưng cho năng lượng của sự hòa hợp, hợp tác và thấu cảm sâu sắc. Đây là những người sinh ra để làm cầu nối — họ nhạy cảm với cảm xúc của người khác, giỏi lắng nghe và luôn tìm cách dung hòa các mâu thuẫn thay vì gây thêm căng thẳng. Số 2 không thích đối đầu trực diện, họ thiên về sự tinh tế, kiên nhẫn và thường đạt được điều mình muốn thông qua sự khéo léo hơn là ép buộc. Trong các mối quan hệ và công việc nhóm, họ là người giữ cho mọi thứ vận hành êm ả. Thách thức lớn nhất của số 2 là học cách đặt ra ranh giới cho bản thân và không đánh mất chính kiến chỉ vì muốn làm hài lòng tất cả mọi người xung quanh.",
     "conDuong": "Phù hợp với công việc liên quan đến ngoại giao, tư vấn, chăm sóc khách hàng, hoặc nghệ thuật.",
     "tinhDuyen": "Rất coi trọng sự gắn kết trong tình yêu, cần một mối quan hệ ổn định và được thấu hiểu.",
-    "diemManh": ["Tinh tế", "Biết lắng nghe", "Hòa đồng"],
-    "diemYeu": ["Dễ phụ thuộc cảm xúc", "Thiếu quyết đoán", "Nhạy cảm quá mức"]
+    "diemManh": [
+      "Tinh tế",
+      "Biết lắng nghe",
+      "Hòa đồng"
+    ],
+    "diemYeu": [
+      "Dễ phụ thuộc cảm xúc",
+      "Thiếu quyết đoán",
+      "Nhạy cảm quá mức"
+    ]
   },
   "3": {
     "ten": "Số Chủ Đạo 3 - Người Sáng Tạo",
-    "tongQuan": "Người số 3 tràn đầy năng lượng sáng tạo, hoạt ngôn và có khả năng truyền cảm hứng cho người khác thông qua nghệ thuật và giao tiếp.",
+    "tongQuan": "Số Chủ Đạo 3 mang trong mình nguồn năng lượng sáng tạo, biểu đạt và niềm vui sống dồi dào. Đây là những người có khiếu ăn nói, khiếu nghệ thuật hoặc khả năng truyền cảm hứng tự nhiên cho những người xung quanh — họ thường là linh hồn của bữa tiệc, người mang lại tiếng cười và sự lạc quan cho tập thể. Số 3 có trí tưởng tượng phong phú và khả năng diễn đạt ý tưởng một cách sinh động, hấp dẫn. Tuy nhiên, chính sự đa tài và ham thích trải nghiệm mới cũng khiến họ dễ phân tán năng lượng vào quá nhiều việc cùng lúc mà thiếu chiều sâu. Bài học của số 3 là học cách tập trung, kiên trì theo đuổi một hướng đi đến cùng thay vì chạy theo cảm hứng nhất thời.",
     "conDuong": "Phù hợp với các ngành sáng tạo: viết lách, biểu diễn, marketing, truyền thông.",
     "tinhDuyen": "Lãng mạn và nhiệt tình, nhưng cần đối tác kiên nhẫn với sự thay đổi cảm xúc của mình.",
-    "diemManh": ["Sáng tạo", "Hài hước", "Truyền cảm hứng"],
-    "diemYeu": ["Thiếu kiên định", "Dễ phân tán", "Nhạy cảm với chỉ trích"]
+    "diemManh": [
+      "Sáng tạo",
+      "Hài hước",
+      "Truyền cảm hứng"
+    ],
+    "diemYeu": [
+      "Thiếu kiên định",
+      "Dễ phân tán",
+      "Nhạy cảm với chỉ trích"
+    ]
   },
   "4": {
     "ten": "Số Chủ Đạo 4 - Người Xây Dựng",
-    "tongQuan": "Người số 4 thực tế, kỷ luật và đáng tin cậy. Họ xây dựng nền tảng vững chắc cho mọi việc bằng sự kiên trì và trách nhiệm.",
+    "tongQuan": "Số Chủ Đạo 4 là biểu tượng của sự ổn định, kỷ luật và tinh thần làm việc bền bỉ. Đây là những người thực tế, đáng tin cậy, luôn xây dựng mọi thứ từ nền móng vững chắc thay vì chạy theo những con đường tắt hào nhoáng. Số 4 coi trọng trật tự, quy trình rõ ràng và trách nhiệm — họ là những người bạn, đồng nghiệp mà người khác luôn có thể dựa vào lúc khó khăn. Sự kiên trì và khả năng chịu đựng áp lực cao giúp số 4 thường thành công trong những lĩnh vực đòi hỏi tính hệ thống và lâu dài. Tuy nhiên, xu hướng quá cứng nhắc hoặc ngại thay đổi đôi khi khiến họ bỏ lỡ cơ hội — bài học của số 4 là học cách linh hoạt hơn mà không đánh mất nguyên tắc cốt lõi của mình.",
     "conDuong": "Phù hợp với các ngành đòi hỏi tính hệ thống: kỹ thuật, tài chính, quản lý dự án.",
     "tinhDuyen": "Chung thủy và ổn định, coi trọng sự cam kết lâu dài hơn là cảm xúc bốc đồng.",
-    "diemManh": ["Kỷ luật", "Đáng tin cậy", "Kiên trì"],
-    "diemYeu": ["Cứng nhắc", "Ngại thay đổi", "Dễ căng thẳng vì áp lực"]
+    "diemManh": [
+      "Kỷ luật",
+      "Đáng tin cậy",
+      "Kiên trì"
+    ],
+    "diemYeu": [
+      "Cứng nhắc",
+      "Ngại thay đổi",
+      "Dễ căng thẳng vì áp lực"
+    ]
   },
   "5": {
     "ten": "Số Chủ Đạo 5 - Người Tự Do",
-    "tongQuan": "Người số 5 yêu thích sự tự do, thích trải nghiệm mới và không ngừng khám phá. Họ linh hoạt và dễ thích nghi với mọi hoàn cảnh.",
+    "tongQuan": "Số Chủ Đạo 5 mang năng lượng của tự do, phiêu lưu và khao khát trải nghiệm không ngừng. Đây là những người ham học hỏi, thích khám phá những điều mới mẻ và luôn cảm thấy ngột ngạt khi bị gò bó trong khuôn khổ cố định. Số 5 thích nghi rất nhanh với thay đổi, có tư duy linh hoạt và thường là người mang đến làn gió mới cho bất kỳ môi trường nào họ bước vào. Họ sống hết mình cho hiện tại và không ngại thử thách bản thân ở những lĩnh vực hoàn toàn mới. Tuy nhiên, sự ham thích tự do đôi khi khiến số 5 khó cam kết lâu dài với một điều gì đó — bài học lớn của họ là tìm ra sự cân bằng giữa khát khao tự do và nhu cầu ổn định cần thiết trong cuộc sống.",
     "conDuong": "Phù hợp với công việc năng động: du lịch, kinh doanh, truyền thông đa phương tiện.",
     "tinhDuyen": "Cần không gian tự do trong mối quan hệ, dễ chán nếu bị ràng buộc quá mức.",
-    "diemManh": ["Linh hoạt", "Ham học hỏi", "Thích nghi nhanh"],
-    "diemYeu": ["Thiếu ổn định", "Dễ bốc đồng", "Ngại cam kết"]
+    "diemManh": [
+      "Linh hoạt",
+      "Ham học hỏi",
+      "Thích nghi nhanh"
+    ],
+    "diemYeu": [
+      "Thiếu ổn định",
+      "Dễ bốc đồng",
+      "Ngại cam kết"
+    ]
   },
   "6": {
     "ten": "Số Chủ Đạo 6 - Người Chăm Sóc",
-    "tongQuan": "Người số 6 giàu tình yêu thương, có trách nhiệm cao với gia đình và cộng đồng. Họ luôn đặt sự hài hòa lên hàng đầu.",
+    "tongQuan": "Số Chủ Đạo 6 gắn liền với năng lượng của trách nhiệm, yêu thương và tinh thần chăm sóc gia đình, cộng đồng. Đây là những người có trái tim ấm áp, luôn đặt hạnh phúc của người thân lên hàng đầu và sẵn sàng hy sinh lợi ích cá nhân để giúp đỡ người khác. Số 6 thường đóng vai trò trụ cột trong gia đình hoặc tập thể, được tin tưởng giao phó những trách nhiệm quan trọng vì sự tận tâm và đáng tin cậy của mình. Họ có con mắt thẩm mỹ tốt và mong muốn tạo ra một môi trường sống hài hòa, đẹp đẽ cho những người xung quanh. Thách thức của số 6 là học cách chăm sóc bản thân đúng mức, tránh việc ôm đồm quá nhiều trách nhiệm của người khác đến mức quên đi nhu cầu của chính mình.",
     "conDuong": "Phù hợp với các ngành giáo dục, y tế, chăm sóc sức khỏe, công tác xã hội.",
     "tinhDuyen": "Rất chung tình và coi gia đình là ưu tiên số một, sẵn sàng hy sinh cho người thân yêu.",
-    "diemManh": ["Trách nhiệm", "Yêu thương", "Chu đáo"],
-    "diemYeu": ["Dễ ôm đồm", "Hay lo lắng quá mức", "Khó nói không"]
+    "diemManh": [
+      "Trách nhiệm",
+      "Yêu thương",
+      "Chu đáo"
+    ],
+    "diemYeu": [
+      "Dễ ôm đồm",
+      "Hay lo lắng quá mức",
+      "Khó nói không"
+    ]
   },
   "7": {
     "ten": "Số Chủ Đạo 7 - Nhà Tư Tưởng",
-    "tongQuan": "Người số 7 thiên về nội tâm, thích phân tích sâu và tìm kiếm ý nghĩa ẩn sau mọi sự việc. Họ có trực giác mạnh và tư duy độc lập.",
+    "tongQuan": "Số Chủ Đạo 7 là con số của trí tuệ, sự chiêm nghiệm sâu sắc và khát khao tìm kiếm chân lý. Đây là những người có thiên hướng nội tâm, thích suy ngẫm, phân tích và đào sâu vào bản chất của vấn đề thay vì chỉ nhìn bề mặt. Số 7 thường có trực giác nhạy bén, tư duy độc lập và không dễ bị thuyết phục bởi số đông — họ cần thời gian một mình để nạp lại năng lượng và xử lý thông tin theo cách riêng. Nhiều người số 7 có thiên hướng về học thuật, nghiên cứu, tâm linh hoặc các lĩnh vực đòi hỏi tư duy phân tích sâu. Bài học của số 7 là học cách mở lòng, kết nối nhiều hơn với người khác thay vì chỉ thu mình trong thế giới nội tâm của riêng mình.",
     "conDuong": "Phù hợp với nghiên cứu, khoa học, tâm linh, hoặc bất kỳ lĩnh vực đòi hỏi phân tích chuyên sâu.",
     "tinhDuyen": "Cần không gian riêng để suy ngẫm, đối tác cần hiểu và tôn trọng nhu cầu tự do tinh thần này.",
-    "diemManh": ["Sâu sắc", "Trực giác tốt", "Độc lập tư duy"],
-    "diemYeu": ["Khép kín", "Khó chia sẻ cảm xúc", "Đôi khi hoài nghi quá mức"]
+    "diemManh": [
+      "Sâu sắc",
+      "Trực giác tốt",
+      "Độc lập tư duy"
+    ],
+    "diemYeu": [
+      "Khép kín",
+      "Khó chia sẻ cảm xúc",
+      "Đôi khi hoài nghi quá mức"
+    ]
   },
   "8": {
     "ten": "Số Chủ Đạo 8 - Nhà Quản Lý Quyền Lực",
-    "tongQuan": "Người số 8 có tầm nhìn lớn về vật chất và quyền lực, khả năng tổ chức và điều hành xuất sắc. Họ theo đuổi thành công một cách mạnh mẽ.",
+    "tongQuan": "Số Chủ Đạo 8 tượng trưng cho quyền lực, thành công vật chất và khả năng quản lý xuất sắc. Đây là những người có tầm nhìn chiến lược, tham vọng rõ ràng và khả năng biến ý tưởng thành kết quả cụ thể, đặc biệt trong lĩnh vực kinh doanh, tài chính hoặc quản trị. Số 8 hiểu rõ giá trị của công sức và phần thưởng, họ làm việc chăm chỉ để đạt được vị thế và sự công nhận xứng đáng. Khả năng tổ chức, ra quyết định dứt khoát và chịu trách nhiệm cao khiến số 8 thường được giao những vai trò lãnh đạo quan trọng. Tuy nhiên, nếu quá tập trung vào thành công vật chất, số 8 có thể đánh mất sự cân bằng với đời sống tinh thần và các mối quan hệ — đây chính là bài học cần lưu tâm.",
     "conDuong": "Phù hợp với kinh doanh, tài chính, quản lý cấp cao, bất động sản.",
     "tinhDuyen": "Coi trọng sự ổn định vật chất trong tình yêu, cần đối tác cùng chí hướng phát triển.",
-    "diemManh": ["Tham vọng", "Tổ chức tốt", "Quyết đoán"],
-    "diemYeu": ["Dễ đặt vật chất lên hàng đầu", "Áp lực với bản thân", "Có thể độc đoán"]
+    "diemManh": [
+      "Tham vọng",
+      "Tổ chức tốt",
+      "Quyết đoán"
+    ],
+    "diemYeu": [
+      "Dễ đặt vật chất lên hàng đầu",
+      "Áp lực với bản thân",
+      "Có thể độc đoán"
+    ]
   },
   "9": {
     "ten": "Số Chủ Đạo 9 - Nhà Nhân Đạo",
-    "tongQuan": "Người số 9 mang lý tưởng nhân văn, giàu lòng trắc ẩn và hướng đến việc cống hiến cho cộng đồng. Họ có tầm nhìn rộng và bao dung.",
+    "tongQuan": "Số Chủ Đạo 9 mang năng lượng của lòng vị tha, sự bao dung và tầm nhìn hướng đến lợi ích chung. Đây là những người có trái tim nhân hậu, dễ đồng cảm với nỗi đau của người khác và thường tham gia vào các hoạt động mang tính cống hiến, phụng sự cộng đồng. Số 9 nhìn cuộc sống bằng một tầm nhìn rộng, ít khi bị cuốn vào những toan tính nhỏ nhặt mà luôn hướng đến những giá trị lớn lao hơn cho tập thể. Họ giàu lòng trắc ẩn, có khả năng truyền cảm hứng và thường được người khác tìm đến để xin lời khuyên. Thách thức của số 9 là học cách buông bỏ quá khứ, tránh ôm giữ những tổn thương cũ và biết đặt ra giới hạn khi cho đi quá nhiều mà không nhận lại đủ cho bản thân.",
     "conDuong": "Phù hợp với công tác xã hội, nghệ thuật, giáo dục, các tổ chức phi lợi nhuận.",
     "tinhDuyen": "Yêu thương vô điều kiện nhưng cần học cách giữ ranh giới cho riêng mình.",
-    "diemManh": ["Bao dung", "Giàu lý tưởng", "Nhân ái"],
-    "diemYeu": ["Dễ hy sinh quá mức", "Mơ mộng thiếu thực tế", "Khó buông bỏ"]
+    "diemManh": [
+      "Bao dung",
+      "Giàu lý tưởng",
+      "Nhân ái"
+    ],
+    "diemYeu": [
+      "Dễ hy sinh quá mức",
+      "Mơ mộng thiếu thực tế",
+      "Khó buông bỏ"
+    ]
   },
   "11": {
     "ten": "Số Chủ Đạo 11 - Nhà Trực Giác (Master Number)",
-    "tongQuan": "Số 11 là số Master mang năng lượng trực giác mạnh mẽ, khả năng truyền cảm hứng và kết nối tâm linh sâu sắc. Đây là con số của sự giác ngộ.",
+    "tongQuan": "Số Chủ Đạo 11 là một Số Chủ (Master Number) mang năng lượng trực giác và tâm linh mạnh mẽ vượt trội. Đây là những người có khả năng cảm nhận sâu sắc những điều vượt ra ngoài lý trí thông thường, thường được ví như những nhà truyền cảm hứng hoặc người mang thông điệp cho người khác. Số 11 sở hữu sự nhạy cảm cao độ, trực giác sắc bén và tiềm năng tinh thần lớn, nhưng đi kèm với đó là áp lực nội tâm không nhỏ vì luôn cảm nhận mọi thứ mãnh liệt hơn người bình thường. Khi làm chủ được năng lượng của mình, số 11 có thể trở thành nguồn cảm hứng và ánh sáng dẫn đường cho nhiều người khác. Bài học của số 11 là học cách giữ vững sự cân bằng tâm lý, không để sự nhạy cảm quá mức biến thành lo âu hay hoài nghi bản thân.",
     "conDuong": "Phù hợp với vai trò truyền cảm hứng: diễn giả, cố vấn tâm linh, nghệ thuật mang tính biểu tượng.",
     "tinhDuyen": "Nhạy cảm cao độ, cần đối tác thấu hiểu chiều sâu nội tâm.",
-    "diemManh": ["Trực giác mạnh", "Truyền cảm hứng", "Sâu sắc"],
-    "diemYeu": ["Dễ căng thẳng thần kinh", "Áp lực từ chính kỳ vọng bản thân", "Nhạy cảm quá mức"]
+    "diemManh": [
+      "Trực giác mạnh",
+      "Truyền cảm hứng",
+      "Sâu sắc"
+    ],
+    "diemYeu": [
+      "Dễ căng thẳng thần kinh",
+      "Áp lực từ chính kỳ vọng bản thân",
+      "Nhạy cảm quá mức"
+    ]
   },
   "22": {
     "ten": "Số Chủ Đạo 22 - Nhà Kiến Tạo Vĩ Đại (Master Number)",
-    "tongQuan": "Số 22 là số Master của người kiến tạo, có khả năng biến ý tưởng lớn thành hiện thực cụ thể, mang lại lợi ích cho nhiều người.",
+    "tongQuan": "Số Chủ Đạo 22 được xem là một trong những Số Chủ (Master Number) mạnh mẽ nhất, thường được gọi là 'Người Kiến Tạo Bậc Thầy'. Đây là những người vừa có tầm nhìn xa như số 11, vừa có khả năng biến ý tưởng lớn thành hiện thực cụ thể như số 4 — một sự kết hợp hiếm có giữa trực giác và tính thực tế. Số 22 có tiềm năng tạo ra những công trình, dự án hoặc di sản có ảnh hưởng lâu dài, vượt ra ngoài lợi ích cá nhân để phục vụ cho một mục đích lớn hơn. Tuy nhiên, chính kỳ vọng lớn lao này cũng tạo ra áp lực đáng kể, khiến số 22 đôi khi cảm thấy gánh nặng trách nhiệm quá sức. Bài học của số 22 là học cách chia nhỏ những mục tiêu vĩ đại thành các bước đi thực tế, kiên nhẫn xây dựng từng phần thay vì để nỗi sợ không hoàn hảo cản bước.",
     "conDuong": "Phù hợp với vai trò lãnh đạo dự án lớn, kiến trúc, quy hoạch, các công trình có tầm ảnh hưởng.",
     "tinhDuyen": "Đặt mục tiêu lớn lên hàng đầu, cần đối tác đồng hành cùng chí hướng dài hạn.",
-    "diemManh": ["Tầm nhìn lớn", "Thực thi mạnh mẽ", "Kiên định"],
-    "diemYeu": ["Áp lực tự thân rất lớn", "Dễ kiệt sức", "Khó cân bằng cá nhân"]
+    "diemManh": [
+      "Tầm nhìn lớn",
+      "Thực thi mạnh mẽ",
+      "Kiên định"
+    ],
+    "diemYeu": [
+      "Áp lực tự thân rất lớn",
+      "Dễ kiệt sức",
+      "Khó cân bằng cá nhân"
+    ]
   },
   "33": {
     "ten": "Số Chủ Đạo 33 - Người Thầy Ánh Sáng (Master Number)",
-    "tongQuan": "Số 33 hiếm gặp, đại diện cho lòng nhân ái ở mức cao nhất, khả năng chữa lành và dẫn dắt tinh thần cho người khác.",
+    "tongQuan": "Số Chủ Đạo 33 là Số Chủ (Master Number) hiếm gặp nhất, thường được gọi là 'Người Thầy Của Những Người Thầy'. Đây là những người mang năng lượng của tình yêu thương vô điều kiện, sự hy sinh và mong muốn nâng đỡ, chữa lành cho người khác ở mức độ sâu sắc nhất. Số 33 kết hợp sự nhạy cảm của số 11 với tinh thần trách nhiệm chăm sóc của số 6, tạo nên một người có khả năng truyền cảm hứng và dẫn dắt tinh thần cho cả một cộng đồng lớn. Họ thường xuất hiện trong các vai trò giáo dục, chữa lành, hoặc phụng sự xã hội mà không đòi hỏi sự đền đáp. Bài học lớn nhất của số 33 là học cách yêu thương bản thân đủ nhiều, tránh việc hy sinh quá mức đến kiệt sức vì luôn đặt nhu cầu của người khác lên trên chính mình.",
     "conDuong": "Phù hợp với vai trò cố vấn, giáo dục tâm linh, chữa lành, dẫn dắt cộng đồng.",
     "tinhDuyen": "Yêu thương bao la nhưng cần học cách chăm sóc bản thân trước khi chăm sóc người khác.",
-    "diemManh": ["Nhân ái sâu sắc", "Khả năng chữa lành", "Truyền cảm hứng mạnh"],
-    "diemYeu": ["Dễ quên bản thân", "Gánh trách nhiệm quá lớn", "Khó tách bạch cảm xúc"]
+    "diemManh": [
+      "Nhân ái sâu sắc",
+      "Khả năng chữa lành",
+      "Truyền cảm hứng mạnh"
+    ],
+    "diemYeu": [
+      "Dễ quên bản thân",
+      "Gánh trách nhiệm quá lớn",
+      "Khó tách bạch cảm xúc"
+    ]
   }
 }

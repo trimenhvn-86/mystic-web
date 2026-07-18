@@ -1,9 +1,12 @@
 import { useState } from 'react';
 import TarotCardArt from './TarotCardArt';
 
-export default function TarotCardFlip({ card, upright, flipped, onFlip, size = 200 }) {
+export default function TarotCardFlip({ card, upright, flipped, onFlip, size = 200, responsive = false, hint = true }) {
   const [animating, setAnimating] = useState(false);
   const height = size * 1.6;
+  const responsiveClass = responsive
+    ? 'w-[220px] h-[352px] sm:w-[280px] sm:h-[448px] lg:w-[340px] lg:h-[544px]'
+    : '';
 
   function handleClick() {
     if (flipped || animating) return;
@@ -18,8 +21,8 @@ export default function TarotCardFlip({ card, upright, flipped, onFlip, size = 2
       role="button"
       tabIndex={0}
       onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') handleClick(); }}
-      style={{ width: size, height, perspective: 1000, cursor: flipped ? 'default' : 'pointer' }}
-      className="mx-auto select-none"
+      style={{ ...(responsive ? {} : { width: size, height }), perspective: 1000, cursor: flipped ? 'default' : 'pointer' }}
+      className={`mx-auto select-none ${responsiveClass}`}
     >
       <div
         style={{
@@ -48,10 +51,10 @@ export default function TarotCardFlip({ card, upright, flipped, onFlip, size = 2
             transform: 'rotateY(180deg)'
           }}
         >
-          {card && <TarotCardArt card={card} upright={upright} size={size} />}
+          {card && <TarotCardArt card={card} upright={upright} size={size} responsive={responsive} />}
         </div>
       </div>
-      {!flipped && (
+      {!flipped && hint && (
         <p className="text-center text-xs text-moon/60 mt-3">Bấm vào lá bài để rút</p>
       )}
     </div>

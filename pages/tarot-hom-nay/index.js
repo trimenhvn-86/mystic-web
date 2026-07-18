@@ -1,13 +1,24 @@
+import { useState, useEffect } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
-import { Sparkles } from 'lucide-react';
+import { Sparkles, Share2 } from 'lucide-react';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import AdSlot from '../../components/AdSlot';
-import TarotCardArt from '../../components/TarotCardArt';
+import TarotCardFlip from '../../components/TarotCardFlip';
 import HubContentPreview from '../../components/HubContentPreview';
 import { getDailyCard } from '../../lib/tarot';
 import { getHubContentPreview } from '../../lib/sanity';
+
+const SUIT_LABEL = { wands: 'Gậy', cups: 'Cốc', swords: 'Kiếm', pentacles: 'Tiền' };
+
+function toRoman(num) {
+  if (num === 0) return '0';
+  const map = [[10, 'X'], [9, 'IX'], [5, 'V'], [4, 'IV'], [1, 'I']];
+  let n = num, r = '';
+  for (const [v, s] of map) { while (n >= v) { r += s; n -= v; } }
+  return r;
+}
 
 export async function getStaticProps() {
   const today = new Date();
@@ -21,9 +32,29 @@ export async function getStaticProps() {
 }
 
 export default function TarotHomNay({ card, upright, dateStr, dictionaryPreview, guidePreview }) {
+  const [flipped, setFlipped] = useState(false);
+
+  useEffect(() => {
+    const t = setTimeout(() => setFlipped(true), 500);
+    return () => clearTimeout(t);
+  }, []);
+
   const dailyMsg = upright ? card.dailyMessageUpright : card.dailyMessageReversed;
   const keywords = upright ? card.keywordsUpright : card.keywordsReversed;
   const title = `Tarot Hôm Nay ${dateStr} — ${card.nameVi} (${upright ? 'Xuôi' : 'Ngược'})`;
+  const metaLine = card.arcana === 'major'
+    ? `Ẩn Chính — Số ${toRoman(card.number)}`
+    : `Ẩn Phụ — Bộ ${SUIT_LABEL[card.suit]} — Số ${card.number}`;
+
+  function handleShare() {
+    const shareText = `Tarot hôm nay ${dateStr}: lá ${card.nameVi} (${upright ? 'Xuôi' : 'Ngược'}). Xem đầy đủ tại https://trimenh.com/tarot-hom-nay`;
+    if (navigator.share) {
+      navigator.share({ title: title, text: shareText }).catch(() => {});
+    } else if (navigator.clipboard) {
+      navigator.clipboard.writeText(shareText);
+      alert('Đã sao chép nội dung chia sẻ vào clipboard!');
+    }
+  }
 
   return (
     <>
@@ -40,12 +71,18 @@ export default function TarotHomNay({ card, upright, dateStr, dictionaryPreview,
         <p className="text-moon/70 text-sm text-center mb-8">{dateStr} — lá bài chung cho hôm nay</p>
 
         <div className="flex justify-center mb-6">
-          <TarotCardArt card={card} upright={upright} size={190} />
+          <TarotCardFlip card={card} upright={upright} flipped={flipped} onFlip={() => {}} responsive hint={false} />
         </div>
 
         <div className="text-center mb-6">
           <h2 className="font-display text-2xl text-gold-soft">{card.nameVi}</h2>
-          <p className="text-sm text-moon">{card.nameEn} — {upright ? 'Xuôi' : 'Ngược'}</p>
+          <p className="text-sm text-moon">{card.nameEn}</p>
+          <div className="flex items-center justify-center gap-2 mt-2">
+            <span className="text-xs px-2.5 py-1 rounded-full bg-ink-soft border border-ink-line text-moon">{metaLine}</span>
+            <span className={`text-xs px-2.5 py-1 rounded-full border ${upright ? 'border-jade/40 text-jade' : 'border-vermilion/40 text-vermilion'}`}>
+              {upright ? 'Xuôi' : 'Ngược'}
+            </span>
+          </div>
           <div className="flex flex-wrap justify-center gap-2 mt-3">
             {keywords.map((k) => (
               <span key={k} className="px-3 py-1 rounded-full bg-ink-soft border border-ink-line text-xs text-moon">{k}</span>
@@ -74,13 +111,16 @@ export default function TarotHomNay({ card, upright, dateStr, dictionaryPreview,
 
         <AdSlot label="Ad slot — tarot hôm nay" className="mt-6" />
 
-        <div className="mt-6 text-center">
-          <Link href={`/tarot/${card.slug}`} className="text-sm text-gold-soft hover:underline">
-            Xem ý nghĩa đầy đủ của lá {card.nameVi} →
+        <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
+          <Link href={`/tarot/${card.slug}`} className="inline-block px-5 py-3 rounded-full bg-gold text-ink text-sm font-semibold hover:opacity-90 transition-opacity">
+            Khám phá toàn bộ ý nghĩa lá {card.nameVi} →
           </Link>
+          <button onClick={handleShare} className="flex items-center gap-2 px-4 py-3 rounded-full border border-ink-line text-sm text-moon hover:border-gold/40 hover:text-gold-soft transition-colors">
+            <Share2 size={15} /> Chia sẻ
+          </button>
         </div>
 
-        <div className="mt-6">
+        <div className="mt-8">
           <p className="text-sm text-moon mb-3 text-center">Công cụ liên quan:</p>
           <div className="flex flex-wrap justify-center gap-2">
             <Link href="/rut-la-tarot" className="px-3 py-1.5 rounded-full border border-ink-line text-sm text-moon hover:border-gold/40 hover:text-gold-soft transition-colors">Rút 1 lá bài</Link>

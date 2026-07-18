@@ -17,6 +17,7 @@ import daPhongThuyData from '../content/phong-thuy/da-phong-thuy.json';
 import MiniCalendar from '../components/MiniCalendar';
 import NumerologyQuickForm from '../components/NumerologyQuickForm';
 import TuViQuickLinks from '../components/TuViQuickLinks';
+import TarotToolGroups, { TarotHeroCTA } from '../components/TarotHubExtras';
 import TuoiHopLinks from '../components/TuoiHopLinks';
 import MenhPhongThuyLinks from '../components/MenhPhongThuyLinks';
 
@@ -129,7 +130,9 @@ export default function YearToolPage({ type, year, menh, tuoiHop, hub, dictionar
           <h1 className="font-display text-2xl sm:text-3xl text-parchment mb-2 text-center">{hub.name}</h1>
           <p className="text-moon/80 text-center max-w-lg mx-auto mb-10">{hub.desc}</p>
 
-          {hub.slug !== 'than-so-hoc-hub' && (
+          {hub.slug === 'tarot' && <TarotHeroCTA />}
+
+          {hub.slug !== 'than-so-hoc-hub' && hub.slug !== 'tarot' && (
             <section className="mb-10">
               <h2 className="font-display text-xl text-parchment mb-4">Công cụ trong {hub.name}</h2>
               <div className="grid sm:grid-cols-2 gap-3">
@@ -147,6 +150,13 @@ export default function YearToolPage({ type, year, menh, tuoiHop, hub, dictionar
                   )
                 )}
               </div>
+            </section>
+          )}
+
+          {hub.slug === 'tarot' && (
+            <section className="mb-10">
+              <h2 className="font-display text-xl text-parchment mb-4">Công cụ trong {hub.name}</h2>
+              <TarotToolGroups />
             </section>
           )}
 

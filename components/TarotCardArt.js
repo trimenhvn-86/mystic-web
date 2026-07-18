@@ -53,16 +53,20 @@ function toRoman(num) {
   return result;
 }
 
-export default function TarotCardArt({ card, upright = true, size = 200 }) {
+export default function TarotCardArt({ card, upright = true, size = 200, responsive = false }) {
   const color = card.arcana === 'major' ? MAJOR_COLOR : SUIT_COLOR[card.suit] || MAJOR_COLOR;
   const height = size * 1.6;
+  // Che do responsive: la bai la nhan vat chinh cua trang (VD Tarot hom nay) - phong to dan theo man hinh,
+  // giu nguyen ty le 100:160 nhu ban ve SVG. Cac noi dung nho (rut la, yes/no, trai bai 3 la) khong dung che do nay.
+  const responsiveClass = responsive
+    ? 'w-[220px] h-[352px] sm:w-[280px] sm:h-[448px] lg:w-[340px] lg:h-[544px]'
+    : '';
 
   return (
     <div
-      className="rounded-2xl overflow-hidden border-2 shadow-xl transition-transform"
+      className={`rounded-2xl overflow-hidden border-2 shadow-xl transition-transform ${responsiveClass}`}
       style={{
-        width: size,
-        height,
+        ...(responsive ? {} : { width: size, height }),
         borderColor: color,
         background: 'linear-gradient(160deg, #141830 0%, #0B0E1A 100%)',
         transform: upright ? 'none' : 'rotate(180deg)'

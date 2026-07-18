@@ -7,7 +7,6 @@ import AdSlot from '../../components/AdSlot';
 import CalendarImageCard from '../../components/CalendarImageCard';
 import HubDayLinks from '../../components/HubDayLinks';
 import DayRatingBox from '../../components/DayRatingBox';
-import MauSoHomNay from '../../components/MauSoHomNay';
 import MiniCalendar from '../../components/MiniCalendar';
 import SidebarTools from '../../components/SidebarTools';
 import FaqSection from '../../components/FaqSection';
@@ -89,6 +88,7 @@ export default function DoiLichResult({
 }) {
   const title = `${dd}/${mm}/${yyyy} Dương lịch là ngày mấy Âm lịch? — Đổi Lịch Âm Dương`;
   const desc = `Ngày ${dd}/${mm}/${yyyy} Dương lịch tương ứng với ${lunar.day}/${lunar.month}${lunar.leap ? ' (nhuận)' : ''}/${lunar.year} Âm lịch, năm ${canChiNam}, ngày ${canChiNgay}, Trực ${truc}, Sao ${sao}.`;
+  const summary = `${dd}/${mm}/${yyyy} Dương lịch tương ứng ngày ${lunar.day}/${lunar.month}${lunar.leap ? ' (nhuận)' : ''}/${lunar.year} Âm lịch, năm ${canChiNam}. Đây là ${activities.isGoodDay ? `${rating.label.toLowerCase()}, phù hợp cho ${activities.nenLam.slice(0, 2).join(', ').toLowerCase()}` : `ngày cần cân nhắc, nên tránh các việc trọng đại như ${activities.kiengKy.slice(0, 2).join(', ').toLowerCase()}`}.`;
 
   return (
     <>
@@ -102,7 +102,8 @@ export default function DoiLichResult({
         <div className="w-14 h-14 rounded-full bg-ink-soft border border-gold/30 flex items-center justify-center mx-auto mb-4">
           <CalendarDays size={26} className="text-gold" />
         </div>
-        <h1 className="font-display text-2xl sm:text-3xl text-parchment mb-8 text-center">{title}</h1>
+        <h1 className="font-display text-2xl sm:text-3xl text-parchment mb-4 text-center">{title}</h1>
+        <p className="text-moon/80 text-center max-w-2xl mx-auto mb-8 leading-relaxed">{summary}</p>
 
         <div className="grid lg:grid-cols-[1fr_240px] gap-8">
           <div className="space-y-6 min-w-0">
@@ -136,31 +137,8 @@ export default function DoiLichResult({
               </div>
             </div>
 
-            {/* Hôm nay có tốt không */}
-            <DayRatingBox stars={rating.stars} label={rating.label} nenLam={activities.nenLam} kiengKy={activities.kiengKy} />
-
-            {/* Hợp màu / hợp số */}
-            {napAmNgay && <MauSoHomNay hanh={napAmNgay.hanh} mauHop={napAmNgay.mauHop} />}
-
-            <AdSlot label="Ad slot — kết quả đổi lịch" />
-
-            {/* Internal Link Engine */}
-            <div>
-              <p className="text-sm text-moon mb-3">Có thể bạn quan tâm:</p>
-              <div className="flex flex-wrap gap-2">
-                <Link href={`/xem-ngay-tot/ngay-${pad(dd)}-thang-${pad(mm)}-nam-${yyyy}`} className="px-3 py-1.5 rounded-full border border-ink-line text-sm text-moon hover:border-gold/40 hover:text-gold-soft transition-colors">Xem ngày tốt</Link>
-                <Link href={`/gio-hoang-dao/ngay-${pad(dd)}-thang-${pad(mm)}-nam-${yyyy}`} className="px-3 py-1.5 rounded-full border border-ink-line text-sm text-moon hover:border-gold/40 hover:text-gold-soft transition-colors">Giờ hoàng đạo</Link>
-                <Link href={`/xem-ngay-tot/ngay-${pad(dd)}-thang-${pad(mm)}-nam-${yyyy}`} className="px-3 py-1.5 rounded-full border border-ink-line text-sm text-moon hover:border-gold/40 hover:text-gold-soft transition-colors">Ngày xuất hành / Lục Nhâm / Khổng Minh</Link>
-                <Link href={`/${yyyy}-hop-tuoi-nao`} className="px-3 py-1.5 rounded-full border border-ink-line text-sm text-moon hover:border-gold/40 hover:text-gold-soft transition-colors">Xem tuổi hợp</Link>
-                <Link href="/than-so-hoc" className="px-3 py-1.5 rounded-full border border-ink-line text-sm text-moon hover:border-gold/40 hover:text-gold-soft transition-colors">Thần số học</Link>
-                <Link href={`/${yyyy}-menh-gi`} className="px-3 py-1.5 rounded-full border border-ink-line text-sm text-moon hover:border-gold/40 hover:text-gold-soft transition-colors">Mệnh ngũ hành</Link>
-              </div>
-            </div>
-
-            <HubDayLinks dd={dd} mm={mm} yyyy={yyyy} exclude="doi-lich-am-duong" />
-
-            {/* Lich mini */}
-            <MiniCalendar dd={dd} mm={mm} yyyy={yyyy} showQuality />
+            {/* Lich thang - dua len ngay sau thong tin ngay theo dung template */}
+            <MiniCalendar dd={dd} mm={mm} yyyy={yyyy} basePath="/doi-lich-am-duong" showQuality />
 
             {/* Dieu huong ngay truoc/sau/thang/nam */}
             <div className="flex flex-wrap gap-3 text-sm">
@@ -169,6 +147,13 @@ export default function DoiLichResult({
               <a href="#lich-thang" className="text-moon hover:text-gold-soft">Xem cùng tháng</a>
               <Link href={`/${yyyy}-menh-gi`} className="text-moon hover:text-gold-soft">Xem mệnh năm {yyyy}</Link>
             </div>
+
+            {/* Hôm nay có tốt không */}
+            <DayRatingBox stars={rating.stars} label={rating.label} nenLam={activities.nenLam} kiengKy={activities.kiengKy} />
+
+            <AdSlot label="Ad slot — kết quả đổi lịch" />
+
+            <HubDayLinks dd={dd} mm={mm} yyyy={yyyy} exclude="doi-lich-am-duong" />
 
             <div className="mystic-divider pt-8">
               <SeoContent />

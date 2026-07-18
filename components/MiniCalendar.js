@@ -44,6 +44,15 @@ export default function MiniCalendar({ dd, mm, yyyy, basePath = '/doi-lich-am-du
     }
   }
 
+  function getLunarDay(d) {
+    try {
+      const lunar = convertSolar2Lunar(d, mm, yyyy);
+      return `${lunar.day}/${lunar.month}`;
+    } catch {
+      return '';
+    }
+  }
+
   function handleJump(e) {
     e.preventDefault();
     router.push(buildSlug(basePath, 1, Number(jumpMonth), Number(jumpYear)));
@@ -97,11 +106,12 @@ export default function MiniCalendar({ dd, mm, yyyy, basePath = '/doi-lich-am-du
             <Link
               key={d}
               href={buildSlug(basePath, d, mm, yyyy)}
-              className={`aspect-square flex items-center justify-center rounded-lg text-sm transition-colors ${
+              className={`aspect-square flex flex-col items-center justify-center rounded-lg text-sm transition-colors leading-tight ${
                 d === dd ? 'bg-gold text-ink font-semibold' : `text-parchment/80 hover:bg-ink-soft ${qualityClass}`
               }`}
             >
-              {d}
+              <span>{d}</span>
+              <span className={`text-[9px] ${d === dd ? 'text-ink/70' : 'text-moon/50'}`}>{getLunarDay(d)}</span>
             </Link>
           );
         })}

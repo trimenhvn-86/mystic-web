@@ -5,11 +5,13 @@ import Footer from '../../components/Footer';
 import ResultTabs from '../../components/ResultTabs';
 import LucNhamPicker from '../../components/LucNhamPicker';
 import CalendarImageCard from '../../components/CalendarImageCard';
+import MauSoHomNay from '../../components/MauSoHomNay';
 import HubContentPreview from '../../components/HubContentPreview';
 import { convertSolar2Lunar, getCanChiNam, getCanChiNgay } from '../../lib/lunar';
 import { getTruc, getSao28, getSuggestedActivities, getDecisionAssistant } from '../../lib/dayQuality';
 import { getGioHoangDao } from '../../lib/gioHoangDao';
 import { getNgayKhongMinh } from '../../lib/khongMinh';
+import { getNapAmByCanChi } from '../../lib/nguHanh';
 import { getHubContentPreview } from '../../lib/sanity';
 import HubDayLinks from '../../components/HubDayLinks';
 
@@ -50,16 +52,17 @@ export async function getStaticProps({ params }) {
   const activities = getSuggestedActivities(truc);
   const gioHoangDao = getGioHoangDao(dd, mm, yyyy);
   const khongMinh = getNgayKhongMinh(lunar.day, lunar.month);
+  const napAmNgay = getNapAmByCanChi(canChiNgay);
   const decisionAssistant = getDecisionAssistant(activities.isGoodDay, khongMinh?.tot, gioHoangDao[0]?.chi);
   const preview = await getHubContentPreview('lich-ngay-tot');
 
   return {
-    props: { dd, mm, yyyy, lunar, canChiNam, canChiNgay, truc, sao, activities, gioHoangDao, khongMinh, decisionAssistant, ...preview },
+    props: { dd, mm, yyyy, lunar, canChiNam, canChiNgay, truc, sao, activities, gioHoangDao, khongMinh, napAmNgay, decisionAssistant, ...preview },
     revalidate: 2592000 // ISR: cập nhật lại mỗi 24h
   };
 }
 
-export default function NgayTotXauResult({ dd, mm, yyyy, lunar, canChiNam, canChiNgay, truc, sao, activities, gioHoangDao, khongMinh, decisionAssistant, dictionaryPreview, guidePreview }) {
+export default function NgayTotXauResult({ dd, mm, yyyy, lunar, canChiNam, canChiNgay, truc, sao, activities, gioHoangDao, khongMinh, napAmNgay, decisionAssistant, dictionaryPreview, guidePreview }) {
   const title = `Ngày ${dd}/${mm}/${yyyy} là ngày tốt hay xấu? — Tra cứu Lịch Vạn Niên`;
   const desc = `Xem ngày ${dd}/${mm}/${yyyy} (Âm lịch ${lunar.day}/${lunar.month}${lunar.leap ? ' nhuận' : ''}/${lunar.year}) có phải ngày Hoàng đạo không, Trực ${truc}, Sao ${sao}, ngày Khổng Minh, giờ Lục Nhâm, việc nên làm và nên tránh.`;
 
@@ -232,6 +235,12 @@ export default function NgayTotXauResult({ dd, mm, yyyy, lunar, canChiNam, canCh
             <ResultTabs tabs={tabs} />
           </div>
         </div>
+
+        {napAmNgay && (
+          <div className="mt-6">
+            <MauSoHomNay hanh={napAmNgay.hanh} mauHop={napAmNgay.mauHop} />
+          </div>
+        )}
 
         {/* Tro ly quyet dinh hom nay */}
         <div className="mystic-card p-6 mt-6">

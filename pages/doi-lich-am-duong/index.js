@@ -56,6 +56,14 @@ export default function DoiLichForm({ dictionaryPreview, guidePreview }) {
       </Head>
       <Header />
       <main className="max-w-2xl mx-auto px-5 py-10 sm:py-14">
+        <div className="flex flex-wrap items-center gap-1.5 text-xs text-moon mb-6">
+          <Link href="/" className="hover:text-gold-soft transition-colors">Trang chủ</Link>
+          <span>/</span>
+          <Link href="/lich-ngay-tot" className="hover:text-gold-soft transition-colors">Lịch &amp; Ngày Tốt</Link>
+          <span>/</span>
+          <span className="text-parchment/70">Đổi lịch âm dương</span>
+        </div>
+
         <h1 className="font-display text-2xl sm:text-3xl text-parchment mb-2 text-center">Đổi Lịch Âm Dương</h1>
         <p className="text-moon/70 text-sm text-center mb-8">Chuyển đổi 2 chiều Dương ⇄ Âm lịch</p>
         <form onSubmit={handleSubmit} className="mystic-card p-6 flex flex-col gap-4">
@@ -97,12 +105,23 @@ export default function DoiLichForm({ dictionaryPreview, guidePreview }) {
 
         <div className="mt-10 space-y-8">
           <div>
+            <p className="text-sm text-moon mb-3">Tra cứu phổ biến:</p>
+            <div className="flex flex-wrap gap-2">
+              <Link href={`/doi-lich-am-duong/ngay-${pad(today.getDate())}-thang-${pad(today.getMonth() + 1)}-nam-${today.getFullYear()}`} className="px-3 py-1.5 rounded-full border border-gold/30 text-sm text-gold-soft hover:bg-gold/10 transition-colors">Đổi lịch hôm nay</Link>
+              <Link href="/xem-ngay" className="px-3 py-1.5 rounded-full border border-gold/30 text-sm text-gold-soft hover:bg-gold/10 transition-colors">Xem ngày tốt theo việc</Link>
+            </div>
+          </div>
+
+          <div>
             <p className="text-sm text-moon mb-3">Có thể bạn quan tâm:</p>
             <div className="flex flex-wrap gap-2">
               <Link href="/xem-ngay-tot" className="px-3 py-1.5 rounded-full border border-ink-line text-sm text-moon hover:border-gold/40 hover:text-gold-soft transition-colors">Xem ngày tốt</Link>
               <Link href="/gio-hoang-dao" className="px-3 py-1.5 rounded-full border border-ink-line text-sm text-moon hover:border-gold/40 hover:text-gold-soft transition-colors">Giờ hoàng đạo</Link>
-              <Link href="/than-so-hoc" className="px-3 py-1.5 rounded-full border border-ink-line text-sm text-moon hover:border-gold/40 hover:text-gold-soft transition-colors">Thần số học</Link>
-              <Link href="/con-so-may-man" className="px-3 py-1.5 rounded-full border border-ink-line text-sm text-moon hover:border-gold/40 hover:text-gold-soft transition-colors">Con số may mắn</Link>
+              <Link href="/ngay-hoang-dao" className="px-3 py-1.5 rounded-full border border-ink-line text-sm text-moon hover:border-gold/40 hover:text-gold-soft transition-colors">Ngày Hoàng đạo</Link>
+              <Link href="/ngay-hac-dao" className="px-3 py-1.5 rounded-full border border-ink-line text-sm text-moon hover:border-gold/40 hover:text-gold-soft transition-colors">Ngày Hắc đạo</Link>
+              <Link href="/can-chi" className="px-3 py-1.5 rounded-full border border-ink-line text-sm text-moon hover:border-gold/40 hover:text-gold-soft transition-colors">Can Chi</Link>
+              <Link href="/tiet-khi" className="px-3 py-1.5 rounded-full border border-ink-line text-sm text-moon hover:border-gold/40 hover:text-gold-soft transition-colors">Tiết khí</Link>
+              <Link href="/xem-ngay" className="px-3 py-1.5 rounded-full border border-ink-line text-sm text-moon hover:border-gold/40 hover:text-gold-soft transition-colors">Xem ngày tốt theo việc</Link>
             </div>
           </div>
 

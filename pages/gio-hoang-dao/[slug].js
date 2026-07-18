@@ -4,6 +4,7 @@ import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import AdSlot from '../../components/AdSlot';
 import CalendarImageCard from '../../components/CalendarImageCard';
+import MiniCalendar from '../../components/MiniCalendar';
 import HubDayLinks from '../../components/HubDayLinks';
 import { getChiNgay, getGioHoangDao } from '../../lib/gioHoangDao';
 
@@ -37,6 +38,7 @@ export async function getStaticProps({ params }) {
 export default function GioHoangDaoResult({ dd, mm, yyyy, chiNgay, gioList }) {
   const title = `Giờ Hoàng Đạo ngày ${dd}/${mm}/${yyyy} — Ngày ${chiNgay}`;
   const desc = `Danh sách 6 giờ Hoàng đạo tốt trong ngày ${dd}/${mm}/${yyyy} (ngày ${chiNgay}), phù hợp xuất hành, khai trương, ký kết hợp đồng.`;
+  const summary = `Ngày ${dd}/${mm}/${yyyy} (ngày ${chiNgay}) có 6 khung giờ Hoàng đạo tốt, thuận lợi cho xuất hành, khai trương, ký kết hợp đồng. Giờ đầu tiên trong ngày là giờ ${gioList[0]?.chi} (${gioList[0]?.khung}).`;
 
   return (
     <>
@@ -49,7 +51,8 @@ export default function GioHoangDaoResult({ dd, mm, yyyy, chiNgay, gioList }) {
         <div className="w-14 h-14 rounded-full bg-ink-soft border border-gold/30 flex items-center justify-center mx-auto mb-4">
           <Clock3 size={26} className="text-gold" />
         </div>
-        <h1 className="font-display text-2xl sm:text-3xl text-parchment mb-8 text-center">{title}</h1>
+        <h1 className="font-display text-2xl sm:text-3xl text-parchment mb-4 text-center">{title}</h1>
+        <p className="text-moon/80 text-center max-w-2xl mx-auto mb-8 leading-relaxed">{summary}</p>
 
         <div className="grid md:grid-cols-[340px_1fr] gap-6 items-start">
           <CalendarImageCard dd={dd} mm={mm} yyyy={yyyy} />
@@ -66,6 +69,9 @@ export default function GioHoangDaoResult({ dd, mm, yyyy, chiNgay, gioList }) {
                 ))}
               </div>
             </div>
+
+            <MiniCalendar dd={dd} mm={mm} yyyy={yyyy} basePath="/gio-hoang-dao" showQuality />
+
             <AdSlot label="Ad slot — giờ hoàng đạo" />
             <HubDayLinks dd={dd} mm={mm} yyyy={yyyy} exclude="gio-hoang-dao" />
           </div>

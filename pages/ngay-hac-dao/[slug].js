@@ -5,6 +5,7 @@ import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import AdSlot from '../../components/AdSlot';
 import CalendarImageCard from '../../components/CalendarImageCard';
+import MiniCalendar from '../../components/MiniCalendar';
 import HubDayLinks from '../../components/HubDayLinks';
 import { convertSolar2Lunar, getCanChiNam, getCanChiNgay, jdFromDate, jdToDate } from '../../lib/lunar';
 import { getTruc, getSao28, getSuggestedActivities } from '../../lib/dayQuality';
@@ -65,6 +66,7 @@ export default function NgayHacDaoResult({ dd, mm, yyyy, lunar, canChiNam, canCh
     ? `Ngày ${dd}/${mm}/${yyyy} LÀ Ngày Hắc Đạo`
     : `Ngày ${dd}/${mm}/${yyyy} KHÔNG phải Ngày Hắc Đạo`;
   const desc = `Ngày ${dd}/${mm}/${yyyy} (Âm lịch ${lunar.day}/${lunar.month}/${lunar.year}) ${isBadDay ? 'là' : 'không phải'} ngày Hắc đạo. Trực ${truc}, Sao ${sao}.`;
+  const summary = `Ngày ${dd}/${mm}/${yyyy} (Âm lịch ${lunar.day}/${lunar.month}${lunar.leap ? ' nhuận' : ''}/${lunar.year}), năm ${canChiNam}, ${isBadDay ? `là ngày Hắc đạo với Trực ${truc}, nên cân nhắc tránh ${activities.kiengKy.slice(0, 2).join(', ').toLowerCase()}` : `thực ra là ngày Hoàng đạo với Trực ${truc}, phù hợp cho ${activities.nenLam.slice(0, 2).join(', ').toLowerCase()}`}.`;
 
   return (
     <>
@@ -77,7 +79,8 @@ export default function NgayHacDaoResult({ dd, mm, yyyy, lunar, canChiNam, canCh
         <div className="w-14 h-14 rounded-full bg-ink-soft border border-gold/30 flex items-center justify-center mx-auto mb-4">
           <AlertTriangle size={26} className="text-gold" />
         </div>
-        <h1 className={`font-display text-2xl sm:text-3xl mb-8 text-center ${isBadDay ? 'text-vermilion' : 'text-jade'}`}>{title}</h1>
+        <h1 className={`font-display text-2xl sm:text-3xl mb-4 text-center ${isBadDay ? 'text-vermilion' : 'text-jade'}`}>{title}</h1>
+        <p className="text-moon/80 text-center max-w-2xl mx-auto mb-8 leading-relaxed">{summary}</p>
 
         <div className="grid md:grid-cols-[340px_1fr] gap-6 items-start">
           <CalendarImageCard dd={dd} mm={mm} yyyy={yyyy} />
@@ -92,6 +95,8 @@ export default function NgayHacDaoResult({ dd, mm, yyyy, lunar, canChiNam, canCh
               <p className={`font-display text-xl mb-1 ${isBadDay ? 'text-vermilion' : 'text-jade'}`}>{rating.label}</p>
               <p className="text-sm text-moon">Năm {canChiNam} — Ngày {canChiNgay} — Trực <strong className="text-parchment">{truc}</strong> — Sao <strong className="text-parchment">{sao}</strong></p>
             </div>
+
+            <MiniCalendar dd={dd} mm={mm} yyyy={yyyy} basePath="/ngay-hac-dao" showQuality />
 
             {isBadDay ? (
               <div className="mystic-card p-6 border-vermilion/30">

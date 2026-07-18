@@ -5,6 +5,7 @@ import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import AdSlot from '../../components/AdSlot';
 import CalendarImageCard from '../../components/CalendarImageCard';
+import MiniCalendar from '../../components/MiniCalendar';
 import HubDayLinks from '../../components/HubDayLinks';
 import { convertSolar2Lunar, getCanChiNam, getCanChiNgay, getCanChiThang } from '../../lib/lunar';
 import { getNapAmByCanChi } from '../../lib/nguHanh';
@@ -57,6 +58,7 @@ function CanChiCard({ label, canChi, napAm }) {
 export default function CanChiResult({ dd, mm, yyyy, lunar, canChiNam, canChiThang, canChiNgay, napAmNam, napAmThang, napAmNgay }) {
   const title = `Can Chi ngày ${dd}/${mm}/${yyyy} — Ngày ${canChiNgay}`;
   const desc = `Ngày ${dd}/${mm}/${yyyy} (Âm lịch ${lunar.day}/${lunar.month}/${lunar.year}): Năm ${canChiNam}, Tháng ${canChiThang}, Ngày ${canChiNgay}.`;
+  const summary = `Ngày ${dd}/${mm}/${yyyy} (Âm lịch ${lunar.day}/${lunar.month}${lunar.leap ? ' nhuận' : ''}/${lunar.year}) mang Can Chi Năm ${canChiNam}, Tháng ${canChiThang}, Ngày ${canChiNgay}${napAmNgay ? ` — Ngũ hành ngày thuộc ${napAmNgay.hanh} (${napAmNgay.napAm})` : ''}.`;
 
   return (
     <>
@@ -69,7 +71,8 @@ export default function CanChiResult({ dd, mm, yyyy, lunar, canChiNam, canChiTha
         <div className="w-14 h-14 rounded-full bg-ink-soft border border-gold/30 flex items-center justify-center mx-auto mb-4">
           <Layers size={26} className="text-gold" />
         </div>
-        <h1 className="font-display text-2xl sm:text-3xl text-parchment mb-8 text-center">{title}</h1>
+        <h1 className="font-display text-2xl sm:text-3xl text-parchment mb-4 text-center">{title}</h1>
+        <p className="text-moon/80 text-center max-w-2xl mx-auto mb-8 leading-relaxed">{summary}</p>
 
         <div className="grid md:grid-cols-[340px_1fr] gap-6 items-start">
           <CalendarImageCard dd={dd} mm={mm} yyyy={yyyy} />
@@ -84,6 +87,8 @@ export default function CanChiResult({ dd, mm, yyyy, lunar, canChiNam, canChiTha
             <div className="mystic-card p-6 text-sm text-moon">
               Âm lịch: <strong className="text-parchment">{lunar.day}/{lunar.month}{lunar.leap ? ' (nhuận)' : ''}/{lunar.year}</strong>
             </div>
+
+            <MiniCalendar dd={dd} mm={mm} yyyy={yyyy} basePath="/can-chi" showQuality />
 
             <AdSlot label="Ad slot — can chi" />
 

@@ -5,7 +5,10 @@ import { useRouter } from 'next/router';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import MysticLoader from '../../components/MysticLoader';
+import MiniCalendar from '../../components/MiniCalendar';
 import FaqSection from '../../components/FaqSection';
+import HubToolBreadcrumb from '../../components/HubToolBreadcrumb';
+import HubToolRelated from '../../components/HubToolRelated';
 
 function pad(n) { return String(n).padStart(2, '0'); }
 
@@ -46,6 +49,7 @@ export default function CanChiForm() {
       </Head>
       <Header />
       <main className="max-w-2xl mx-auto px-5 py-10 sm:py-14">
+        <HubToolBreadcrumb current="Can Chi" />
         <h1 className="font-display text-2xl sm:text-3xl text-parchment mb-2 text-center">Tra Cứu Can Chi</h1>
         <p className="text-moon/70 text-sm text-center mb-8">Xem Can Chi Ngày - Tháng - Năm theo lịch Âm.</p>
         <form onSubmit={handleSubmit} className="mystic-card p-6 flex flex-col gap-4">
@@ -71,13 +75,16 @@ export default function CanChiForm() {
 
         <div className="mt-10 space-y-8">
           <div>
-            <p className="text-sm text-moon mb-3">Công cụ liên quan:</p>
+            <p className="text-sm text-moon mb-3">Tra cứu phổ biến:</p>
             <div className="flex flex-wrap gap-2">
-              <Link href="/xem-ngay-tot" className="px-3 py-1.5 rounded-full border border-ink-line text-sm text-moon hover:border-gold/40 hover:text-gold-soft transition-colors">Xem ngày tốt</Link>
-              <Link href="/menh-ngu-hanh" className="px-3 py-1.5 rounded-full border border-ink-line text-sm text-moon hover:border-gold/40 hover:text-gold-soft transition-colors">Mệnh ngũ hành</Link>
-              <Link href="/tiet-khi" className="px-3 py-1.5 rounded-full border border-ink-line text-sm text-moon hover:border-gold/40 hover:text-gold-soft transition-colors">Tiết khí</Link>
+              <Link href={`/can-chi/ngay-${pad(today.getDate())}-thang-${pad(today.getMonth() + 1)}-nam-${today.getFullYear()}`} className="px-3 py-1.5 rounded-full border border-gold/30 text-sm text-gold-soft hover:bg-gold/10 transition-colors">Can Chi hôm nay</Link>
+              <Link href="/xem-ngay" className="px-3 py-1.5 rounded-full border border-gold/30 text-sm text-gold-soft hover:bg-gold/10 transition-colors">Xem ngày tốt theo việc</Link>
             </div>
           </div>
+
+          <HubToolRelated exclude="can-chi" />
+
+          <MiniCalendar dd={date.dd} mm={Number(date.mm)} yyyy={Number(date.yyyy)} basePath="/can-chi" showQuality />
 
           <div className="mystic-divider pt-8 space-y-6 text-parchment/85 leading-relaxed">
             <section>

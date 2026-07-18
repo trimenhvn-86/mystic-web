@@ -14,6 +14,7 @@ import { getNgayKhongMinh } from '../../lib/khongMinh';
 import { getNapAmByCanChi } from '../../lib/nguHanh';
 import { getHubContentPreview } from '../../lib/sanity';
 import HubDayLinks from '../../components/HubDayLinks';
+import MiniCalendar from '../../components/MiniCalendar';
 
 const SLUG_RE = /^ngay-(\d{1,2})-thang-(\d{1,2})-nam-(\d{4})$/;
 
@@ -65,6 +66,7 @@ export async function getStaticProps({ params }) {
 export default function NgayTotXauResult({ dd, mm, yyyy, lunar, canChiNam, canChiNgay, truc, sao, activities, gioHoangDao, khongMinh, napAmNgay, decisionAssistant, dictionaryPreview, guidePreview }) {
   const title = `Ngày ${dd}/${mm}/${yyyy} là ngày tốt hay xấu? — Tra cứu Lịch Vạn Niên`;
   const desc = `Xem ngày ${dd}/${mm}/${yyyy} (Âm lịch ${lunar.day}/${lunar.month}${lunar.leap ? ' nhuận' : ''}/${lunar.year}) có phải ngày Hoàng đạo không, Trực ${truc}, Sao ${sao}, ngày Khổng Minh, giờ Lục Nhâm, việc nên làm và nên tránh.`;
+  const summary = `Ngày ${dd}/${mm}/${yyyy} (Âm lịch ${lunar.day}/${lunar.month}${lunar.leap ? ' nhuận' : ''}/${lunar.year}) là ${activities.isGoodDay ? `ngày Hoàng đạo, Trực ${truc}, thuận lợi cho ${activities.nenLam.slice(0, 2).join(', ').toLowerCase()}` : `ngày Hắc đạo, Trực ${truc}, nên cân nhắc tránh ${activities.kiengKy.slice(0, 2).join(', ').toLowerCase()}`}.`;
 
   const tabs = [
     {
@@ -226,7 +228,8 @@ export default function NgayTotXauResult({ dd, mm, yyyy, lunar, canChiNam, canCh
         <div className="w-14 h-14 rounded-full bg-ink-soft border border-gold/30 flex items-center justify-center mx-auto mb-4">
           <Sparkles size={26} className="text-gold" />
         </div>
-        <h1 className="font-display text-2xl sm:text-3xl text-parchment mb-6 text-center">{title}</h1>
+        <h1 className="font-display text-2xl sm:text-3xl text-parchment mb-4 text-center">{title}</h1>
+        <p className="text-moon/80 text-center max-w-2xl mx-auto mb-6 leading-relaxed">{summary}</p>
         <div className="grid md:grid-cols-[340px_1fr] gap-6 items-start">
           <div className="order-1">
             <CalendarImageCard dd={dd} mm={mm} yyyy={yyyy} />
@@ -234,6 +237,10 @@ export default function NgayTotXauResult({ dd, mm, yyyy, lunar, canChiNam, canCh
           <div className="order-2 min-w-0">
             <ResultTabs tabs={tabs} />
           </div>
+        </div>
+
+        <div className="mt-6">
+          <MiniCalendar dd={dd} mm={mm} yyyy={yyyy} basePath="/xem-ngay-tot" showQuality />
         </div>
 
         {napAmNgay && (

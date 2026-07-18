@@ -9,6 +9,8 @@ import MiniCalendar from '../../components/MiniCalendar';
 import FaqSection from '../../components/FaqSection';
 import HubContentPreview from '../../components/HubContentPreview';
 import { getHubContentPreview } from '../../lib/sanity';
+import HubToolBreadcrumb from '../../components/HubToolBreadcrumb';
+import HubToolRelated from '../../components/HubToolRelated';
 
 function pad(n) { return String(n).padStart(2, '0'); }
 
@@ -55,6 +57,7 @@ export default function NgayHoangDaoForm({ dictionaryPreview, guidePreview }) {
       </Head>
       <Header />
       <main className="max-w-2xl mx-auto px-5 py-10 sm:py-14">
+        <HubToolBreadcrumb current="Ngày Hoàng đạo" />
         <h1 className="font-display text-2xl sm:text-3xl text-parchment mb-2 text-center">Ngày Hoàng Đạo</h1>
         <p className="text-moon/70 text-sm text-center mb-8">Tra cứu ngày Hoàng đạo theo ngày, tháng, năm.</p>
         <form onSubmit={handleSubmit} className="mystic-card p-6 flex flex-col gap-4">
@@ -80,14 +83,14 @@ export default function NgayHoangDaoForm({ dictionaryPreview, guidePreview }) {
 
         <div className="mt-10 space-y-8">
           <div>
-            <p className="text-sm text-moon mb-3">Công cụ liên quan:</p>
+            <p className="text-sm text-moon mb-3">Tra cứu phổ biến:</p>
             <div className="flex flex-wrap gap-2">
-              <Link href="/xem-ngay-tot" className="px-3 py-1.5 rounded-full border border-ink-line text-sm text-moon hover:border-gold/40 hover:text-gold-soft transition-colors">Xem ngày tốt</Link>
-              <Link href="/gio-hoang-dao" className="px-3 py-1.5 rounded-full border border-ink-line text-sm text-moon hover:border-gold/40 hover:text-gold-soft transition-colors">Giờ hoàng đạo</Link>
-              <Link href="/ngay-hac-dao" className="px-3 py-1.5 rounded-full border border-ink-line text-sm text-moon hover:border-gold/40 hover:text-gold-soft transition-colors">Ngày Hắc đạo</Link>
-              <Link href="/can-chi" className="px-3 py-1.5 rounded-full border border-ink-line text-sm text-moon hover:border-gold/40 hover:text-gold-soft transition-colors">Can Chi</Link>
+              <Link href={`/ngay-hoang-dao/ngay-${pad(today.getDate())}-thang-${pad(today.getMonth() + 1)}-nam-${today.getFullYear()}`} className="px-3 py-1.5 rounded-full border border-gold/30 text-sm text-gold-soft hover:bg-gold/10 transition-colors">Ngày Hoàng đạo hôm nay</Link>
+              <Link href="/xem-ngay" className="px-3 py-1.5 rounded-full border border-gold/30 text-sm text-gold-soft hover:bg-gold/10 transition-colors">Xem ngày tốt theo việc</Link>
             </div>
           </div>
+
+          <HubToolRelated exclude="ngay-hoang-dao" />
 
           <MiniCalendar dd={date.dd} mm={Number(date.mm)} yyyy={Number(date.yyyy)} basePath="/ngay-hoang-dao" showQuality />
 

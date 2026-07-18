@@ -5,6 +5,7 @@ import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import AdSlot from '../../components/AdSlot';
 import CalendarImageCard from '../../components/CalendarImageCard';
+import MiniCalendar from '../../components/MiniCalendar';
 import HubDayLinks from '../../components/HubDayLinks';
 import { getTietKhi, TIET_KHI, jdFromDate, jdToDate } from '../../lib/lunar';
 import tietKhiMeaning from '../../content/lunar/tiet-khi-meaning.json';
@@ -72,6 +73,7 @@ export async function getStaticProps({ params }) {
 export default function TietKhiResult({ dd, mm, yyyy, current, startDate, next }) {
   const title = `Ngày ${dd}/${mm}/${yyyy} thuộc Tiết Khí ${current}`;
   const desc = `Ngày ${dd}/${mm}/${yyyy} thuộc Tiết Khí ${current} (${tietKhiMeaning[current] || ''}). Tiết khí bắt đầu từ ${pad(startDate.dd)}/${pad(startDate.mm)}/${startDate.yyyy}.`;
+  const summary = `Ngày ${dd}/${mm}/${yyyy} thuộc Tiết Khí ${current}, bắt đầu từ ${pad(startDate.dd)}/${pad(startDate.mm)}/${startDate.yyyy}${next ? ` và kéo dài tới trước ${next.name} (dự kiến ${pad(next.date.dd)}/${pad(next.date.mm)}/${next.date.yyyy})` : ''}.`;
 
   return (
     <>
@@ -84,7 +86,8 @@ export default function TietKhiResult({ dd, mm, yyyy, current, startDate, next }
         <div className="w-14 h-14 rounded-full bg-ink-soft border border-gold/30 flex items-center justify-center mx-auto mb-4">
           <Sun size={26} className="text-gold" />
         </div>
-        <h1 className="font-display text-2xl sm:text-3xl text-parchment mb-8 text-center">{title}</h1>
+        <h1 className="font-display text-2xl sm:text-3xl text-parchment mb-4 text-center">{title}</h1>
+        <p className="text-moon/80 text-center max-w-2xl mx-auto mb-8 leading-relaxed">{summary}</p>
 
         <div className="grid md:grid-cols-[340px_1fr] gap-6 items-start">
           <CalendarImageCard dd={dd} mm={mm} yyyy={yyyy} />
@@ -104,6 +107,8 @@ export default function TietKhiResult({ dd, mm, yyyy, current, startDate, next }
                 <p className="text-sm text-moon">Dự kiến: <strong className="text-parchment">{pad(next.date.dd)}/{pad(next.date.mm)}/{next.date.yyyy}</strong></p>
               </div>
             )}
+
+            <MiniCalendar dd={dd} mm={mm} yyyy={yyyy} basePath="/tiet-khi" showQuality />
 
             <AdSlot label="Ad slot — tiết khí" />
 

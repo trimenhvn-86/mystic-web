@@ -5,6 +5,7 @@ import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import AdSlot from '../../components/AdSlot';
 import CalendarImageCard from '../../components/CalendarImageCard';
+import MiniCalendar from '../../components/MiniCalendar';
 import HubDayLinks from '../../components/HubDayLinks';
 import { convertSolar2Lunar, getCanChiNam, getCanChiNgay } from '../../lib/lunar';
 import { getTruc, getSao28, getSuggestedActivities, getLoaiNgay } from '../../lib/dayQuality';
@@ -56,6 +57,7 @@ export default function NgayHoangDaoResult({ dd, mm, yyyy, lunar, canChiNam, can
     ? `Ngày ${dd}/${mm}/${yyyy} LÀ Ngày Hoàng Đạo`
     : `Ngày ${dd}/${mm}/${yyyy} KHÔNG phải Ngày Hoàng Đạo`;
   const desc = `Ngày ${dd}/${mm}/${yyyy} (Âm lịch ${lunar.day}/${lunar.month}/${lunar.year}) ${isGoodDay ? 'là' : 'không phải'} ngày Hoàng đạo. Trực ${truc}, Sao ${sao}, loại ngày ${loaiNgay}, mức độ phù hợp ${rating.score}/100.`;
+  const summary = `Ngày ${dd}/${mm}/${yyyy} (Âm lịch ${lunar.day}/${lunar.month}${lunar.leap ? ' nhuận' : ''}/${lunar.year}) ${isGoodDay ? `là ngày Hoàng đạo với Trực ${truc}, phù hợp cho ${activities.nenLam.slice(0, 2).join(', ').toLowerCase()}` : `không phải ngày Hoàng đạo, nên cân nhắc tránh ${activities.kiengKy.slice(0, 2).join(', ').toLowerCase()}`}.`;
 
   return (
     <>
@@ -68,7 +70,8 @@ export default function NgayHoangDaoResult({ dd, mm, yyyy, lunar, canChiNam, can
         <div className="w-14 h-14 rounded-full bg-ink-soft border border-gold/30 flex items-center justify-center mx-auto mb-4">
           <Sparkles size={26} className="text-gold" />
         </div>
-        <h1 className={`font-display text-2xl sm:text-3xl mb-8 text-center ${isGoodDay ? 'text-jade' : 'text-vermilion'}`}>{title}</h1>
+        <h1 className={`font-display text-2xl sm:text-3xl mb-4 text-center ${isGoodDay ? 'text-jade' : 'text-vermilion'}`}>{title}</h1>
+        <p className="text-moon/80 text-center max-w-2xl mx-auto mb-8 leading-relaxed">{summary}</p>
 
         <div className="grid md:grid-cols-[340px_1fr] gap-6 items-start">
           <CalendarImageCard dd={dd} mm={mm} yyyy={yyyy} />
@@ -95,6 +98,8 @@ export default function NgayHoangDaoResult({ dd, mm, yyyy, lunar, canChiNam, can
                 {napAmNgay && <p className="text-moon">Ngũ hành: <strong className="text-parchment">{napAmNgay.napAm}</strong></p>}
               </div>
             </div>
+
+            <MiniCalendar dd={dd} mm={mm} yyyy={yyyy} basePath="/ngay-hoang-dao" showQuality />
 
             {/* Gio hoang dao */}
             <div className="mystic-card p-6">

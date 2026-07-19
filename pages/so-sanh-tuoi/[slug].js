@@ -6,7 +6,11 @@ import Breadcrumb from '../../components/Breadcrumb';
 import Footer from '../../components/Footer';
 import AdSlot from '../../components/AdSlot';
 import TuoiHopLinks from '../../components/TuoiHopLinks';
+import FaqSection from '../../components/FaqSection';
+import HubContentPreview from '../../components/HubContentPreview';
 import { compareTuoi } from '../../lib/tuoiHop';
+import { getHubContentPreview } from '../../lib/sanity';
+import { FAQ_SO_SANH_TUOI } from '../../content/faq-data';
 
 const SLUG_RE = /^nam-(\d{4})-va-nam-(\d{4})$/;
 
@@ -22,7 +26,8 @@ export async function getStaticProps({ params }) {
   if (yearA < 1900 || yearA > 2100 || yearB < 1900 || yearB > 2100) return { notFound: true };
 
   const result = compareTuoi(yearA, yearB);
-  return { props: { result }, revalidate: 2592000 };
+  const preview = await getHubContentPreview('tuoi-tuong-hop');
+  return { props: { result, ...preview }, revalidate: 2592000 };
 }
 
 const RELATION_LABEL = {
@@ -30,7 +35,7 @@ const RELATION_LABEL = {
   'luc-hai': 'Lục hại', 'tu-hanh-xung': 'Tứ hành xung', 'binh-thuong': 'Bình thường'
 };
 
-export default function SoSanhTuoiResult({ result }) {
+export default function SoSanhTuoiResult({ result, dictionaryPreview, guidePreview }) {
   const { yearA, yearB, canChiA, canChiB, menhA, menhB, chiRelation, hanhRelation, score, label, notes } = result;
   const title = `Tuổi ${yearA} và ${yearB} có hợp nhau không? — Điểm tương hợp ${score}/100`;
   const desc = `Tuổi ${yearA} (${canChiA}) và ${yearB} (${canChiB}): điểm tương hợp ${score}/100 — ${label}. Quan hệ Địa Chi: ${RELATION_LABEL[chiRelation]}.`;
@@ -84,13 +89,20 @@ export default function SoSanhTuoiResult({ result }) {
         <div>
           <p className="text-sm text-moon mb-3">Xem thêm:</p>
           <div className="flex flex-wrap gap-2">
-            <Link href={`/${yearA}-menh-gi`} className="px-3 py-1.5 rounded-full border border-ink-line text-sm text-moon hover:border-gold/40 hover:text-gold-soft transition-colors">Mệnh tuổi {yearA}</Link>
-            <Link href={`/${yearB}-menh-gi`} className="px-3 py-1.5 rounded-full border border-ink-line text-sm text-moon hover:border-gold/40 hover:text-gold-soft transition-colors">Mệnh tuổi {yearB}</Link>
             <Link href={`/${yearA}-hop-tuoi-nao`} className="px-3 py-1.5 rounded-full border border-ink-line text-sm text-moon hover:border-gold/40 hover:text-gold-soft transition-colors">Danh sách tuổi hợp {yearA}</Link>
+            <Link href={`/${yearB}-hop-tuoi-nao`} className="px-3 py-1.5 rounded-full border border-ink-line text-sm text-moon hover:border-gold/40 hover:text-gold-soft transition-colors">Danh sách tuổi hợp {yearB}</Link>
           </div>
         </div>
 
         <TuoiHopLinks exclude="so-sanh-tuoi" />
+
+        <div className="mt-8">
+          <FaqSection faqs={FAQ_SO_SANH_TUOI} />
+        </div>
+
+        <div className="mt-8">
+          <HubContentPreview dictionaryPreview={dictionaryPreview} guidePreview={guidePreview} />
+        </div>
 
         <p className="text-xs text-moon/50 mt-6 text-center">
           Nội dung mang tính tham khảo, chiêm nghiệm dân gian — không thay thế quyết định cá nhân.

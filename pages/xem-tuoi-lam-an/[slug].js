@@ -6,7 +6,11 @@ import Breadcrumb from '../../components/Breadcrumb';
 import Footer from '../../components/Footer';
 import AdSlot from '../../components/AdSlot';
 import TuoiHopLinks from '../../components/TuoiHopLinks';
+import FaqSection from '../../components/FaqSection';
+import HubContentPreview from '../../components/HubContentPreview';
 import { compareTuoi, getBusinessAdvice } from '../../lib/tuoiHop';
+import { getHubContentPreview } from '../../lib/sanity';
+import { FAQ_TUOI_LAM_AN } from '../../content/faq-data';
 
 const SLUG_RE = /^doi-tac-(\d{4})-va-(\d{4})$/;
 
@@ -28,10 +32,11 @@ export async function getStaticProps({ params }) {
 
   const result = compareTuoi(yearA, yearB);
   const advice = getBusinessAdvice(result.score);
-  return { props: { result, advice, yearA, yearB }, revalidate: 2592000 };
+  const preview = await getHubContentPreview('tuoi-tuong-hop');
+  return { props: { result, advice, yearA, yearB, ...preview }, revalidate: 2592000 };
 }
 
-export default function XemTuoiLamAnResult({ result, advice, yearA, yearB }) {
+export default function XemTuoiLamAnResult({ result, advice, yearA, yearB, dictionaryPreview, guidePreview }) {
   const { canChiA, canChiB, menhA, menhB, chiRelation, hanhRelation, score, label, notes } = result;
   const title = `Tuổi ${yearA} và ${yearB} có hợp làm ăn không? — ${score}/100`;
   const desc = `Đối tác ${yearA} (${canChiA}) và ${yearB} (${canChiB}): điểm tương hợp ${score}/100 — ${label}. ${advice}`;
@@ -83,6 +88,14 @@ export default function XemTuoiLamAnResult({ result, advice, yearA, yearB }) {
         <AdSlot label="Ad slot — xem tuổi làm ăn" className="mb-6" />
 
         <TuoiHopLinks exclude="xem-tuoi-lam-an" />
+
+        <div className="mt-8">
+          <FaqSection faqs={FAQ_TUOI_LAM_AN} />
+        </div>
+
+        <div className="mt-8">
+          <HubContentPreview dictionaryPreview={dictionaryPreview} guidePreview={guidePreview} />
+        </div>
 
         <p className="text-xs text-moon/50 mt-8 text-center">
           Nội dung mang tính tham khảo, chiêm nghiệm dân gian — không thay thế quyết định cá nhân.

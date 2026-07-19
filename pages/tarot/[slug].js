@@ -5,7 +5,11 @@ import Breadcrumb from '../../components/Breadcrumb';
 import Footer from '../../components/Footer';
 import AdSlot from '../../components/AdSlot';
 import TarotCardArt from '../../components/TarotCardArt';
+import FaqSection from '../../components/FaqSection';
+import HubContentPreview from '../../components/HubContentPreview';
 import { cards, getCardBySlug, getRelatedCards } from '../../lib/tarot';
+import { getHubContentPreview } from '../../lib/sanity';
+import { FAQ_TAROT_LA_BAI } from '../../content/faq-data';
 
 const SUIT_NAME = { wands: 'Gậy', cups: 'Cốc', swords: 'Kiếm', pentacles: 'Tiền' };
 
@@ -17,10 +21,11 @@ export async function getStaticProps({ params }) {
   const card = getCardBySlug(params.slug);
   if (!card) return { notFound: true };
   const related = getRelatedCards(card, 6);
-  return { props: { card, related } };
+  const preview = await getHubContentPreview('tarot');
+  return { props: { card, related, ...preview } };
 }
 
-export default function TarotCardDetail({ card, related }) {
+export default function TarotCardDetail({ card, related, dictionaryPreview, guidePreview }) {
   const title = `Ý Nghĩa Lá ${card.nameVi} (${card.nameEn}) Trong Tarot`;
   const groupLabel = card.arcana === 'major' ? 'Ẩn Chính (Major Arcana)' : `Bộ ${SUIT_NAME[card.suit]}`;
   return (
@@ -91,6 +96,14 @@ export default function TarotCardDetail({ card, related }) {
           <Link href="/tarot-hom-nay" className="px-3 py-1.5 rounded-full border border-ink-line text-sm text-moon hover:border-gold/40 hover:text-gold-soft transition-colors">Tarot hôm nay</Link>
           <Link href="/rut-la-tarot" className="px-3 py-1.5 rounded-full border border-ink-line text-sm text-moon hover:border-gold/40 hover:text-gold-soft transition-colors">Rút 1 lá bài</Link>
           <Link href="/tarot-yes-no" className="px-3 py-1.5 rounded-full border border-ink-line text-sm text-moon hover:border-gold/40 hover:text-gold-soft transition-colors">Tarot Yes/No</Link>
+        </div>
+
+        <div className="mt-8">
+          <FaqSection faqs={FAQ_TAROT_LA_BAI} />
+        </div>
+
+        <div className="mt-8">
+          <HubContentPreview dictionaryPreview={dictionaryPreview} guidePreview={guidePreview} />
         </div>
       </main>
       <Footer />

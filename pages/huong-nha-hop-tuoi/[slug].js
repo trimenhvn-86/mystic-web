@@ -6,7 +6,11 @@ import Breadcrumb from '../../components/Breadcrumb';
 import Footer from '../../components/Footer';
 import AdSlot from '../../components/AdSlot';
 import MenhPhongThuyLinks from '../../components/MenhPhongThuyLinks';
+import FaqSection from '../../components/FaqSection';
+import HubContentPreview from '../../components/HubContentPreview';
 import { getCungMenh, getHuongNha } from '../../lib/huongNha';
+import { getHubContentPreview } from '../../lib/sanity';
+import { FAQ_HUONG_NHA } from '../../content/faq-data';
 
 const SLUG_RE = /^(nam|nu)-(\d{4})$/;
 
@@ -23,10 +27,11 @@ export async function getStaticProps({ params }) {
 
   const cungMenh = getCungMenh(year, gender);
   const huong = getHuongNha(cungMenh);
-  return { props: { gender, year, cungMenh, huong }, revalidate: 2592000 };
+  const preview = await getHubContentPreview('menh-phong-thuy');
+  return { props: { gender, year, cungMenh, huong, ...preview }, revalidate: 2592000 };
 }
 
-export default function HuongNhaResult({ gender, year, cungMenh, huong }) {
+export default function HuongNhaResult({ gender, year, cungMenh, huong, dictionaryPreview, guidePreview }) {
   const genderLabel = gender === 'nam' ? 'Nam' : 'Nữ';
   const title = `${genderLabel} sinh năm ${year} hợp hướng nhà nào? — Cung ${cungMenh.ten}`;
   const desc = `${genderLabel} sinh năm ${year} thuộc cung ${cungMenh.ten} (${cungMenh.nhom}), hợp các hướng: ${huong.tot.join(', ')}. Nên tránh hướng: ${huong.xau.join(', ')}.`;
@@ -81,6 +86,14 @@ export default function HuongNhaResult({ gender, year, cungMenh, huong }) {
         <AdSlot label="Ad slot — hướng nhà hợp tuổi" className="mb-6" />
 
         <MenhPhongThuyLinks year={year} exclude="huong" />
+
+        <div className="mt-8">
+          <FaqSection faqs={FAQ_HUONG_NHA} />
+        </div>
+
+        <div className="mt-8">
+          <HubContentPreview dictionaryPreview={dictionaryPreview} guidePreview={guidePreview} />
+        </div>
 
         <p className="text-xs text-moon/50 mt-8 text-center">
           Công thức tham khảo theo Bát Trạch Minh Cảnh — mang tính tham khảo, chiêm nghiệm dân gian, chưa qua kiểm duyệt chuyên gia.

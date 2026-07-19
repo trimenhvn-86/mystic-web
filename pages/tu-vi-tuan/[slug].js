@@ -10,8 +10,11 @@ import { buildWeekDashboard } from '../../lib/tuViDashboard';
 import { getTuViTuan } from '../../lib/tuViHomNay';
 import { SLUG_TO_CHI, CHI_SLUG } from '../../lib/chiSlug';
 import ConGiapLinks from '../../components/ConGiapLinks';
+import FaqSection from '../../components/FaqSection';
+import HubContentPreview from '../../components/HubContentPreview';
 import { getHubContentPreview } from '../../lib/sanity';
 import { getVietnamNow } from '../../lib/vnDate';
+import { FAQ_TU_VI_TUAN } from '../../content/faq-data';
 
 const WEEK_RE = /^tuan-(\d{1,2})-nam-(\d{4})$/;
 
@@ -40,7 +43,8 @@ export async function getStaticProps({ params }) {
     const today = getVietnamNow();
     const data = getTuViTuan(today.getDate(), today.getMonth() + 1, today.getFullYear(), chi);
     const rangeStr = `${pad(data.tuNgay.dd)}/${pad(data.tuNgay.mm)} - ${pad(data.denNgay.dd)}/${pad(data.denNgay.mm)}/${data.denNgay.yyyy}`;
-    return { props: { type: 'con-giap', data, rangeStr }, revalidate: 86400 };
+    const preview = await getHubContentPreview('tu-vi');
+    return { props: { type: 'con-giap', data, rangeStr, ...preview }, revalidate: 86400 };
   }
 
   return { notFound: true };
@@ -63,7 +67,7 @@ export default function TuViTuanSlug(props) {
     );
   }
 
-  const { data, rangeStr } = props;
+  const { data, rangeStr, dictionaryPreview, guidePreview } = props;
   const title = `Tử Vi Tuổi ${data.conGiap} Tuần Này (${rangeStr}) — TriMenh`;
   return (
     <>
@@ -103,6 +107,14 @@ export default function TuViTuanSlug(props) {
         <AdSlot label="Ad slot — tử vi tuần" className="mt-6" />
         <ConGiapLinks basePath="/tu-vi-tuan" exclude={CHI_SLUG[data.conGiap]} />
         <Link href="/tu-vi-tuan" className="block text-center text-sm text-moon hover:text-gold-soft mt-6">← Xem đầy đủ Tử vi tuần này</Link>
+
+        <div className="mt-8">
+          <FaqSection faqs={FAQ_TU_VI_TUAN} />
+        </div>
+
+        <div className="mt-8">
+          <HubContentPreview dictionaryPreview={dictionaryPreview} guidePreview={guidePreview} />
+        </div>
       </main>
       <Footer />
     </>

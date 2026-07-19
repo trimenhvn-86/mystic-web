@@ -10,8 +10,11 @@ import { buildMonthDashboard } from '../../lib/tuViDashboard';
 import { getTuViThang } from '../../lib/tuViHomNay';
 import { SLUG_TO_CHI, CHI_SLUG } from '../../lib/chiSlug';
 import ConGiapLinks from '../../components/ConGiapLinks';
+import FaqSection from '../../components/FaqSection';
+import HubContentPreview from '../../components/HubContentPreview';
 import { getHubContentPreview } from '../../lib/sanity';
 import { getVietnamNow } from '../../lib/vnDate';
+import { FAQ_TU_VI_THANG } from '../../content/faq-data';
 
 const MONTH_RE = /^thang-(\d{1,2})-nam-(\d{4})$/;
 
@@ -37,7 +40,8 @@ export async function getStaticProps({ params }) {
   if (chi) {
     const today = getVietnamNow();
     const data = getTuViThang(today.getMonth() + 1, today.getFullYear(), chi);
-    return { props: { type: 'con-giap', data }, revalidate: 86400 };
+    const preview = await getHubContentPreview('tu-vi');
+    return { props: { type: 'con-giap', data, ...preview }, revalidate: 86400 };
   }
 
   return { notFound: true };
@@ -60,7 +64,7 @@ export default function TuViThangSlug(props) {
     );
   }
 
-  const { data } = props;
+  const { data, dictionaryPreview, guidePreview } = props;
   const title = `Tử Vi Tuổi ${data.conGiap} Tháng ${data.thang}/${data.nam} — TriMenh`;
   return (
     <>
@@ -100,6 +104,14 @@ export default function TuViThangSlug(props) {
         <AdSlot label="Ad slot — tử vi tháng" className="mt-6" />
         <ConGiapLinks basePath="/tu-vi-thang" exclude={CHI_SLUG[data.conGiap]} />
         <Link href="/tu-vi-thang" className="block text-center text-sm text-moon hover:text-gold-soft mt-6">← Xem đầy đủ Tử vi tháng này</Link>
+
+        <div className="mt-8">
+          <FaqSection faqs={FAQ_TU_VI_THANG} />
+        </div>
+
+        <div className="mt-8">
+          <HubContentPreview dictionaryPreview={dictionaryPreview} guidePreview={guidePreview} />
+        </div>
       </main>
       <Footer />
     </>

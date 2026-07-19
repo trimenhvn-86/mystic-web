@@ -177,3 +177,108 @@ export const FAQ_TIET_KHI = [
     a: 'Có. Tiết khí vốn được người xưa dùng để xác định thời điểm gieo trồng, thu hoạch phù hợp theo từng giai đoạn khí hậu trong năm, đến nay vẫn được dùng tham khảo trong nông nghiệp và phong thủy.'
   }
 ];
+
+export const FAQ_SO_CHU_DAO = [
+  {
+    q: 'Số Chủ Đạo có thay đổi theo thời gian không?',
+    a: 'Không. Số Chủ Đạo được tính từ ngày sinh — dữ liệu cố định suốt đời, nên Số Chủ Đạo không bao giờ thay đổi dù bạn bao nhiêu tuổi.'
+  },
+  {
+    q: 'Hai người cùng Số Chủ Đạo có tính cách giống hệt nhau không?',
+    a: 'Không hẳn. Số Chủ Đạo chỉ phản ánh xu hướng tính cách chung, còn tính cách thực tế còn chịu ảnh hưởng từ môi trường sống, giáo dục và trải nghiệm cá nhân của từng người.'
+  },
+  {
+    q: 'Số Chủ Đạo và Số Sứ Mệnh khác nhau thế nào?',
+    a: 'Số Chủ Đạo tính từ ngày sinh, phản ánh bài học cuộc đời. Số Sứ Mệnh tính từ họ tên đầy đủ, phản ánh mục tiêu và tiềm năng cần phát huy trong đời.'
+  }
+];
+
+export const FAQ_VAT_PHAM_PHONG_THUY = [
+  {
+    q: 'Vật phẩm phong thủy hợp mệnh được chọn dựa trên gì?',
+    a: 'Dựa trên Ngũ hành Nạp âm của năm sinh — ưu tiên vật phẩm thuộc chính hành của bạn hoặc hành tương sinh (hành sinh ra mệnh của bạn) để hỗ trợ vượng khí.'
+  },
+  {
+    q: 'Đeo đá phong thủy sai mệnh có sao không?',
+    a: 'Về mặt phong thủy truyền thống, đeo đá không hợp mệnh được cho là ít phát huy tác dụng hỗ trợ, nhưng không có cơ sở khoa học cho thấy gây hại — đây là yếu tố tham khảo, không bắt buộc.'
+  },
+  {
+    q: 'Nên đeo đá phong thủy ở đâu?',
+    a: 'Thường đeo dưới dạng vòng tay, mặt dây chuyền hoặc để trên bàn làm việc. Vị trí cụ thể tùy theo mục đích (cầu tài, hộ mệnh, an thần...) và sở thích cá nhân.'
+  }
+];
+
+export const FAQ_HUONG_NHA = [
+  {
+    q: 'Hướng nhà hợp tuổi được tính dựa trên gì?',
+    a: 'Dựa trên Cung Mệnh (Đông Tứ Mệnh hoặc Tây Tứ Mệnh) tính từ năm sinh và giới tính theo phong thủy Bát Trạch, từ đó xác định 4 hướng tốt và 4 hướng cần tránh.'
+  },
+  {
+    q: 'Nam và nữ cùng năm sinh có hợp hướng nhà giống nhau không?',
+    a: 'Không. Cách tính Cung Mệnh cho nam và nữ khác nhau ngay cả khi cùng năm sinh, nên hướng nhà hợp mệnh của nam và nữ sinh cùng năm thường không giống nhau.'
+  },
+  {
+    q: 'Nhà đã xây sai hướng có khắc phục được không?',
+    a: 'Có thể hóa giải phần nào bằng cách bố trí nội thất, cửa phụ hoặc vật phẩm phong thủy hỗ trợ, dù không thể thay đổi hoàn toàn hướng nhà đã xây.'
+  }
+];
+
+export const FAQ_SO_SANH_TUOI = [
+  {
+    q: 'So sánh tuổi dựa trên những yếu tố nào?',
+    a: 'Dựa trên Tam hợp, Lục hợp, Tứ hành xung của Địa Chi và mối quan hệ tương sinh - tương khắc Ngũ hành giữa Nạp âm năm sinh của hai người.'
+  },
+  {
+    q: 'Hai tuổi xung khắc có nhất thiết không hợp nhau không?',
+    a: 'Không nhất thiết. Xung khắc theo tuổi chỉ là một yếu tố tham khảo — sự hòa hợp thực tế còn phụ thuộc nhiều vào tính cách, cách cư xử và sự thấu hiểu giữa hai người.'
+  },
+  {
+    q: 'Nên xem tuổi trước khi làm việc gì?',
+    a: 'Thường được tham khảo trước các quyết định quan trọng như kết hôn, hợp tác làm ăn hoặc chọn đối tác kinh doanh lâu dài.'
+  }
+];
+
+export const FAQ_TUOI_KET_HON = [
+  {
+    q: 'Xem tuổi kết hôn dựa trên yếu tố gì?',
+    a: 'Dựa trên Tam hợp - Tứ hành xung của tuổi cô dâu chú rể, kết hợp đối chiếu Ngũ hành Nạp âm để đánh giá mức độ hòa hợp trong hôn nhân.'
+  },
+  {
+    q: 'Tuổi không hợp có nên hủy kết hôn không?',
+    a: 'Không cần thiết. Đây là yếu tố tham khảo dân gian — nhiều cặp đôi tuổi không hợp theo lý thuyết vẫn có cuộc hôn nhân hạnh phúc nhờ sự thấu hiểu và cố gắng từ cả hai phía.'
+  },
+  {
+    q: 'Có cách nào hóa giải tuổi xung khắc khi cưới không?',
+    a: 'Dân gian thường chọn ngày cưới tốt, giờ đẹp và có thể nhờ người hợp tuổi đứng ra làm chủ hôn để giảm bớt yếu tố xung khắc.'
+  }
+];
+
+export const FAQ_TUOI_LAM_AN = [
+  {
+    q: 'Xem tuổi làm ăn dựa trên yếu tố gì?',
+    a: 'Dựa trên Tam hợp - Tứ hành xung và tương sinh - tương khắc Ngũ hành giữa các bên hợp tác, giúp đánh giá mức độ thuận lợi khi làm ăn chung.'
+  },
+  {
+    q: 'Hai tuổi khắc nhau có nên hợp tác kinh doanh không?',
+    a: 'Vẫn có thể hợp tác — yếu tố tuổi chỉ mang tính tham khảo. Nên cân nhắc thêm năng lực, uy tín và sự phù hợp trong công việc thực tế.'
+  },
+  {
+    q: 'Nên chọn ngày nào để bắt đầu hợp tác làm ăn?',
+    a: 'Nên chọn ngày Hoàng đạo, hợp tuổi của cả hai bên nếu có thể — có thể tham khảo thêm công cụ Xem ngày tốt của TriMenh.'
+  }
+];
+
+export const FAQ_TAROT_LA_BAI = [
+  {
+    q: 'Ý nghĩa lá bài xuôi và ngược khác nhau thế nào?',
+    a: 'Lá bài xuôi thường mang ý nghĩa tích cực, thuận theo dòng năng lượng tự nhiên của lá bài. Lá bài ngược thường phản ánh khía cạnh bị cản trở, trì hoãn hoặc cần nhìn nhận sâu hơn về vấn đề đó.'
+  },
+  {
+    q: 'Rút được lá bài xấu có đáng lo không?',
+    a: 'Không nên quá lo lắng. Tarot phản ánh xu hướng năng lượng hiện tại, mang tính tham khảo và chiêm nghiệm — không phải lời tiên đoán chắc chắn về tương lai.'
+  },
+  {
+    q: 'Có thể tự học đọc Tarot không?',
+    a: 'Hoàn toàn có thể. Bắt đầu bằng cách tìm hiểu ý nghĩa cơ bản của 78 lá, sau đó luyện tập trải bài thường xuyên để quen với trực giác và cách liên kết các lá bài.'
+  }
+];

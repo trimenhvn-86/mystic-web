@@ -11,7 +11,7 @@ import { getChiFromYear, getTuoiHop, getYearsForChi } from '../lib/tuoiHop';
 import { getLuckyNumbers, HA_DO } from '../lib/luckyNumber';
 import { HUBS, getHubBySlug, getCmsHubValue } from '../content/hubs';
 import { getDictionaryTerms, getGuidePosts, getHubContentPreview } from '../lib/sanity';
-import { FAQ_MENH, FAQ_TUOI_HOP } from '../content/faq-data';
+import { FAQ_MENH, FAQ_TUOI_HOP, FAQ_MAU_MENH, FAQ_VAT_PHAM_PHONG_THUY } from '../content/faq-data';
 import napAmData from '../content/phong-thuy/menh/nap-am.json';
 import daPhongThuyData from '../content/phong-thuy/da-phong-thuy.json';
 import MiniCalendar from '../components/MiniCalendar';
@@ -490,6 +490,10 @@ export default function YearToolPage({ type, year, menh, tuoiHop, hub, dictionar
           <MenhPhongThuyLinks year={year} exclude="mau" />
 
           <div className="mt-8">
+            <FaqSection faqs={FAQ_MAU_MENH} />
+          </div>
+
+          <div className="mt-8">
             <HubContentPreview dictionaryPreview={dictionaryPreview} guidePreview={guidePreview} />
           </div>
         </main>
@@ -547,6 +551,10 @@ export default function YearToolPage({ type, year, menh, tuoiHop, hub, dictionar
           <AdSlot label="Ad slot — đá phong thủy" className="mt-6" />
 
           <MenhPhongThuyLinks year={year} exclude="da" />
+
+          <div className="mt-8">
+            <FaqSection faqs={FAQ_VAT_PHAM_PHONG_THUY} />
+          </div>
 
           <div className="mt-8">
             <HubContentPreview dictionaryPreview={dictionaryPreview} guidePreview={guidePreview} />

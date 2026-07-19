@@ -6,7 +6,11 @@ import Breadcrumb from '../../components/Breadcrumb';
 import Footer from '../../components/Footer';
 import AdSlot from '../../components/AdSlot';
 import TuoiHopLinks from '../../components/TuoiHopLinks';
+import FaqSection from '../../components/FaqSection';
+import HubContentPreview from '../../components/HubContentPreview';
 import { compareTuoi, getMarriageAdvice } from '../../lib/tuoiHop';
+import { getHubContentPreview } from '../../lib/sanity';
+import { FAQ_TUOI_KET_HON } from '../../content/faq-data';
 
 const SLUG_RE = /^co-dau-(\d{4})-chu-re-(\d{4})$/;
 
@@ -28,10 +32,11 @@ export async function getStaticProps({ params }) {
 
   const result = compareTuoi(yearBride, yearGroom);
   const advice = getMarriageAdvice(result.score);
-  return { props: { result, advice, yearBride, yearGroom }, revalidate: 2592000 };
+  const preview = await getHubContentPreview('tuoi-tuong-hop');
+  return { props: { result, advice, yearBride, yearGroom, ...preview }, revalidate: 2592000 };
 }
 
-export default function XemTuoiKetHonResult({ result, advice, yearBride, yearGroom }) {
+export default function XemTuoiKetHonResult({ result, advice, yearBride, yearGroom, dictionaryPreview, guidePreview }) {
   const { canChiA: canChiBride, canChiB: canChiGroom, menhA: menhBride, menhB: menhGroom, chiRelation, hanhRelation, score, label, notes } = result;
   const title = `Cô dâu ${yearBride} và Chú rể ${yearGroom} có hợp kết hôn không? — ${score}/100`;
   const desc = `Cô dâu ${yearBride} (${canChiBride}) và Chú rể ${yearGroom} (${canChiGroom}): điểm tương hợp ${score}/100 — ${label}. ${advice}`;
@@ -83,6 +88,14 @@ export default function XemTuoiKetHonResult({ result, advice, yearBride, yearGro
         <AdSlot label="Ad slot — xem tuổi kết hôn" className="mb-6" />
 
         <TuoiHopLinks exclude="xem-tuoi-ket-hon" />
+
+        <div className="mt-8">
+          <FaqSection faqs={FAQ_TUOI_KET_HON} />
+        </div>
+
+        <div className="mt-8">
+          <HubContentPreview dictionaryPreview={dictionaryPreview} guidePreview={guidePreview} />
+        </div>
 
         <p className="text-xs text-moon/50 mt-8 text-center">
           Nội dung mang tính tham khảo, chiêm nghiệm dân gian — không thay thế quyết định cá nhân.

@@ -5,7 +5,11 @@ import Header from '../../components/Header';
 import Breadcrumb from '../../components/Breadcrumb';
 import Footer from '../../components/Footer';
 import AdSlot from '../../components/AdSlot';
+import FaqSection from '../../components/FaqSection';
+import HubContentPreview from '../../components/HubContentPreview';
 import dictionary from '../../content/numerology/life-path.json';
+import { getHubContentPreview } from '../../lib/sanity';
+import { FAQ_SO_CHU_DAO } from '../../content/faq-data';
 
 const CORE_NUMBERS = [1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 22, 33];
 
@@ -21,10 +25,11 @@ export async function getStaticProps({ params }) {
   const info = dictionary[num];
   if (!info) return { notFound: true };
   const otherNumbers = CORE_NUMBERS.filter((n) => String(n) !== num).map((n) => ({ num: n, ten: dictionary[n]?.ten || `Số ${n}` }));
-  return { props: { num, info, otherNumbers } };
+  const preview = await getHubContentPreview('than-so-hoc');
+  return { props: { num, info, otherNumbers, ...preview } };
 }
 
-export default function SoChiTiet({ num, info, otherNumbers }) {
+export default function SoChiTiet({ num, info, otherNumbers, dictionaryPreview, guidePreview }) {
   return (
     <>
       <Head>
@@ -75,6 +80,14 @@ export default function SoChiTiet({ num, info, otherNumbers }) {
               </Link>
             ))}
           </div>
+        </div>
+
+        <div className="mt-8">
+          <FaqSection faqs={FAQ_SO_CHU_DAO} />
+        </div>
+
+        <div className="mt-8">
+          <HubContentPreview dictionaryPreview={dictionaryPreview} guidePreview={guidePreview} />
         </div>
       </main>
       <Footer />

@@ -6,12 +6,13 @@ import TuViDayDashboard from '../../components/TuViDayDashboard';
 import { buildDayDashboard } from '../../lib/tuViDashboard';
 import { jdFromDate, jdToDate } from '../../lib/lunar';
 import { getHubContentPreview } from '../../lib/sanity';
+import { getVietnamNow } from '../../lib/vnDate';
 
 function pad(n) { return String(n).padStart(2, '0'); }
 function slugOf(dd, mm, yyyy) { return `ngay-${pad(dd)}-thang-${pad(mm)}-nam-${yyyy}`; }
 
 export async function getStaticProps() {
-  const today = new Date();
+  const today = getVietnamNow();
   const dd = today.getDate(), mm = today.getMonth() + 1, yyyy = today.getFullYear();
   const dashboard = buildDayDashboard(dd, mm, yyyy);
   const jd = jdFromDate(dd, mm, yyyy);

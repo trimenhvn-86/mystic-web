@@ -17,6 +17,7 @@ import { convertSolar2Lunar, convertLunar2Solar, getCanChiNam, getCanChiNgay, jd
 import { getTruc, getSao28, getSuggestedActivities } from '../../lib/dayQuality';
 import { getNapAmByCanChi } from '../../lib/nguHanh';
 import { getDayRating } from '../../lib/dayRating';
+import { getVietnamNow } from '../../lib/vnDate';
 
 const SOLAR_RE = /^ngay-(\d{1,2})-thang-(\d{1,2})-nam-(\d{4})$/;
 const LUNAR_RE = /^am-ngay-(\d{1,2})-thang-(\d{1,2})-nam-(\d{4})$/;
@@ -27,7 +28,7 @@ function pad(n) {
 
 export async function getStaticPaths() {
   const paths = [];
-  const today = new Date();
+  const today = getVietnamNow();
   for (let i = -5; i <= 25; i++) {
     const d = new Date(today);
     d.setDate(d.getDate() + i);

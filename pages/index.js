@@ -18,6 +18,7 @@ import { getTruc, getSao28, getSuggestedActivities } from '../lib/dayQuality';
 import { getDayRating } from '../lib/dayRating';
 import { getGioHoangDao } from '../lib/gioHoangDao';
 import { CHI_SLUG } from '../lib/chiSlug';
+import { getVietnamNow } from '../lib/vnDate';
 import { CHI } from '../lib/lunar';
 import { getDailyCard } from '../lib/tarot';
 import { getNapAmByCanChi } from '../lib/nguHanh';
@@ -36,7 +37,7 @@ const POPULAR_TOOLS = [
 function pad(n) { return String(n).padStart(2, '0'); }
 
 export async function getStaticProps() {
-  const today = new Date();
+  const today = getVietnamNow();
   const dd = today.getDate(), mm = today.getMonth() + 1, yyyy = today.getFullYear();
   const lunar = convertSolar2Lunar(dd, mm, yyyy);
   const canChiNam = getCanChiNam(lunar.year);

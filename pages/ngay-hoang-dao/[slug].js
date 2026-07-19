@@ -13,6 +13,7 @@ import { getTruc, getSao28, getSuggestedActivities, getLoaiNgay } from '../../li
 import { getGioHoangDao } from '../../lib/gioHoangDao';
 import { getNapAmByCanChi } from '../../lib/nguHanh';
 import { getDayRating } from '../../lib/dayRating';
+import { getVietnamNow } from '../../lib/vnDate';
 
 const SLUG_RE = /^ngay-(\d{1,2})-thang-(\d{1,2})-nam-(\d{4})$/;
 
@@ -20,7 +21,7 @@ function pad(n) { return String(n).padStart(2, '0'); }
 
 export async function getStaticPaths() {
   const paths = [];
-  const today = new Date();
+  const today = getVietnamNow();
   for (let i = -5; i <= 25; i++) {
     const d = new Date(today);
     d.setDate(d.getDate() + i);

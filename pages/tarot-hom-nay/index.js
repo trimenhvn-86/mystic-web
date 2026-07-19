@@ -10,6 +10,7 @@ import TarotCardFlip from '../../components/TarotCardFlip';
 import HubContentPreview from '../../components/HubContentPreview';
 import { getDailyCard } from '../../lib/tarot';
 import { getHubContentPreview } from '../../lib/sanity';
+import { getVietnamNow } from '../../lib/vnDate';
 
 const SUIT_LABEL = { wands: 'Gậy', cups: 'Cốc', swords: 'Kiếm', pentacles: 'Tiền' };
 
@@ -22,7 +23,7 @@ function toRoman(num) {
 }
 
 export async function getStaticProps() {
-  const today = new Date();
+  const today = getVietnamNow();
   const dd = today.getDate(), mm = today.getMonth() + 1, yyyy = today.getFullYear();
   const { card, upright } = getDailyCard(dd, mm, yyyy);
   const preview = await getHubContentPreview('tarot');

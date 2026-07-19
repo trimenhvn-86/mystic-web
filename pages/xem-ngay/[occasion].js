@@ -7,6 +7,7 @@ import Footer from '../../components/Footer';
 import AdSlot from '../../components/AdSlot';
 import { getBestAndWorstDays } from '../../lib/periodRating';
 import occasions from '../../content/occasions.json';
+import { getVietnamNow } from '../../lib/vnDate';
 
 function pad(n) { return String(n).padStart(2, '0'); }
 
@@ -18,7 +19,7 @@ export async function getStaticProps({ params }) {
   const occasion = occasions.find((o) => o.slug === params.occasion);
   if (!occasion) return { notFound: true };
 
-  const today = new Date();
+  const today = getVietnamNow();
   const dates = [];
   for (let i = 0; i <= 60; i++) {
     const d = new Date(today);

@@ -21,6 +21,7 @@ import TarotToolGroups, { TarotHeroCTA } from '../components/TarotHubExtras';
 import Breadcrumb from '../components/Breadcrumb';
 import TuoiHopLinks from '../components/TuoiHopLinks';
 import MenhPhongThuyLinks from '../components/MenhPhongThuyLinks';
+import { getVietnamNow } from '../lib/vnDate';
 
 const HUB_ICONS = { CalendarDays, Hash, Layers, Users, Sun, CircleDot };
 const MENH_RE = /^(\d{4})-menh-gi$/;
@@ -30,7 +31,7 @@ const HOP_DA_RE = /^(\d{4})-hop-da-gi$/;
 
 export async function getStaticPaths() {
   const paths = HUBS.map((h) => ({ params: { slug: h.slug } }));
-  const currentYear = new Date().getFullYear();
+  const currentYear = getVietnamNow().getFullYear();
   // Sinh sẵn 80 năm sinh phổ biến nhất (currentYear-70 .. currentYear-2) cho cả 4 loại trang
   for (let y = currentYear - 70; y <= currentYear - 2; y++) {
     paths.push({ params: { slug: `${y}-menh-gi` } });
@@ -230,7 +231,7 @@ export default function YearToolPage({ type, year, menh, tuoiHop, hub, dictionar
   if (type === 'menh') {
     const title = `Sinh năm ${year} mệnh gì? — Tra cứu Ngũ Hành`;
     const desc = `Người sinh năm ${year} (${menh.canChi}) thuộc mệnh ${menh.hanh} — nạp âm ${menh.napAm}. Xem màu hợp mệnh, con số may mắn, hướng hợp và nghề nghiệp phù hợp.`;
-    const currentYear = new Date().getFullYear();
+    const currentYear = getVietnamNow().getFullYear();
     const years = Array.from({ length: 20 }, (_, i) => currentYear - i);
 
     return (

@@ -6,11 +6,12 @@ import TuViWeekDashboard from '../../components/TuViWeekDashboard';
 import { buildWeekDashboard } from '../../lib/tuViDashboard';
 import { getISOWeekInfo } from '../../lib/weekUtils';
 import { getHubContentPreview } from '../../lib/sanity';
+import { getVietnamNow } from '../../lib/vnDate';
 
 function pad(n) { return String(n).padStart(2, '0'); }
 
 export async function getStaticProps() {
-  const today = new Date();
+  const today = getVietnamNow();
   const { week, year } = getISOWeekInfo(today.getDate(), today.getMonth() + 1, today.getFullYear());
   const dashboard = buildWeekDashboard(week, year);
   const preview = await getHubContentPreview('tu-vi');

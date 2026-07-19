@@ -11,6 +11,7 @@ import { getTuViTuan } from '../../lib/tuViHomNay';
 import { SLUG_TO_CHI, CHI_SLUG } from '../../lib/chiSlug';
 import ConGiapLinks from '../../components/ConGiapLinks';
 import { getHubContentPreview } from '../../lib/sanity';
+import { getVietnamNow } from '../../lib/vnDate';
 
 const WEEK_RE = /^tuan-(\d{1,2})-nam-(\d{4})$/;
 
@@ -36,7 +37,7 @@ export async function getStaticProps({ params }) {
 
   const chi = SLUG_TO_CHI[slug];
   if (chi) {
-    const today = new Date();
+    const today = getVietnamNow();
     const data = getTuViTuan(today.getDate(), today.getMonth() + 1, today.getFullYear(), chi);
     const rangeStr = `${pad(data.tuNgay.dd)}/${pad(data.tuNgay.mm)} - ${pad(data.denNgay.dd)}/${pad(data.denNgay.mm)}/${data.denNgay.yyyy}`;
     return { props: { type: 'con-giap', data, rangeStr }, revalidate: 86400 };

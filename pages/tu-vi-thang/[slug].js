@@ -11,6 +11,7 @@ import { getTuViThang } from '../../lib/tuViHomNay';
 import { SLUG_TO_CHI, CHI_SLUG } from '../../lib/chiSlug';
 import ConGiapLinks from '../../components/ConGiapLinks';
 import { getHubContentPreview } from '../../lib/sanity';
+import { getVietnamNow } from '../../lib/vnDate';
 
 const MONTH_RE = /^thang-(\d{1,2})-nam-(\d{4})$/;
 
@@ -34,7 +35,7 @@ export async function getStaticProps({ params }) {
 
   const chi = SLUG_TO_CHI[slug];
   if (chi) {
-    const today = new Date();
+    const today = getVietnamNow();
     const data = getTuViThang(today.getMonth() + 1, today.getFullYear(), chi);
     return { props: { type: 'con-giap', data }, revalidate: 86400 };
   }

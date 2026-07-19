@@ -5,9 +5,10 @@ import Footer from '../../components/Footer';
 import TuViMonthDashboard from '../../components/TuViMonthDashboard';
 import { buildMonthDashboard } from '../../lib/tuViDashboard';
 import { getHubContentPreview } from '../../lib/sanity';
+import { getVietnamNow } from '../../lib/vnDate';
 
 export async function getStaticProps() {
-  const today = new Date();
+  const today = getVietnamNow();
   const mm = today.getMonth() + 1, yyyy = today.getFullYear();
   const dashboard = buildMonthDashboard(mm, yyyy);
   const preview = await getHubContentPreview('tu-vi');

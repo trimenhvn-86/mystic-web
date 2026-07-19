@@ -12,6 +12,7 @@ import { jdFromDate, jdToDate } from '../../lib/lunar';
 import { SLUG_TO_CHI, CHI_SLUG } from '../../lib/chiSlug';
 import { getHubContentPreview } from '../../lib/sanity';
 import ConGiapLinks from '../../components/ConGiapLinks';
+import { getVietnamNow } from '../../lib/vnDate';
 
 const DATE_RE = /^ngay-(\d{1,2})-thang-(\d{1,2})-nam-(\d{4})$/;
 
@@ -20,7 +21,7 @@ function slugOf(dd, mm, yyyy) { return `ngay-${pad(dd)}-thang-${pad(mm)}-nam-${y
 
 export async function getStaticPaths() {
   const paths = Object.keys(SLUG_TO_CHI).map((slug) => ({ params: { slug } }));
-  const today = new Date();
+  const today = getVietnamNow();
   for (let i = -3; i <= 7; i++) {
     const d = new Date(today);
     d.setDate(d.getDate() + i);
@@ -58,7 +59,7 @@ export async function getStaticProps({ params }) {
   // Truong hop 2: theo con giap (hom nay) - giu lai cho URL cu da index
   const chi = SLUG_TO_CHI[slug];
   if (chi) {
-    const today = new Date();
+    const today = getVietnamNow();
     const data = getTuViHomNay(today.getDate(), today.getMonth() + 1, today.getFullYear(), chi);
     const dateStr = `${today.getDate()}/${today.getMonth() + 1}/${today.getFullYear()}`;
     return { props: { type: 'con-giap', data, dateStr }, revalidate: 86400 };

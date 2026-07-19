@@ -102,3 +102,78 @@ export const FAQ_NGAY_TOT = [
     a: 'Can Chi kết hợp 10 Thiên Can và 12 Địa Chi thành chu kỳ 60 tổ hợp (Lục Thập Hoa Giáp), áp dụng cho năm, tháng, ngày và giờ. Ngày Can Chi được tính dựa trên số ngày Julius trôi qua kể từ một mốc quy ước, đảm bảo tính tuần hoàn chính xác qua mọi năm.'
   }
 ];
+
+export const FAQ_GIO_HOANG_DAO = [
+  {
+    q: 'Giờ hoàng đạo là gì?',
+    a: 'Giờ Hoàng đạo là 6 trong số 12 giờ (theo 12 Địa Chi: Tý, Sửu, Dần, Mão...) của một ngày được xem là tốt, thuận lợi cho việc xuất hành, khai trương, cầu tài. 6 giờ còn lại gọi là giờ Hắc đạo, nên hạn chế làm việc lớn.'
+  },
+  {
+    q: 'Giờ hoàng đạo có thay đổi theo ngày không?',
+    a: 'Có. Giờ Hoàng đạo được xác định dựa trên Địa Chi của ngày đó, nên mỗi ngày sẽ có 6 khung giờ Hoàng đạo khác nhau, không cố định.'
+  },
+  {
+    q: 'Nên chọn giờ hoàng đạo nào để xuất hành?',
+    a: 'Nên ưu tiên khung giờ Hoàng đạo gần với thời điểm bạn dự định thực hiện công việc nhất, đồng thời có thể đối chiếu thêm mục Lục Nhâm (tính theo giờ cụ thể) để chọn giờ phù hợp hơn.'
+  }
+];
+
+export const FAQ_NGAY_HOANG_DAO = [
+  {
+    q: 'Ngày Hoàng đạo là gì?',
+    a: 'Ngày Hoàng đạo là ngày mang Trực thuộc nhóm tốt trong chu kỳ 12 Trực (Kiến, Trừ, Mãn, Bình, Định, Chấp, Thành, Khai), được xem là thuận lợi cho các việc quan trọng như khai trương, cưới hỏi, xuất hành, động thổ.'
+  },
+  {
+    q: 'Ngày Hoàng đạo có phải lúc nào cũng tốt tuyệt đối không?',
+    a: 'Không hẳn. Ngày Hoàng đạo là yếu tố tham khảo chung, nên kết hợp thêm với tuổi của gia chủ, hướng thực hiện và giờ thực hiện để có kết quả phù hợp nhất.'
+  },
+  {
+    q: 'Làm sao biết ngày nào là Hoàng đạo?',
+    a: 'Dựa vào Trực của ngày đó — nếu Trực thuộc nhóm tốt (Kiến, Trừ, Mãn, Bình, Định, Chấp, Thành, Khai) thì là ngày Hoàng đạo. TriMenh tự động tính sẵn cho bạn, không cần tra thủ công.'
+  }
+];
+
+export const FAQ_NGAY_HAC_DAO = [
+  {
+    q: 'Ngày Hắc đạo là gì?',
+    a: 'Ngày Hắc đạo là ngày mang Trực thuộc nhóm còn lại trong chu kỳ 12 Trực (Phá, Nguy, Thu, Bế...), được xem là kém thuận lợi hơn cho việc lớn, nên cân nhắc dời sang ngày khác nếu có thể.'
+  },
+  {
+    q: 'Ngày Hắc đạo có nhất thiết phải tránh hoàn toàn không?',
+    a: 'Không nhất thiết. Ngày Hắc đạo vẫn phù hợp cho các việc nhỏ, thường nhật. Chỉ nên tránh các việc trọng đại như cưới hỏi, khai trương, động thổ nếu có thể sắp xếp sang ngày Hoàng đạo.'
+  },
+  {
+    q: 'Nếu bắt buộc phải làm việc lớn vào ngày Hắc đạo thì sao?',
+    a: 'Có thể chọn giờ Hoàng đạo trong chính ngày đó để giảm bớt yếu tố bất lợi, đồng thời đối chiếu thêm tuổi và hướng thực hiện phù hợp.'
+  }
+];
+
+export const FAQ_CAN_CHI = [
+  {
+    q: 'Can Chi là gì?',
+    a: 'Can Chi là hệ thống kết hợp 10 Thiên Can (Giáp, Ất, Bính...) và 12 Địa Chi (Tý, Sửu, Dần...) tạo thành chu kỳ 60 tổ hợp gọi là Lục Thập Hoa Giáp, dùng để tính năm, tháng, ngày, giờ theo lịch Âm.'
+  },
+  {
+    q: 'Nạp âm là gì?',
+    a: 'Nạp âm là tên gọi Ngũ hành ứng với từng tổ hợp Can Chi trong 60 Hoa Giáp (ví dụ: Giáp Tý - Hải Trung Kim), dùng để xác định mệnh Ngũ hành của năm sinh.'
+  },
+  {
+    q: 'Can Chi ngày có ý nghĩa gì?',
+    a: 'Can Chi ngày dùng để tính Trực, xác định ngày Hoàng đạo/Hắc đạo, và đối chiếu tương sinh - tương khắc Ngũ hành khi chọn ngày làm việc lớn.'
+  }
+];
+
+export const FAQ_TIET_KHI = [
+  {
+    q: 'Tiết khí là gì?',
+    a: 'Tiết khí là 24 mốc thời gian trong năm được chia theo vị trí của Mặt Trời trên đường hoàng đạo, phản ánh sự thay đổi thời tiết, mùa vụ theo lịch Âm - Dương kết hợp (ví dụ: Lập Xuân, Xuân Phân, Lập Hạ...).'
+  },
+  {
+    q: 'Có bao nhiêu tiết khí trong một năm?',
+    a: 'Có 24 tiết khí, mỗi tiết kéo dài khoảng 15-16 ngày, chia đều thành 4 mùa Xuân - Hạ - Thu - Đông, mỗi mùa 6 tiết khí.'
+  },
+  {
+    q: 'Tiết khí có liên quan gì đến nông nghiệp?',
+    a: 'Có. Tiết khí vốn được người xưa dùng để xác định thời điểm gieo trồng, thu hoạch phù hợp theo từng giai đoạn khí hậu trong năm, đến nay vẫn được dùng tham khảo trong nông nghiệp và phong thủy.'
+  }
+];

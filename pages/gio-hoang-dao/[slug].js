@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import Link from 'next/link';
 import { Clock3 } from 'lucide-react';
 import Header from '../../components/Header';
 import Breadcrumb from '../../components/Breadcrumb';
@@ -7,8 +8,15 @@ import AdSlot from '../../components/AdSlot';
 import CalendarImageCard from '../../components/CalendarImageCard';
 import MiniCalendar from '../../components/MiniCalendar';
 import HubDayLinks from '../../components/HubDayLinks';
+import FaqSection from '../../components/FaqSection';
+import HubContentPreview from '../../components/HubContentPreview';
 import { getChiNgay, getGioHoangDao } from '../../lib/gioHoangDao';
+import { jdFromDate, jdToDate } from '../../lib/lunar';
+import { getHubContentPreview } from '../../lib/sanity';
 import { getVietnamNow } from '../../lib/vnDate';
+import { FAQ_GIO_HOANG_DAO } from '../../content/faq-data';
+
+function pad(n) { return String(n).padStart(2, '0'); }
 
 const SLUG_RE = /^ngay-(\d{1,2})-thang-(\d{1,2})-nam-(\d{4})$/;
 
@@ -33,11 +41,23 @@ export async function getStaticProps({ params }) {
 
   const chiNgay = getChiNgay(dd, mm, yyyy);
   const gioList = getGioHoangDao(dd, mm, yyyy);
+  const preview = await getHubContentPreview('lich-ngay-tot');
+  const jd = jdFromDate(dd, mm, yyyy);
+  const [prevDd, prevMm, prevYyyy] = jdToDate(jd - 1);
+  const [nextDd, nextMm, nextYyyy] = jdToDate(jd + 1);
 
-  return { props: { dd, mm, yyyy, chiNgay, gioList }, revalidate: 2592000 };
+  return {
+    props: {
+      dd, mm, yyyy, chiNgay, gioList,
+      prevDate: { dd: prevDd, mm: prevMm, yyyy: prevYyyy },
+      nextDate: { dd: nextDd, mm: nextMm, yyyy: nextYyyy },
+      ...preview
+    },
+    revalidate: 2592000
+  };
 }
 
-export default function GioHoangDaoResult({ dd, mm, yyyy, chiNgay, gioList }) {
+export default function GioHoangDaoResult({ dd, mm, yyyy, chiNgay, gioList, prevDate, nextDate, dictionaryPreview, guidePreview }) {
   const title = `Giờ Hoàng Đạo ngày ${dd}/${mm}/${yyyy} — Ngày ${chiNgay}`;
   const desc = `Danh sách 6 giờ Hoàng đạo tốt trong ngày ${dd}/${mm}/${yyyy} (ngày ${chiNgay}), phù hợp xuất hành, khai trương, ký kết hợp đồng.`;
   const summary = `Ngày ${dd}/${mm}/${yyyy} (ngày ${chiNgay}) có 6 khung giờ Hoàng đạo tốt, thuận lợi cho xuất hành, khai trương, ký kết hợp đồng. Giờ đầu tiên trong ngày là giờ ${gioList[0]?.chi} (${gioList[0]?.khung}).`;
@@ -75,8 +95,15 @@ export default function GioHoangDaoResult({ dd, mm, yyyy, chiNgay, gioList }) {
 
             <MiniCalendar dd={dd} mm={mm} yyyy={yyyy} basePath="/gio-hoang-dao" showQuality />
 
+            <div className="flex flex-wrap gap-3 text-sm">
+              <Link href={`/gio-hoang-dao/ngay-${pad(prevDate.dd)}-thang-${pad(prevDate.mm)}-nam-${prevDate.yyyy}`} className="text-moon hover:text-gold-soft">← Ngày trước</Link>
+              <Link href={`/gio-hoang-dao/ngay-${pad(nextDate.dd)}-thang-${pad(nextDate.mm)}-nam-${nextDate.yyyy}`} className="text-moon hover:text-gold-soft">Ngày sau →</Link>
+            </div>
+
             <AdSlot label="Ad slot — giờ hoàng đạo" />
             <HubDayLinks dd={dd} mm={mm} yyyy={yyyy} exclude="gio-hoang-dao" />
+            <FaqSection faqs={FAQ_GIO_HOANG_DAO} />
+            <HubContentPreview dictionaryPreview={dictionaryPreview} guidePreview={guidePreview} />
           </div>
         </div>
       </main>

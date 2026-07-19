@@ -8,9 +8,13 @@ import AdSlot from '../../components/AdSlot';
 import CalendarImageCard from '../../components/CalendarImageCard';
 import MiniCalendar from '../../components/MiniCalendar';
 import HubDayLinks from '../../components/HubDayLinks';
-import { convertSolar2Lunar, getCanChiNam, getCanChiNgay, getCanChiThang } from '../../lib/lunar';
+import { convertSolar2Lunar, getCanChiNam, getCanChiNgay, getCanChiThang, jdFromDate, jdToDate } from '../../lib/lunar';
 import { getNapAmByCanChi } from '../../lib/nguHanh';
 import { getVietnamNow } from '../../lib/vnDate';
+import FaqSection from '../../components/FaqSection';
+import HubContentPreview from '../../components/HubContentPreview';
+import { getHubContentPreview } from '../../lib/sanity';
+import { FAQ_CAN_CHI } from '../../content/faq-data';
 
 const SLUG_RE = /^ngay-(\d{1,2})-thang-(\d{1,2})-nam-(\d{4})$/;
 
@@ -40,9 +44,18 @@ export async function getStaticProps({ params }) {
   const napAmNam = getNapAmByCanChi(canChiNam);
   const napAmThang = getNapAmByCanChi(canChiThang);
   const napAmNgay = getNapAmByCanChi(canChiNgay);
+  const preview = await getHubContentPreview('lich-ngay-tot');
+  const jd = jdFromDate(dd, mm, yyyy);
+  const [prevDd, prevMm, prevYyyy] = jdToDate(jd - 1);
+  const [nextDd, nextMm, nextYyyy] = jdToDate(jd + 1);
 
   return {
-    props: { dd, mm, yyyy, lunar, canChiNam, canChiThang, canChiNgay, napAmNam, napAmThang, napAmNgay },
+    props: {
+      dd, mm, yyyy, lunar, canChiNam, canChiThang, canChiNgay, napAmNam, napAmThang, napAmNgay,
+      prevDate: { dd: prevDd, mm: prevMm, yyyy: prevYyyy },
+      nextDate: { dd: nextDd, mm: nextMm, yyyy: nextYyyy },
+      ...preview
+    },
     revalidate: 2592000
   };
 }
@@ -57,7 +70,7 @@ function CanChiCard({ label, canChi, napAm }) {
   );
 }
 
-export default function CanChiResult({ dd, mm, yyyy, lunar, canChiNam, canChiThang, canChiNgay, napAmNam, napAmThang, napAmNgay }) {
+export default function CanChiResult({ dd, mm, yyyy, lunar, canChiNam, canChiThang, canChiNgay, napAmNam, napAmThang, napAmNgay, prevDate, nextDate, dictionaryPreview, guidePreview }) {
   const title = `Can Chi ngày ${dd}/${mm}/${yyyy} — Ngày ${canChiNgay}`;
   const desc = `Ngày ${dd}/${mm}/${yyyy} (Âm lịch ${lunar.day}/${lunar.month}/${lunar.year}): Năm ${canChiNam}, Tháng ${canChiThang}, Ngày ${canChiNgay}.`;
   const summary = `Ngày ${dd}/${mm}/${yyyy} (Âm lịch ${lunar.day}/${lunar.month}${lunar.leap ? ' nhuận' : ''}/${lunar.year}) mang Can Chi Năm ${canChiNam}, Tháng ${canChiThang}, Ngày ${canChiNgay}${napAmNgay ? ` — Ngũ hành ngày thuộc ${napAmNgay.hanh} (${napAmNgay.napAm})` : ''}.`;
@@ -96,6 +109,14 @@ export default function CanChiResult({ dd, mm, yyyy, lunar, canChiNam, canChiTha
             <AdSlot label="Ad slot — can chi" />
 
             <HubDayLinks dd={dd} mm={mm} yyyy={yyyy} exclude="can-chi" />
+
+            <div className="flex flex-wrap gap-3 text-sm">
+              <Link href={`/can-chi/ngay-${pad(prevDate.dd)}-thang-${pad(prevDate.mm)}-nam-${prevDate.yyyy}`} className="text-moon hover:text-gold-soft">← Ngày trước</Link>
+              <Link href={`/can-chi/ngay-${pad(nextDate.dd)}-thang-${pad(nextDate.mm)}-nam-${nextDate.yyyy}`} className="text-moon hover:text-gold-soft">Ngày sau →</Link>
+            </div>
+
+            <FaqSection faqs={FAQ_CAN_CHI} />
+            <HubContentPreview dictionaryPreview={dictionaryPreview} guidePreview={guidePreview} />
           </div>
         </div>
       </main>

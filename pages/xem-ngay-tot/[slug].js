@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import Link from 'next/link';
 import { Sparkles, ThumbsUp, ThumbsDown, HelpCircle } from 'lucide-react';
 import Header from '../../components/Header';
 import Breadcrumb from '../../components/Breadcrumb';
@@ -11,15 +12,19 @@ import HubContentPreview from '../../components/HubContentPreview';
 import SidebarTools from '../../components/SidebarTools';
 import MiniCalendar from '../../components/MiniCalendar';
 import HubDayLinks from '../../components/HubDayLinks';
-import { convertSolar2Lunar, getCanChiNam, getCanChiNgay } from '../../lib/lunar';
+import FaqSection from '../../components/FaqSection';
+import { convertSolar2Lunar, getCanChiNam, getCanChiNgay, jdFromDate, jdToDate } from '../../lib/lunar';
 import { getTruc, getSao28, getSuggestedActivities, getDecisionAssistant } from '../../lib/dayQuality';
 import { getGioHoangDao } from '../../lib/gioHoangDao';
 import { getNgayKhongMinh } from '../../lib/khongMinh';
 import { getNapAmByCanChi } from '../../lib/nguHanh';
 import { getHubContentPreview } from '../../lib/sanity';
 import { getVietnamNow } from '../../lib/vnDate';
+import { FAQ_NGAY_TOT } from '../../content/faq-data';
 
 const SLUG_RE = /^ngay-(\d{1,2})-thang-(\d{1,2})-nam-(\d{4})$/;
+
+function pad(n) { return String(n).padStart(2, '0'); }
 
 function parseSlug(slug) {
   const m = slug.match(SLUG_RE);
@@ -60,13 +65,22 @@ export async function getStaticProps({ params }) {
   const decisionAssistant = getDecisionAssistant(activities.isGoodDay, khongMinh?.tot, gioHoangDao[0]?.chi);
   const preview = await getHubContentPreview('lich-ngay-tot');
 
+  const jd = jdFromDate(dd, mm, yyyy);
+  const [prevDd, prevMm, prevYyyy] = jdToDate(jd - 1);
+  const [nextDd, nextMm, nextYyyy] = jdToDate(jd + 1);
+
   return {
-    props: { dd, mm, yyyy, lunar, canChiNam, canChiNgay, truc, sao, activities, gioHoangDao, khongMinh, napAmNgay, decisionAssistant, ...preview },
+    props: {
+      dd, mm, yyyy, lunar, canChiNam, canChiNgay, truc, sao, activities, gioHoangDao, khongMinh, napAmNgay, decisionAssistant,
+      prevDate: { dd: prevDd, mm: prevMm, yyyy: prevYyyy },
+      nextDate: { dd: nextDd, mm: nextMm, yyyy: nextYyyy },
+      ...preview
+    },
     revalidate: 2592000
   };
 }
 
-export default function NgayTotXauResult({ dd, mm, yyyy, lunar, canChiNam, canChiNgay, truc, sao, activities, gioHoangDao, khongMinh, napAmNgay, decisionAssistant, dictionaryPreview, guidePreview }) {
+export default function NgayTotXauResult({ dd, mm, yyyy, lunar, canChiNam, canChiNgay, truc, sao, activities, gioHoangDao, khongMinh, napAmNgay, decisionAssistant, prevDate, nextDate, dictionaryPreview, guidePreview }) {
   const title = `Ngày ${dd}/${mm}/${yyyy} là ngày tốt hay xấu? — Tra cứu Lịch Vạn Niên`;
   const desc = `Xem ngày ${dd}/${mm}/${yyyy} (Âm lịch ${lunar.day}/${lunar.month}${lunar.leap ? ' nhuận' : ''}/${lunar.year}) có phải ngày Hoàng đạo không, Trực ${truc}, Sao ${sao}, ngày Khổng Minh, giờ Lục Nhâm, việc nên làm và nên tránh.`;
   const summary = `Ngày ${dd}/${mm}/${yyyy} (Âm lịch ${lunar.day}/${lunar.month}${lunar.leap ? ' nhuận' : ''}/${lunar.year}) là ${activities.isGoodDay ? `ngày Hoàng đạo, Trực ${truc}, thuận lợi cho ${activities.nenLam.slice(0, 2).join(', ').toLowerCase()}` : `ngày Hắc đạo, Trực ${truc}, nên cân nhắc tránh ${activities.kiengKy.slice(0, 2).join(', ').toLowerCase()}`}.`;
@@ -239,6 +253,11 @@ export default function NgayTotXauResult({ dd, mm, yyyy, lunar, canChiNam, canCh
 
             <MiniCalendar dd={dd} mm={mm} yyyy={yyyy} basePath="/xem-ngay-tot" showQuality />
 
+            <div className="flex flex-wrap gap-3 text-sm">
+              <Link href={`/xem-ngay-tot/ngay-${pad(prevDate.dd)}-thang-${pad(prevDate.mm)}-nam-${prevDate.yyyy}`} className="text-moon hover:text-gold-soft">← Ngày trước</Link>
+              <Link href={`/xem-ngay-tot/ngay-${pad(nextDate.dd)}-thang-${pad(nextDate.mm)}-nam-${nextDate.yyyy}`} className="text-moon hover:text-gold-soft">Ngày sau →</Link>
+            </div>
+
             {napAmNgay && <MauSoHomNay hanh={napAmNgay.hanh} mauHop={napAmNgay.mauHop} />}
 
             <div className="mystic-card p-6">
@@ -258,6 +277,8 @@ export default function NgayTotXauResult({ dd, mm, yyyy, lunar, canChiNam, canCh
             </div>
 
             <HubDayLinks dd={dd} mm={mm} yyyy={yyyy} exclude="xem-ngay-tot" />
+
+            <FaqSection faqs={FAQ_NGAY_TOT} />
 
             <HubContentPreview dictionaryPreview={dictionaryPreview} guidePreview={guidePreview} />
           </div>

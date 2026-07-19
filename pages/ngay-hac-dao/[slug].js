@@ -12,6 +12,10 @@ import { convertSolar2Lunar, getCanChiNam, getCanChiNgay, jdFromDate, jdToDate }
 import { getTruc, getSao28, getSuggestedActivities } from '../../lib/dayQuality';
 import { getDayRating } from '../../lib/dayRating';
 import { getVietnamNow } from '../../lib/vnDate';
+import FaqSection from '../../components/FaqSection';
+import HubContentPreview from '../../components/HubContentPreview';
+import { getHubContentPreview } from '../../lib/sanity';
+import { FAQ_NGAY_HAC_DAO } from '../../content/faq-data';
 
 const SLUG_RE = /^ngay-(\d{1,2})-thang-(\d{1,2})-nam-(\d{4})$/;
 
@@ -55,14 +59,23 @@ export async function getStaticProps({ params }) {
   const activities = getSuggestedActivities(truc);
   const rating = getDayRating(truc);
   const nextGoodDay = activities.isGoodDay ? null : findNextGoodDay(dd, mm, yyyy);
+  const preview = await getHubContentPreview('lich-ngay-tot');
+  const jd = jdFromDate(dd, mm, yyyy);
+  const [prevDd, prevMm, prevYyyy] = jdToDate(jd - 1);
+  const [nextDd, nextMm, nextYyyy] = jdToDate(jd + 1);
 
   return {
-    props: { dd, mm, yyyy, lunar, canChiNam, canChiNgay, truc, sao, activities, rating, nextGoodDay },
+    props: {
+      dd, mm, yyyy, lunar, canChiNam, canChiNgay, truc, sao, activities, rating, nextGoodDay,
+      prevDate: { dd: prevDd, mm: prevMm, yyyy: prevYyyy },
+      nextDate: { dd: nextDd, mm: nextMm, yyyy: nextYyyy },
+      ...preview
+    },
     revalidate: 2592000
   };
 }
 
-export default function NgayHacDaoResult({ dd, mm, yyyy, lunar, canChiNam, canChiNgay, truc, sao, activities, rating, nextGoodDay }) {
+export default function NgayHacDaoResult({ dd, mm, yyyy, lunar, canChiNam, canChiNgay, truc, sao, activities, rating, nextGoodDay, prevDate, nextDate, dictionaryPreview, guidePreview }) {
   const isBadDay = !activities.isGoodDay;
   const title = isBadDay
     ? `Ngày ${dd}/${mm}/${yyyy} LÀ Ngày Hắc Đạo`
@@ -131,6 +144,14 @@ export default function NgayHacDaoResult({ dd, mm, yyyy, lunar, canChiNam, canCh
             <AdSlot label="Ad slot — ngày hắc đạo" />
 
             <HubDayLinks dd={dd} mm={mm} yyyy={yyyy} exclude="ngay-hac-dao" />
+
+            <div className="flex flex-wrap gap-3 text-sm">
+              <Link href={`/ngay-hac-dao/ngay-${pad(prevDate.dd)}-thang-${pad(prevDate.mm)}-nam-${prevDate.yyyy}`} className="text-moon hover:text-gold-soft">← Ngày trước</Link>
+              <Link href={`/ngay-hac-dao/ngay-${pad(nextDate.dd)}-thang-${pad(nextDate.mm)}-nam-${nextDate.yyyy}`} className="text-moon hover:text-gold-soft">Ngày sau →</Link>
+            </div>
+
+            <FaqSection faqs={FAQ_NGAY_HAC_DAO} />
+            <HubContentPreview dictionaryPreview={dictionaryPreview} guidePreview={guidePreview} />
           </div>
         </div>
 

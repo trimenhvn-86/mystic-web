@@ -11,6 +11,10 @@ import HubDayLinks from '../../components/HubDayLinks';
 import { getTietKhi, TIET_KHI, jdFromDate, jdToDate } from '../../lib/lunar';
 import tietKhiMeaning from '../../content/lunar/tiet-khi-meaning.json';
 import { getVietnamNow } from '../../lib/vnDate';
+import FaqSection from '../../components/FaqSection';
+import HubContentPreview from '../../components/HubContentPreview';
+import { getHubContentPreview } from '../../lib/sanity';
+import { FAQ_TIET_KHI } from '../../content/faq-data';
 
 const SLUG_RE = /^ngay-(\d{1,2})-thang-(\d{1,2})-nam-(\d{4})$/;
 
@@ -68,11 +72,23 @@ export async function getStaticProps({ params }) {
   if (mm < 1 || mm > 12 || dd < 1 || dd > 31) return { notFound: true };
 
   const boundaries = findTietKhiBoundaries(dd, mm, yyyy);
+  const preview = await getHubContentPreview('lich-ngay-tot');
+  const jd = jdFromDate(dd, mm, yyyy);
+  const [prevDd, prevMm, prevYyyy] = jdToDate(jd - 1);
+  const [nextDd, nextMm, nextYyyy] = jdToDate(jd + 1);
 
-  return { props: { dd, mm, yyyy, ...boundaries }, revalidate: 2592000 };
+  return {
+    props: {
+      dd, mm, yyyy, ...boundaries,
+      prevDate: { dd: prevDd, mm: prevMm, yyyy: prevYyyy },
+      nextDate: { dd: nextDd, mm: nextMm, yyyy: nextYyyy },
+      ...preview
+    },
+    revalidate: 2592000
+  };
 }
 
-export default function TietKhiResult({ dd, mm, yyyy, current, startDate, next }) {
+export default function TietKhiResult({ dd, mm, yyyy, current, startDate, next, prevDate, nextDate, dictionaryPreview, guidePreview }) {
   const title = `Ngày ${dd}/${mm}/${yyyy} thuộc Tiết Khí ${current}`;
   const desc = `Ngày ${dd}/${mm}/${yyyy} thuộc Tiết Khí ${current} (${tietKhiMeaning[current] || ''}). Tiết khí bắt đầu từ ${pad(startDate.dd)}/${pad(startDate.mm)}/${startDate.yyyy}.`;
   const summary = `Ngày ${dd}/${mm}/${yyyy} thuộc Tiết Khí ${current}, bắt đầu từ ${pad(startDate.dd)}/${pad(startDate.mm)}/${startDate.yyyy}${next ? ` và kéo dài tới trước ${next.name} (dự kiến ${pad(next.date.dd)}/${pad(next.date.mm)}/${next.date.yyyy})` : ''}.`;
@@ -116,6 +132,14 @@ export default function TietKhiResult({ dd, mm, yyyy, current, startDate, next }
             <AdSlot label="Ad slot — tiết khí" />
 
             <HubDayLinks dd={dd} mm={mm} yyyy={yyyy} exclude="tiet-khi" />
+
+            <div className="flex flex-wrap gap-3 text-sm">
+              <Link href={`/tiet-khi/ngay-${pad(prevDate.dd)}-thang-${pad(prevDate.mm)}-nam-${prevDate.yyyy}`} className="text-moon hover:text-gold-soft">← Ngày trước</Link>
+              <Link href={`/tiet-khi/ngay-${pad(nextDate.dd)}-thang-${pad(nextDate.mm)}-nam-${nextDate.yyyy}`} className="text-moon hover:text-gold-soft">Ngày sau →</Link>
+            </div>
+
+            <FaqSection faqs={FAQ_TIET_KHI} />
+            <HubContentPreview dictionaryPreview={dictionaryPreview} guidePreview={guidePreview} />
 
             <p className="text-xs text-moon/50 text-center">
               * Tính theo công thức thiên văn xấp xỉ, có thể lệch 1 ngày ở đúng thời điểm chuyển tiết so với nguồn chính thức.

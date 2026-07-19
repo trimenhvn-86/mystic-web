@@ -8,12 +8,16 @@ import AdSlot from '../../components/AdSlot';
 import CalendarImageCard from '../../components/CalendarImageCard';
 import MiniCalendar from '../../components/MiniCalendar';
 import HubDayLinks from '../../components/HubDayLinks';
-import { convertSolar2Lunar, getCanChiNam, getCanChiNgay } from '../../lib/lunar';
+import { convertSolar2Lunar, getCanChiNam, getCanChiNgay, jdFromDate, jdToDate } from '../../lib/lunar';
 import { getTruc, getSao28, getSuggestedActivities, getLoaiNgay } from '../../lib/dayQuality';
 import { getGioHoangDao } from '../../lib/gioHoangDao';
 import { getNapAmByCanChi } from '../../lib/nguHanh';
 import { getDayRating } from '../../lib/dayRating';
 import { getVietnamNow } from '../../lib/vnDate';
+import FaqSection from '../../components/FaqSection';
+import HubContentPreview from '../../components/HubContentPreview';
+import { getHubContentPreview } from '../../lib/sanity';
+import { FAQ_NGAY_HOANG_DAO } from '../../content/faq-data';
 
 const SLUG_RE = /^ngay-(\d{1,2})-thang-(\d{1,2})-nam-(\d{4})$/;
 
@@ -46,14 +50,23 @@ export async function getStaticProps({ params }) {
   const gioHoangDao = getGioHoangDao(dd, mm, yyyy);
   const napAmNgay = getNapAmByCanChi(canChiNgay);
   const rating = getDayRating(truc);
+  const preview = await getHubContentPreview('lich-ngay-tot');
+  const jd = jdFromDate(dd, mm, yyyy);
+  const [prevDd, prevMm, prevYyyy] = jdToDate(jd - 1);
+  const [nextDd, nextMm, nextYyyy] = jdToDate(jd + 1);
 
   return {
-    props: { dd, mm, yyyy, lunar, canChiNam, canChiNgay, truc, sao, loaiNgay, activities, gioHoangDao, napAmNgay, rating },
+    props: {
+      dd, mm, yyyy, lunar, canChiNam, canChiNgay, truc, sao, loaiNgay, activities, gioHoangDao, napAmNgay, rating,
+      prevDate: { dd: prevDd, mm: prevMm, yyyy: prevYyyy },
+      nextDate: { dd: nextDd, mm: nextMm, yyyy: nextYyyy },
+      ...preview
+    },
     revalidate: 2592000
   };
 }
 
-export default function NgayHoangDaoResult({ dd, mm, yyyy, lunar, canChiNam, canChiNgay, truc, sao, loaiNgay, activities, gioHoangDao, napAmNgay, rating }) {
+export default function NgayHoangDaoResult({ dd, mm, yyyy, lunar, canChiNam, canChiNgay, truc, sao, loaiNgay, activities, gioHoangDao, napAmNgay, rating, prevDate, nextDate, dictionaryPreview, guidePreview }) {
   const isGoodDay = activities.isGoodDay;
   const title = isGoodDay
     ? `Ngày ${dd}/${mm}/${yyyy} LÀ Ngày Hoàng Đạo`
@@ -136,6 +149,14 @@ export default function NgayHoangDaoResult({ dd, mm, yyyy, lunar, canChiNam, can
             </div>
 
             <HubDayLinks dd={dd} mm={mm} yyyy={yyyy} exclude="ngay-hoang-dao" />
+
+            <div className="flex flex-wrap gap-3 text-sm">
+              <Link href={`/ngay-hoang-dao/ngay-${pad(prevDate.dd)}-thang-${pad(prevDate.mm)}-nam-${prevDate.yyyy}`} className="text-moon hover:text-gold-soft">← Ngày trước</Link>
+              <Link href={`/ngay-hoang-dao/ngay-${pad(nextDate.dd)}-thang-${pad(nextDate.mm)}-nam-${nextDate.yyyy}`} className="text-moon hover:text-gold-soft">Ngày sau →</Link>
+            </div>
+
+            <FaqSection faqs={FAQ_NGAY_HOANG_DAO} />
+            <HubContentPreview dictionaryPreview={dictionaryPreview} guidePreview={guidePreview} />
           </div>
         </div>
 

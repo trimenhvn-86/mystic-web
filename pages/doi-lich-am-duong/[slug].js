@@ -12,12 +12,14 @@ import MiniCalendar from '../../components/MiniCalendar';
 import SidebarTools from '../../components/SidebarTools';
 import FaqSection from '../../components/FaqSection';
 import SeoContent from '../../components/SeoContent';
+import HubContentPreview from '../../components/HubContentPreview';
 import { FAQ_DOI_LICH } from '../../content/faq-data';
 import { convertSolar2Lunar, convertLunar2Solar, getCanChiNam, getCanChiNgay, jdFromDate, jdToDate } from '../../lib/lunar';
 import { getTruc, getSao28, getSuggestedActivities } from '../../lib/dayQuality';
 import { getNapAmByCanChi } from '../../lib/nguHanh';
 import { getDayRating } from '../../lib/dayRating';
 import { getVietnamNow } from '../../lib/vnDate';
+import { getHubContentPreview } from '../../lib/sanity';
 
 const SOLAR_RE = /^ngay-(\d{1,2})-thang-(\d{1,2})-nam-(\d{4})$/;
 const LUNAR_RE = /^am-ngay-(\d{1,2})-thang-(\d{1,2})-nam-(\d{4})$/;
@@ -74,19 +76,21 @@ export async function getStaticProps({ params }) {
   const nextJd = jd + 1;
   const [prevDd, prevMm, prevYyyy] = jdToDate(prevJd);
   const [nextDd, nextMm, nextYyyy] = jdToDate(nextJd);
+  const preview = await getHubContentPreview('lich-ngay-tot');
 
   return {
     props: {
       dd, mm, yyyy, lunar, canChiNam, canChiNgay, truc, sao, activities, napAmNgay, rating,
       prevDate: { dd: prevDd, mm: prevMm, yyyy: prevYyyy },
-      nextDate: { dd: nextDd, mm: nextMm, yyyy: nextYyyy }
+      nextDate: { dd: nextDd, mm: nextMm, yyyy: nextYyyy },
+      ...preview
     },
     revalidate: 2592000
   };
 }
 
 export default function DoiLichResult({
-  dd, mm, yyyy, lunar, canChiNam, canChiNgay, truc, sao, activities, napAmNgay, rating, prevDate, nextDate
+  dd, mm, yyyy, lunar, canChiNam, canChiNgay, truc, sao, activities, napAmNgay, rating, prevDate, nextDate, dictionaryPreview, guidePreview
 }) {
   const title = `${dd}/${mm}/${yyyy} Dương lịch là ngày mấy Âm lịch? — Đổi Lịch Âm Dương`;
   const desc = `Ngày ${dd}/${mm}/${yyyy} Dương lịch tương ứng với ${lunar.day}/${lunar.month}${lunar.leap ? ' (nhuận)' : ''}/${lunar.year} Âm lịch, năm ${canChiNam}, ngày ${canChiNgay}, Trực ${truc}, Sao ${sao}.`;
@@ -161,6 +165,8 @@ export default function DoiLichResult({
             <div className="mystic-divider pt-8">
               <SeoContent />
             </div>
+
+            <HubContentPreview dictionaryPreview={dictionaryPreview} guidePreview={guidePreview} />
 
             <FaqSection faqs={FAQ_DOI_LICH} />
           </div>

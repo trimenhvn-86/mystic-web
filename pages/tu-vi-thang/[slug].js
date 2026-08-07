@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 import { Sun } from 'lucide-react';
@@ -5,6 +6,7 @@ import Header from '../../components/Header';
 import Breadcrumb from '../../components/Breadcrumb';
 import Footer from '../../components/Footer';
 import AdSlot from '../../components/AdSlot';
+import MysticLoader from '../../components/MysticLoader';
 import TuViMonthDashboard from '../../components/TuViMonthDashboard';
 import { buildMonthDashboard } from '../../lib/tuViDashboard';
 import { getTuViThang } from '../../lib/tuViHomNay';
@@ -18,12 +20,7 @@ import { FAQ_TU_VI_THANG } from '../../content/faq-data';
 
 const MONTH_RE = /^thang-(\d{1,2})-nam-(\d{4})$/;
 
-export async function getStaticPaths() {
-  const paths = Object.keys(SLUG_TO_CHI).map((slug) => ({ params: { slug } }));
-  return { paths, fallback: 'blocking' };
-}
-
-export async function getStaticProps({ params }) {
+export async function getServerSideProps({ params }) {
   const { slug } = params;
 
   const monthMatch = slug.match(MONTH_RE);
@@ -33,21 +30,28 @@ export async function getStaticProps({ params }) {
     if (mm < 1 || mm > 12) return { notFound: true };
     const dashboard = buildMonthDashboard(mm, yyyy);
     const preview = await getHubContentPreview('tu-vi');
-    return { props: { type: 'thang', ...dashboard, ...preview }, revalidate: 86400 };
+    return { props: { type: 'thang', ...dashboard, ...preview } };
   }
 
   const chi = SLUG_TO_CHI[slug];
   if (chi) {
-    const today = getVietnamNow();
-    const data = getTuViThang(today.getMonth() + 1, today.getFullYear(), chi);
     const preview = await getHubContentPreview('tu-vi');
-    return { props: { type: 'con-giap', data, ...preview }, revalidate: 86400 };
+    return { props: { type: 'con-giap', chi, ...preview } };
   }
 
   return { notFound: true };
 }
 
 export default function TuViThangSlug(props) {
+  const [state, setState] = useState(null);
+
+  useEffect(() => {
+    if (props.type !== 'con-giap') return;
+    const today = new Date();
+    const data = getTuViThang(today.getMonth() + 1, today.getFullYear(), props.chi);
+    setState({ data });
+  }, [props.type, props.chi]);
+
   if (props.type === 'thang') {
     return (
       <>
@@ -64,7 +68,19 @@ export default function TuViThangSlug(props) {
     );
   }
 
-  const { data, dictionaryPreview, guidePreview } = props;
+  const { dictionaryPreview, guidePreview } = props;
+
+  if (!state) {
+    return (
+      <>
+        <Header />
+        <MysticLoader label="Đang lập vận trình tháng này..." />
+        <Footer />
+      </>
+    );
+  }
+
+  const { data } = state;
   const title = `Tử Vi Tuổi ${data.conGiap} Tháng ${data.thang}/${data.nam} — TriMenh`;
   return (
     <>

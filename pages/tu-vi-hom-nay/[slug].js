@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 import { Sun } from 'lucide-react';
@@ -14,6 +15,7 @@ import { getHubContentPreview } from '../../lib/sanity';
 import ConGiapLinks from '../../components/ConGiapLinks';
 import FaqSection from '../../components/FaqSection';
 import HubContentPreview from '../../components/HubContentPreview';
+import MysticLoader from '../../components/MysticLoader';
 import { getVietnamNow } from '../../lib/vnDate';
 import { FAQ_TU_VI_NGAY } from '../../content/faq-data';
 
@@ -22,21 +24,10 @@ const DATE_RE = /^ngay-(\d{1,2})-thang-(\d{1,2})-nam-(\d{4})$/;
 function pad(n) { return String(n).padStart(2, '0'); }
 function slugOf(dd, mm, yyyy) { return `ngay-${pad(dd)}-thang-${pad(mm)}-nam-${yyyy}`; }
 
-export async function getStaticPaths() {
-  const paths = Object.keys(SLUG_TO_CHI).map((slug) => ({ params: { slug } }));
-  const today = getVietnamNow();
-  for (let i = -3; i <= 7; i++) {
-    const d = new Date(today);
-    d.setDate(d.getDate() + i);
-    paths.push({ params: { slug: slugOf(d.getDate(), d.getMonth() + 1, d.getFullYear()) } });
-  }
-  return { paths, fallback: 'blocking' };
-}
-
-export async function getStaticProps({ params }) {
+export async function getServerSideProps({ params }) {
   const { slug } = params;
 
-  // Truong hop 1: theo ngay -> dashboard day du
+  // Truong hop 1: theo ngay cu the -> deterministic, tinh server an toan
   const dateMatch = slug.match(DATE_RE);
   if (dateMatch) {
     const [, dd, mm, yyyy] = dateMatch.map(Number);
@@ -54,25 +45,32 @@ export async function getStaticProps({ params }) {
         prevSlug: slugOf(pd, pm, py),
         nextSlug: slugOf(nd, nm, ny),
         ...preview
-      },
-      revalidate: 86400
+      }
     };
   }
 
-  // Truong hop 2: theo con giap (hom nay) - giu lai cho URL cu da index
+  // Truong hop 2: theo con giap (hom nay) - CHI tra ve thong tin tinh (chiSlug), du lieu "hom nay"
+  // se tinh THANG TREN TRINH DUYET nguoi dung de luon dung ngay that, khong bi cache lam sai lech.
   const chi = SLUG_TO_CHI[slug];
   if (chi) {
-    const today = getVietnamNow();
-    const data = getTuViHomNay(today.getDate(), today.getMonth() + 1, today.getFullYear(), chi);
-    const dateStr = `${today.getDate()}/${today.getMonth() + 1}/${today.getFullYear()}`;
     const preview = await getHubContentPreview('tu-vi');
-    return { props: { type: 'con-giap', data, dateStr, ...preview }, revalidate: 86400 };
+    return { props: { type: 'con-giap', chi, ...preview } };
   }
 
   return { notFound: true };
 }
 
 export default function TuViHomNaySlug(props) {
+  const [state, setState] = useState(null);
+
+  useEffect(() => {
+    if (props.type !== 'con-giap') return;
+    const today = new Date();
+    const data = getTuViHomNay(today.getDate(), today.getMonth() + 1, today.getFullYear(), props.chi);
+    const dateStr = `${today.getDate()}/${today.getMonth() + 1}/${today.getFullYear()}`;
+    setState({ data, dateStr });
+  }, [props.type, props.chi]);
+
   if (props.type === 'ngay') {
     return (
       <>
@@ -89,8 +87,20 @@ export default function TuViHomNaySlug(props) {
     );
   }
 
-  // type === 'con-giap'
-  const { data, dateStr, dictionaryPreview, guidePreview } = props;
+  // type === 'con-giap' - du lieu "hom nay" tinh tren trinh duyet, hien loading cho toi khi xong
+  const { dictionaryPreview, guidePreview } = props;
+
+  if (!state) {
+    return (
+      <>
+        <Header />
+        <MysticLoader label="Đang lập vận trình hôm nay..." />
+        <Footer />
+      </>
+    );
+  }
+
+  const { data, dateStr } = state;
   const title = `Tử Vi Tuổi ${data.conGiap} Hôm Nay ${dateStr} — TriMenh`;
   return (
     <>

@@ -11,7 +11,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const SITE_URL = process.env.SITE_URL || 'https://trimenh.com';
+const SITE_URL = process.env.SITE_URL || 'https://www.trimenh.com';
 
 const HUBS = require('../content/hubs').HUBS;
 const { CHI_SLUG } = require('../lib/chiSlug');

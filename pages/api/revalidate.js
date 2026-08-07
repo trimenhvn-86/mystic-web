@@ -4,7 +4,7 @@
  * de Next.js cap nhat ngay trang do (ISR on-demand) ma khong can build lai toan site.
  *
  * Cach goi (tu pipeline ben ngoai):
- * POST https://trimenh.com/api/revalidate
+ * POST https://www.trimenh.com/api/revalidate
  * Headers: Content-Type: application/json
  * Body: { "secret": "xxxx", "paths": ["/tu-dien/can-chi-la-gi", "/tu-dien", "/lich-ngay-tot"] }
  *

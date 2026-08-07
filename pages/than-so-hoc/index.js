@@ -84,7 +84,7 @@ export default function ThanSoHoc({ dictionaryPreview, guidePreview }) {
   }
 
   function handleShare() {
-    const shareText = `Số Chủ Đạo của tôi là ${result.lifePath} — xem thần số học miễn phí tại TriMenh: https://trimenh.com/than-so-hoc`;
+    const shareText = `Số Chủ Đạo của tôi là ${result.lifePath} — xem thần số học miễn phí tại TriMenh: https://www.trimenh.com/than-so-hoc`;
     if (navigator.share) {
       navigator.share({ title: 'Thần Số Học TriMenh', text: shareText }).catch(() => {});
     } else if (navigator.clipboard) {

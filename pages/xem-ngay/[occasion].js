@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 import { CalendarCheck } from 'lucide-react';
@@ -5,9 +6,9 @@ import Header from '../../components/Header';
 import Breadcrumb from '../../components/Breadcrumb';
 import Footer from '../../components/Footer';
 import AdSlot from '../../components/AdSlot';
+import MysticLoader from '../../components/MysticLoader';
 import { getBestAndWorstDays } from '../../lib/periodRating';
 import occasions from '../../content/occasions.json';
-import { getVietnamNow } from '../../lib/vnDate';
 
 function pad(n) { return String(n).padStart(2, '0'); }
 
@@ -18,23 +19,35 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params }) {
   const occasion = occasions.find((o) => o.slug === params.occasion);
   if (!occasion) return { notFound: true };
-
-  const today = getVietnamNow();
-  const dates = [];
-  for (let i = 0; i <= 60; i++) {
-    const d = new Date(today);
-    d.setDate(d.getDate() + i);
-    dates.push({ dd: d.getDate(), mm: d.getMonth() + 1, yyyy: d.getFullYear() });
-  }
-  const { best } = getBestAndWorstDays(dates, 10, 0);
-
-  return {
-    props: { occasion, bestDays: best, monthLabel: `${today.getMonth() + 1}/${today.getFullYear()}` },
-    revalidate: 2592000
-  };
+  return { props: { occasion } };
 }
 
-export default function XemNgayOccasion({ occasion, bestDays, monthLabel }) {
+export default function XemNgayOccasion({ occasion }) {
+  const [result, setResult] = useState(null);
+
+  useEffect(() => {
+    const today = new Date();
+    const dates = [];
+    for (let i = 0; i <= 60; i++) {
+      const d = new Date(today);
+      d.setDate(d.getDate() + i);
+      dates.push({ dd: d.getDate(), mm: d.getMonth() + 1, yyyy: d.getFullYear() });
+    }
+    const { best } = getBestAndWorstDays(dates, 10, 0);
+    setResult({ bestDays: best, monthLabel: `${today.getMonth() + 1}/${today.getFullYear()}` });
+  }, []);
+
+  if (!result) {
+    return (
+      <>
+        <Header />
+        <MysticLoader label="Đang tìm ngày tốt sắp tới..." />
+        <Footer />
+      </>
+    );
+  }
+
+  const { bestDays, monthLabel } = result;
   const title = `Xem Ngày Tốt ${occasion.label} Tháng ${monthLabel} — TriMenh`;
   const desc = `Danh sách ngày Hoàng đạo tốt để ${occasion.label.toLowerCase()} trong 60 ngày tới, cập nhật theo ngày hiện tại.`;
 

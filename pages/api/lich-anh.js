@@ -152,7 +152,7 @@ export default async function handler(req) {
   const dow = new Date(yyyy, mm - 1, dd).getDay();
   const thu = THU_VN[dow];
   const color = LEVEL_COLOR[rating.stars] || GOLD;
-  const pageUrl = `https://trimenh.com/xem-ngay-tot/ngay-${pad(dd)}-thang-${pad(mm)}-nam-${yyyy}`;
+  const pageUrl = `https://www.trimenh.com/xem-ngay-tot/ngay-${pad(dd)}-thang-${pad(mm)}-nam-${yyyy}`;
 
   return new ImageResponse(
     (

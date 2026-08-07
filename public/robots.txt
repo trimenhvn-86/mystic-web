@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /tim-kiem
 
-Sitemap: https://trimenh.com/sitemap.xml
+Sitemap: https://www.trimenh.com/sitemap.xml

@@ -6,7 +6,7 @@ import { useRouter } from 'next/router';
 export default function App({ Component, pageProps }) {
   const router = useRouter();
   const canonicalPath = router.asPath.split('?')[0].split('#')[0];
-  const canonicalUrl = `https://trimenh.com${canonicalPath === '/' ? '' : canonicalPath}`;
+  const canonicalUrl = `https://www.trimenh.com${canonicalPath === '/' ? '' : canonicalPath}`;
 
   return (
     <>
@@ -33,7 +33,7 @@ export default function App({ Component, pageProps }) {
         <meta name="theme-color" content="#0B0E1A" />
         <meta property="og:site_name" content="TriMenh" />
         <meta property="og:type" content="website" />
-        <meta property="og:image" content="https://trimenh.com/brand/og-image.png" />
+        <meta property="og:image" content="https://www.trimenh.com/brand/og-image.png" />
         <meta name="twitter:card" content="summary_large_image" />
         <link
           rel="preload"

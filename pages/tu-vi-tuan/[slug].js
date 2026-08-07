@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 import { Sun } from 'lucide-react';
@@ -5,6 +6,7 @@ import Header from '../../components/Header';
 import Breadcrumb from '../../components/Breadcrumb';
 import Footer from '../../components/Footer';
 import AdSlot from '../../components/AdSlot';
+import MysticLoader from '../../components/MysticLoader';
 import TuViWeekDashboard from '../../components/TuViWeekDashboard';
 import { buildWeekDashboard } from '../../lib/tuViDashboard';
 import { getTuViTuan } from '../../lib/tuViHomNay';
@@ -20,12 +22,7 @@ const WEEK_RE = /^tuan-(\d{1,2})-nam-(\d{4})$/;
 
 function pad(n) { return String(n).padStart(2, '0'); }
 
-export async function getStaticPaths() {
-  const paths = Object.keys(SLUG_TO_CHI).map((slug) => ({ params: { slug } }));
-  return { paths, fallback: 'blocking' };
-}
-
-export async function getStaticProps({ params }) {
+export async function getServerSideProps({ params }) {
   const { slug } = params;
 
   const weekMatch = slug.match(WEEK_RE);
@@ -35,22 +32,29 @@ export async function getStaticProps({ params }) {
     if (week < 1 || week > 53) return { notFound: true };
     const dashboard = buildWeekDashboard(week, year);
     const preview = await getHubContentPreview('tu-vi');
-    return { props: { type: 'tuan', ...dashboard, ...preview }, revalidate: 86400 };
+    return { props: { type: 'tuan', ...dashboard, ...preview } };
   }
 
   const chi = SLUG_TO_CHI[slug];
   if (chi) {
-    const today = getVietnamNow();
-    const data = getTuViTuan(today.getDate(), today.getMonth() + 1, today.getFullYear(), chi);
-    const rangeStr = `${pad(data.tuNgay.dd)}/${pad(data.tuNgay.mm)} - ${pad(data.denNgay.dd)}/${pad(data.denNgay.mm)}/${data.denNgay.yyyy}`;
     const preview = await getHubContentPreview('tu-vi');
-    return { props: { type: 'con-giap', data, rangeStr, ...preview }, revalidate: 86400 };
+    return { props: { type: 'con-giap', chi, ...preview } };
   }
 
   return { notFound: true };
 }
 
 export default function TuViTuanSlug(props) {
+  const [state, setState] = useState(null);
+
+  useEffect(() => {
+    if (props.type !== 'con-giap') return;
+    const today = new Date();
+    const data = getTuViTuan(today.getDate(), today.getMonth() + 1, today.getFullYear(), props.chi);
+    const rangeStr = `${pad(data.tuNgay.dd)}/${pad(data.tuNgay.mm)} - ${pad(data.denNgay.dd)}/${pad(data.denNgay.mm)}/${data.denNgay.yyyy}`;
+    setState({ data, rangeStr });
+  }, [props.type, props.chi]);
+
   if (props.type === 'tuan') {
     return (
       <>
@@ -67,7 +71,19 @@ export default function TuViTuanSlug(props) {
     );
   }
 
-  const { data, rangeStr, dictionaryPreview, guidePreview } = props;
+  const { dictionaryPreview, guidePreview } = props;
+
+  if (!state) {
+    return (
+      <>
+        <Header />
+        <MysticLoader label="Đang lập vận trình tuần này..." />
+        <Footer />
+      </>
+    );
+  }
+
+  const { data, rangeStr } = state;
   const title = `Tử Vi Tuổi ${data.conGiap} Tuần Này (${rangeStr}) — TriMenh`;
   return (
     <>

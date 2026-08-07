@@ -8,9 +8,9 @@ import Footer from '../../components/Footer';
 import AdSlot from '../../components/AdSlot';
 import TarotCardFlip from '../../components/TarotCardFlip';
 import HubContentPreview from '../../components/HubContentPreview';
+import MysticLoader from '../../components/MysticLoader';
 import { getDailyCard } from '../../lib/tarot';
 import { getHubContentPreview } from '../../lib/sanity';
-import { getVietnamNow } from '../../lib/vnDate';
 
 const SUIT_LABEL = { wands: 'Gậy', cups: 'Cốc', swords: 'Kiếm', pentacles: 'Tiền' };
 
@@ -22,25 +22,38 @@ function toRoman(num) {
   return r;
 }
 
+// Chi fetch noi dung Tu dien/Cam nang (khong phu thuoc ngay) - cache binh thuong duoc.
+// La bai va ngay hom nay tinh THANG TREN TRINH DUYET nguoi dung (giong Doi lich am duong),
+// khong qua may chu/ISR/cache nen luon dung tuyet doi ngay that cua nguoi xem.
 export async function getStaticProps() {
-  const today = getVietnamNow();
-  const dd = today.getDate(), mm = today.getMonth() + 1, yyyy = today.getFullYear();
-  const { card, upright } = getDailyCard(dd, mm, yyyy);
   const preview = await getHubContentPreview('tarot');
-  return {
-    props: { card, upright, dateStr: `${dd}/${mm}/${yyyy}`, ...preview },
-    revalidate: 86400
-  };
+  return { props: { ...preview }, revalidate: 86400 };
 }
 
-export default function TarotHomNay({ card, upright, dateStr, dictionaryPreview, guidePreview }) {
+export default function TarotHomNay({ dictionaryPreview, guidePreview }) {
+  const [result, setResult] = useState(null);
   const [flipped, setFlipped] = useState(false);
 
   useEffect(() => {
+    const today = new Date();
+    const dd = today.getDate(), mm = today.getMonth() + 1, yyyy = today.getFullYear();
+    const { card, upright } = getDailyCard(dd, mm, yyyy);
+    setResult({ card, upright, dateStr: `${dd}/${mm}/${yyyy}` });
     const t = setTimeout(() => setFlipped(true), 500);
     return () => clearTimeout(t);
   }, []);
 
+  if (!result) {
+    return (
+      <>
+        <Header />
+        <MysticLoader label="Đang xác định lá bài hôm nay..." />
+        <Footer />
+      </>
+    );
+  }
+
+  const { card, upright, dateStr } = result;
   const dailyMsg = upright ? card.dailyMessageUpright : card.dailyMessageReversed;
   const keywords = upright ? card.keywordsUpright : card.keywordsReversed;
   const title = `Tarot Hôm Nay ${dateStr} — ${card.nameVi} (${upright ? 'Xuôi' : 'Ngược'})`;
@@ -49,7 +62,7 @@ export default function TarotHomNay({ card, upright, dateStr, dictionaryPreview,
     : `Ẩn Phụ — Bộ ${SUIT_LABEL[card.suit]} — Số ${card.number}`;
 
   function handleShare() {
-    const shareText = `Tarot hôm nay ${dateStr}: lá ${card.nameVi} (${upright ? 'Xuôi' : 'Ngược'}). Xem đầy đủ tại https://trimenh.com/tarot-hom-nay`;
+    const shareText = `Tarot hôm nay ${dateStr}: lá ${card.nameVi} (${upright ? 'Xuôi' : 'Ngược'}). Xem đầy đủ tại https://www.trimenh.com/tarot-hom-nay`;
     if (navigator.share) {
       navigator.share({ title: title, text: shareText }).catch(() => {});
     } else if (navigator.clipboard) {

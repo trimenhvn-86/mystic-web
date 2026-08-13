@@ -60,8 +60,8 @@ export default function Footer() {
           <div className="hidden md:block">
             <p className="text-parchment font-medium mb-3">Khác</p>
             <div className="flex flex-col gap-2">
-              <span className="text-moon/50">Chính sách bảo mật</span>
-              <span className="text-moon/50">Điều khoản sử dụng</span>
+              <Link href="/chinh-sach-bao-mat" className="text-moon/80 hover:text-gold-soft transition-colors">Chính sách bảo mật</Link>
+              <Link href="/dieu-khoan-su-dung" className="text-moon/80 hover:text-gold-soft transition-colors">Điều khoản sử dụng</Link>
             </div>
           </div>
           <div className="hidden md:block">
@@ -72,8 +72,12 @@ export default function Footer() {
       </div>
 
       <div className="border-t border-ink-line">
-        <div className="max-w-6xl mx-auto px-5 py-5 text-xs text-moon/60">
-          &copy; {new Date().getFullYear()} TriMenh.com. Nội dung chỉ mang tính tham khảo, chiêm nghiệm — không khuyến khích mê tín hay phụ thuộc vào dự đoán.
+        <div className="max-w-6xl mx-auto px-5 py-5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 text-xs text-moon/60">
+          <p>&copy; {new Date().getFullYear()} TriMenh.com. Nội dung chỉ mang tính tham khảo, chiêm nghiệm — không khuyến khích mê tín hay phụ thuộc vào dự đoán.</p>
+          <div className="flex gap-4 flex-shrink-0">
+            <Link href="/chinh-sach-bao-mat" className="hover:text-gold-soft transition-colors">Chính sách bảo mật</Link>
+            <Link href="/dieu-khoan-su-dung" className="hover:text-gold-soft transition-colors">Điều khoản sử dụng</Link>
+          </div>
         </div>
       </div>
     </footer>

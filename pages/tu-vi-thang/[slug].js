@@ -20,7 +20,12 @@ import { FAQ_TU_VI_THANG } from '../../content/faq-data';
 
 const MONTH_RE = /^thang-(\d{1,2})-nam-(\d{4})$/;
 
-export async function getServerSideProps({ params }) {
+export async function getStaticPaths() {
+  const paths = Object.keys(SLUG_TO_CHI).map((slug) => ({ params: { slug } }));
+  return { paths, fallback: 'blocking' };
+}
+
+export async function getStaticProps({ params }) {
   const { slug } = params;
 
   const monthMatch = slug.match(MONTH_RE);
@@ -30,13 +35,13 @@ export async function getServerSideProps({ params }) {
     if (mm < 1 || mm > 12) return { notFound: true };
     const dashboard = buildMonthDashboard(mm, yyyy);
     const preview = await getHubContentPreview('tu-vi');
-    return { props: { type: 'thang', ...dashboard, ...preview } };
+    return { props: { type: 'thang', ...dashboard, ...preview }, revalidate: 2592000 };
   }
 
   const chi = SLUG_TO_CHI[slug];
   if (chi) {
     const preview = await getHubContentPreview('tu-vi');
-    return { props: { type: 'con-giap', chi, ...preview } };
+    return { props: { type: 'con-giap', chi, ...preview }, revalidate: 86400 };
   }
 
   return { notFound: true };

@@ -24,10 +24,15 @@ const DATE_RE = /^ngay-(\d{1,2})-thang-(\d{1,2})-nam-(\d{4})$/;
 function pad(n) { return String(n).padStart(2, '0'); }
 function slugOf(dd, mm, yyyy) { return `ngay-${pad(dd)}-thang-${pad(mm)}-nam-${yyyy}`; }
 
-export async function getServerSideProps({ params }) {
+export async function getStaticPaths() {
+  const paths = Object.keys(SLUG_TO_CHI).map((slug) => ({ params: { slug } }));
+  return { paths, fallback: 'blocking' };
+}
+
+export async function getStaticProps({ params }) {
   const { slug } = params;
 
-  // Truong hop 1: theo ngay cu the -> deterministic, tinh server an toan
+  // Truong hop 1: theo ngay cu the -> deterministic, khong bao gio doi, cache dai han an toan
   const dateMatch = slug.match(DATE_RE);
   if (dateMatch) {
     const [, dd, mm, yyyy] = dateMatch.map(Number);
@@ -45,16 +50,18 @@ export async function getServerSideProps({ params }) {
         prevSlug: slugOf(pd, pm, py),
         nextSlug: slugOf(nd, nm, ny),
         ...preview
-      }
+      },
+      revalidate: 2592000
     };
   }
 
-  // Truong hop 2: theo con giap (hom nay) - CHI tra ve thong tin tinh (chiSlug), du lieu "hom nay"
-  // se tinh THANG TREN TRINH DUYET nguoi dung de luon dung ngay that, khong bi cache lam sai lech.
+  // Truong hop 2: theo con giap - phan server CHI tra ve chiSlug (khong phu thuoc ngay nua,
+  // du lieu "hom nay" da chuyen sang tinh tren trinh duyet o buoc sua loi ngay thang truoc do),
+  // nen an toan de cache dai han - giam manh so lan goi Sanity (tu moi luot xem xuong 1 lan/ngay).
   const chi = SLUG_TO_CHI[slug];
   if (chi) {
     const preview = await getHubContentPreview('tu-vi');
-    return { props: { type: 'con-giap', chi, ...preview } };
+    return { props: { type: 'con-giap', chi, ...preview }, revalidate: 86400 };
   }
 
   return { notFound: true };

@@ -22,7 +22,12 @@ const WEEK_RE = /^tuan-(\d{1,2})-nam-(\d{4})$/;
 
 function pad(n) { return String(n).padStart(2, '0'); }
 
-export async function getServerSideProps({ params }) {
+export async function getStaticPaths() {
+  const paths = Object.keys(SLUG_TO_CHI).map((slug) => ({ params: { slug } }));
+  return { paths, fallback: 'blocking' };
+}
+
+export async function getStaticProps({ params }) {
   const { slug } = params;
 
   const weekMatch = slug.match(WEEK_RE);
@@ -32,13 +37,13 @@ export async function getServerSideProps({ params }) {
     if (week < 1 || week > 53) return { notFound: true };
     const dashboard = buildWeekDashboard(week, year);
     const preview = await getHubContentPreview('tu-vi');
-    return { props: { type: 'tuan', ...dashboard, ...preview } };
+    return { props: { type: 'tuan', ...dashboard, ...preview }, revalidate: 2592000 };
   }
 
   const chi = SLUG_TO_CHI[slug];
   if (chi) {
     const preview = await getHubContentPreview('tu-vi');
-    return { props: { type: 'con-giap', chi, ...preview } };
+    return { props: { type: 'con-giap', chi, ...preview }, revalidate: 86400 };
   }
 
   return { notFound: true };

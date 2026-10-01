@@ -56,9 +56,8 @@ async function publishToSanity(doc, docId) {
   const draftId = `drafts.${docId}`;
   const actions = [
     {
-      actionType: 'sanity.action.document.create',
-      attributes: { ...doc, _id: draftId },
-      ifExists: 'replace'
+      actionType: 'sanity.action.document.createOrReplace',
+      attributes: { ...doc, _id: draftId }
     },
     {
       actionType: 'sanity.action.document.publish',

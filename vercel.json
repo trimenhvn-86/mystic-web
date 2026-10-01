@@ -1,0 +1,8 @@
+{
+  "crons": [
+    {
+      "path": "/api/cron/bai-viet-thang",
+      "schedule": "0 19 27 * *"
+    }
+  ]
+}

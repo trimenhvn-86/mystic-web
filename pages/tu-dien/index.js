@@ -8,7 +8,7 @@ import { getDictionaryTerms, isConfigured } from '../../lib/sanity';
 
 export async function getStaticProps() {
   const terms = await getDictionaryTerms();
-  return { props: { terms, cmsConfigured: isConfigured }, revalidate: 86400 };
+  return { props: { terms, cmsConfigured: isConfigured }, revalidate: terms.length === 0 ? 300 : 86400 }; // rong (Sanity loi tam) -> thu lai sau 5 phut, khong cache rong 24h
 }
 
 export default function TuDienIndex({ terms, cmsConfigured }) {

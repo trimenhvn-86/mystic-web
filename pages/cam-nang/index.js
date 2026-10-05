@@ -9,7 +9,7 @@ import { getGuidePosts, isConfigured } from '../../lib/sanity';
 
 export async function getStaticProps() {
   const posts = await getGuidePosts();
-  return { props: { posts, cmsConfigured: isConfigured }, revalidate: 86400 };
+  return { props: { posts, cmsConfigured: isConfigured }, revalidate: posts.length === 0 ? 300 : 86400 }; // rong (Sanity loi tam) -> thu lai sau 5 phut, khong cache rong 24h
 }
 
 export default function CamNangIndex({ posts, cmsConfigured }) {

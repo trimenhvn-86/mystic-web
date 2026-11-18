@@ -79,3 +79,4 @@ Bỏ banner riêng "Liên hệ hợp tác quảng cáo" (hiện ở mọi trang,
 - Tử vi hôm nay/tuần/tháng theo con giáp, Tarot hôm nay, Xem ngày theo việc: dựng sẵn nội dung ở server (giờ VN), trình duyệt cập nhật lại theo ngày máy.
 - og:title / og:description tự động cho 44 trang; AdSlot không in chữ khi NEXT_PUBLIC_ADS_ENABLED != 'true'.
 - Sitemap: sitemap.xml thành sitemap index + 4 sitemap con, có lastmod, loại URL trùng.
+- 18/11/2026 (bổ sung): Sanity báo plan_limit_reached (hết hạn mức API Requests). lib/sanity.js thêm bộ nhớ đệm 5 phút theo truy vấn: 500 trang chỉ còn ~2 lần gọi Sanity thay vì ~1000. Lỗi không bị cache.

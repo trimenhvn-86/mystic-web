@@ -53,15 +53,17 @@ async function callClaude(systemPrompt, userPrompt) {
 }
 
 async function publishToSanity(doc, docId) {
-  // Du an nay dung model Content Releases moi cua Sanity - khong con action
-  // "sanity.action.document.publish" don gian kieu cu. Cach dung: tao THANG document
-  // da publish (id KHONG co tien to "drafts.") bang 1 action "create" duy nhat.
-  // Luu y quan trong: tham so dung la "document" (khong phai "attributes").
+  const draftId = `drafts.${docId}`;
   const actions = [
     {
       actionType: 'sanity.action.document.create',
-      document: { ...doc, _id: docId },
-      ifExists: 'ignore' // neu da ton tai (vi du chay lai cung thang de test) thi bo qua, khong loi
+      attributes: { ...doc, _id: draftId },
+      ifExists: 'replace'
+    },
+    {
+      actionType: 'sanity.action.document.publish',
+      draftId,
+      publishedId: docId
     }
   ];
   const url = `https://${SANITY_PROJECT_ID}.api.sanity.io/v2025-02-19/data/actions/${SANITY_DATASET}`;

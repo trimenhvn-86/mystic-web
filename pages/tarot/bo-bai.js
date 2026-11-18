@@ -41,6 +41,8 @@ export default function TarotBoBai({ major, minorBySuit }) {
       <Head>
         <title>Bộ Bài Tarot 78 Lá Đầy Đủ — Ý Nghĩa Từng Lá — TriMenh</title>
         <meta name="description" content="Tra cứu ý nghĩa đầy đủ 78 lá Tarot: 22 lá Ẩn Chính (Major Arcana) và 56 lá Ẩn Phụ (Minor Arcana) gồm Gậy, Cốc, Kiếm, Tiền." />
+        <meta property="og:title" content={"Bộ Bài Tarot 78 Lá Đầy Đủ — Ý Nghĩa Từng Lá — TriMenh"} />
+        <meta property="og:description" content="Tra cứu ý nghĩa đầy đủ 78 lá Tarot: 22 lá Ẩn Chính (Major Arcana) và 56 lá Ẩn Phụ (Minor Arcana) gồm Gậy, Cốc, Kiếm, Tiền." />
       </Head>
       <Header />
       <main className="max-w-5xl mx-auto px-5 py-8 sm:py-12">

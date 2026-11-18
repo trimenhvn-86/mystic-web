@@ -5,8 +5,12 @@ import { useRouter } from 'next/router';
 
 export default function App({ Component, pageProps }) {
   const router = useRouter();
-  const canonicalPath = router.asPath.split('?')[0].split('#')[0];
-  const canonicalUrl = `https://www.trimenh.com${canonicalPath === '/' ? '' : canonicalPath}`;
+  let canonicalPath = router.asPath.split('?')[0].split('#')[0];
+  // Trang chủ: lúc build Next.js thấy đường dẫn là "/index" => phải ép về "/"
+  if (canonicalPath === '/index' || canonicalPath === '') canonicalPath = '/';
+  const canonicalUrl = `https://www.trimenh.com${canonicalPath}`;
+  // Trang lỗi (404, 500) không được khai canonical
+  const isErrorPage = router.pathname === '/404' || router.pathname === '/_error' || router.pathname === '/500';
 
   return (
     <>
@@ -26,7 +30,9 @@ export default function App({ Component, pageProps }) {
       </Script>
 
       <Head>
-        <link rel="canonical" href={canonicalUrl} />
+        {!isErrorPage && <link rel="canonical" href={canonicalUrl} />}
+        {!isErrorPage && <meta property="og:url" content={canonicalUrl} />}
+        {isErrorPage && <meta name="robots" content="noindex" />}
         <meta name="google-site-verification" content="4Al67m0IrHmrKDCvrnmwrj2nujRtUbXkhIayyp5Dv08" />
         <link rel="icon" href="/favicon.ico" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />

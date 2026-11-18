@@ -16,6 +16,9 @@
  * khóa tài khoản.
  */
 export default function AdSlot({ label = 'Quảng cáo', className = '' }) {
+  // Chưa có quảng cáo thật thì không in khung chữ "Ad slot — ..." ra HTML (Google đọc thấy như nội dung rác).
+  // Khi gắn AdSense thật, đặt NEXT_PUBLIC_ADS_ENABLED=true trong Vercel để bật lại các khung này.
+  if (process.env.NEXT_PUBLIC_ADS_ENABLED !== 'true') return null;
   return (
     <div
       className={`w-full min-h-[100px] flex items-center justify-center border border-dashed border-ink-line rounded-lg text-xs text-moon/40 bg-ink-soft/40 ${className}`}

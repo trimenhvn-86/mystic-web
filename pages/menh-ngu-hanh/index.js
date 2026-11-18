@@ -39,6 +39,8 @@ export default function MenhNguHanhForm({ dictionaryPreview, guidePreview }) {
       <Head>
         <title>Tra Cứu Mệnh Ngũ Hành Theo Năm Sinh — TriMenh</title>
         <meta name="description" content="Tra cứu mệnh Ngũ hành (Kim, Mộc, Thủy, Hỏa, Thổ) theo năm sinh. Xem Nạp âm, đặc điểm và màu hợp mệnh." />
+        <meta property="og:title" content={"Tra Cứu Mệnh Ngũ Hành Theo Năm Sinh — TriMenh"} />
+        <meta property="og:description" content="Tra cứu mệnh Ngũ hành (Kim, Mộc, Thủy, Hỏa, Thổ) theo năm sinh. Xem Nạp âm, đặc điểm và màu hợp mệnh." />
       </Head>
       <Header />
       <main className="max-w-md mx-auto px-5 py-10 sm:py-14">

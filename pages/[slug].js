@@ -116,7 +116,7 @@ export default function YearToolPage({ type, year, menh, tuoiHop, hub, dictionar
     return (
       <>
         <Head>
-          <title>{hub.name} — TriMenh</title>
+          <title>{`${hub.name} — TriMenh`}</title>
           <meta name="description" content={hub.desc} />
         </Head>
         <Header />
@@ -239,6 +239,8 @@ export default function YearToolPage({ type, year, menh, tuoiHop, hub, dictionar
         <Head>
           <title>{title}</title>
           <meta name="description" content={desc} />
+          <meta property="og:title" content={title} />
+          <meta property="og:description" content={desc} />
         </Head>
         <Header />
         <main className="max-w-3xl mx-auto px-5 py-8 sm:py-12">
@@ -427,6 +429,8 @@ export default function YearToolPage({ type, year, menh, tuoiHop, hub, dictionar
         <Head>
           <title>{title}</title>
           <meta name="description" content={desc} />
+          <meta property="og:title" content={title} />
+          <meta property="og:description" content={desc} />
         </Head>
         <Header />
         <main className="max-w-2xl mx-auto px-5 py-8 sm:py-12">
@@ -510,6 +514,8 @@ export default function YearToolPage({ type, year, menh, tuoiHop, hub, dictionar
         <Head>
           <title>{title}</title>
           <meta name="description" content={desc} />
+          <meta property="og:title" content={title} />
+          <meta property="og:description" content={desc} />
         </Head>
         <Header />
         <main className="max-w-2xl mx-auto px-5 py-8 sm:py-12">
@@ -573,6 +579,8 @@ export default function YearToolPage({ type, year, menh, tuoiHop, hub, dictionar
       <Head>
         <title>{title}</title>
         <meta name="description" content={desc} />
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={desc} />
       </Head>
       <Header />
       <main className="max-w-2xl mx-auto px-5 py-8 sm:py-12">

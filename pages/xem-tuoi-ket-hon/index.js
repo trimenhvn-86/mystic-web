@@ -43,6 +43,8 @@ export default function XemTuoiKetHonForm({ dictionaryPreview, guidePreview }) {
       <Head>
         <title>Xem Tuổi Kết Hôn — TriMenh</title>
         <meta name="description" content="Xem tuổi cô dâu chú rể có hợp nhau không theo Can Chi, Ngũ hành. Tính điểm tương hợp và lời khuyên khi kết hôn." />
+        <meta property="og:title" content={"Xem Tuổi Kết Hôn — TriMenh"} />
+        <meta property="og:description" content="Xem tuổi cô dâu chú rể có hợp nhau không theo Can Chi, Ngũ hành. Tính điểm tương hợp và lời khuyên khi kết hôn." />
       </Head>
       <Header />
       <main className="max-w-lg mx-auto px-5 py-10 sm:py-14">

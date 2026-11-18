@@ -40,6 +40,8 @@ export default function TuoiHopForm({ dictionaryPreview, guidePreview }) {
       <Head>
         <title>Tra Cứu Tuổi Hợp Theo Năm Sinh — TriMenh</title>
         <meta name="description" content="Tra cứu tuổi hợp theo năm sinh: Tam hợp, Tứ hành xung, Lục hại. Xem tuổi nào hợp làm ăn, kết hôn với bạn." />
+        <meta property="og:title" content={"Tra Cứu Tuổi Hợp Theo Năm Sinh — TriMenh"} />
+        <meta property="og:description" content="Tra cứu tuổi hợp theo năm sinh: Tam hợp, Tứ hành xung, Lục hại. Xem tuổi nào hợp làm ăn, kết hôn với bạn." />
       </Head>
       <Header />
       <main className="max-w-md mx-auto px-5 py-10 sm:py-14">

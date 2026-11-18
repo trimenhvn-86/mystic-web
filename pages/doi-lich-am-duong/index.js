@@ -53,6 +53,8 @@ export default function DoiLichForm({ dictionaryPreview, guidePreview }) {
       <Head>
         <title>Đổi Lịch Âm Dương — TriMenh</title>
         <meta name="description" content="Chuyển đổi ngày Dương lịch sang Âm lịch và ngược lại, chính xác theo múi giờ Việt Nam." />
+        <meta property="og:title" content={"Đổi Lịch Âm Dương — TriMenh"} />
+        <meta property="og:description" content="Chuyển đổi ngày Dương lịch sang Âm lịch và ngược lại, chính xác theo múi giờ Việt Nam." />
       </Head>
       <Header />
       <main className="max-w-2xl mx-auto px-5 py-10 sm:py-14">

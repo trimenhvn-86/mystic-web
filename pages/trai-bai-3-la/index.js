@@ -12,6 +12,8 @@ export default function TraiBaiIndex() {
       <Head>
         <title>Trải Bài Tarot 3 Lá — Tổng Quát, Tình Yêu, Công Việc, Tài Chính — TriMenh</title>
         <meta name="description" content="Trải bài Tarot 3 lá miễn phí theo 4 chủ đề: tổng quát, tình yêu, công việc, tài chính. Dùng đủ bộ 78 lá." />
+        <meta property="og:title" content={"Trải Bài Tarot 3 Lá — Tổng Quát, Tình Yêu, Công Việc, Tài Chính — TriMenh"} />
+        <meta property="og:description" content="Trải bài Tarot 3 lá miễn phí theo 4 chủ đề: tổng quát, tình yêu, công việc, tài chính. Dùng đủ bộ 78 lá." />
       </Head>
       <Header />
       <main className="max-w-2xl mx-auto px-5 py-8 sm:py-12">

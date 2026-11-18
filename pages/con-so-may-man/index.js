@@ -86,6 +86,8 @@ export default function ConSoMayMan() {
       <Head>
         <title>Con Số May Mắn Theo Ngày Sinh — TriMenh</title>
         <meta name="description" content="Tìm con số may mắn hợp với bản mệnh dựa trên ngày sinh, kết hợp Thần số học và Ngũ hành." />
+        <meta property="og:title" content={"Con Số May Mắn Theo Ngày Sinh — TriMenh"} />
+        <meta property="og:description" content="Tìm con số may mắn hợp với bản mệnh dựa trên ngày sinh, kết hợp Thần số học và Ngũ hành." />
       </Head>
       <Header />
       <main className="max-w-md mx-auto px-5 py-10 sm:py-14">

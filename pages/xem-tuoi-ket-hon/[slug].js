@@ -47,6 +47,8 @@ export default function XemTuoiKetHonResult({ result, advice, yearBride, yearGro
       <Head>
         <title>{title}</title>
         <meta name="description" content={desc} />
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={desc} />
       </Head>
       <Header />
       <main className="max-w-2xl mx-auto px-5 py-8 sm:py-12">

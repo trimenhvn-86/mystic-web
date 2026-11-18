@@ -8,21 +8,22 @@ import AdSlot from '../../components/AdSlot';
 import { getDictionaryTerms, getDictionaryTermBySlug } from '../../lib/sanity';
 
 export async function getStaticPaths() {
-  const terms = await getDictionaryTerms();
+  let terms = [];
+  try { terms = await getDictionaryTerms(); } catch (e) { terms = []; }
   return { paths: terms.map((t) => ({ params: { slug: t.slug } })), fallback: 'blocking' };
 }
 
 export async function getStaticProps({ params }) {
   const term = await getDictionaryTermBySlug(params.slug);
   if (!term) return { notFound: true, revalidate: 300 };
-  return { props: { term }, revalidate: 86400 };
+  return { props: { term }, revalidate: 3600 };
 }
 
 export default function TuDienDetail({ term }) {
   return (
     <>
       <Head>
-        <title>{term.title} là gì? — Từ điển huyền học TriMenh</title>
+        <title>{`${term.title} là gì? — Từ điển huyền học TriMenh`}</title>
         <meta name="description" content={term.shortDefinition} />
       </Head>
       <Header />

@@ -101,6 +101,8 @@ export default function DoiLichResult({
       <Head>
         <title>{title}</title>
         <meta name="description" content={desc} />
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={desc} />
         <meta property="og:image" content={`https://www.trimenh.com/api/lich-anh?dd=${dd}&mm=${mm}&yyyy=${yyyy}`} />
       </Head>
       <Header />

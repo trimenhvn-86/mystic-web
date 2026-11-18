@@ -77,7 +77,7 @@ export default function NgayHoangDaoResult({ dd, mm, yyyy, lunar, canChiNam, can
   return (
     <>
       <Head>
-        <title>{title} — TriMenh</title>
+        <title>{`${title} — TriMenh`}</title>
         <meta name="description" content={desc} />
       </Head>
       <Header />

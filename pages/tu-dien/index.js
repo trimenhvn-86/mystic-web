@@ -8,7 +8,7 @@ import { getDictionaryTerms, isConfigured } from '../../lib/sanity';
 
 export async function getStaticProps() {
   const terms = await getDictionaryTerms();
-  return { props: { terms, cmsConfigured: isConfigured }, revalidate: terms.length === 0 ? 300 : 86400 }; // rong (Sanity loi tam) -> thu lai sau 5 phut, khong cache rong 24h
+  return { props: { terms, cmsConfigured: isConfigured }, revalidate: terms.length === 0 ? 300 : 3600 };
 }
 
 export default function TuDienIndex({ terms, cmsConfigured }) {
@@ -17,6 +17,8 @@ export default function TuDienIndex({ terms, cmsConfigured }) {
       <Head>
         <title>Từ điển huyền học — TriMenh</title>
         <meta name="description" content="Tra cứu định nghĩa các thuật ngữ huyền học: Can Chi, Ngũ Hành, Hoàng Đạo, Hắc Đạo, Tiết Khí và nhiều thuật ngữ khác." />
+        <meta property="og:title" content={"Từ điển huyền học — TriMenh"} />
+        <meta property="og:description" content="Tra cứu định nghĩa các thuật ngữ huyền học: Can Chi, Ngũ Hành, Hoàng Đạo, Hắc Đạo, Tiết Khí và nhiều thuật ngữ khác." />
       </Head>
       <Header />
       <main className="max-w-4xl mx-auto px-5 py-8 sm:py-12">

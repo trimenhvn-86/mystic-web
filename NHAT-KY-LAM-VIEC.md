@@ -69,3 +69,13 @@ Bỏ banner riêng "Liên hệ hợp tác quảng cáo" (hiện ở mọi trang,
 - Nội dung Từ điển + Cẩm nang: sẽ nhập dần qua content bot (DeepSeek + Sanity), đã có sẵn 3 file code mẫu (`1-deepseek-api.js`, `2-sanity-publish.js`, `3-internal-link-and-check.js`) và API `/api/revalidate` để bot gọi sau khi đăng bài
 - 78 trang chi tiết Tarot dạng "bách khoa" (theo tài liệu feedback Tarot) — chưa làm, cần khối lượng nội dung lớn
 - Tử vi theo "ngày mai" / "theo năm" — chưa xây (cần mở rộng route mới)
+
+## 18/11/2026 — Sửa theo báo cáo "Đánh giá SEO & đề xuất" (giai đoạn 0–1)
+- lib/sanity.js: useCdn=false; bài viết/từ điển dùng strictFetch (Sanity lỗi => ném lỗi để ISR giữ bản cũ, không cache 404/rỗng); khối bài liên quan chịu lỗi riêng; thêm updatedAt.
+- cam-nang, tu-dien: getStaticPaths không sập khi Sanity lỗi; notFound có revalidate 300; danh sách rỗng revalidate 300.
+- pages/_app.js: canonical trang chủ = https://www.trimenh.com/ ; trang lỗi không có canonical, thêm noindex; thêm og:url.
+- next.config.js: redirect 308 /index -> / ; poweredByHeader=false.
+- 16 file có <title> nhiều phần được gộp thành 1 chuỗi (hết "<!-- -->" trong title).
+- Tử vi hôm nay/tuần/tháng theo con giáp, Tarot hôm nay, Xem ngày theo việc: dựng sẵn nội dung ở server (giờ VN), trình duyệt cập nhật lại theo ngày máy.
+- og:title / og:description tự động cho 44 trang; AdSlot không in chữ khi NEXT_PUBLIC_ADS_ENABLED != 'true'.
+- Sitemap: sitemap.xml thành sitemap index + 4 sitemap con, có lastmod, loại URL trùng.

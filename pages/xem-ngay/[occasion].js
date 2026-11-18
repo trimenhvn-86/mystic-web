@@ -9,8 +9,21 @@ import AdSlot from '../../components/AdSlot';
 import MysticLoader from '../../components/MysticLoader';
 import { getBestAndWorstDays } from '../../lib/periodRating';
 import occasions from '../../content/occasions.json';
+import { getVietnamNow } from '../../lib/vnDate';
 
 function pad(n) { return String(n).padStart(2, '0'); }
+
+// Tính danh sách ngày tốt 60 ngày tới kể từ ngày `start` (dùng chung cho server và trình duyệt)
+function computeBestDays(start) {
+  const dates = [];
+  for (let i = 0; i <= 60; i++) {
+    const d = new Date(start);
+    d.setDate(d.getDate() + i);
+    dates.push({ dd: d.getDate(), mm: d.getMonth() + 1, yyyy: d.getFullYear() });
+  }
+  const { best } = getBestAndWorstDays(dates, 10, 0);
+  return { bestDays: best, monthLabel: `${start.getMonth() + 1}/${start.getFullYear()}` };
+}
 
 export async function getStaticPaths() {
   return { paths: occasions.map((o) => ({ params: { occasion: o.slug } })), fallback: false };
@@ -19,22 +32,17 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params }) {
   const occasion = occasions.find((o) => o.slug === params.occasion);
   if (!occasion) return { notFound: true };
-  return { props: { occasion } };
+  // Dựng sẵn ở server (giờ Việt Nam) để HTML gốc có đủ danh sách ngày tốt cho Google
+  const initial = computeBestDays(getVietnamNow());
+  return { props: { occasion, initial }, revalidate: 3600 };
 }
 
-export default function XemNgayOccasion({ occasion }) {
-  const [result, setResult] = useState(null);
+export default function XemNgayOccasion({ occasion, initial }) {
+  const [result, setResult] = useState(initial || null);
 
   useEffect(() => {
-    const today = new Date();
-    const dates = [];
-    for (let i = 0; i <= 60; i++) {
-      const d = new Date(today);
-      d.setDate(d.getDate() + i);
-      dates.push({ dd: d.getDate(), mm: d.getMonth() + 1, yyyy: d.getFullYear() });
-    }
-    const { best } = getBestAndWorstDays(dates, 10, 0);
-    setResult({ bestDays: best, monthLabel: `${today.getMonth() + 1}/${today.getFullYear()}` });
+    // Sau khi tải, tính lại theo ngày thật của máy người xem
+    setResult(computeBestDays(new Date()));
   }, []);
 
   if (!result) {
@@ -56,6 +64,8 @@ export default function XemNgayOccasion({ occasion }) {
       <Head>
         <title>{title}</title>
         <meta name="description" content={desc} />
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={desc} />
       </Head>
       <Header />
       <main className="max-w-2xl mx-auto px-5 py-8 sm:py-12">

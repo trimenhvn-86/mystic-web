@@ -46,6 +46,8 @@ export default function CanChiForm() {
       <Head>
         <title>Tra Cứu Can Chi Ngày Tháng Năm — TriMenh</title>
         <meta name="description" content="Tra cứu Can Chi của ngày, tháng, năm theo lịch Âm. Xem Thiên Can, Địa Chi và ý nghĩa." />
+        <meta property="og:title" content={"Tra Cứu Can Chi Ngày Tháng Năm — TriMenh"} />
+        <meta property="og:description" content="Tra cứu Can Chi của ngày, tháng, năm theo lịch Âm. Xem Thiên Can, Địa Chi và ý nghĩa." />
       </Head>
       <Header />
       <main className="max-w-2xl mx-auto px-5 py-10 sm:py-14">

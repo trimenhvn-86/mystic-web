@@ -86,7 +86,7 @@ export default function NgayHacDaoResult({ dd, mm, yyyy, lunar, canChiNam, canCh
   return (
     <>
       <Head>
-        <title>{title} — TriMenh</title>
+        <title>{`${title} — TriMenh`}</title>
         <meta name="description" content={desc} />
       </Head>
       <Header />

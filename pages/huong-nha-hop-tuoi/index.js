@@ -58,6 +58,8 @@ export default function HuongNhaForm({ dictionaryPreview, guidePreview }) {
       <Head>
         <title>Hướng Nhà Hợp Tuổi — TriMenh</title>
         <meta name="description" content="Tra cứu hướng nhà hợp tuổi theo Cung Mệnh Bát Trạch (Đông Tứ Mệnh / Tây Tứ Mệnh)." />
+        <meta property="og:title" content={"Hướng Nhà Hợp Tuổi — TriMenh"} />
+        <meta property="og:description" content="Tra cứu hướng nhà hợp tuổi theo Cung Mệnh Bát Trạch (Đông Tứ Mệnh / Tây Tứ Mệnh)." />
       </Head>
       <Header />
       <main className="max-w-md mx-auto px-5 py-10 sm:py-14">

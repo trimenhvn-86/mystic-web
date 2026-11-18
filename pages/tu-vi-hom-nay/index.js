@@ -50,7 +50,7 @@ export default function TuViHomNayIndex({ dictionaryPreview, guidePreview }) {
   return (
     <>
       <Head>
-        <title>Tử Vi Hôm Nay Ngày {data.dashboard.dd} Tháng {data.dashboard.mm} Năm {data.dashboard.yyyy} ({data.dateStr}) — TriMenh</title>
+        <title>{`Tử Vi Hôm Nay Ngày ${data.dashboard.dd} Tháng ${data.dashboard.mm} Năm ${data.dashboard.yyyy} (${data.dateStr}) — TriMenh`}</title>
         <meta name="description" content={`Tử vi hôm nay ${data.dateStr}: tổng quan, chỉ số vận trình, giờ may mắn, màu sắc, tuổi hợp và vận trình đủ 12 con giáp.`} />
       </Head>
       <Header />

@@ -46,6 +46,8 @@ export default function TietKhiForm() {
       <Head>
         <title>Tra Cứu Tiết Khí — TriMenh</title>
         <meta name="description" content="Tra cứu Tiết Khí theo ngày Dương lịch. Xem 24 Tiết Khí trong năm và ý nghĩa." />
+        <meta property="og:title" content={"Tra Cứu Tiết Khí — TriMenh"} />
+        <meta property="og:description" content="Tra cứu Tiết Khí theo ngày Dương lịch. Xem 24 Tiết Khí trong năm và ý nghĩa." />
       </Head>
       <Header />
       <main className="max-w-2xl mx-auto px-5 py-10 sm:py-14">

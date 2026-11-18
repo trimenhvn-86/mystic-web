@@ -41,14 +41,16 @@ export async function getStaticProps({ params }) {
   const chi = SLUG_TO_CHI[slug];
   if (chi) {
     const preview = await getHubContentPreview('tu-vi');
-    return { props: { type: 'con-giap', chi, ...preview }, revalidate: 86400 };
+    const vn = getVietnamNow();
+    const data = getTuViThang(vn.getMonth() + 1, vn.getFullYear(), chi);
+    return { props: { type: 'con-giap', chi, initial: { data }, ...preview }, revalidate: 3600 };
   }
 
   return { notFound: true };
 }
 
 export default function TuViThangSlug(props) {
-  const [state, setState] = useState(null);
+  const [state, setState] = useState(props.initial || null);
 
   useEffect(() => {
     if (props.type !== 'con-giap') return;
@@ -61,7 +63,7 @@ export default function TuViThangSlug(props) {
     return (
       <>
         <Head>
-          <title>Tử Vi Tháng {props.mm} Năm {props.yyyy} — TriMenh</title>
+          <title>{`Tử Vi Tháng ${props.mm} Năm ${props.yyyy} — TriMenh`}</title>
           <meta name="description" content={`Tử vi tháng ${props.mm}/${props.yyyy}: tổng quan, timeline theo tuần, ngày đẹp nhất, vận trình 12 con giáp.`} />
         </Head>
         <Header />
@@ -92,6 +94,8 @@ export default function TuViThangSlug(props) {
       <Head>
         <title>{title}</title>
         <meta name="description" content={`Tử vi tuổi ${data.conGiap} tháng ${data.thang}/${data.nam}: tổng quan, công danh, tài lộc, tình duyên, màu may mắn.`} />
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={`Tử vi tuổi ${data.conGiap} tháng ${data.thang}/${data.nam}: tổng quan, công danh, tài lộc, tình duyên, màu may mắn.`} />
       </Head>
       <Header />
       <main className="max-w-xl mx-auto px-5 py-12">

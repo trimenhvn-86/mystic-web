@@ -34,7 +34,7 @@ export default function TuViThangIndex({ dictionaryPreview, guidePreview }) {
   return (
     <>
       <Head>
-        <title>Tử Vi Tháng {dashboard.mm} Năm {dashboard.yyyy} — TriMenh</title>
+        <title>{`Tử Vi Tháng ${dashboard.mm} Năm ${dashboard.yyyy} — TriMenh`}</title>
         <meta name="description" content={`Tử vi tháng ${dashboard.mm}/${dashboard.yyyy}: tổng quan, timeline theo tuần, ngày đẹp nhất, vận trình 12 con giáp.`} />
       </Head>
       <Header />

@@ -9,6 +9,8 @@ export default function ChinhSachBaoMat() {
       <Head>
         <title>Chính Sách Bảo Mật — TriMenh</title>
         <meta name="description" content="Chính sách bảo mật của TriMenh.com: cách chúng tôi thu thập, sử dụng và bảo vệ thông tin của bạn khi sử dụng website." />
+        <meta property="og:title" content={"Chính Sách Bảo Mật — TriMenh"} />
+        <meta property="og:description" content="Chính sách bảo mật của TriMenh.com: cách chúng tôi thu thập, sử dụng và bảo vệ thông tin của bạn khi sử dụng website." />
         <meta name="robots" content="noindex, follow" />
       </Head>
       <Header />

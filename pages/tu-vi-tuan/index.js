@@ -40,7 +40,7 @@ export default function TuViTuanIndex({ dictionaryPreview, guidePreview }) {
   return (
     <>
       <Head>
-        <title>Tử Vi Tuần {dashboard.week} Năm {dashboard.year} (Từ {rangeStr}) — TriMenh</title>
+        <title>{`Tử Vi Tuần ${dashboard.week} Năm ${dashboard.year} (Từ ${rangeStr}) — TriMenh`}</title>
         <meta name="description" content={`Tử vi tuần ${rangeStr}: tổng quan, chỉ số vận trình, ngày đẹp nhất, vận trình 12 con giáp.`} />
       </Head>
       <Header />

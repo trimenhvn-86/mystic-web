@@ -222,7 +222,7 @@ export default function ThanSoHoc({ dictionaryPreview, guidePreview }) {
     return (
       <>
         <Head>
-          <title>Kết quả Thần Số Học của {form.hoTen || 'bạn'} — Số Chủ Đạo {result.lifePath}</title>
+          <title>{`Kết quả Thần Số Học của ${form.hoTen || 'bạn'} — Số Chủ Đạo ${result.lifePath}`}</title>
           <meta name="description" content={summary} />
         </Head>
         <Header />
@@ -288,6 +288,8 @@ export default function ThanSoHoc({ dictionaryPreview, guidePreview }) {
       <Head>
         <title>Lập Biểu Đồ Ngày Sinh (Birth Chart) Miễn Phí — TriMenh</title>
         <meta name="description" content="Lập biểu đồ ngày sinh (Birth Chart) miễn phí: tính Số Chủ Đạo, Số Sứ Mệnh, Số Linh Hồn, Số Biểu Đạt, Số Trưởng Thành theo hệ Pythagoras." />
+        <meta property="og:title" content={"Lập Biểu Đồ Ngày Sinh (Birth Chart) Miễn Phí — TriMenh"} />
+        <meta property="og:description" content="Lập biểu đồ ngày sinh (Birth Chart) miễn phí: tính Số Chủ Đạo, Số Sứ Mệnh, Số Linh Hồn, Số Biểu Đạt, Số Trưởng Thành theo hệ Pythagoras." />
       </Head>
       <Header />
       <main className="max-w-md mx-auto px-5 py-10 sm:py-14">

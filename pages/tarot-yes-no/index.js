@@ -51,6 +51,8 @@ export default function TarotYesNo({ dictionaryPreview, guidePreview }) {
       <Head>
         <title>Tarot Yes/No — Bói Có Không — TriMenh</title>
         <meta name="description" content="Đặt câu hỏi Có/Không, rút 1 lá Tarot để nhận câu trả lời với 5 mức độ rõ ràng." />
+        <meta property="og:title" content={"Tarot Yes/No — Bói Có Không — TriMenh"} />
+        <meta property="og:description" content="Đặt câu hỏi Có/Không, rút 1 lá Tarot để nhận câu trả lời với 5 mức độ rõ ràng." />
       </Head>
       <Header />
       <main className="max-w-lg mx-auto px-5 py-8 sm:py-12">

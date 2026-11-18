@@ -96,7 +96,7 @@ export default function TietKhiResult({ dd, mm, yyyy, current, startDate, next, 
   return (
     <>
       <Head>
-        <title>{title} — TriMenh</title>
+        <title>{`${title} — TriMenh`}</title>
         <meta name="description" content={desc} />
       </Head>
       <Header />

@@ -33,7 +33,7 @@ export default function SoChiTiet({ num, info, otherNumbers, dictionaryPreview, 
   return (
     <>
       <Head>
-        <title>{info.ten} — Ý nghĩa Thần Số Học</title>
+        <title>{`${info.ten} — Ý nghĩa Thần Số Học`}</title>
         <meta name="description" content={info.tongQuan} />
       </Head>
       <Header />

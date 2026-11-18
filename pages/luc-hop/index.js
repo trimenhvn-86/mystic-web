@@ -14,6 +14,8 @@ export default function LucHop() {
       <Head>
         <title>Lục Hợp Là Gì? Bảng Tra Cứu 6 Cặp Lục Hợp Địa Chi — TriMenh</title>
         <meta name="description" content="Lục hợp là gì? Tra cứu đầy đủ 6 cặp Lục hợp Địa Chi: Tý-Sửu, Dần-Hợi, Mão-Tuất, Thìn-Dậu, Tỵ-Thân, Ngọ-Mùi." />
+        <meta property="og:title" content={"Lục Hợp Là Gì? Bảng Tra Cứu 6 Cặp Lục Hợp Địa Chi — TriMenh"} />
+        <meta property="og:description" content="Lục hợp là gì? Tra cứu đầy đủ 6 cặp Lục hợp Địa Chi: Tý-Sửu, Dần-Hợi, Mão-Tuất, Thìn-Dậu, Tỵ-Thân, Ngọ-Mùi." />
       </Head>
       <Header />
       <main className="max-w-2xl mx-auto px-5 py-8 sm:py-12">

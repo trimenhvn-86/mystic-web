@@ -17,14 +17,17 @@ const ptComponents = {
 };
 
 export async function getStaticPaths() {
-  const posts = await getGuidePosts();
+  // Nếu Sanity lỗi lúc build thì không dựng trước trang nào; fallback 'blocking' sẽ dựng khi có người truy cập.
+  let posts = [];
+  try { posts = await getGuidePosts(); } catch (e) { posts = []; }
   return { paths: posts.map((p) => ({ params: { slug: p.slug } })), fallback: 'blocking' };
 }
 
 export async function getStaticProps({ params }) {
   const post = await getGuidePostBySlug(params.slug);
+  // Sanity lỗi => getGuidePostBySlug ném lỗi => ISR giữ bản cũ. Chỉ khi Sanity trả null (không có bài) mới 404.
   if (!post) return { notFound: true, revalidate: 300 };
-  return { props: { post }, revalidate: 86400 };
+  return { props: { post }, revalidate: 3600 };
 }
 
 export default function CamNangDetail({ post }) {
@@ -36,6 +39,8 @@ export default function CamNangDetail({ post }) {
       <Head>
         <title>{seoTitle}</title>
         <meta name="description" content={seoDescription} />
+        <meta property="og:title" content={seoTitle} />
+        <meta property="og:description" content={seoDescription} />
         {post.featuredImageUrl && <meta property="og:image" content={post.featuredImageUrl} />}
       </Head>
       <Header />

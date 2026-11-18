@@ -43,7 +43,7 @@ export default function TraiBai3La({ spread, dictionaryPreview, guidePreview }) 
   return (
     <>
       <Head>
-        <title>{spread.label} — TriMenh</title>
+        <title>{`${spread.label} — TriMenh`}</title>
         <meta name="description" content={`${spread.desc} Trải bài Tarot 3 lá miễn phí, dùng đủ bộ 78 lá.`} />
       </Head>
       <Header />

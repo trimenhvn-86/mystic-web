@@ -31,7 +31,7 @@ export default function TarotCardDetail({ card, related, dictionaryPreview, guid
   return (
     <>
       <Head>
-        <title>{title} — TriMenh</title>
+        <title>{`${title} — TriMenh`}</title>
         <meta name="description" content={card.meaningUpright.slice(0, 155)} />
       </Head>
       <Header />

@@ -14,6 +14,8 @@ export default function TamHop() {
       <Head>
         <title>Tam Hợp Là Gì? Bảng Tra Cứu 4 Nhóm Tam Hợp Địa Chi — TriMenh</title>
         <meta name="description" content="Tam hợp là gì? Tra cứu đầy đủ 4 nhóm Tam hợp Địa Chi: Tý-Thìn-Thân, Sửu-Tỵ-Dậu, Dần-Ngọ-Tuất, Mão-Mùi-Hợi." />
+        <meta property="og:title" content={"Tam Hợp Là Gì? Bảng Tra Cứu 4 Nhóm Tam Hợp Địa Chi — TriMenh"} />
+        <meta property="og:description" content="Tam hợp là gì? Tra cứu đầy đủ 4 nhóm Tam hợp Địa Chi: Tý-Thìn-Thân, Sửu-Tỵ-Dậu, Dần-Ngọ-Tuất, Mão-Mùi-Hợi." />
       </Head>
       <Header />
       <main className="max-w-2xl mx-auto px-5 py-8 sm:py-12">

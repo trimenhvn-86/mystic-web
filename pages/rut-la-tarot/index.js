@@ -58,6 +58,8 @@ export default function RutLaTarot({ dictionaryPreview, guidePreview }) {
       <Head>
         <title>Rút 1 Lá Tarot — TriMenh</title>
         <meta name="description" content="Rút ngẫu nhiên 1 lá Tarot và xem thông điệp dành cho bạn ngay lúc này." />
+        <meta property="og:title" content={"Rút 1 Lá Tarot — TriMenh"} />
+        <meta property="og:description" content="Rút ngẫu nhiên 1 lá Tarot và xem thông điệp dành cho bạn ngay lúc này." />
       </Head>
       <Header />
       <main className="max-w-lg mx-auto px-5 py-8 sm:py-12">

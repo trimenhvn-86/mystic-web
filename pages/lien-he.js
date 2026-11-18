@@ -49,6 +49,8 @@ export default function LienHe() {
       <Head>
         <title>Liên hệ — TriMenh</title>
         <meta name="description" content="Liên hệ với TriMenh để hợp tác quảng cáo, góp ý nội dung hoặc báo lỗi." />
+        <meta property="og:title" content={"Liên hệ — TriMenh"} />
+        <meta property="og:description" content="Liên hệ với TriMenh để hợp tác quảng cáo, góp ý nội dung hoặc báo lỗi." />
       </Head>
       <Header />
       <main className="max-w-lg mx-auto px-5 py-10 sm:py-14">

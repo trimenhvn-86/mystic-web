@@ -56,6 +56,8 @@ export default function DaPhongThuyForm({ dictionaryPreview, guidePreview }) {
       <Head>
         <title>Đá Phong Thủy Hợp Mệnh Theo Năm Sinh — TriMenh</title>
         <meta name="description" content="Tra cứu đá phong thủy hợp mệnh theo năm sinh, dựa trên Ngũ hành Nạp âm." />
+        <meta property="og:title" content={"Đá Phong Thủy Hợp Mệnh Theo Năm Sinh — TriMenh"} />
+        <meta property="og:description" content="Tra cứu đá phong thủy hợp mệnh theo năm sinh, dựa trên Ngũ hành Nạp âm." />
       </Head>
       <Header />
       <main className="max-w-md mx-auto px-5 py-10 sm:py-14">

@@ -43,14 +43,18 @@ export async function getStaticProps({ params }) {
   const chi = SLUG_TO_CHI[slug];
   if (chi) {
     const preview = await getHubContentPreview('tu-vi');
-    return { props: { type: 'con-giap', chi, ...preview }, revalidate: 86400 };
+    // Dựng sẵn ở server theo giờ Việt Nam để HTML gốc có đủ nội dung cho Google.
+    const vn = getVietnamNow();
+    const data = getTuViTuan(vn.getDate(), vn.getMonth() + 1, vn.getFullYear(), chi);
+    const rangeStr = `${pad(data.tuNgay.dd)}/${pad(data.tuNgay.mm)} - ${pad(data.denNgay.dd)}/${pad(data.denNgay.mm)}/${data.denNgay.yyyy}`;
+    return { props: { type: 'con-giap', chi, initial: { data, rangeStr }, ...preview }, revalidate: 3600 };
   }
 
   return { notFound: true };
 }
 
 export default function TuViTuanSlug(props) {
-  const [state, setState] = useState(null);
+  const [state, setState] = useState(props.initial || null);
 
   useEffect(() => {
     if (props.type !== 'con-giap') return;
@@ -64,7 +68,7 @@ export default function TuViTuanSlug(props) {
     return (
       <>
         <Head>
-          <title>Tử Vi Tuần {props.week} Năm {props.year} (Từ {pad(props.monday.dd)}/{pad(props.monday.mm)} - {pad(props.sunday.dd)}/{pad(props.sunday.mm)}/{props.sunday.yyyy}) — TriMenh</title>
+          <title>{`Tử Vi Tuần ${props.week} Năm ${props.year} (Từ ${pad(props.monday.dd)}/${pad(props.monday.mm)} - ${pad(props.sunday.dd)}/${pad(props.sunday.mm)}/${props.sunday.yyyy}) — TriMenh`}</title>
           <meta name="description" content={`Tử vi tuần ${props.week}/${props.year}: tổng quan, chỉ số vận trình, ngày đẹp nhất, vận trình 12 con giáp.`} />
         </Head>
         <Header />
@@ -95,6 +99,8 @@ export default function TuViTuanSlug(props) {
       <Head>
         <title>{title}</title>
         <meta name="description" content={`Tử vi tuổi ${data.conGiap} tuần ${rangeStr}: tổng quan, công danh, tài lộc, tình duyên, màu may mắn.`} />
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={`Tử vi tuổi ${data.conGiap} tuần ${rangeStr}: tổng quan, công danh, tài lộc, tình duyên, màu may mắn.`} />
       </Head>
       <Header />
       <main className="max-w-xl mx-auto px-5 py-12">

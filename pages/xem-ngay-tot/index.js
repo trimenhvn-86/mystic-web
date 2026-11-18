@@ -58,6 +58,8 @@ export default function XemNgayTotForm({ dictionaryPreview, guidePreview }) {
       <Head>
         <title>Xem Ngày Tốt Xấu — Tra cứu Lịch Vạn Niên</title>
         <meta name="description" content="Tra cứu ngày Hoàng đạo, Hắc đạo, giờ tốt xấu theo ngày tháng năm sinh." />
+        <meta property="og:title" content={"Xem Ngày Tốt Xấu — Tra cứu Lịch Vạn Niên"} />
+        <meta property="og:description" content="Tra cứu ngày Hoàng đạo, Hắc đạo, giờ tốt xấu theo ngày tháng năm sinh." />
       </Head>
       <Header />
       <main className="max-w-2xl mx-auto px-5 py-10 sm:py-14">

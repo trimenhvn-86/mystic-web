@@ -107,34 +107,75 @@ async function getCmsUrls() {
     const { getDictionaryTerms, getGuidePosts } = require('../lib/sanity');
     const [terms, posts] = await Promise.all([getDictionaryTerms(), getGuidePosts()]);
     return [
-      ...terms.map((t) => `/tu-dien/${t.slug}`),
-      ...posts.map((p) => `/cam-nang/${p.slug}`)
+      ...terms.map((t) => ({ loc: `/tu-dien/${t.slug}`, lastmod: t.updatedAt })),
+      ...posts.map((p) => ({ loc: `/cam-nang/${p.slug}`, lastmod: p.updatedAt || p.publishedAt }))
     ];
   } catch (err) {
-    console.error('Không lấy được dữ liệu Sanity cho sitemap:', err.message);
+    console.error('⚠ Không lấy được dữ liệu Sanity cho sitemap (sitemap-noi-dung sẽ trống):', err.message);
     return [];
   }
 }
 
-function buildXml(urls) {
-  const items = urls
-    .map((u) => `  <url><loc>${SITE_URL}${u}</loc></url>`)
-    .join('\n');
-  return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${items}\n</urlset>\n`;
+function isoDate(d) {
+  const x = d ? new Date(d) : new Date();
+  return Number.isNaN(x.getTime()) ? new Date().toISOString().slice(0, 10) : x.toISOString().slice(0, 10);
+}
+
+function escXml(str) {
+  return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+}
+
+// items: [{ loc, lastmod? }] — loại URL trùng nhau, luôn có <lastmod>
+function buildXml(items, defaultLastmod) {
+  const seen = new Set();
+  const rows = [];
+  for (const it of items) {
+    const loc = typeof it === 'string' ? it : it.loc;
+    if (seen.has(loc)) continue;
+    seen.add(loc);
+    const lm = isoDate((typeof it === 'object' && it.lastmod) || defaultLastmod);
+    rows.push(`  <url><loc>${escXml(SITE_URL + loc)}</loc><lastmod>${lm}</lastmod></url>`);
+  }
+  return {
+    count: rows.length,
+    xml: `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${rows.join('\n')}\n</urlset>\n`
+  };
 }
 
 async function main() {
   const cmsUrls = await getCmsUrls();
-  const allUrls = [...staticUrls, ...dailyUrls, ...periodUrls, ...yearUrls, ...cmsUrls];
+  const todayIso = isoDate();
+
+  // Tách theo nhóm để theo dõi riêng trong Search Console (nhóm nào bị "đã thu thập – chưa lập chỉ mục" thì thấy ngay)
+  const groups = [
+    { file: 'sitemap-trang-chinh.xml', items: staticUrls },
+    { file: 'sitemap-theo-ngay.xml', items: [...dailyUrls, ...periodUrls] },
+    { file: 'sitemap-theo-nam-sinh.xml', items: yearUrls },
+    { file: 'sitemap-noi-dung.xml', items: cmsUrls }
+  ];
 
   const outDir = path.join(__dirname, '..', 'public');
   if (!fs.existsSync(outDir)) fs.mkdirSync(outDir, { recursive: true });
-  fs.writeFileSync(path.join(outDir, 'sitemap.xml'), buildXml(allUrls));
-  console.log(`✔ sitemap.xml đã tạo với ${allUrls.length} URL tại public/sitemap.xml`);
-  console.log(`  - Trang tĩnh: ${staticUrls.length}`);
-  console.log(`  - Tool theo ngày (60 ngày x ${DAILY_TOOLS.length} tool): ${dailyUrls.length}`);
-  console.log(`  - Trang theo năm sinh: ${yearUrls.length}`);
-  console.log(`  - Nội dung CMS (Từ điển + Cẩm nang): ${cmsUrls.length}`);
+
+  // Xóa sitemap con cũ để không còn file mồ côi
+  fs.readdirSync(outDir).filter((f) => /^sitemap-.*\.xml$/.test(f)).forEach((f) => fs.unlinkSync(path.join(outDir, f)));
+
+  const indexRows = [];
+  let total = 0;
+  for (const g of groups) {
+    const { xml, count } = buildXml(g.items, todayIso);
+    if (count === 0) continue; // không đưa sitemap rỗng vào index
+    fs.writeFileSync(path.join(outDir, g.file), xml);
+    indexRows.push(`  <sitemap><loc>${SITE_URL}/${g.file}</loc><lastmod>${todayIso}</lastmod></sitemap>`);
+    total += count;
+    console.log(`  - ${g.file}: ${count} URL`);
+  }
+  // sitemap.xml giữ nguyên địa chỉ cũ nhưng giờ là sitemap index
+  fs.writeFileSync(
+    path.join(outDir, 'sitemap.xml'),
+    `<?xml version="1.0" encoding="UTF-8"?>\n<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${indexRows.join('\n')}\n</sitemapindex>\n`
+  );
+  console.log(`✔ sitemap.xml (index) đã tạo, tổng ${total} URL, ${indexRows.length} sitemap con`);
 }
 
 main();

@@ -36,6 +36,8 @@ export default function SoSanhTuoiForm() {
       <Head>
         <title>So Sánh Tuổi Hợp — TriMenh Compatibility Score</title>
         <meta name="description" content="So sánh mức độ tương hợp giữa 2 tuổi theo Can Chi, Ngũ hành, Thiên Can — có tính điểm cụ thể." />
+        <meta property="og:title" content={"So Sánh Tuổi Hợp — TriMenh Compatibility Score"} />
+        <meta property="og:description" content="So sánh mức độ tương hợp giữa 2 tuổi theo Can Chi, Ngũ hành, Thiên Can — có tính điểm cụ thể." />
       </Head>
       <Header />
       <main className="max-w-lg mx-auto px-5 py-10 sm:py-14">

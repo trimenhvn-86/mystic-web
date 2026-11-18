@@ -55,6 +55,8 @@ export default function GioHoangDaoForm({ dictionaryPreview, guidePreview }) {
       <Head>
         <title>Xem Giờ Hoàng Đạo — TriMenh</title>
         <meta name="description" content="Tra cứu giờ Hoàng đạo tốt trong ngày để chọn thời điểm xuất hành, khai trương, ký kết." />
+        <meta property="og:title" content={"Xem Giờ Hoàng Đạo — TriMenh"} />
+        <meta property="og:description" content="Tra cứu giờ Hoàng đạo tốt trong ngày để chọn thời điểm xuất hành, khai trương, ký kết." />
       </Head>
       <Header />
       <main className="max-w-2xl mx-auto px-5 py-10 sm:py-14">

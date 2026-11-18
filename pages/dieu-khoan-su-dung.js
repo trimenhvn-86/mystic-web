@@ -9,6 +9,8 @@ export default function DieuKhoanSuDung() {
       <Head>
         <title>Điều Khoản Sử Dụng — TriMenh</title>
         <meta name="description" content="Điều khoản sử dụng website TriMenh.com — quy định về việc sử dụng nội dung, công cụ tra cứu và trách nhiệm của các bên." />
+        <meta property="og:title" content={"Điều Khoản Sử Dụng — TriMenh"} />
+        <meta property="og:description" content="Điều khoản sử dụng website TriMenh.com — quy định về việc sử dụng nội dung, công cụ tra cứu và trách nhiệm của các bên." />
         <meta name="robots" content="noindex, follow" />
       </Head>
       <Header />

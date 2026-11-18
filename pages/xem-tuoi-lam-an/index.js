@@ -43,6 +43,8 @@ export default function XemTuoiLamAnForm({ dictionaryPreview, guidePreview }) {
       <Head>
         <title>Xem Tuổi Làm Ăn — TriMenh</title>
         <meta name="description" content="Xem tuổi hợp tác làm ăn, kinh doanh có hợp nhau không theo Can Chi, Ngũ hành. Tính điểm tương hợp và lời khuyên hợp tác." />
+        <meta property="og:title" content={"Xem Tuổi Làm Ăn — TriMenh"} />
+        <meta property="og:description" content="Xem tuổi hợp tác làm ăn, kinh doanh có hợp nhau không theo Can Chi, Ngũ hành. Tính điểm tương hợp và lời khuyên hợp tác." />
       </Head>
       <Header />
       <main className="max-w-lg mx-auto px-5 py-10 sm:py-14">

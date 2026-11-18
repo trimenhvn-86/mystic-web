@@ -61,14 +61,22 @@ export async function getStaticProps({ params }) {
   const chi = SLUG_TO_CHI[slug];
   if (chi) {
     const preview = await getHubContentPreview('tu-vi');
-    return { props: { type: 'con-giap', chi, ...preview }, revalidate: 86400 };
+    // Dựng sẵn nội dung ở server theo giờ Việt Nam để HTML gốc đã có đủ title, H1 và nội dung
+    // (trước đây chỉ hiện "Đang lập vận trình..." rồi mới tính ở trình duyệt nên Google không đọc được).
+    const vn = getVietnamNow();
+    const initial = {
+      data: getTuViHomNay(vn.getDate(), vn.getMonth() + 1, vn.getFullYear(), chi),
+      dateStr: `${vn.getDate()}/${vn.getMonth() + 1}/${vn.getFullYear()}`
+    };
+    return { props: { type: 'con-giap', chi, initial, ...preview }, revalidate: 1800 };
   }
 
   return { notFound: true };
 }
 
 export default function TuViHomNaySlug(props) {
-  const [state, setState] = useState(null);
+  // Bắt đầu từ dữ liệu server dựng sẵn; trình duyệt sẽ cập nhật lại theo ngày của máy sau khi tải.
+  const [state, setState] = useState(props.initial || null);
 
   useEffect(() => {
     if (props.type !== 'con-giap') return;
@@ -82,7 +90,7 @@ export default function TuViHomNaySlug(props) {
     return (
       <>
         <Head>
-          <title>Tử Vi Hôm Nay Ngày {props.dashboard.dd} Tháng {props.dashboard.mm} Năm {props.dashboard.yyyy} ({props.dateStr}) — TriMenh</title>
+          <title>{`Tử Vi Hôm Nay Ngày ${props.dashboard.dd} Tháng ${props.dashboard.mm} Năm ${props.dashboard.yyyy} (${props.dateStr}) — TriMenh`}</title>
           <meta name="description" content={`Tử vi hôm nay ${props.dateStr}: tổng quan, chỉ số vận trình, giờ may mắn, màu sắc, tuổi hợp và vận trình đủ 12 con giáp.`} />
         </Head>
         <Header />
@@ -114,6 +122,8 @@ export default function TuViHomNaySlug(props) {
       <Head>
         <title>{title}</title>
         <meta name="description" content={`Tử vi tuổi ${data.conGiap} hôm nay ${dateStr}: công danh, tài lộc, tình duyên, màu may mắn.`} />
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={`Tử vi tuổi ${data.conGiap} hôm nay ${dateStr}: công danh, tài lộc, tình duyên, màu may mắn.`} />
       </Head>
       <Header />
       <main className="max-w-xl mx-auto px-5 py-8 sm:py-12">

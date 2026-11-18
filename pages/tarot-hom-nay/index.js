@@ -11,6 +11,7 @@ import HubContentPreview from '../../components/HubContentPreview';
 import MysticLoader from '../../components/MysticLoader';
 import { getDailyCard } from '../../lib/tarot';
 import { getHubContentPreview } from '../../lib/sanity';
+import { getVietnamNow } from '../../lib/vnDate';
 
 const SUIT_LABEL = { wands: 'Gậy', cups: 'Cốc', swords: 'Kiếm', pentacles: 'Tiền' };
 
@@ -27,11 +28,16 @@ function toRoman(num) {
 // khong qua may chu/ISR/cache nen luon dung tuyet doi ngay that cua nguoi xem.
 export async function getStaticProps() {
   const preview = await getHubContentPreview('tarot');
-  return { props: { ...preview }, revalidate: 86400 };
+  // Dựng sẵn lá bài của ngày (giờ Việt Nam) để HTML gốc có đủ tên lá, ý nghĩa cho Google;
+  // trình duyệt vẫn tính lại theo ngày của máy sau khi tải.
+  const vn = getVietnamNow();
+  const dd = vn.getDate(), mm = vn.getMonth() + 1, yyyy = vn.getFullYear();
+  const { card, upright } = getDailyCard(dd, mm, yyyy);
+  return { props: { initial: { card, upright, dateStr: `${dd}/${mm}/${yyyy}` }, ...preview }, revalidate: 1800 };
 }
 
-export default function TarotHomNay({ dictionaryPreview, guidePreview }) {
-  const [result, setResult] = useState(null);
+export default function TarotHomNay({ initial, dictionaryPreview, guidePreview }) {
+  const [result, setResult] = useState(initial || null);
   const [flipped, setFlipped] = useState(false);
 
   useEffect(() => {
@@ -74,7 +80,7 @@ export default function TarotHomNay({ dictionaryPreview, guidePreview }) {
   return (
     <>
       <Head>
-        <title>{title} — TriMenh</title>
+        <title>{`${title} — TriMenh`}</title>
         <meta name="description" content={`Tarot hôm nay ${dateStr}: lá ${card.nameVi} (${upright ? 'Xuôi' : 'Ngược'}). ${dailyMsg}`} />
       </Head>
       <Header />

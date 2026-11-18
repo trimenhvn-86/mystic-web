@@ -9,7 +9,7 @@ import { getGuidePosts, isConfigured } from '../../lib/sanity';
 
 export async function getStaticProps() {
   const posts = await getGuidePosts();
-  return { props: { posts, cmsConfigured: isConfigured }, revalidate: posts.length === 0 ? 300 : 86400 }; // rong (Sanity loi tam) -> thu lai sau 5 phut, khong cache rong 24h
+  return { props: { posts, cmsConfigured: isConfigured }, revalidate: posts.length === 0 ? 300 : 3600 };
 }
 
 export default function CamNangIndex({ posts, cmsConfigured }) {
@@ -18,6 +18,8 @@ export default function CamNangIndex({ posts, cmsConfigured }) {
       <Head>
         <title>Cẩm nang — TriMenh</title>
         <meta name="description" content="Hướng dẫn thực tế: cách xem ngày tốt, chọn màu hợp mệnh, xem giờ hoàng đạo và nhiều chủ đề huyền học khác." />
+        <meta property="og:title" content={"Cẩm nang — TriMenh"} />
+        <meta property="og:description" content="Hướng dẫn thực tế: cách xem ngày tốt, chọn màu hợp mệnh, xem giờ hoàng đạo và nhiều chủ đề huyền học khác." />
       </Head>
       <Header />
       <main className="max-w-4xl mx-auto px-5 py-8 sm:py-12">

@@ -12,6 +12,8 @@ export default function XemNgayIndex() {
       <Head>
         <title>Xem Ngày Tốt Theo Việc Cụ Thể — Khai Trương, Cưới Hỏi, Động Thổ... — TriMenh</title>
         <meta name="description" content="Xem ngày tốt theo từng việc cụ thể: khai trương, cưới hỏi, động thổ, mua xe, chuyển nhà, ký hợp đồng và nhiều việc khác." />
+        <meta property="og:title" content={"Xem Ngày Tốt Theo Việc Cụ Thể — Khai Trương, Cưới Hỏi, Động Thổ... — TriMenh"} />
+        <meta property="og:description" content="Xem ngày tốt theo từng việc cụ thể: khai trương, cưới hỏi, động thổ, mua xe, chuyển nhà, ký hợp đồng và nhiều việc khác." />
       </Head>
       <Header />
       <main className="max-w-2xl mx-auto px-5 py-8 sm:py-12">

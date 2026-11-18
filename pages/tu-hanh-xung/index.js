@@ -14,6 +14,8 @@ export default function TuHanhXung() {
       <Head>
         <title>Tứ Hành Xung Là Gì? Bảng Tra Cứu 3 Nhóm Tứ Hành Xung — TriMenh</title>
         <meta name="description" content="Tứ hành xung là gì? Tra cứu đầy đủ 3 nhóm Tứ hành xung Địa Chi: Tý-Ngọ-Mão-Dậu, Dần-Thân-Tỵ-Hợi, Thìn-Tuất-Sửu-Mùi." />
+        <meta property="og:title" content={"Tứ Hành Xung Là Gì? Bảng Tra Cứu 3 Nhóm Tứ Hành Xung — TriMenh"} />
+        <meta property="og:description" content="Tứ hành xung là gì? Tra cứu đầy đủ 3 nhóm Tứ hành xung Địa Chi: Tý-Ngọ-Mão-Dậu, Dần-Thân-Tỵ-Hợi, Thìn-Tuất-Sửu-Mùi." />
       </Head>
       <Header />
       <main className="max-w-2xl mx-auto px-5 py-8 sm:py-12">

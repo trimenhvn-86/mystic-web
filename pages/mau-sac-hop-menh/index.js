@@ -41,6 +41,8 @@ export default function MauSacHopMenhForm({ dictionaryPreview, guidePreview }) {
       <Head>
         <title>Màu Sắc Hợp Mệnh Theo Năm Sinh — TriMenh</title>
         <meta name="description" content="Tra cứu màu sắc hợp mệnh và màu nên tránh theo năm sinh, dựa trên Ngũ hành Nạp âm." />
+        <meta property="og:title" content={"Màu Sắc Hợp Mệnh Theo Năm Sinh — TriMenh"} />
+        <meta property="og:description" content="Tra cứu màu sắc hợp mệnh và màu nên tránh theo năm sinh, dựa trên Ngũ hành Nạp âm." />
       </Head>
       <Header />
       <main className="max-w-md mx-auto px-5 py-10 sm:py-14">

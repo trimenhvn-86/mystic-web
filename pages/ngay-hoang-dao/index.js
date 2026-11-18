@@ -54,6 +54,8 @@ export default function NgayHoangDaoForm({ dictionaryPreview, guidePreview }) {
       <Head>
         <title>Ngày Hoàng Đạo Hôm Nay — Tra Cứu Theo Ngày, Tháng, Năm</title>
         <meta name="description" content="Tra cứu ngày Hoàng đạo theo ngày tháng năm. Xem giờ hoàng đạo, việc nên làm, việc kiêng kỵ và luận giải chi tiết." />
+        <meta property="og:title" content={"Ngày Hoàng Đạo Hôm Nay — Tra Cứu Theo Ngày, Tháng, Năm"} />
+        <meta property="og:description" content="Tra cứu ngày Hoàng đạo theo ngày tháng năm. Xem giờ hoàng đạo, việc nên làm, việc kiêng kỵ và luận giải chi tiết." />
       </Head>
       <Header />
       <main className="max-w-2xl mx-auto px-5 py-10 sm:py-14">

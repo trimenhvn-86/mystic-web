@@ -7,6 +7,7 @@ import Breadcrumb from '../../components/Breadcrumb';
 import Footer from '../../components/Footer';
 import AdSlot from '../../components/AdSlot';
 import ArticleBody from '../../components/ArticleBody';
+import { coverFor } from '../../lib/cover';
 import HubArt from '../../components/art/HubArt';
 import SidebarTools from '../../components/SidebarTools';
 import { InlineCTA } from '../../components/PromoBanner';
@@ -26,6 +27,8 @@ export async function getStaticPaths() {
   return { paths: posts.map((p) => ({ params: { slug: p.slug } })), fallback: 'blocking' };
 }
 
+const absUrl = (u) => (u && u.startsWith('/') ? `https://trimenh.com${u}` : u);
+
 export async function getStaticProps({ params }) {
   const post = await getGuidePostBySlug(params.slug);
   // Sanity lỗi => getGuidePostBySlug ném lỗi => ISR giữ bản cũ. Chỉ khi Sanity trả null (không có bài) mới 404.
@@ -39,7 +42,7 @@ export async function getStaticProps({ params }) {
       .slice(0, 4)
       .map((p) => ({ slug: p.slug, title: p.title, excerpt: p.excerpt || '' }));
   } catch (e) { related = []; }
-  return { props: { post, related }, revalidate: 3600 };
+  return { props: { post: { ...post, featuredImageUrl: coverFor(post.slug, post.featuredImageUrl) }, related }, revalidate: 3600 };
 }
 
 export default function CamNangDetail({ post, related = [] }) {
@@ -54,7 +57,7 @@ export default function CamNangDetail({ post, related = [] }) {
     mainEntityOfPage: `https://trimenh.com/cam-nang/${post.slug}`,
     ...(post.publishedAt ? { datePublished: post.publishedAt } : {}),
     dateModified: post.updatedAt || post.publishedAt || undefined,
-    ...(post.featuredImageUrl ? { image: post.featuredImageUrl } : {}),
+    ...(post.featuredImageUrl ? { image: absUrl(post.featuredImageUrl) } : {}),
     author: { '@type': 'Organization', name: 'Ban biên soạn TriMenh', url: 'https://trimenh.com/ban-bien-soan' },
     publisher: { '@type': 'Organization', name: 'TriMenh', url: 'https://trimenh.com/' }
   };
@@ -66,7 +69,8 @@ export default function CamNangDetail({ post, related = [] }) {
         <meta name="description" content={seoDescription} />
         <meta property="og:title" content={seoTitle} />
         <meta property="og:description" content={seoDescription} />
-        {post.featuredImageUrl && <meta property="og:image" content={post.featuredImageUrl} />}
+        {post.featuredImageUrl && <meta key="og:image" property="og:image" content={absUrl(post.featuredImageUrl)} />}
+        {post.featuredImageUrl && <meta name="twitter:card" content="summary_large_image" />}
         <meta property="og:type" content="article" />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
       </Head>
@@ -90,7 +94,7 @@ export default function CamNangDetail({ post, related = [] }) {
               </div>
             )}
             {post.featuredImageUrl && (
-              <div className="relative w-full aspect-[16/9] rounded-md overflow-hidden mb-8">
+              <div className="relative w-full aspect-[1200/630] rounded-md overflow-hidden mb-8 border border-ink-line">
                 <Image
                   src={post.featuredImageUrl}
                   alt={post.featuredImageAlt || post.title}

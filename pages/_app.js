@@ -49,7 +49,7 @@ export default function App({ Component, pageProps }) {
         {homeSchema && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(homeSchema) }} />}
         <meta property="og:site_name" content="TriMenh" />
         <meta property="og:type" content="website" />
-        <meta property="og:image" content="https://trimenh.com/brand/og-image.png" />
+        <meta key="og:image" property="og:image" content="https://trimenh.com/brand/og-image.png" />
         <meta name="twitter:card" content="summary_large_image" />
         <link rel="preload" href="/fonts/be-vietnam-pro-vietnamese-700-normal.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
         <link rel="preload" href="/fonts/be-vietnam-pro-latin-700-normal.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />

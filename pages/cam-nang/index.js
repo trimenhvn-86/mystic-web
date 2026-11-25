@@ -8,9 +8,12 @@ import SidebarTools from '../../components/SidebarTools';
 import Footer from '../../components/Footer';
 import { getGuidePosts, isConfigured } from '../../lib/content';
 
+import { coverFor } from '../../lib/cover';
+
 export async function getStaticProps() {
   const posts = await getGuidePosts();
-  return { props: { posts, cmsConfigured: isConfigured }, revalidate: posts.length === 0 ? 300 : 3600 };
+  const withCover = posts.map((p) => ({ ...p, featuredImageUrl: coverFor(p.slug, p.featuredImageUrl) }));
+  return { props: { posts: withCover, cmsConfigured: isConfigured }, revalidate: posts.length === 0 ? 300 : 3600 };
 }
 
 export default function CamNangIndex({ posts, cmsConfigured }) {
@@ -36,8 +39,8 @@ export default function CamNangIndex({ posts, cmsConfigured }) {
               {posts.map((p) => (
                 <Link key={p.slug} href={`/cam-nang/${p.slug}`} className="flex gap-4 py-5 group">
                   {p.featuredImageUrl && (
-                    <div className="relative w-28 sm:w-40 aspect-[4/3] flex-shrink-0 rounded-md overflow-hidden">
-                      <Image src={p.featuredImageUrl} alt="" fill className="object-cover" sizes="160px" />
+                    <div className="relative w-28 sm:w-44 aspect-[1200/630] flex-shrink-0 rounded-md overflow-hidden border border-ink-line self-start">
+                      <Image src={p.featuredImageUrl} alt="" fill className="object-cover" sizes="176px" />
                     </div>
                   )}
                   <div className="min-w-0">

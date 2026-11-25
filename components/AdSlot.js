@@ -17,7 +17,7 @@ export default function AdSlot({ label = 'Quảng cáo', className = '', slim = 
       if (!nl) return null;
       return (
         <div className={className}>
-          <Link href="/#nhan-email" className="flex items-center gap-3 rounded-md border border-ink-line border-l-4 border-l-lich bg-ink px-4 py-3 text-sm text-parchment hover:border-parchment transition-colors">
+          <Link href="/#nhan-email" className="flex items-center gap-3 rounded-md border border-ink-line bg-ink px-4 py-3 text-sm text-parchment hover:border-parchment transition-colors">
             <Mail size={16} className="text-lich flex-shrink-0" aria-hidden="true" />
             <span className="flex-1 min-w-0"><strong className="font-semibold">{nl.title}.</strong> <span className="text-moon">Miễn phí.</span></span>
             <ArrowRight size={16} className="flex-shrink-0" aria-hidden="true" />

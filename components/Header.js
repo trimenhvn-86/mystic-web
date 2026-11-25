@@ -2,7 +2,7 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import Image from 'next/image';
-import { Menu, X, CalendarDays, Hash, Layers, Users, Sun, CircleDot, BookOpen } from 'lucide-react';
+import { Menu, X, Search, CalendarDays, Hash, Layers, Users, Sun, CircleDot, BookOpen } from 'lucide-react';
 import { HUBS } from '../content/hubs';
 
 const ICONS = { CalendarDays, Hash, Layers, Users, Sun, CircleDot };
@@ -44,7 +44,7 @@ export default function Header() {
               {item.label}
             </Link>
           ))}
-          <Link href="/#nhan-email" className="btn-gold ml-3 px-4 py-2 text-sm whitespace-nowrap">Nhận email miễn phí</Link>
+          <Link href="/tim-kiem" aria-label="Tìm kiếm" className="ml-2 w-10 h-10 flex items-center justify-center text-moon hover:text-parchment"><Search size={18} /></Link>
         </nav>
 
         <button
@@ -74,7 +74,9 @@ export default function Header() {
               </Link>
             );
           })}
-          <Link href="/#nhan-email" onClick={() => setOpen(false)} className="btn-gold my-3 px-4 py-3 text-center">Nhận email miễn phí</Link>
+          <Link href="/tim-kiem" onClick={() => setOpen(false)} className="flex items-center gap-3 py-3 text-parchment">
+            <Search size={18} className="text-lich" aria-hidden="true" /> Tìm kiếm
+          </Link>
         </nav>
       )}
     </header>

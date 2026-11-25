@@ -12,9 +12,9 @@ const PROMOS = [
     enabled: true,
     kind: 'newsletter',
     placement: ['inline', 'sidebar'],
-    title: 'Nhận lịch ngày tốt qua email',
-    text: 'Miễn phí. Mỗi tháng một email gồm ngày đẹp, ngày nên tránh và giờ Hoàng đạo. Hủy bất cứ lúc nào.',
-    button: 'Nhận miễn phí'
+    title: 'Nhận lịch ngày tốt tháng tới',
+    text: 'Mỗi tháng một email: ngày đẹp, ngày nên tránh, giờ Hoàng đạo. Hủy bất cứ lúc nào.',
+    button: 'Nhận lịch miễn phí'
   },
   {
     id: 'tra-cuu-mien-phi',

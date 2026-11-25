@@ -7,6 +7,7 @@ import Breadcrumb from '../../components/Breadcrumb';
 import Footer from '../../components/Footer';
 import AdSlot from '../../components/AdSlot';
 import ArticleBody from '../../components/ArticleBody';
+import HubArt from '../../components/art/HubArt';
 import SidebarTools from '../../components/SidebarTools';
 import { InlineCTA } from '../../components/PromoBanner';
 import { getGuidePosts, getGuidePostBySlug } from '../../lib/content';
@@ -73,13 +74,21 @@ export default function CamNangDetail({ post, related = [] }) {
       <div className="max-w-6xl mx-auto px-5 py-8 sm:py-12 grid lg:grid-cols-[minmax(0,1fr)_320px] gap-10 lg:gap-14">
         <main className="min-w-0">
           <Breadcrumb trail={[{ label: 'Cẩm nang', href: '/cam-nang' }]} current={post.title} />
-          <article className="max-w-[44rem]">
+          <article className="max-w-[38rem]">
             <h1 className="font-display font-extrabold text-3xl sm:text-4xl leading-tight text-parchment mb-4">{post.title}</h1>
-            <p className="text-sm text-moon mb-6 pb-5 border-b border-ink-line">
+            <p className="text-sm text-moon mb-6">
               Biên soạn bởi <Link href="/ban-bien-soan" className="text-parchment font-medium underline underline-offset-4 decoration-lich">Ban biên soạn TriMenh</Link>
               {post.publishedAt ? `, ${new Date(post.publishedAt).toLocaleDateString('vi-VN', { timeZone: 'Asia/Ho_Chi_Minh' })}` : ''}
               {'. '}<Link href="/phuong-phap-tinh" className="underline underline-offset-4">Phương pháp tính</Link>
             </p>
+            {post.excerpt && (
+              <p className="font-read text-[1.2rem] leading-relaxed text-parchment mb-8 pl-4 border-l-2 border-ink-line">{post.excerpt}</p>
+            )}
+            {!post.featuredImageUrl && post.hub && (
+              <div className="w-full aspect-[16/9] rounded-md overflow-hidden mb-8 border border-ink-line" aria-hidden="true">
+                <HubArt hub={post.hub} variant="cover" />
+              </div>
+            )}
             {post.featuredImageUrl && (
               <div className="relative w-full aspect-[16/9] rounded-md overflow-hidden mb-8">
                 <Image
@@ -93,7 +102,7 @@ export default function CamNangDetail({ post, related = [] }) {
               </div>
             )}
             {post.htmlContent ? (
-              <ArticleBody html={post.htmlContent} seed={post.slug} />
+              <ArticleBody html={post.htmlContent} seed={post.slug} hub={post.hub} />
             ) : post.body ? (
               <div className="cam-nang-html"><PortableText value={post.body} components={ptComponents} /></div>
             ) : (
@@ -104,11 +113,11 @@ export default function CamNangDetail({ post, related = [] }) {
             </p>
           </article>
 
-          <div className="max-w-[44rem] mt-10"><InlineCTA seed={`${post.slug}-cuoi`} /></div>
+          <div className="max-w-[38rem] mt-10"><InlineCTA seed={`${post.slug}-cuoi`} /></div>
 
           {related.length > 0 && (
-            <section className="mt-12 max-w-[44rem]">
-              <h2 className="font-display font-bold text-xl text-parchment mb-2 pb-2 border-b-2 border-parchment">Đọc tiếp</h2>
+            <section className="mt-12 max-w-[38rem]">
+              <h2 className="font-display font-bold text-xl text-parchment mb-2">Đọc tiếp</h2>
               <div className="divide-y divide-ink-line">
                 {related.map((r) => (
                   <Link key={r.slug} href={`/cam-nang/${r.slug}`} className="block py-4 group">
@@ -119,7 +128,7 @@ export default function CamNangDetail({ post, related = [] }) {
               </div>
             </section>
           )}
-          <AdSlot label="cam-nang-cuoi-bai" className="mt-8 max-w-[44rem]" />
+          <AdSlot label="cam-nang-cuoi-bai" className="mt-8 max-w-[38rem]" />
         </main>
         <SidebarTools seed={post.slug} />
       </div>

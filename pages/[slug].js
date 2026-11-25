@@ -128,13 +128,33 @@ export default function YearToolPage({ type, year, menh, tuoiHop, hub, dictionar
             <span className="text-parchment/70">{hub.name}</span>
           </div>
           <h1 className="font-display font-extrabold text-3xl sm:text-4xl leading-tight text-parchment mb-2">{hub.name}</h1>
-          <p className="text-moon/80 max-w-lg mb-10">{hub.desc}</p>
+          <p className="text-moon max-w-lg mb-8">{hub.desc}</p>
 
           {hub.slug === 'tarot' && <TarotHeroCTA />}
 
+          {hub.slug === 'lich-ngay-tot' && (
+            <section className="mb-10">
+              <MiniCalendar
+                dd={new Date().getDate()}
+                mm={new Date().getMonth() + 1}
+                yyyy={new Date().getFullYear()}
+                basePath="/xem-ngay-tot"
+                showQuality
+              />
+              <div className="mt-5">
+                <p className="text-sm font-semibold text-parchment mb-2">Chọn ngày cho việc của bạn</p>
+                <div className="flex flex-wrap gap-2">
+                  {[['cuoi-hoi', 'Cưới hỏi'], ['khai-truong', 'Khai trương'], ['dong-tho', 'Động thổ'], ['xuat-hanh', 'Xuất hành'], ['chuyen-nha', 'Chuyển nhà'], ['mua-xe', 'Mua xe']].map(([sl, lb]) => (
+                    <Link key={sl} href={`/xem-ngay/${sl}`} className="px-3.5 py-2 rounded-full border border-ink-line bg-white text-sm text-parchment hover:border-lich hover:text-lich transition-colors">{lb}</Link>
+                  ))}
+                </div>
+              </div>
+            </section>
+          )}
+
           {hub.slug !== 'than-so-hoc-hub' && hub.slug !== 'tarot' && (
             <section className="mb-10">
-              <h2 className="font-display text-xl text-parchment mb-4">Công cụ trong {hub.name}</h2>
+              <h2 className="font-display text-xl text-parchment mb-4">{hub.slug === 'lich-ngay-tot' ? 'Tám công cụ lịch' : `Công cụ trong ${hub.name}`}</h2>
               <div className="grid sm:grid-cols-2 gap-3">
                 {hub.tools.map((tool) =>
                   tool.active ? (
@@ -157,19 +177,6 @@ export default function YearToolPage({ type, year, menh, tuoiHop, hub, dictionar
             <section className="mb-10">
               <h2 className="font-display text-xl text-parchment mb-4">Công cụ trong {hub.name}</h2>
               <TarotToolGroups />
-            </section>
-          )}
-
-          {hub.slug === 'lich-ngay-tot' && (
-            <section className="mb-10">
-              <h2 className="font-display text-xl text-parchment mb-4">Lịch tháng — Hoàng đạo &amp; Hắc đạo</h2>
-              <MiniCalendar
-                dd={new Date().getDate()}
-                mm={new Date().getMonth() + 1}
-                yyyy={new Date().getFullYear()}
-                basePath="/xem-ngay-tot"
-                showQuality
-              />
             </section>
           )}
 

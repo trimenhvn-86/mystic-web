@@ -22,7 +22,7 @@ export default function PromoBanner({ placement = 'inline', seed = '', compact =
     return <NewsletterCTA title={promo.title} text={promo.text} button={promo.button} source={`${placement}-${promo.id}`} compact={compact} />;
   }
   return (
-    <aside className="mystic-card border-l-4 border-l-lich p-5 flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-5">
+    <aside className="mystic-card p-5 flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-5">
       <div className="flex-1 min-w-0">
         <p className="font-display font-bold text-parchment leading-snug">{promo.title}</p>
         <p className="text-sm text-moon mt-1">{promo.text}</p>
@@ -39,10 +39,6 @@ export default function PromoBanner({ placement = 'inline', seed = '', compact =
  * nên trong bài chỉ hiện khung email trên điện thoại, còn máy tính hiện banner dẫn về công cụ.
  */
 export function InlineCTA({ seed }) {
-  return (
-    <>
-      <div className="lg:hidden"><PromoBanner placement="inline" seed={seed} kind="newsletter" /></div>
-      <div className="hidden lg:block"><PromoBanner placement="inline" seed={seed} kind="link" /></div>
-    </>
-  );
+  // Chỉ điện thoại: máy tính đã có khung email ở cột phải.
+  return <div className="lg:hidden"><PromoBanner placement="inline" seed={seed} kind="newsletter" /></div>;
 }

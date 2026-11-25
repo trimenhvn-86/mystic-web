@@ -7,7 +7,7 @@ const KEY = process.env.NEXT_PUBLIC_WEB3FORMS_KEY || 'YOUR_WEB3FORMS_ACCESS_KEY'
  * Khung nhận email. Gửi qua Web3Forms (cùng khóa với trang Liên hệ): mỗi lần đăng ký,
  * chủ site nhận một email "Đăng ký nhận tin" kèm địa chỉ người đăng ký.
  */
-export default function NewsletterCTA({ title, text, button = 'Nhận miễn phí', source = 'bai-viet', compact = false }) {
+export default function NewsletterCTA({ title, text, button = 'Nhận lịch miễn phí', source = 'bai-viet', compact = false }) {
   const [email, setEmail] = useState('');
   const [status, setStatus] = useState('idle'); // idle | sending | ok | error
 

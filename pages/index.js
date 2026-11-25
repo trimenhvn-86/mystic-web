@@ -1,13 +1,14 @@
-import { useState } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import HeroLookup from '../components/HeroLookup';
+import HubArt from '../components/art/HubArt';
+import ZodiacStamp from '../components/art/ZodiacStamp';
 import NewsletterCTA from '../components/NewsletterCTA';
 import FaqSection from '../components/FaqSection';
 import {
-  CalendarDays, Sparkles, Clock3, Hash, Dices, Users, Sun, Search as SearchIcon,
+  CalendarDays, Sparkles, Clock3, Hash, Dices, Users, Sun,
   Layers, CircleDot, BookOpen, ArrowRight
 } from 'lucide-react';
 import { HUBS } from '../content/hubs';
@@ -55,35 +56,12 @@ export async function getStaticProps() {
     props: {
       today: { dd, mm, yyyy, lunar, canChiNam, canChiNgay, isGoodDay: activities.isGoodDay, rating, gioHoangDao },
       dailyCard, dailyCardUpright, napAmNgay,
-      dictionaryTerms: dictionaryTerms.slice(0, 6),
-      guidePosts: guidePosts.slice(0, 6)
+      dictionaryTerms: dictionaryTerms.slice(0, 8).map((t) => ({ slug: t.slug, title: t.title })),
+      todayIso: `${yyyy}-${pad(mm)}-${pad(dd)}`,
+      guidePosts: guidePosts.slice(0, 4).map((p) => ({ slug: p.slug, title: p.title, excerpt: p.excerpt || '', hub: p.hub || '' }))
     },
     revalidate: 86400
   };
-}
-
-function HeroSearch() {
-  const router = useRouter();
-  const [q, setQ] = useState('');
-  function handleSubmit(e) {
-    e.preventDefault();
-    router.push(`/tim-kiem${q.trim() ? `?q=${encodeURIComponent(q.trim())}` : ''}`);
-  }
-  return (
-    <form onSubmit={handleSubmit} className="relative max-w-lg mb-6" role="search">
-      <label htmlFor="hero-q" className="sr-only">Tìm công cụ, thuật ngữ, bài viết</label>
-      <SearchIcon size={18} className="absolute left-4 top-1/2 -translate-y-1/2 text-moon" aria-hidden="true" />
-      <input
-        id="hero-q"
-        type="text"
-        value={q}
-        onChange={(e) => setQ(e.target.value)}
-        placeholder="Tìm công cụ, thuật ngữ, bài viết"
-        className="w-full bg-white border border-parchment rounded-md pl-11 pr-24 py-3.5 text-parchment text-base placeholder:text-moon/60"
-      />
-      <button type="submit" className="btn-gold absolute right-1.5 top-1.5 bottom-1.5 px-5 text-sm">Tìm</button>
-    </form>
-  );
 }
 
 const THU = ['Chủ nhật', 'Thứ hai', 'Thứ ba', 'Thứ tư', 'Thứ năm', 'Thứ sáu', 'Thứ bảy'];
@@ -117,11 +95,11 @@ function TodayLeaf({ today, slug }) {
   );
 }
 
-export default function Home({ today, dailyCard, dailyCardUpright, napAmNgay, dictionaryTerms, guidePosts }) {
+export default function Home({ today, todayIso, dailyCard, dailyCardUpright, napAmNgay, dictionaryTerms, guidePosts }) {
   const todaySlug = `ngay-${pad(today.dd)}-thang-${pad(today.mm)}-nam-${today.yyyy}`;
-  const currentYear = new Date().getFullYear();
-  const years = Array.from({ length: currentYear - 1990 + 1 }, (_, i) => currentYear - i).slice(0, 20);
+  const years = Array.from({ length: 12 }, (_, i) => today.yyyy - 18 - i * 3);
   const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 22, 33];
+  const hubArtKey = (slug) => (slug === 'than-so-hoc-hub' ? 'than-so-hoc' : slug);
 
   return (
     <>
@@ -134,29 +112,21 @@ export default function Home({ today, dailyCard, dailyCardUpright, napAmNgay, di
       </Head>
       <Header />
       <main>
-        {/* HERO: bên trái là lời mời tra cứu, bên phải là tờ lịch hôm nay */}
+        {/* ĐẦU TRANG: tra cứu ngay + tờ lịch hôm nay */}
         <section className="border-b border-ink-line">
-          <div className="max-w-6xl mx-auto px-5 py-12 sm:py-16 grid md:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)] gap-10 md:gap-14 items-center">
+          <div className="max-w-6xl mx-auto px-5 py-10 sm:py-14 grid md:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] gap-8 md:gap-12 items-start">
             <div>
-              <h1 className="font-display font-extrabold text-4xl sm:text-5xl lg:text-[3.4rem] text-parchment leading-[1.1] mb-4">
-                Xem ngày, tra mệnh, hiểu mình hơn mỗi ngày
+              <h1 className="font-display font-extrabold text-[2rem] sm:text-5xl text-parchment leading-[1.12] mb-3">
+                Xem ngày, tra mệnh,<br className="hidden sm:block" /> hiểu mình hơn<br className="hidden sm:block" /> mỗi ngày
               </h1>
-              <p className="text-lg text-moon max-w-lg mb-7 leading-relaxed">
-                Công cụ huyền học cho người Việt, miễn phí và có giải thích cách tính. Chọn một việc để bắt đầu.
-              </p>
-              <HeroSearch />
-              <div className="flex flex-wrap gap-2.5">
-                <Link href="/xem-ngay-tot" className="btn-line px-4 py-2 text-sm">Xem ngày tốt</Link>
-                <Link href="/doi-lich-am-duong" className="btn-line px-4 py-2 text-sm">Đổi lịch âm dương</Link>
-                <Link href="/menh-ngu-hanh" className="btn-line px-4 py-2 text-sm">Tra mệnh</Link>
-                <Link href="/than-so-hoc" className="btn-line px-4 py-2 text-sm">Thần số học</Link>
-              </div>
+              <p className="text-lg text-moon mb-6">Miễn phí, có giải thích cách tính.</p>
+              <HeroLookup todayIso={todayIso} defaultYear={today.yyyy - 30} />
             </div>
             <TodayLeaf today={today} slug={todaySlug} />
           </div>
         </section>
 
-        {/* Các mục xem nhanh trong ngày */}
+        {/* Thông tin trong ngày */}
         <section className="max-w-6xl mx-auto px-5 py-10">
           <h2 className="font-display font-bold text-2xl text-parchment mb-5">Hôm nay, {today.dd}/{today.mm}/{today.yyyy}</h2>
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
@@ -170,146 +140,128 @@ export default function Home({ today, dailyCard, dailyCardUpright, napAmNgay, di
               <p className="text-parchment font-display font-bold text-lg">12 con giáp</p>
               <p className="text-xs text-moon">Xem vận trình</p>
             </Link>
-            <Link href="/con-so-may-man" className="mystic-card p-4 hover:border-parchment transition-colors">
-              <p className="text-sm text-moon mb-1">Con số may mắn</p>
-              <p className="text-parchment font-display font-bold text-lg">Của bạn</p>
-              <p className="text-xs text-moon">Nhập ngày sinh</p>
-            </Link>
             <div className="mystic-card p-4">
-              <p className="text-sm text-moon mb-1">Màu may mắn hôm nay</p>
+              <p className="text-sm text-moon mb-1">Màu hợp hôm nay</p>
               <p className="text-parchment font-display font-bold text-lg">{napAmNgay?.mauHop?.[0] || '—'}</p>
               <p className="text-xs text-moon">Hành {napAmNgay?.hanh}</p>
             </div>
+            <Link href="/con-so-may-man" className="mystic-card p-4 hover:border-lich border-lich/50 transition-colors flex flex-col justify-between">
+              <p className="text-sm text-moon mb-1">Con số may mắn của bạn</p>
+              <p className="text-lich font-display font-bold text-lg inline-flex items-center gap-1.5">Nhập ngày sinh để xem <ArrowRight size={16} aria-hidden="true" /></p>
+            </Link>
           </div>
         </section>
 
-        {/* Công cụ phổ biến */}
+        {/* Sáu chuyên mục, có tranh */}
         <section className="max-w-6xl mx-auto px-5 pb-12">
-          <h2 className="font-display font-bold text-2xl text-parchment mb-5">Công cụ phổ biến</h2>
-          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
-            {POPULAR_TOOLS.map((tool) => {
-              const Icon = tool.icon;
-              return (
-                <Link key={tool.href} href={tool.href} className="mystic-card p-5 flex items-center gap-3 hover:border-parchment transition-colors">
-                  <Icon size={22} className="text-lich flex-shrink-0" aria-hidden="true" />
-                  <span className="text-parchment font-medium">{tool.title}</span>
-                </Link>
-              );
-            })}
-          </div>
-        </section>
-
-        {/* Nhận email miễn phí */}
-        <section id="nhan-email" className="bg-ink-soft border-y border-ink-line scroll-mt-24">
-          <div className="max-w-6xl mx-auto px-5 py-12 grid md:grid-cols-2 gap-8 items-center">
-            <div>
-              <h2 className="font-display font-extrabold text-3xl text-parchment mb-3">Nhận ngày tốt mỗi tháng, ngay trong hộp thư</h2>
-              <p className="text-moon leading-relaxed">Dịch vụ email miễn phí của TriMenh. Chúng tôi chỉ gửi nội dung bạn đã đăng ký, và bạn hủy được bất cứ lúc nào.</p>
-            </div>
-            <NewsletterCTA title="Đăng ký bằng email" text="Điền email, bạn sẽ nhận lịch ngày tốt của tháng kế tiếp." source="trang-chu" />
-          </div>
-        </section>
-
-        {/* 6 hub */}
-        <section className="max-w-6xl mx-auto px-5 py-12">
           <h2 className="font-display font-bold text-2xl text-parchment mb-5">Sáu chuyên mục</h2>
-          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-x-8 border-t-2 border-parchment">
-            {HUBS.map((h) => {
-              const Icon = HUB_ICONS[h.icon] || Layers;
-              return (
-                <Link key={h.slug} href={`/${h.slug}`} className="py-5 border-b border-ink-line group flex gap-3">
-                  <Icon size={22} className="text-lich flex-shrink-0 mt-0.5" aria-hidden="true" />
-                  <div>
-                    <h3 className="font-display font-bold text-lg text-parchment group-hover:text-lich transition-colors">{h.name}</h3>
-                    <p className="text-sm text-moon mt-0.5">{h.desc}</p>
-                  </div>
-                </Link>
-              );
-            })}
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4">
+            {HUBS.map((h) => (
+              <Link key={h.slug} href={`/${h.slug}`} className="mystic-card overflow-hidden group hover:border-parchment transition-colors">
+                <div className="aspect-[16/7] overflow-hidden border-b border-ink-line" aria-hidden="true"><HubArt hub={hubArtKey(h.slug)} variant="cover" /></div>
+                <div className="p-4">
+                  <h3 className="font-display font-bold text-lg text-parchment group-hover:text-lich transition-colors">{h.name}</h3>
+                  <p className="hidden sm:block text-sm text-moon mt-1 line-clamp-2">{h.desc}</p>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </section>
+
+        {/* Cẩm nang nổi bật */}
+        <section className="max-w-6xl mx-auto px-5 pb-12">
+          <div className="flex items-baseline justify-between mb-5">
+            <h2 className="font-display font-bold text-2xl text-parchment">Cẩm nang nổi bật</h2>
+            <Link href="/cam-nang" className="text-sm text-lich font-medium hover:underline">Xem tất cả</Link>
+          </div>
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
+            {guidePosts.map((p) => (
+              <Link key={p.slug} href={`/cam-nang/${p.slug}`} className="mystic-card overflow-hidden group hover:border-parchment transition-colors">
+                <div className="aspect-[16/9] overflow-hidden border-b border-ink-line" aria-hidden="true"><HubArt hub={p.hub || 'lich-ngay-tot'} variant="cover" /></div>
+                <p className="p-3 sm:p-4 text-sm sm:text-base font-display font-semibold text-parchment leading-snug group-hover:text-lich transition-colors">{p.title}</p>
+              </Link>
+            ))}
           </div>
         </section>
 
         {/* Tra cứu nhanh */}
         <section className="max-w-6xl mx-auto px-5 pb-12">
           <h2 className="font-display font-bold text-2xl text-parchment mb-5">Tra cứu nhanh</h2>
-          <div className="space-y-6">
+          <div className="space-y-7">
             <div>
-              <p className="text-sm font-semibold text-parchment mb-2">Theo năm sinh, xem mệnh</p>
+              <p className="text-sm font-semibold text-parchment mb-2">Xem mệnh theo năm sinh</p>
               <div className="flex flex-wrap gap-2">
                 {years.map((y) => (
-                  <Link key={y} href={`/${y}-menh-gi`} className="px-3 py-1.5 rounded border border-ink-line bg-white text-sm text-parchment hover:border-lich hover:text-lich transition-colors">{y}</Link>
+                  <Link key={y} href={`/${y}-menh-gi`} className="min-w-[4.25rem] min-h-[2.75rem] flex items-center justify-center px-3 rounded border border-ink-line bg-white text-sm text-parchment hover:border-lich hover:text-lich transition-colors">{y}</Link>
                 ))}
               </div>
             </div>
             <div>
-              <p className="text-sm font-semibold text-parchment mb-2">Theo số chủ đạo</p>
+              <p className="text-sm font-semibold text-parchment mb-2">Số chủ đạo</p>
               <div className="flex flex-wrap gap-2">
                 {numbers.map((n) => (
-                  <Link key={n} href={`/than-so-hoc/so-chu-dao-${n}`} className="w-10 h-10 rounded border border-ink-line bg-white flex items-center justify-center text-sm text-parchment hover:border-lich hover:text-lich transition-colors">{n}</Link>
+                  <Link key={n} href={`/than-so-hoc/so-chu-dao-${n}`} className="w-11 h-11 rounded border border-ink-line bg-white flex items-center justify-center text-sm text-parchment hover:border-lich hover:text-lich transition-colors">{n}</Link>
                 ))}
               </div>
             </div>
             <div>
-              <p className="text-sm font-semibold text-parchment mb-2">Theo con giáp, tử vi hôm nay</p>
+              <p className="text-sm font-semibold text-parchment mb-3">Tử vi hôm nay theo con giáp</p>
+              <div className="grid grid-cols-4 sm:grid-cols-6 lg:grid-cols-12 gap-y-4 gap-x-2">
+                {CHI.map((chi) => <ZodiacStamp key={chi} chi={chi} href={`/tu-vi-hom-nay/${CHI_SLUG[chi]}`} />)}
+              </div>
+            </div>
+            <div>
+              <div className="flex items-baseline justify-between mb-2">
+                <p className="text-sm font-semibold text-parchment">Từ điển huyền học</p>
+                <Link href="/tu-dien" className="text-sm text-lich font-medium hover:underline">Xem tất cả</Link>
+              </div>
               <div className="flex flex-wrap gap-2">
-                {CHI.map((chi) => (
-                  <Link key={chi} href={`/tu-vi-hom-nay/${CHI_SLUG[chi]}`} className="px-3 py-1.5 rounded border border-ink-line bg-white text-sm text-parchment hover:border-lich hover:text-lich transition-colors">{chi}</Link>
+                {dictionaryTerms.map((t) => (
+                  <Link key={t.slug} href={`/tu-dien/${t.slug}`} className="px-3 py-2 rounded border border-ink-line bg-white text-sm text-parchment hover:border-lich hover:text-lich transition-colors">{t.title}</Link>
                 ))}
               </div>
             </div>
           </div>
         </section>
 
-        {/* Cẩm nang và từ điển */}
-        <section className="max-w-6xl mx-auto px-5 pb-12 grid md:grid-cols-2 gap-10">
-          <div>
-            <div className="flex items-baseline justify-between mb-3 pb-2 border-b-2 border-parchment">
-              <h2 className="font-display font-bold text-2xl text-parchment">Cẩm nang</h2>
-              <Link href="/cam-nang" className="text-sm text-lich font-medium hover:underline">Xem tất cả</Link>
-            </div>
-            <div className="divide-y divide-ink-line">
-              {guidePosts.map((p) => (
-                <Link key={p.slug} href={`/cam-nang/${p.slug}`} className="block py-3.5 group">
-                  <p className="font-display font-semibold text-parchment group-hover:text-lich transition-colors">{p.title}</p>
-                  <p className="text-sm text-moon line-clamp-1">{p.excerpt}</p>
-                </Link>
+        {/* Vì sao dùng TriMenh: bốn ô ngắn */}
+        <section className="bg-ink-soft border-y border-ink-line">
+          <div className="max-w-6xl mx-auto px-5 py-12">
+            <h2 className="font-display font-bold text-2xl text-parchment mb-6">Vì sao dùng TriMenh</h2>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+              {[
+                [Sparkles, 'Miễn phí', 'Tra cứu không cần đăng ký.'],
+                [BookOpen, 'Có giải thích cách tính', 'Bạn tự kiểm tra được kết quả.'],
+                [CalendarDays, 'Cập nhật theo ngày', 'Lịch, tử vi và tarot đổi mỗi ngày.'],
+                [Users, 'Do ban biên soạn viết', 'Có tên người biên soạn và nguồn.']
+              ].map(([Icon, t, d]) => (
+                <div key={t} className="mystic-card p-5">
+                  <Icon size={22} className="text-lich mb-3" aria-hidden="true" />
+                  <p className="font-display font-bold text-parchment">{t}</p>
+                  <p className="text-sm text-moon mt-1">{d}</p>
+                </div>
               ))}
             </div>
-          </div>
-          <div>
-            <div className="flex items-baseline justify-between mb-3 pb-2 border-b-2 border-parchment">
-              <h2 className="font-display font-bold text-2xl text-parchment">Từ điển huyền học</h2>
-              <Link href="/tu-dien" className="text-sm text-lich font-medium hover:underline">Xem tất cả</Link>
-            </div>
-            <div className="divide-y divide-ink-line">
-              {dictionaryTerms.map((t) => (
-                <Link key={t.slug} href={`/tu-dien/${t.slug}`} className="block py-3.5 group">
-                  <p className="font-display font-semibold text-parchment group-hover:text-lich transition-colors">{t.title}</p>
-                  <p className="text-sm text-moon line-clamp-1">{t.shortDefinition}</p>
-                </Link>
-              ))}
-            </div>
+            <p className="mt-5 text-sm">
+              <Link href="/gioi-thieu" className="text-lich font-medium hover:underline mr-5">Giới thiệu</Link>
+              <Link href="/ban-bien-soan" className="text-lich font-medium hover:underline mr-5">Ban biên soạn</Link>
+              <Link href="/phuong-phap-tinh" className="text-lich font-medium hover:underline">Phương pháp tính</Link>
+            </p>
           </div>
         </section>
 
-        {/* Giới thiệu và câu hỏi thường gặp: cùng khung rộng với các mục trên */}
-        <div className="max-w-6xl mx-auto px-5"><div className="border-t border-ink-line" /></div>
-        <section className="max-w-6xl mx-auto px-5 pt-12 pb-10 grid md:grid-cols-2 gap-10 md:gap-14">
-          <div>
-            <h2 className="font-display font-bold text-2xl text-parchment mb-3 pb-2 border-b-2 border-parchment">Về TriMenh</h2>
-            <p className="text-parchment/85 leading-relaxed mb-4 font-read text-lg">
-              TriMenh là nền tảng tra cứu và khám phá bản thân dành cho người Việt, kết hợp thần số học, tử vi, phong thủy,
-              lịch âm dương, ngũ hành, tarot và cung hoàng đạo. Mỗi kết quả đều có phần giải thích cách tính để bạn tự kiểm tra.
-            </p>
-            <div className="flex flex-wrap gap-x-5 gap-y-2 text-sm">
-              <Link href="/gioi-thieu" className="text-lich font-medium hover:underline">Giới thiệu</Link>
-              <Link href="/ban-bien-soan" className="text-lich font-medium hover:underline">Ban biên soạn</Link>
-              <Link href="/phuong-phap-tinh" className="text-lich font-medium hover:underline">Phương pháp tính</Link>
-              <Link href="/lien-he" className="text-lich font-medium hover:underline">Liên hệ</Link>
+        <section className="max-w-3xl mx-auto px-5 py-12">
+          <FaqSection faqs={FAQ_HOMEPAGE} title="Câu hỏi thường gặp" />
+        </section>
+
+        {/* Email: một khối chính, sau khi đã có giá trị */}
+        <section id="nhan-email" className="border-t border-ink-line scroll-mt-24">
+          <div className="max-w-6xl mx-auto px-5 py-12 grid md:grid-cols-2 gap-8 items-center">
+            <div>
+              <h2 className="font-display font-extrabold text-3xl text-parchment mb-3">Nhận lịch ngày tốt tháng tới</h2>
+              <p className="text-moon leading-relaxed">Mỗi tháng một email miễn phí. Chỉ gửi nội dung bạn đã đăng ký, hủy được bất cứ lúc nào.</p>
             </div>
-          </div>
-          <div>
-            <FaqSection faqs={FAQ_HOMEPAGE} title="Câu hỏi thường gặp" />
+            <NewsletterCTA title="Đăng ký bằng email" text="Điền email, bạn sẽ nhận lịch ngày tốt của tháng kế tiếp." source="trang-chu" />
           </div>
         </section>
       </main>

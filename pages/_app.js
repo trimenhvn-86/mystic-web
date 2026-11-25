@@ -51,27 +51,9 @@ export default function App({ Component, pageProps }) {
         <meta property="og:type" content="website" />
         <meta property="og:image" content="https://trimenh.com/brand/og-image.png" />
         <meta name="twitter:card" content="summary_large_image" />
-        {/* Hai yêu cầu font tách riêng: nếu một cái lỗi thì cái còn lại vẫn nạp được */}
-        <link
-          rel="preload"
-          href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap"
-          as="style"
-          onLoad={(e) => {
-            e.currentTarget.rel = 'stylesheet';
-          }}
-        />
-        <link
-          rel="preload"
-          href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&display=swap"
-          as="style"
-          onLoad={(e) => {
-            e.currentTarget.rel = 'stylesheet';
-          }}
-        />
-        <noscript>
-          <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" />
-          <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&display=swap" />
-        </noscript>
+        <link rel="preload" href="/fonts/be-vietnam-pro-vietnamese-700-normal.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+        <link rel="preload" href="/fonts/be-vietnam-pro-latin-700-normal.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+        <link rel="preload" href="/fonts/be-vietnam-pro-latin-400-normal.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
       </Head>
       <Component {...pageProps} />
     </>

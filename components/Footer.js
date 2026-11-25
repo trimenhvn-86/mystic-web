@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { Facebook, Youtube } from 'lucide-react';
 import { HUBS } from '../content/hubs';
 import TikTokIcon from './TikTokIcon';
@@ -16,8 +17,9 @@ export default function Footer() {
         {/* Brand + social */}
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-8">
           <div>
-            <p className="text-parchment font-display font-extrabold text-xl tracking-tight">Tri<span className="text-lich">Menh</span></p>
-            <p className="text-moon text-sm">Khám phá vận mệnh, kiến tạo tương lai. Cập nhật ngày tốt và vận trình mỗi ngày qua Fanpage, YouTube, TikTok.</p>
+            <Link href="/" aria-label="TriMenh, về trang chủ" className="inline-flex w-14 h-14 rounded-md bg-parchment items-center justify-center">
+              <Image src="/brand/trimenh-logo.png" alt="TriMenh" width={44} height={44} className="w-11 h-11" />
+            </Link>
           </div>
           <div className="flex gap-3">
             {SOCIALS.map((s) => {

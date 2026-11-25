@@ -10,9 +10,9 @@ const SOCIALS = [
   { href: '#', label: 'TikTok', icon: TikTokIcon }
 ];
 
-export default function Footer() {
+export default function Footer({ noTopMargin = false }) {
   return (
-    <footer className="mt-16 bg-ink-soft border-t-4 border-parchment">
+    <footer className={`${noTopMargin ? '' : 'mt-16 '}bg-ink-soft ${noTopMargin ? 'border-t border-ink-line' : 'border-t-4 border-parchment'}`}>
       <div className="max-w-6xl mx-auto px-5 py-10">
         {/* Brand + social */}
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-8">

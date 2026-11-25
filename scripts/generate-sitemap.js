@@ -68,10 +68,11 @@ const staticUrls = [
 
 // Cac tool theo ngay - sinh cho 60 ngay toi (ISR fallback:'blocking' se tu render neu Google
 // crawl ngay ngoai pham vi nay, nhung dua vao sitemap giup Google uu tien crawl truoc)
-const DAILY_TOOLS = ['xem-ngay-tot', 'doi-lich-am-duong', 'gio-hoang-dao', 'ngay-hoang-dao', 'ngay-hac-dao', 'can-chi', 'tiet-khi', 'tu-vi-hom-nay'];
+// ngay-hoang-dao, ngay-hac-dao, can-chi, tiet-khi theo ngày: noindex (trùng nội dung) => không đưa vào sitemap
+const DAILY_TOOLS = ['xem-ngay-tot', 'doi-lich-am-duong', 'gio-hoang-dao', 'tu-vi-hom-nay'];
 const dailyUrls = [];
 const today = new Date();
-for (let i = -7; i <= 60; i++) {
+for (let i = -7; i <= 60; i++) { // chỉ khoảng gần; noindex ngoài -3/+12 tháng đã xử lý ở trang
   const d = new Date(today);
   d.setDate(d.getDate() + i);
   const slug = `ngay-${pad(d.getDate())}-thang-${pad(d.getMonth() + 1)}-nam-${d.getFullYear()}`;
@@ -104,7 +105,7 @@ for (let y = 1940; y <= currentYear; y++) {
 
 async function getCmsUrls() {
   try {
-    const { getDictionaryTerms, getGuidePosts } = require('../lib/sanity');
+    const { getDictionaryTerms, getGuidePosts } = require('../lib/content');
     const [terms, posts] = await Promise.all([getDictionaryTerms(), getGuidePosts()]);
     return [
       ...terms.map((t) => ({ loc: `/tu-dien/${t.slug}`, lastmod: t.updatedAt })),

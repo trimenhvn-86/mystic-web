@@ -8,7 +8,7 @@ import AdSlot from '../../components/AdSlot';
 import FaqSection from '../../components/FaqSection';
 import HubContentPreview from '../../components/HubContentPreview';
 import dictionary from '../../content/numerology/life-path.json';
-import { getHubContentPreview } from '../../lib/sanity';
+import { getHubContentPreview } from '../../lib/content';
 import { FAQ_SO_CHU_DAO } from '../../content/faq-data';
 
 const CORE_NUMBERS = [1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 22, 33];

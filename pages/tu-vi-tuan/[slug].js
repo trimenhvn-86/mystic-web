@@ -14,7 +14,7 @@ import { SLUG_TO_CHI, CHI_SLUG } from '../../lib/chiSlug';
 import ConGiapLinks from '../../components/ConGiapLinks';
 import FaqSection from '../../components/FaqSection';
 import HubContentPreview from '../../components/HubContentPreview';
-import { getHubContentPreview } from '../../lib/sanity';
+import { getHubContentPreview } from '../../lib/content';
 import { getVietnamNow } from '../../lib/vnDate';
 import { FAQ_TU_VI_TUAN } from '../../content/faq-data';
 

@@ -7,7 +7,7 @@ import Header from '../../components/Header';
 import Breadcrumb from '../../components/Breadcrumb';
 import Footer from '../../components/Footer';
 import AdSlot from '../../components/AdSlot';
-import { getGuidePosts, getGuidePostBySlug } from '../../lib/sanity';
+import { getGuidePosts, getGuidePostBySlug } from '../../lib/content';
 
 const ptComponents = {
   block: {
@@ -33,6 +33,19 @@ export async function getStaticProps({ params }) {
 export default function CamNangDetail({ post }) {
   const seoTitle = post.seoTitle || `${post.title} — Cẩm nang TriMenh`;
   const seoDescription = post.seoDescription || post.excerpt;
+  const articleSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: post.title,
+    description: seoDescription,
+    inLanguage: 'vi-VN',
+    mainEntityOfPage: `https://www.trimenh.com/cam-nang/${post.slug}`,
+    ...(post.publishedAt ? { datePublished: post.publishedAt } : {}),
+    dateModified: post.updatedAt || post.publishedAt || undefined,
+    ...(post.featuredImageUrl ? { image: post.featuredImageUrl } : {}),
+    author: { '@type': 'Organization', name: 'Ban biên soạn TriMenh', url: 'https://www.trimenh.com/ban-bien-soan' },
+    publisher: { '@type': 'Organization', name: 'TriMenh', url: 'https://www.trimenh.com/' }
+  };
 
   return (
     <>
@@ -42,6 +55,8 @@ export default function CamNangDetail({ post }) {
         <meta property="og:title" content={seoTitle} />
         <meta property="og:description" content={seoDescription} />
         {post.featuredImageUrl && <meta property="og:image" content={post.featuredImageUrl} />}
+        <meta property="og:type" content="article" />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
       </Head>
       <Header />
       <main className="max-w-2xl mx-auto px-5 py-8 sm:py-12">
@@ -63,6 +78,11 @@ export default function CamNangDetail({ post }) {
         )}
         <Breadcrumb trail={[{ label: 'Cẩm nang', href: '/cam-nang' }]} current={post.title} />
         <h1 className="font-display text-2xl sm:text-3xl text-parchment mb-6 text-center">{post.title}</h1>
+        <p className="text-center text-xs text-moon -mt-3 mb-5">
+          Biên soạn bởi <Link href="/ban-bien-soan" className="text-gold-soft hover:underline">Ban biên soạn TriMenh</Link>
+          {post.publishedAt ? ` · ${new Date(post.publishedAt).toLocaleDateString('vi-VN', { timeZone: 'Asia/Ho_Chi_Minh' })}` : ''}
+          {' · '}<Link href="/phuong-phap-tinh" className="hover:underline">Phương pháp tính</Link>
+        </p>
         <div className="mystic-card p-6">
           {post.htmlContent ? (
             // eslint-disable-next-line react/no-danger

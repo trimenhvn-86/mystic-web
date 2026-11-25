@@ -6,7 +6,7 @@ import Footer from '../../components/Footer';
 import TuViMonthDashboard from '../../components/TuViMonthDashboard';
 import MysticLoader from '../../components/MysticLoader';
 import { buildMonthDashboard } from '../../lib/tuViDashboard';
-import { getHubContentPreview } from '../../lib/sanity';
+import { getHubContentPreview } from '../../lib/content';
 
 export async function getStaticProps() {
   const preview = await getHubContentPreview('tu-vi');

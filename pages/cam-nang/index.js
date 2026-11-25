@@ -5,7 +5,7 @@ import { BookOpen } from 'lucide-react';
 import Header from '../../components/Header';
 import Breadcrumb from '../../components/Breadcrumb';
 import Footer from '../../components/Footer';
-import { getGuidePosts, isConfigured } from '../../lib/sanity';
+import { getGuidePosts, isConfigured } from '../../lib/content';
 
 export async function getStaticProps() {
   const posts = await getGuidePosts();

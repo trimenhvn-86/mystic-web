@@ -9,7 +9,7 @@ import TuoiHopLinks from '../../components/TuoiHopLinks';
 import FaqSection from '../../components/FaqSection';
 import HubContentPreview from '../../components/HubContentPreview';
 import { compareTuoi, getMarriageAdvice } from '../../lib/tuoiHop';
-import { getHubContentPreview } from '../../lib/sanity';
+import { getHubContentPreview } from '../../lib/content';
 import { FAQ_TUOI_KET_HON } from '../../content/faq-data';
 
 const SLUG_RE = /^co-dau-(\d{4})-chu-re-(\d{4})$/;

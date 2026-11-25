@@ -7,7 +7,7 @@ import TuViWeekDashboard from '../../components/TuViWeekDashboard';
 import MysticLoader from '../../components/MysticLoader';
 import { buildWeekDashboard } from '../../lib/tuViDashboard';
 import { getISOWeekInfo } from '../../lib/weekUtils';
-import { getHubContentPreview } from '../../lib/sanity';
+import { getHubContentPreview } from '../../lib/content';
 
 function pad(n) { return String(n).padStart(2, '0'); }
 

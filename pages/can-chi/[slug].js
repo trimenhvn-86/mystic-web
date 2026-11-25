@@ -13,7 +13,7 @@ import { getNapAmByCanChi } from '../../lib/nguHanh';
 import { getVietnamNow } from '../../lib/vnDate';
 import FaqSection from '../../components/FaqSection';
 import HubContentPreview from '../../components/HubContentPreview';
-import { getHubContentPreview } from '../../lib/sanity';
+import { getHubContentPreview } from '../../lib/content';
 import { FAQ_CAN_CHI } from '../../content/faq-data';
 
 const SLUG_RE = /^ngay-(\d{1,2})-thang-(\d{1,2})-nam-(\d{4})$/;
@@ -78,6 +78,7 @@ export default function CanChiResult({ dd, mm, yyyy, lunar, canChiNam, canChiTha
   return (
     <>
       <Head>
+        <meta name="robots" content="noindex, follow" />
         <title>{title}</title>
         <meta name="description" content={desc} />
         <meta property="og:title" content={title} />

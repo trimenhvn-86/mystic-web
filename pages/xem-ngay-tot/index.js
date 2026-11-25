@@ -10,7 +10,7 @@ import SeoContentNgayTot from '../../components/SeoContentNgayTot';
 import FaqSection from '../../components/FaqSection';
 import HubContentPreview from '../../components/HubContentPreview';
 import { FAQ_NGAY_TOT } from '../../content/faq-data';
-import { getHubContentPreview } from '../../lib/sanity';
+import { getHubContentPreview } from '../../lib/content';
 import HubToolBreadcrumb from '../../components/HubToolBreadcrumb';
 import HubToolRelated from '../../components/HubToolRelated';
 

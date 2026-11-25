@@ -9,7 +9,7 @@ import TuoiHopLinks from '../../components/TuoiHopLinks';
 import FaqSection from '../../components/FaqSection';
 import HubContentPreview from '../../components/HubContentPreview';
 import { compareTuoi, getBusinessAdvice } from '../../lib/tuoiHop';
-import { getHubContentPreview } from '../../lib/sanity';
+import { getHubContentPreview } from '../../lib/content';
 import { FAQ_TUOI_LAM_AN } from '../../content/faq-data';
 
 const SLUG_RE = /^doi-tac-(\d{4})-va-(\d{4})$/;

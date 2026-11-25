@@ -9,7 +9,7 @@ import TuoiHopLinks from '../../components/TuoiHopLinks';
 import FaqSection from '../../components/FaqSection';
 import HubContentPreview from '../../components/HubContentPreview';
 import { compareTuoi } from '../../lib/tuoiHop';
-import { getHubContentPreview } from '../../lib/sanity';
+import { getHubContentPreview } from '../../lib/content';
 import { FAQ_SO_SANH_TUOI } from '../../content/faq-data';
 
 const SLUG_RE = /^nam-(\d{4})-va-nam-(\d{4})$/;

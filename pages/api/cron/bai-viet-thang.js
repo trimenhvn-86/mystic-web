@@ -2,8 +2,8 @@
  * pages/api/cron/bai-viet-thang.js
  * CHẠY TỰ ĐỘNG HÀNG THÁNG (qua Vercel Cron, xem vercel.json) - KHÔNG gọi tay trừ khi test.
  *
- * Luồng: tính dữ liệu tháng tới -> viết 3 bài bằng Claude -> đăng lên Sanity (publish thẳng,
- * không qua Draft) -> làm mới (revalidate) các trang liên quan.
+ * Luồng: tính dữ liệu tháng tới -> viết 3 bài bằng Claude -> commit file JSON vào repo GitHub
+ * (content/cms/articles/<slug>.json) -> Vercel tự build lại và đăng bài. Không dùng Sanity.
  *
  * Bảo vệ: Vercel tự động gửi header "Authorization: Bearer $CRON_SECRET" khi gọi cron thật -
  * handler kiểm tra đúng secret này trước khi chạy, chặn người ngoài gọi tay endpoint.
@@ -11,13 +11,12 @@
  * Biến môi trường cần có (thêm vào Vercel, KHÁC với các biến đã có từ trước):
  *   CRON_SECRET          - chuỗi bất kỳ tự đặt, Vercel tự gửi kèm khi gọi cron thật
  *   ANTHROPIC_API_KEY    - key Claude riêng cho việc viết bài tự động
- *   SANITY_WRITE_TOKEN   - token Sanity quyền Editor (khác SANITY_API_TOKEN quyền Viewer đang dùng để đọc)
+ *   GITHUB_TOKEN         - token GitHub quyền Contents: Read and write cho repo (xem lib/githubPublish.js)
  */
 import { buildTuViThangData, buildLichThangData, buildLaBaiThangData } from '../../../lib/monthlyContentData';
 import { getVietnamNow } from '../../../lib/vnDate';
+import { publishContentFile } from '../../../lib/githubPublish';
 
-const SANITY_PROJECT_ID = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID;
-const SANITY_DATASET = process.env.NEXT_PUBLIC_SANITY_DATASET || 'production';
 
 function slugify(text) {
   return text
@@ -50,35 +49,6 @@ async function callClaude(systemPrompt, userPrompt) {
   }
   const data = await response.json();
   return data.content?.[0]?.text?.trim() || '';
-}
-
-async function publishToSanity(doc, docId) {
-  const draftId = `drafts.${docId}`;
-  const actions = [
-    {
-      actionType: 'sanity.action.document.create',
-      attributes: { ...doc, _id: draftId },
-      ifExists: 'replace'
-    },
-    {
-      actionType: 'sanity.action.document.publish',
-      draftId,
-      publishedId: docId
-    }
-  ];
-  const url = `https://${SANITY_PROJECT_ID}.api.sanity.io/v2025-02-19/data/actions/${SANITY_DATASET}`;
-  const response = await fetch(url, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      Authorization: `Bearer ${process.env.SANITY_WRITE_TOKEN}`
-    },
-    body: JSON.stringify({ actions })
-  });
-  if (!response.ok) {
-    throw new Error(`Sanity Actions API lỗi ${response.status}: ${await response.text()}`);
-  }
-  return response.json();
 }
 
 const PROMPTS = {
@@ -130,7 +100,6 @@ export default async function handler(req, res) {
   };
 
   const results = [];
-  const revalidatePaths = new Set(['/', '/cam-nang']);
 
   for (const key of ['tuVi', 'lich', 'tarot']) {
     try {
@@ -142,12 +111,9 @@ export default async function handler(req, res) {
         ? `${prompt.titlePrefix} ${mm}/${yyyy}: ${data.tenLa}`
         : `${prompt.titlePrefix} ${mm}/${yyyy}`;
       const slug = slugify(title.replace(/[:?]/g, ''));
-      const docId = `article-${slug}`;
 
       const doc = {
-        _type: 'article',
         title,
-        slug: { _type: 'slug', current: slug },
         excerpt: htmlContent.replace(/<[^>]+>/g, '').slice(0, 155),
         htmlContent,
         hub: prompt.hub,
@@ -156,25 +122,13 @@ export default async function handler(req, res) {
         publishedAt: new Date().toISOString()
       };
 
-      await publishToSanity(doc, docId);
+      await publishContentFile('articles', slug, doc, `Bài tự động: ${title}`);
       results.push({ key, slug, ok: true });
 
-      revalidatePaths.add(`/cam-nang/${slug}`);
-      revalidatePaths.add(`/${prompt.hub}`);
     } catch (err) {
       results.push({ key, ok: false, error: err.message });
     }
   }
 
-  const revalidateResults = [];
-  for (const path of revalidatePaths) {
-    try {
-      await res.revalidate(path);
-      revalidateResults.push({ path, ok: true });
-    } catch (err) {
-      revalidateResults.push({ path, ok: false, error: err.message });
-    }
-  }
-
-  return res.status(200).json({ mm, yyyy, articles: results, revalidate: revalidateResults });
+  return res.status(200).json({ mm, yyyy, articles: results });
 }

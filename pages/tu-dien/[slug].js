@@ -5,7 +5,7 @@ import Header from '../../components/Header';
 import Breadcrumb from '../../components/Breadcrumb';
 import Footer from '../../components/Footer';
 import AdSlot from '../../components/AdSlot';
-import { getDictionaryTerms, getDictionaryTermBySlug } from '../../lib/sanity';
+import { getDictionaryTerms, getDictionaryTermBySlug } from '../../lib/content';
 
 export async function getStaticPaths() {
   let terms = [];
@@ -20,11 +20,22 @@ export async function getStaticProps({ params }) {
 }
 
 export default function TuDienDetail({ term }) {
+  const termSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'DefinedTerm',
+    name: term.title,
+    description: term.shortDefinition,
+    url: `https://www.trimenh.com/tu-dien/${term.slug}`,
+    inDefinedTermSet: { '@type': 'DefinedTermSet', name: 'Từ điển huyền học TriMenh', url: 'https://www.trimenh.com/tu-dien' }
+  };
   return (
     <>
       <Head>
         <title>{`${term.title} là gì? — Từ điển huyền học TriMenh`}</title>
         <meta name="description" content={term.shortDefinition} />
+        <meta property="og:title" content={`${term.title} là gì? — Từ điển huyền học TriMenh`} />
+        <meta property="og:description" content={term.shortDefinition} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(termSchema) }} />
       </Head>
       <Header />
       <main className="max-w-2xl mx-auto px-5 py-8 sm:py-12">

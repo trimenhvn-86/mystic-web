@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import { isOutsideIndexWindow } from '../../lib/indexWindow';
 import Link from 'next/link';
 import { Clock3 } from 'lucide-react';
 import Header from '../../components/Header';
@@ -12,7 +13,7 @@ import FaqSection from '../../components/FaqSection';
 import HubContentPreview from '../../components/HubContentPreview';
 import { getChiNgay, getGioHoangDao } from '../../lib/gioHoangDao';
 import { jdFromDate, jdToDate } from '../../lib/lunar';
-import { getHubContentPreview } from '../../lib/sanity';
+import { getHubContentPreview } from '../../lib/content';
 import { getVietnamNow } from '../../lib/vnDate';
 import { FAQ_GIO_HOANG_DAO } from '../../content/faq-data';
 
@@ -53,7 +54,7 @@ export async function getStaticProps({ params }) {
       nextDate: { dd: nextDd, mm: nextMm, yyyy: nextYyyy },
       ...preview
     },
-    revalidate: 2592000
+    revalidate: 86400
   };
 }
 
@@ -65,6 +66,7 @@ export default function GioHoangDaoResult({ dd, mm, yyyy, chiNgay, gioList, prev
   return (
     <>
       <Head>
+        {isOutsideIndexWindow(dd, mm, yyyy) && <meta name="robots" content="noindex, follow" />}
         <title>{title}</title>
         <meta name="description" content={desc} />
         <meta property="og:title" content={title} />

@@ -10,7 +10,7 @@ import TarotCardFlip from '../../components/TarotCardFlip';
 import HubContentPreview from '../../components/HubContentPreview';
 import MysticLoader from '../../components/MysticLoader';
 import { getDailyCard } from '../../lib/tarot';
-import { getHubContentPreview } from '../../lib/sanity';
+import { getHubContentPreview } from '../../lib/content';
 import { getVietnamNow } from '../../lib/vnDate';
 
 const SUIT_LABEL = { wands: 'Gậy', cups: 'Cốc', swords: 'Kiếm', pentacles: 'Tiền' };

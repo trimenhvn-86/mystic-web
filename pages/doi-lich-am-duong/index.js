@@ -10,7 +10,7 @@ import SeoContent from '../../components/SeoContent';
 import FaqSection from '../../components/FaqSection';
 import HubContentPreview from '../../components/HubContentPreview';
 import { FAQ_DOI_LICH } from '../../content/faq-data';
-import { getHubContentPreview } from '../../lib/sanity';
+import { getHubContentPreview } from '../../lib/content';
 
 function pad(n) {
   return String(n).padStart(2, '0');

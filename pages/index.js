@@ -12,7 +12,7 @@ import {
 } from 'lucide-react';
 import { HUBS } from '../content/hubs';
 import { FAQ_HOMEPAGE } from '../content/faq-data';
-import { getDictionaryTerms, getGuidePosts } from '../lib/sanity';
+import { getDictionaryTerms, getGuidePosts } from '../lib/content';
 import { convertSolar2Lunar, getCanChiNam, getCanChiNgay } from '../lib/lunar';
 import { getTruc, getSao28, getSuggestedActivities } from '../lib/dayQuality';
 import { getDayRating } from '../lib/dayRating';

@@ -12,6 +12,15 @@ export default function App({ Component, pageProps }) {
   // Trang lỗi (404, 500) không được khai canonical
   const isErrorPage = router.pathname === '/404' || router.pathname === '/_error' || router.pathname === '/500';
 
+  const homeSchema = canonicalPath === '/' ? {
+    '@context': 'https://schema.org',
+    '@graph': [
+      { '@type': 'Organization', '@id': 'https://www.trimenh.com/#org', name: 'TriMenh', url: 'https://www.trimenh.com/', logo: 'https://www.trimenh.com/brand/og-image.png' },
+      { '@type': 'WebSite', '@id': 'https://www.trimenh.com/#website', url: 'https://www.trimenh.com/', name: 'TriMenh', inLanguage: 'vi-VN', publisher: { '@id': 'https://www.trimenh.com/#org' },
+        potentialAction: { '@type': 'SearchAction', target: 'https://www.trimenh.com/tim-kiem?q={search_term_string}', 'query-input': 'required name=search_term_string' } }
+    ]
+  } : null;
+
   return (
     <>
       {/* Google Analytics */}
@@ -37,6 +46,7 @@ export default function App({ Component, pageProps }) {
         <link rel="icon" href="/favicon.ico" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <meta name="theme-color" content="#0B0E1A" />
+        {homeSchema && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(homeSchema) }} />}
         <meta property="og:site_name" content="TriMenh" />
         <meta property="og:type" content="website" />
         <meta property="og:image" content="https://www.trimenh.com/brand/og-image.png" />

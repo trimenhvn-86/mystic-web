@@ -80,3 +80,9 @@ Bỏ banner riêng "Liên hệ hợp tác quảng cáo" (hiện ở mọi trang,
 - og:title / og:description tự động cho 44 trang; AdSlot không in chữ khi NEXT_PUBLIC_ADS_ENABLED != 'true'.
 - Sitemap: sitemap.xml thành sitemap index + 4 sitemap con, có lastmod, loại URL trùng.
 - 18/11/2026 (bổ sung): Sanity báo plan_limit_reached (hết hạn mức API Requests). lib/sanity.js thêm bộ nhớ đệm 5 phút theo truy vấn: 500 trang chỉ còn ~2 lần gọi Sanity thay vì ~1000. Lỗi không bị cache.
+- 18/11/2026: thêm SANITY_BUILD_OFFLINE=true (chỉ tác dụng lúc build) để build không chết khi Sanity hết hạn mức. Khi Sanity hoạt động lại: XÓA biến này và Redeploy.
+
+## 24/11/2026 — Chuyển nội dung sang file + SEO giai đoạn 2
+- Cẩm nang/Từ điển đọc từ content/cms/*.json (lib/content.js, gom bằng scripts/build-cms-index.js chạy tự động trước build). Không còn gọi Sanity lúc build => hết lỗi plan_limit_reached. Có thể bỏ biến SANITY_BUILD_OFFLINE. CONTENT_SOURCE=sanity để quay lại Sanity.
+- Công cụ: scripts/import-articles.js (CSV, mẫu ở tools/), scripts/export-from-sanity.js (chạy 1 lần), lib/githubPublish.js; cron bai-viet-thang.js nay commit file qua GitHub API (cần GITHUB_TOKEN).
+- SEO: noindex,follow cho /can-chi, /ngay-hoang-dao, /ngay-hac-dao, /tiet-khi theo ngày và bỏ khỏi sitemap; xem-ngay-tot, doi-lich-am-duong, gio-hoang-dao noindex ngoài khoảng -3/+12 tháng; xem-ngay-tot thêm đoạn Can Chi/giờ Hoàng đạo + link; Organization+WebSite(SearchAction) trang chủ; Article+tác giả cẩm nang; DefinedTerm từ điển; trang /ban-bien-soan, /phuong-phap-tinh; public/llms.txt; câu trả lời đầu trang /<năm>-menh-gi; H1 trong bài hạ xuống H2.

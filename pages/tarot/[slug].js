@@ -8,7 +8,7 @@ import TarotCardArt from '../../components/TarotCardArt';
 import FaqSection from '../../components/FaqSection';
 import HubContentPreview from '../../components/HubContentPreview';
 import { cards, getCardBySlug, getRelatedCards } from '../../lib/tarot';
-import { getHubContentPreview } from '../../lib/sanity';
+import { getHubContentPreview } from '../../lib/content';
 import { FAQ_TAROT_LA_BAI } from '../../content/faq-data';
 
 const SUIT_NAME = { wands: 'Gậy', cups: 'Cốc', swords: 'Kiếm', pentacles: 'Tiền' };

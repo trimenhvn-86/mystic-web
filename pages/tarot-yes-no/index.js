@@ -10,7 +10,7 @@ import TarotCardFlip from '../../components/TarotCardFlip';
 import HubContentPreview from '../../components/HubContentPreview';
 import { getRandomCard, getYesNoResult } from '../../lib/tarot';
 import { trackToolUse } from '../../lib/analytics';
-import { getHubContentPreview } from '../../lib/sanity';
+import { getHubContentPreview } from '../../lib/content';
 
 export async function getStaticProps() {
   const preview = await getHubContentPreview('tarot');

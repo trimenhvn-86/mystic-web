@@ -9,7 +9,7 @@ import MenhPhongThuyLinks from '../../components/MenhPhongThuyLinks';
 import FaqSection from '../../components/FaqSection';
 import HubContentPreview from '../../components/HubContentPreview';
 import { getCungMenh, getHuongNha } from '../../lib/huongNha';
-import { getHubContentPreview } from '../../lib/sanity';
+import { getHubContentPreview } from '../../lib/content';
 import { FAQ_HUONG_NHA } from '../../content/faq-data';
 
 const SLUG_RE = /^(nam|nu)-(\d{4})$/;

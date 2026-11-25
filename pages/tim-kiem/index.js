@@ -7,7 +7,7 @@ import Header from '../../components/Header';
 import Breadcrumb from '../../components/Breadcrumb';
 import Footer from '../../components/Footer';
 import { HUBS, getAllActiveTools } from '../../content/hubs';
-import { getDictionaryTerms, getGuidePosts } from '../../lib/sanity';
+import { getDictionaryTerms, getGuidePosts } from '../../lib/content';
 
 export async function getStaticProps() {
   const [terms, posts] = await Promise.all([getDictionaryTerms(), getGuidePosts()]);

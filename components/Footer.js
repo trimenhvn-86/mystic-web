@@ -54,6 +54,8 @@ export default function Footer() {
               <Link href="/tu-dien" className="text-moon/80 hover:text-gold-soft transition-colors">Từ điển huyền học</Link>
               <Link href="/cam-nang" className="text-moon/80 hover:text-gold-soft transition-colors">Cẩm nang</Link>
               <Link href="/gioi-thieu" className="text-moon/80 hover:text-gold-soft transition-colors">Giới thiệu</Link>
+              <Link href="/ban-bien-soan" className="text-moon/80 hover:text-gold-soft transition-colors">Ban biên soạn</Link>
+              <Link href="/phuong-phap-tinh" className="text-moon/80 hover:text-gold-soft transition-colors">Phương pháp tính</Link>
               <Link href="/lien-he" className="text-moon/80 hover:text-gold-soft transition-colors">Liên hệ</Link>
             </div>
           </div>

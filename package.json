@@ -3,11 +3,15 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "predev": "node scripts/build-cms-index.js",
     "dev": "next dev",
+    "prebuild": "node scripts/build-cms-index.js",
     "build": "next build",
     "start": "next start",
     "postbuild": "node scripts/generate-sitemap.js",
-    "lint": "next lint"
+    "lint": "next lint",
+    "import:csv": "node scripts/import-articles.js",
+    "export:sanity": "node scripts/export-from-sanity.js"
   },
   "dependencies": {
     "next": "14.2.35",

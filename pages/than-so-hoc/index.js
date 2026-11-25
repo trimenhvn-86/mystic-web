@@ -11,7 +11,7 @@ import NumerologyChart from '../../components/NumerologyChart';
 import HubContentPreview from '../../components/HubContentPreview';
 import FaqSection from '../../components/FaqSection';
 import dictionary from '../../content/numerology/life-path.json';
-import { getHubContentPreview } from '../../lib/sanity';
+import { getHubContentPreview } from '../../lib/content';
 import { trackToolUse } from '../../lib/analytics';
 import {
   calcLifePathNumber,

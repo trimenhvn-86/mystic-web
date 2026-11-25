@@ -7,7 +7,7 @@ import Footer from '../../components/Footer';
 import MysticLoader from '../../components/MysticLoader';
 import HubContentPreview from '../../components/HubContentPreview';
 import FaqSection from '../../components/FaqSection';
-import { getHubContentPreview } from '../../lib/sanity';
+import { getHubContentPreview } from '../../lib/content';
 import { FAQ_MAU_MENH } from '../../content/faq-data';
 
 export async function getStaticProps() {

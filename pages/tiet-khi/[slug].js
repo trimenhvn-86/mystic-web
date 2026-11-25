@@ -13,7 +13,7 @@ import tietKhiMeaning from '../../content/lunar/tiet-khi-meaning.json';
 import { getVietnamNow } from '../../lib/vnDate';
 import FaqSection from '../../components/FaqSection';
 import HubContentPreview from '../../components/HubContentPreview';
-import { getHubContentPreview } from '../../lib/sanity';
+import { getHubContentPreview } from '../../lib/content';
 import { FAQ_TIET_KHI } from '../../content/faq-data';
 
 const SLUG_RE = /^ngay-(\d{1,2})-thang-(\d{1,2})-nam-(\d{4})$/;
@@ -96,6 +96,7 @@ export default function TietKhiResult({ dd, mm, yyyy, current, startDate, next, 
   return (
     <>
       <Head>
+        <meta name="robots" content="noindex, follow" />
         <title>{`${title} — TriMenh`}</title>
         <meta name="description" content={desc} />
       </Head>

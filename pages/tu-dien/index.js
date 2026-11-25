@@ -4,7 +4,7 @@ import { BookOpen } from 'lucide-react';
 import Header from '../../components/Header';
 import Breadcrumb from '../../components/Breadcrumb';
 import Footer from '../../components/Footer';
-import { getDictionaryTerms, isConfigured } from '../../lib/sanity';
+import { getDictionaryTerms, isConfigured } from '../../lib/content';
 
 export async function getStaticProps() {
   const terms = await getDictionaryTerms();

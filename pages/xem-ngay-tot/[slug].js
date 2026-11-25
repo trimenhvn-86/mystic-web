@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import { isOutsideIndexWindow } from '../../lib/indexWindow';
 import Link from 'next/link';
 import { Sparkles, ThumbsUp, ThumbsDown, HelpCircle } from 'lucide-react';
 import Header from '../../components/Header';
@@ -18,7 +19,7 @@ import { getTruc, getSao28, getSuggestedActivities, getDecisionAssistant } from 
 import { getGioHoangDao } from '../../lib/gioHoangDao';
 import { getNgayKhongMinh } from '../../lib/khongMinh';
 import { getNapAmByCanChi } from '../../lib/nguHanh';
-import { getHubContentPreview } from '../../lib/sanity';
+import { getHubContentPreview } from '../../lib/content';
 import { getVietnamNow } from '../../lib/vnDate';
 import { FAQ_NGAY_TOT } from '../../content/faq-data';
 
@@ -76,7 +77,7 @@ export async function getStaticProps({ params }) {
       nextDate: { dd: nextDd, mm: nextMm, yyyy: nextYyyy },
       ...preview
     },
-    revalidate: 2592000
+    revalidate: 86400
   };
 }
 
@@ -179,6 +180,7 @@ export default function NgayTotXauResult({ dd, mm, yyyy, lunar, canChiNam, canCh
   return (
     <>
       <Head>
+        {isOutsideIndexWindow(dd, mm, yyyy) && <meta name="robots" content="noindex, follow" />}
         <title>{title}</title>
         <meta name="description" content={desc} />
         <meta property="og:title" content={title} />
@@ -192,7 +194,14 @@ export default function NgayTotXauResult({ dd, mm, yyyy, lunar, canChiNam, canCh
         </div>
         <Breadcrumb trail={[{ label: 'Lịch & Ngày Tốt', href: '/lich-ngay-tot' }, { label: 'Xem ngày tốt', href: '/xem-ngay-tot' }]} current={`Ngày ${dd}/${mm}/${yyyy}`} />
         <h1 className="font-display text-2xl sm:text-3xl text-parchment mb-4 text-center">{title}</h1>
-        <p className="text-moon/80 text-center max-w-2xl mx-auto mb-8 leading-relaxed">{summary}</p>
+        <p className="text-moon/80 text-center max-w-2xl mx-auto mb-3 leading-relaxed">{summary}</p>
+        <p className="text-moon/80 text-center max-w-2xl mx-auto mb-8 leading-relaxed text-sm">
+          Ngày {canChiNgay}, năm {canChiNam}, nạp âm {napAmNgay?.napAm}.
+          {gioHoangDao?.length ? ` Giờ Hoàng đạo: ${gioHoangDao.map((g) => `${g.chi} (${g.khung})`).join(', ')}.` : ''}{' '}
+          Xem thêm: <Link href={`/gio-hoang-dao/ngay-${dd}-thang-${mm}-nam-${yyyy}`} className="text-gold-soft hover:underline">giờ Hoàng đạo</Link>,{' '}
+          <Link href={`/doi-lich-am-duong/ngay-${dd}-thang-${mm}-nam-${yyyy}`} className="text-gold-soft hover:underline">đổi lịch âm dương</Link>,{' '}
+          <Link href={`/tu-vi-hom-nay`} className="text-gold-soft hover:underline">tử vi hôm nay</Link>.
+        </p>
 
         <div className="grid lg:grid-cols-[1fr_240px] gap-8">
           <div className="space-y-6 min-w-0">

@@ -11,7 +11,7 @@ import { buildDayDashboard } from '../../lib/tuViDashboard';
 import { getTuViHomNay } from '../../lib/tuViHomNay';
 import { jdFromDate, jdToDate } from '../../lib/lunar';
 import { SLUG_TO_CHI, CHI_SLUG } from '../../lib/chiSlug';
-import { getHubContentPreview } from '../../lib/sanity';
+import { getHubContentPreview } from '../../lib/content';
 import ConGiapLinks from '../../components/ConGiapLinks';
 import FaqSection from '../../components/FaqSection';
 import HubContentPreview from '../../components/HubContentPreview';

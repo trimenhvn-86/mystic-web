@@ -8,7 +8,7 @@ import MysticLoader from '../../components/MysticLoader';
 import MiniCalendar from '../../components/MiniCalendar';
 import HubContentPreview from '../../components/HubContentPreview';
 import FaqSection from '../../components/FaqSection';
-import { getHubContentPreview } from '../../lib/sanity';
+import { getHubContentPreview } from '../../lib/content';
 import HubToolBreadcrumb from '../../components/HubToolBreadcrumb';
 import HubToolRelated from '../../components/HubToolRelated';
 

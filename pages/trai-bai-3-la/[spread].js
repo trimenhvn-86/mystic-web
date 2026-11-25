@@ -10,7 +10,7 @@ import TarotCardFlip from '../../components/TarotCardFlip';
 import HubContentPreview from '../../components/HubContentPreview';
 import { getUniqueCardSpread } from '../../lib/tarot';
 import { trackToolUse } from '../../lib/analytics';
-import { getHubContentPreview } from '../../lib/sanity';
+import { getHubContentPreview } from '../../lib/content';
 import spreads from '../../content/tarot-spreads.json';
 
 export async function getStaticPaths() {

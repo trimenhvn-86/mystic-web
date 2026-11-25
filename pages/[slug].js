@@ -10,7 +10,7 @@ import { getMenhNguHanh, getNguHanhExtra, getAmDuongCan } from '../lib/nguHanh';
 import { getChiFromYear, getTuoiHop, getYearsForChi } from '../lib/tuoiHop';
 import { getLuckyNumbers, HA_DO } from '../lib/luckyNumber';
 import { HUBS, getHubBySlug, getCmsHubValue } from '../content/hubs';
-import { getDictionaryTerms, getGuidePosts, getHubContentPreview } from '../lib/sanity';
+import { getDictionaryTerms, getGuidePosts, getHubContentPreview } from '../lib/content';
 import { FAQ_MENH, FAQ_TUOI_HOP, FAQ_MAU_MENH, FAQ_VAT_PHAM_PHONG_THUY } from '../content/faq-data';
 import napAmData from '../content/phong-thuy/menh/nap-am.json';
 import daPhongThuyData from '../content/phong-thuy/da-phong-thuy.json';
@@ -248,7 +248,10 @@ export default function YearToolPage({ type, year, menh, tuoiHop, hub, dictionar
           <div className="w-14 h-14 rounded-full bg-ink-soft border border-gold/30 flex items-center justify-center mx-auto mb-4">
             <Layers size={26} className="text-gold" />
           </div>
-          <h1 className="font-display text-2xl sm:text-3xl text-parchment mb-8 text-center">{title}</h1>
+          <h1 className="font-display text-2xl sm:text-3xl text-parchment mb-3 text-center">{title}</h1>
+          <p className="text-center text-parchment/85 max-w-xl mx-auto mb-8 leading-relaxed">
+            Người sinh năm {year} ({menh.canChi}) thuộc mệnh <strong className="text-gold-soft">{menh.napAm}</strong> (hành {menh.hanh}).
+          </p>
 
           <div className="space-y-6">
             {/* Ket qua nhanh + Dashboard */}

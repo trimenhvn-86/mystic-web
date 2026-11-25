@@ -82,8 +82,12 @@ export async function getStaticProps({ params }) {
 }
 
 export default function NgayTotXauResult({ dd, mm, yyyy, lunar, canChiNam, canChiNgay, truc, sao, activities, gioHoangDao, khongMinh, napAmNgay, decisionAssistant, prevDate, nextDate, dictionaryPreview, guidePreview }) {
-  const title = `Ngày ${dd}/${mm}/${yyyy} là ngày tốt hay xấu? — Tra cứu Lịch Vạn Niên`;
-  const desc = `Xem ngày ${dd}/${mm}/${yyyy} (Âm lịch ${lunar.day}/${lunar.month}${lunar.leap ? ' nhuận' : ''}/${lunar.year}) có phải ngày Hoàng đạo không, Trực ${truc}, Sao ${sao}, ngày Khổng Minh, giờ Lục Nhâm, việc nên làm và nên tránh.`;
+  const verdict = activities.isGoodDay ? 'ngày Hoàng đạo (tốt)' : 'ngày Hắc đạo (xấu)';
+  const title = `Ngày ${dd}/${mm}/${yyyy}: ${activities.isGoodDay ? 'Hoàng đạo, ngày tốt' : 'Hắc đạo, ngày xấu'} — giờ đẹp, nên làm gì?`;
+  const gioTop = gioHoangDao.slice(0, 3).map((g) => `${g.chi} (${g.khung})`).join(', ');
+  const nenTop = activities.nenLam.slice(0, 2).join(', ').toLowerCase();
+  const kiengTop = activities.kiengKy.slice(0, 2).join(', ').toLowerCase();
+  const desc = `Ngày ${dd}/${mm}/${yyyy} (âm lịch ${lunar.day}/${lunar.month}${lunar.leap ? ' nhuận' : ''}) là ${verdict}, Trực ${truc}. Giờ đẹp: ${gioTop}. ${activities.isGoodDay ? `Nên: ${nenTop}.` : `Nên tránh: ${kiengTop}.`} Xem đủ giờ Hoàng đạo, Khổng Minh, Lục Nhâm.`;
   const summary = `Ngày ${dd}/${mm}/${yyyy} (Âm lịch ${lunar.day}/${lunar.month}${lunar.leap ? ' nhuận' : ''}/${lunar.year}) là ${activities.isGoodDay ? `ngày Hoàng đạo, Trực ${truc}, thuận lợi cho ${activities.nenLam.slice(0, 2).join(', ').toLowerCase()}` : `ngày Hắc đạo, Trực ${truc}, nên cân nhắc tránh ${activities.kiengKy.slice(0, 2).join(', ').toLowerCase()}`}.`;
 
   const tabs = [

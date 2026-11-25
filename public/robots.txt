@@ -1,5 +1,6 @@
 User-agent: *
 Allow: /
 Disallow: /tim-kiem
+Disallow: /api/
 
 Sitemap: https://trimenh.com/sitemap.xml

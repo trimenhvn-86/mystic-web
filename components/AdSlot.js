@@ -1,30 +1,42 @@
+import Link from 'next/link';
+import { Mail, ArrowRight } from 'lucide-react';
+import PromoBanner from './PromoBanner';
+import { getPromos } from '../content/promos';
+
 /**
- * components/AdSlot.js
- * Placeholder cho 1 khối quảng cáo Google AdSense.
- * Trước khi lên production:
- * 1. Thay `data-ad-client` bằng mã publisher thật (ca-pub-xxxxxxxxxx)
- * 2. Thay `data-ad-slot` bằng slot ID tạo trong AdSense dashboard
- * 3. Nạp script AdSense 1 lần duy nhất ở _document.js hoặc _app.js
- *
- * ⚠️ LƯU Ý CHÍNH SÁCH ADSENSE:
- * Google AdSense có chính sách riêng về "ad refresh" — việc load quảng cáo mới
- * mỗi khi người dùng bấm đổi Tab (không phải chuyển trang thật) có thể vi phạm
- * chính sách "valid traffic" / ad refresh nếu không tuân đúng điều kiện của Google
- * (ví dụ: quảng cáo chỉ refresh khi có thay đổi nội dung đáng kể + không tự động
- * lặp nhanh). Trước khi triển khai chiến lược "đổi Tab -> load Ads mới" ở quy mô
- * lớn, nên đọc kỹ: Google AdSense Program Policies > Ad Placement, để tránh bị
- * khóa tài khoản.
+ * Chỗ đặt banner trong trang (đang dùng ở nhiều loại trang).
+ * - Khi NEXT_PUBLIC_ADS_ENABLED = 'true': hiện khung quảng cáo thật (thay phần <ins> bằng mã AdSense).
+ * - Chưa bật quảng cáo: hiện banner giới thiệu dịch vụ miễn phí của TriMenh (cấu hình ở content/promos.js).
+ * Lưu ý chính sách AdSense: không tự làm mới quảng cáo khi người dùng đổi tab trong trang.
  */
-export default function AdSlot({ label = 'Quảng cáo', className = '' }) {
-  // Chưa có quảng cáo thật thì không in khung chữ "Ad slot — ..." ra HTML (Google đọc thấy như nội dung rác).
-  // Khi gắn AdSense thật, đặt NEXT_PUBLIC_ADS_ENABLED=true trong Vercel để bật lại các khung này.
-  if (process.env.NEXT_PUBLIC_ADS_ENABLED !== 'true') return null;
+export default function AdSlot({ label = 'Quảng cáo', className = '', slim = false }) {
+  if (process.env.NEXT_PUBLIC_ADS_ENABLED !== 'true') {
+    // Bản mỏng cho chỗ lặp nhiều lần trong một trang (mỗi tab kết quả): một dòng, không có ô nhập.
+    if (slim) {
+      const nl = getPromos('inline').find((p) => p.kind === 'newsletter');
+      if (!nl) return null;
+      return (
+        <div className={className}>
+          <Link href="/#nhan-email" className="flex items-center gap-3 rounded-md border border-ink-line border-l-4 border-l-lich bg-ink px-4 py-3 text-sm text-parchment hover:border-parchment transition-colors">
+            <Mail size={16} className="text-lich flex-shrink-0" aria-hidden="true" />
+            <span className="flex-1 min-w-0"><strong className="font-semibold">{nl.title}.</strong> <span className="text-moon">Miễn phí.</span></span>
+            <ArrowRight size={16} className="flex-shrink-0" aria-hidden="true" />
+          </Link>
+        </div>
+      );
+    }
+    return (
+      <div className={className}>
+        <PromoBanner placement="inline" seed={label} />
+      </div>
+    );
+  }
   return (
-    <div
-      className={`w-full min-h-[100px] flex items-center justify-center border border-dashed border-ink-line rounded-lg text-xs text-moon/40 bg-ink-soft/40 ${className}`}
-    >
-      {label}
-      {/* TODO: thay bằng <ins class="adsbygoogle" ...></ins> thật */}
+    <div className={className}>
+      <p className="text-[11px] text-moon mb-1">Quảng cáo</p>
+      <div className="ad-frame w-full min-h-[100px] flex items-center justify-center text-xs text-moon/60">
+        {/* TODO: thay bằng <ins class="adsbygoogle" ...></ins> thật */}
+      </div>
     </div>
   );
 }

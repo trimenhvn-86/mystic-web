@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
+import SidebarTools from '../../components/SidebarTools';
 import MysticLoader from '../../components/MysticLoader';
 import MiniCalendar from '../../components/MiniCalendar';
 import SeoContent from '../../components/SeoContent';
@@ -57,7 +58,8 @@ export default function DoiLichForm({ dictionaryPreview, guidePreview }) {
         <meta property="og:description" content="Chuyển đổi ngày Dương lịch sang Âm lịch và ngược lại, chính xác theo múi giờ Việt Nam." />
       </Head>
       <Header />
-      <main className="max-w-2xl mx-auto px-5 py-10 sm:py-14">
+      <div className="max-w-6xl mx-auto px-5 py-8 sm:py-12 grid lg:grid-cols-[minmax(0,1fr)_320px] gap-10 lg:gap-14">
+        <main className="min-w-0 max-w-3xl w-full mx-auto lg:mx-0">
         <div className="flex flex-wrap items-center gap-1.5 text-xs text-moon mb-6">
           <Link href="/" className="hover:text-gold-soft transition-colors">Trang chủ</Link>
           <span>/</span>
@@ -66,16 +68,16 @@ export default function DoiLichForm({ dictionaryPreview, guidePreview }) {
           <span className="text-parchment/70">Đổi lịch âm dương</span>
         </div>
 
-        <h1 className="font-display text-2xl sm:text-3xl text-parchment mb-2 text-center">Đổi Lịch Âm Dương</h1>
-        <p className="text-moon/70 text-sm text-center mb-8">Chuyển đổi 2 chiều Dương ⇄ Âm lịch</p>
+        <h1 className="font-display font-extrabold text-3xl sm:text-4xl leading-tight text-parchment mb-2">Đổi Lịch Âm Dương</h1>
+        <p className="text-moon/70 text-sm mb-8">Chuyển đổi 2 chiều Dương ⇄ Âm lịch</p>
         <form onSubmit={handleSubmit} className="mystic-card p-6 flex flex-col gap-4">
           <div className="flex gap-2 mb-1">
             <button type="button" onClick={() => setMode('duong')}
-              className={`flex-1 py-2 rounded-lg text-sm ${mode === 'duong' ? 'bg-gold text-ink font-semibold' : 'text-moon border border-ink-line'}`}>
+              className={`flex-1 py-2 rounded-md text-sm ${mode === 'duong' ? 'bg-lich text-ink font-semibold' : 'text-moon border border-ink-line'}`}>
               Dương → Âm
             </button>
             <button type="button" onClick={() => setMode('am')}
-              className={`flex-1 py-2 rounded-lg text-sm ${mode === 'am' ? 'bg-gold text-ink font-semibold' : 'text-moon border border-ink-line'}`}>
+              className={`flex-1 py-2 rounded-md text-sm ${mode === 'am' ? 'bg-lich text-ink font-semibold' : 'text-moon border border-ink-line'}`}>
               Âm → Dương
             </button>
           </div>
@@ -84,19 +86,19 @@ export default function DoiLichForm({ dictionaryPreview, guidePreview }) {
               Ngày
               <input type="number" min="1" max="31" required value={date.dd}
                 onChange={(e) => setDate({ ...date, dd: e.target.value })}
-                className="bg-ink-soft border border-ink-line rounded-lg px-3 py-3 text-parchment text-base" />
+                className="bg-ink-soft border border-ink-line rounded-md px-3 py-3 text-parchment text-base" />
             </label>
             <label className="flex flex-col gap-1 text-xs text-moon min-w-0">
               Tháng
               <input type="number" min="1" max="12" required value={date.mm}
                 onChange={(e) => setDate({ ...date, mm: e.target.value })}
-                className="bg-ink-soft border border-ink-line rounded-lg px-3 py-3 text-parchment text-base" />
+                className="bg-ink-soft border border-ink-line rounded-md px-3 py-3 text-parchment text-base" />
             </label>
             <label className="flex flex-col gap-1 text-xs text-moon min-w-0">
               Năm
               <input type="number" min="1900" max="2100" required value={date.yyyy}
                 onChange={(e) => setDate({ ...date, yyyy: e.target.value })}
-                className="bg-ink-soft border border-ink-line rounded-lg px-3 py-3 text-parchment text-base" />
+                className="bg-ink-soft border border-ink-line rounded-md px-3 py-3 text-parchment text-base" />
             </label>
           </div>
           <button type="submit" className="btn-gold py-3.5 text-base font-semibold mt-2">Xem kết quả</button>
@@ -109,21 +111,21 @@ export default function DoiLichForm({ dictionaryPreview, guidePreview }) {
           <div>
             <p className="text-sm text-moon mb-3">Tra cứu phổ biến:</p>
             <div className="flex flex-wrap gap-2">
-              <Link href={`/doi-lich-am-duong/ngay-${pad(today.getDate())}-thang-${pad(today.getMonth() + 1)}-nam-${today.getFullYear()}`} className="px-3 py-1.5 rounded-full border border-gold/30 text-sm text-gold-soft hover:bg-gold/10 transition-colors">Đổi lịch hôm nay</Link>
-              <Link href="/xem-ngay" className="px-3 py-1.5 rounded-full border border-gold/30 text-sm text-gold-soft hover:bg-gold/10 transition-colors">Xem ngày tốt theo việc</Link>
+              <Link href={`/doi-lich-am-duong/ngay-${pad(today.getDate())}-thang-${pad(today.getMonth() + 1)}-nam-${today.getFullYear()}`} className="px-3 py-1.5 rounded border border-gold/30 text-sm text-gold-soft hover:bg-gold/10 transition-colors">Đổi lịch hôm nay</Link>
+              <Link href="/xem-ngay" className="px-3 py-1.5 rounded border border-gold/30 text-sm text-gold-soft hover:bg-gold/10 transition-colors">Xem ngày tốt theo việc</Link>
             </div>
           </div>
 
           <div>
             <p className="text-sm text-moon mb-3">Có thể bạn quan tâm:</p>
             <div className="flex flex-wrap gap-2">
-              <Link href="/xem-ngay-tot" className="px-3 py-1.5 rounded-full border border-ink-line text-sm text-moon hover:border-gold/40 hover:text-gold-soft transition-colors">Xem ngày tốt</Link>
-              <Link href="/gio-hoang-dao" className="px-3 py-1.5 rounded-full border border-ink-line text-sm text-moon hover:border-gold/40 hover:text-gold-soft transition-colors">Giờ hoàng đạo</Link>
-              <Link href="/ngay-hoang-dao" className="px-3 py-1.5 rounded-full border border-ink-line text-sm text-moon hover:border-gold/40 hover:text-gold-soft transition-colors">Ngày Hoàng đạo</Link>
-              <Link href="/ngay-hac-dao" className="px-3 py-1.5 rounded-full border border-ink-line text-sm text-moon hover:border-gold/40 hover:text-gold-soft transition-colors">Ngày Hắc đạo</Link>
-              <Link href="/can-chi" className="px-3 py-1.5 rounded-full border border-ink-line text-sm text-moon hover:border-gold/40 hover:text-gold-soft transition-colors">Can Chi</Link>
-              <Link href="/tiet-khi" className="px-3 py-1.5 rounded-full border border-ink-line text-sm text-moon hover:border-gold/40 hover:text-gold-soft transition-colors">Tiết khí</Link>
-              <Link href="/xem-ngay" className="px-3 py-1.5 rounded-full border border-ink-line text-sm text-moon hover:border-gold/40 hover:text-gold-soft transition-colors">Xem ngày tốt theo việc</Link>
+              <Link href="/xem-ngay-tot" className="px-3 py-1.5 rounded border border-ink-line text-sm text-moon hover:border-lich hover:text-gold-soft transition-colors">Xem ngày tốt</Link>
+              <Link href="/gio-hoang-dao" className="px-3 py-1.5 rounded border border-ink-line text-sm text-moon hover:border-lich hover:text-gold-soft transition-colors">Giờ hoàng đạo</Link>
+              <Link href="/ngay-hoang-dao" className="px-3 py-1.5 rounded border border-ink-line text-sm text-moon hover:border-lich hover:text-gold-soft transition-colors">Ngày Hoàng đạo</Link>
+              <Link href="/ngay-hac-dao" className="px-3 py-1.5 rounded border border-ink-line text-sm text-moon hover:border-lich hover:text-gold-soft transition-colors">Ngày Hắc đạo</Link>
+              <Link href="/can-chi" className="px-3 py-1.5 rounded border border-ink-line text-sm text-moon hover:border-lich hover:text-gold-soft transition-colors">Can Chi</Link>
+              <Link href="/tiet-khi" className="px-3 py-1.5 rounded border border-ink-line text-sm text-moon hover:border-lich hover:text-gold-soft transition-colors">Tiết khí</Link>
+              <Link href="/xem-ngay" className="px-3 py-1.5 rounded border border-ink-line text-sm text-moon hover:border-lich hover:text-gold-soft transition-colors">Xem ngày tốt theo việc</Link>
             </div>
           </div>
 
@@ -138,6 +140,8 @@ export default function DoiLichForm({ dictionaryPreview, guidePreview }) {
           <HubContentPreview dictionaryPreview={dictionaryPreview} guidePreview={guidePreview} />
         </div>
       </main>
+        <SidebarTools seed="doi-lich-am-duong-index" />
+      </div>
       <Footer />
     </>
   );

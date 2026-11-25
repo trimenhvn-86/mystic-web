@@ -39,11 +39,8 @@ export default function TuViWeekDashboard({ week, year, monday, sunday, tongQuan
 
   return (
     <>
-      <div className="text-center mb-6">
-        <div className="w-14 h-14 rounded-full bg-ink-soft border border-gold/30 flex items-center justify-center mx-auto mb-4">
-          <CalendarRange size={26} className="text-gold" />
-        </div>
-        <h1 className="font-display text-2xl sm:text-3xl text-parchment mb-1">Tử Vi Tuần {week}/{year}</h1>
+      <div className="mb-6">
+        <h1 className="font-display font-extrabold text-3xl sm:text-4xl leading-tight text-parchment mb-1">Tử Vi Tuần {week}/{year}</h1>
         <p className="text-moon/70 text-sm">{rangeStr}</p>
       </div>
 
@@ -95,8 +92,8 @@ export default function TuViWeekDashboard({ week, year, monday, sunday, tongQuan
       <div className="mb-6">
         <p className="text-sm text-moon mb-3">Công cụ liên quan:</p>
         <div className="flex flex-wrap gap-2">
-          <Link href="/tu-vi-hom-nay" className="px-3 py-1.5 rounded-full border border-ink-line text-sm text-moon hover:border-gold/40 hover:text-gold-soft transition-colors">Tử vi hôm nay</Link>
-          <Link href="/tu-vi-thang" className="px-3 py-1.5 rounded-full border border-ink-line text-sm text-moon hover:border-gold/40 hover:text-gold-soft transition-colors">Tử vi tháng</Link>
+          <Link href="/tu-vi-hom-nay" className="px-3 py-1.5 rounded border border-ink-line text-sm text-moon hover:border-lich hover:text-gold-soft transition-colors">Tử vi hôm nay</Link>
+          <Link href="/tu-vi-thang" className="px-3 py-1.5 rounded border border-ink-line text-sm text-moon hover:border-lich hover:text-gold-soft transition-colors">Tử vi tháng</Link>
         </div>
       </div>
 

@@ -5,6 +5,7 @@ import { CircleDot, RotateCcw } from 'lucide-react';
 import Header from '../../components/Header';
 import Breadcrumb from '../../components/Breadcrumb';
 import Footer from '../../components/Footer';
+import SidebarTools from '../../components/SidebarTools';
 import AdSlot from '../../components/AdSlot';
 import TarotCardFlip from '../../components/TarotCardFlip';
 import HubContentPreview from '../../components/HubContentPreview';
@@ -62,13 +63,11 @@ export default function RutLaTarot({ dictionaryPreview, guidePreview }) {
         <meta property="og:description" content="Rút ngẫu nhiên 1 lá Tarot và xem thông điệp dành cho bạn ngay lúc này." />
       </Head>
       <Header />
-      <main className="max-w-lg mx-auto px-5 py-8 sm:py-12">
-        <div className="w-14 h-14 rounded-full bg-ink-soft border border-gold/30 flex items-center justify-center mx-auto mb-4">
-          <CircleDot size={26} className="text-gold" />
-        </div>
+      <div className="max-w-6xl mx-auto px-5 py-8 sm:py-12 grid lg:grid-cols-[minmax(0,1fr)_320px] gap-10 lg:gap-14">
+        <main className="min-w-0 max-w-3xl w-full mx-auto lg:mx-0">
         <Breadcrumb trail={[{ label: 'Tarot', href: '/tarot' }]} current="Rút 1 lá" />
-        <h1 className="font-display text-2xl sm:text-3xl text-parchment mb-1 text-center">Rút 1 Lá Tarot</h1>
-        <p className="text-moon/70 text-sm text-center mb-8">Tĩnh tâm, đặt câu hỏi trong đầu, rồi bấm vào lá bài để rút</p>
+        <h1 className="font-display font-extrabold text-3xl sm:text-4xl leading-tight text-parchment mb-1">Rút 1 Lá Tarot</h1>
+        <p className="text-moon/70 text-sm mb-8">Tĩnh tâm, đặt câu hỏi trong đầu, rồi bấm vào lá bài để rút</p>
 
         <TarotCardFlip
           card={result?.card}
@@ -101,7 +100,7 @@ export default function RutLaTarot({ dictionaryPreview, guidePreview }) {
             <div className="flex justify-center mt-6">
               <button
                 onClick={handleRedraw}
-                className="flex items-center gap-2 px-5 py-2.5 rounded-full border border-ink-line text-sm text-moon hover:border-gold/40 hover:text-gold-soft transition-colors"
+                className="flex items-center gap-2 px-5 py-2.5 rounded border border-ink-line text-sm text-moon hover:border-lich hover:text-gold-soft transition-colors"
               >
                 <RotateCcw size={15} /> Rút lại
               </button>
@@ -118,10 +117,10 @@ export default function RutLaTarot({ dictionaryPreview, guidePreview }) {
         <div className="mt-8">
           <p className="text-sm text-moon mb-3 text-center">Công cụ liên quan:</p>
           <div className="flex flex-wrap justify-center gap-2">
-            <Link href="/tarot-hom-nay" className="px-3 py-1.5 rounded-full border border-ink-line text-sm text-moon hover:border-gold/40 hover:text-gold-soft transition-colors">Tarot hôm nay</Link>
-            <Link href="/tarot-yes-no" className="px-3 py-1.5 rounded-full border border-ink-line text-sm text-moon hover:border-gold/40 hover:text-gold-soft transition-colors">Tarot Yes/No</Link>
-            <Link href="/tarot/bo-bai" className="px-3 py-1.5 rounded-full border border-ink-line text-sm text-moon hover:border-gold/40 hover:text-gold-soft transition-colors">Bộ bài 78 lá</Link>
-            <Link href="/trai-bai-3-la" className="px-3 py-1.5 rounded-full border border-ink-line text-sm text-moon hover:border-gold/40 hover:text-gold-soft transition-colors">Trải bài 3 lá</Link>
+            <Link href="/tarot-hom-nay" className="px-3 py-1.5 rounded border border-ink-line text-sm text-moon hover:border-lich hover:text-gold-soft transition-colors">Tarot hôm nay</Link>
+            <Link href="/tarot-yes-no" className="px-3 py-1.5 rounded border border-ink-line text-sm text-moon hover:border-lich hover:text-gold-soft transition-colors">Tarot Yes/No</Link>
+            <Link href="/tarot/bo-bai" className="px-3 py-1.5 rounded border border-ink-line text-sm text-moon hover:border-lich hover:text-gold-soft transition-colors">Bộ bài 78 lá</Link>
+            <Link href="/trai-bai-3-la" className="px-3 py-1.5 rounded border border-ink-line text-sm text-moon hover:border-lich hover:text-gold-soft transition-colors">Trải bài 3 lá</Link>
           </div>
         </div>
 
@@ -133,6 +132,8 @@ export default function RutLaTarot({ dictionaryPreview, guidePreview }) {
           Tarot mang tính tham khảo, chiêm nghiệm — không thay thế quyết định cá nhân.
         </p>
       </main>
+        <SidebarTools seed="rut-la-tarot-index" />
+      </div>
       <Footer />
     </>
   );

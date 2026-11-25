@@ -5,6 +5,7 @@ import { Gem } from 'lucide-react';
 import Header from '../../components/Header';
 import Breadcrumb from '../../components/Breadcrumb';
 import Footer from '../../components/Footer';
+import SidebarTools from '../../components/SidebarTools';
 import NamSinhGrid from '../../components/NamSinhGrid';
 import MysticLoader from '../../components/MysticLoader';
 import HubContentPreview from '../../components/HubContentPreview';
@@ -61,13 +62,11 @@ export default function DaPhongThuyForm({ dictionaryPreview, guidePreview }) {
         <meta property="og:description" content="Tra cứu đá phong thủy hợp mệnh theo năm sinh, dựa trên Ngũ hành Nạp âm." />
       </Head>
       <Header />
-      <main className="max-w-md mx-auto px-5 py-10 sm:py-14">
+      <div className="max-w-6xl mx-auto px-5 py-8 sm:py-12 grid lg:grid-cols-[minmax(0,1fr)_320px] gap-10 lg:gap-14">
+        <main className="min-w-0 max-w-3xl w-full mx-auto lg:mx-0">
         <Breadcrumb trail={[{ label: 'Mệnh & Phong Thủy', href: '/menh-phong-thuy' }]} current="Vật phẩm phong thủy" />
-        <div className="w-14 h-14 rounded-full bg-ink-soft border border-gold/30 flex items-center justify-center mx-auto mb-4">
-          <Gem size={26} className="text-gold" />
-        </div>
-        <h1 className="font-display text-2xl sm:text-3xl text-parchment mb-2 text-center">Vật Phẩm Phong Thủy — Đá Hợp Mệnh</h1>
-        <p className="text-moon/70 text-sm text-center mb-8">Nhập năm sinh Dương lịch để xem đá hợp mệnh.</p>
+        <h1 className="font-display font-extrabold text-3xl sm:text-4xl leading-tight text-parchment mb-2">Vật Phẩm Phong Thủy — Đá Hợp Mệnh</h1>
+        <p className="text-moon/70 text-sm mb-8">Nhập năm sinh Dương lịch để xem đá hợp mệnh.</p>
         <form onSubmit={handleSubmit} className="mystic-card p-6 flex flex-col gap-4">
           <label className="flex flex-col gap-1 text-xs text-moon min-w-0">
             Năm sinh
@@ -75,7 +74,7 @@ export default function DaPhongThuyForm({ dictionaryPreview, guidePreview }) {
               type="number" min="1900" max="2100" required
               value={year}
               onChange={(e) => setYear(e.target.value)}
-              className="bg-ink-soft border border-ink-line rounded-lg px-3 py-3 text-parchment text-base"
+              className="bg-ink-soft border border-ink-line rounded-md px-3 py-3 text-parchment text-base"
             />
           </label>
           <button type="submit" className="btn-gold py-3.5 text-base font-semibold mt-2">Xem kết quả</button>
@@ -97,6 +96,8 @@ export default function DaPhongThuyForm({ dictionaryPreview, guidePreview }) {
         </div>
       <NamSinhGrid kind="hop-da-gi" />
       </main>
+        <SidebarTools seed="da-phong-thuy-index" />
+      </div>
       <Footer />
     </>
   );

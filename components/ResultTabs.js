@@ -28,7 +28,7 @@ export default function ResultTabs({ tabs }) {
             {isOpen && (
               <div className="px-5 pb-5 text-parchment leading-relaxed">
                 {t.content}
-                <AdSlot label={`Ad slot — ${t.label}`} className="mt-4" />
+                <AdSlot label={`Ad slot — ${t.label}`} className="mt-4" slim />
               </div>
             )}
           </div>

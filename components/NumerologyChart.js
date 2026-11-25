@@ -25,7 +25,7 @@ export default function NumerologyChart({ dd, mm, yyyy }) {
         return (
           <div
             key={n}
-            className={`aspect-square rounded-lg border flex flex-col items-center justify-center ${
+            className={`aspect-square rounded-md border flex flex-col items-center justify-center ${
               count > 0 ? 'bg-gold/10 border-gold/40' : 'bg-ink-soft border-ink-line'
             }`}
           >

@@ -5,6 +5,7 @@ import { Layers3, RotateCcw } from 'lucide-react';
 import Header from '../../components/Header';
 import Breadcrumb from '../../components/Breadcrumb';
 import Footer from '../../components/Footer';
+import SidebarTools from '../../components/SidebarTools';
 import AdSlot from '../../components/AdSlot';
 import TarotCardFlip from '../../components/TarotCardFlip';
 import HubContentPreview from '../../components/HubContentPreview';
@@ -47,13 +48,11 @@ export default function TraiBai3La({ spread, dictionaryPreview, guidePreview }) 
         <meta name="description" content={`${spread.desc} Trải bài Tarot 3 lá miễn phí, dùng đủ bộ 78 lá.`} />
       </Head>
       <Header />
-      <main className="max-w-3xl mx-auto px-5 py-8 sm:py-12">
-        <div className="w-14 h-14 rounded-full bg-ink-soft border border-gold/30 flex items-center justify-center mx-auto mb-4">
-          <Layers3 size={26} className="text-gold" />
-        </div>
+      <div className="max-w-6xl mx-auto px-5 py-8 sm:py-12 grid lg:grid-cols-[minmax(0,1fr)_320px] gap-10 lg:gap-14">
+        <main className="min-w-0 max-w-3xl w-full mx-auto lg:mx-0">
         <Breadcrumb trail={[{ label: 'Tarot', href: '/tarot' }, { label: 'Trải bài 3 lá', href: '/trai-bai-3-la' }]} current={spread.label} />
-        <h1 className="font-display text-2xl sm:text-3xl text-parchment mb-2 text-center">{spread.label}</h1>
-        <p className="text-moon/70 text-sm text-center mb-10">{spread.desc}</p>
+        <h1 className="font-display font-extrabold text-3xl sm:text-4xl leading-tight text-parchment mb-2">{spread.label}</h1>
+        <p className="text-moon/70 text-sm mb-10">{spread.desc}</p>
 
         {!drawn && (
           <div className="flex justify-center">
@@ -87,7 +86,7 @@ export default function TraiBai3La({ spread, dictionaryPreview, guidePreview }) 
                   const msg = upright ? card.dailyMessageUpright : card.dailyMessageReversed;
                   return (
                     <div key={pos} className="mystic-card p-5">
-                      <p className="text-xs text-gold-soft uppercase mb-1">{pos}</p>
+                      <p className="text-xs text-gold-soft mb-1">{pos}</p>
                       <p className="font-display text-lg text-parchment mb-1">{card.nameVi} — {upright ? 'Xuôi' : 'Ngược'}</p>
                       <p className="text-sm text-parchment/85">{msg}</p>
                       <Link href={`/tarot/${card.slug}`} className="inline-block text-xs text-gold-soft hover:underline mt-2">
@@ -104,7 +103,7 @@ export default function TraiBai3La({ spread, dictionaryPreview, guidePreview }) 
             <div className="flex justify-center">
               <button
                 onClick={handleReset}
-                className="flex items-center gap-2 px-5 py-2.5 rounded-full border border-ink-line text-sm text-moon hover:border-gold/40 hover:text-gold-soft transition-colors"
+                className="flex items-center gap-2 px-5 py-2.5 rounded border border-ink-line text-sm text-moon hover:border-lich hover:text-gold-soft transition-colors"
               >
                 <RotateCcw size={15} /> Trải lại
               </button>
@@ -116,7 +115,7 @@ export default function TraiBai3La({ spread, dictionaryPreview, guidePreview }) 
           <p className="text-sm text-moon mb-3 text-center">Kiểu trải khác:</p>
           <div className="flex flex-wrap justify-center gap-2">
             {spreads.filter((s) => s.slug !== spread.slug).map((s) => (
-              <Link key={s.slug} href={`/trai-bai-3-la/${s.slug}`} className="px-3 py-1.5 rounded-full border border-ink-line text-sm text-moon hover:border-gold/40 hover:text-gold-soft transition-colors">
+              <Link key={s.slug} href={`/trai-bai-3-la/${s.slug}`} className="px-3 py-1.5 rounded border border-ink-line text-sm text-moon hover:border-lich hover:text-gold-soft transition-colors">
                 {s.label.replace('Trải Bài 3 Lá — ', '').replace('Trải Bài ', '')}
               </Link>
             ))}
@@ -126,9 +125,9 @@ export default function TraiBai3La({ spread, dictionaryPreview, guidePreview }) 
         <div className="mt-6">
           <p className="text-sm text-moon mb-3 text-center">Công cụ liên quan:</p>
           <div className="flex flex-wrap justify-center gap-2">
-            <Link href="/rut-la-tarot" className="px-3 py-1.5 rounded-full border border-ink-line text-sm text-moon hover:border-gold/40 hover:text-gold-soft transition-colors">Rút 1 lá bài</Link>
-            <Link href="/tarot-yes-no" className="px-3 py-1.5 rounded-full border border-ink-line text-sm text-moon hover:border-gold/40 hover:text-gold-soft transition-colors">Tarot Yes/No</Link>
-            <Link href="/tarot/bo-bai" className="px-3 py-1.5 rounded-full border border-ink-line text-sm text-moon hover:border-gold/40 hover:text-gold-soft transition-colors">Bộ bài 78 lá</Link>
+            <Link href="/rut-la-tarot" className="px-3 py-1.5 rounded border border-ink-line text-sm text-moon hover:border-lich hover:text-gold-soft transition-colors">Rút 1 lá bài</Link>
+            <Link href="/tarot-yes-no" className="px-3 py-1.5 rounded border border-ink-line text-sm text-moon hover:border-lich hover:text-gold-soft transition-colors">Tarot Yes/No</Link>
+            <Link href="/tarot/bo-bai" className="px-3 py-1.5 rounded border border-ink-line text-sm text-moon hover:border-lich hover:text-gold-soft transition-colors">Bộ bài 78 lá</Link>
           </div>
         </div>
 
@@ -140,6 +139,8 @@ export default function TraiBai3La({ spread, dictionaryPreview, guidePreview }) 
           Tarot mang tính tham khảo, chiêm nghiệm — không thay thế quyết định cá nhân.
         </p>
       </main>
+        <SidebarTools seed="trai-bai-3-la-spread" />
+      </div>
       <Footer />
     </>
   );

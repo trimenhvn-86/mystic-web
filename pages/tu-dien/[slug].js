@@ -4,6 +4,7 @@ import { BookOpen } from 'lucide-react';
 import Header from '../../components/Header';
 import Breadcrumb from '../../components/Breadcrumb';
 import Footer from '../../components/Footer';
+import SidebarTools from '../../components/SidebarTools';
 import AdSlot from '../../components/AdSlot';
 import { getDictionaryTerms, getDictionaryTermBySlug } from '../../lib/content';
 
@@ -38,12 +39,10 @@ export default function TuDienDetail({ term }) {
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(termSchema) }} />
       </Head>
       <Header />
-      <main className="max-w-2xl mx-auto px-5 py-8 sm:py-12">
-        <div className="w-14 h-14 rounded-full bg-ink-soft border border-gold/30 flex items-center justify-center mx-auto mb-4">
-          <BookOpen size={26} className="text-gold" />
-        </div>
+      <div className="max-w-6xl mx-auto px-5 py-8 sm:py-12 grid lg:grid-cols-[minmax(0,1fr)_320px] gap-10 lg:gap-14">
+        <main className="min-w-0 max-w-3xl">
         <Breadcrumb trail={[{ label: 'Từ điển', href: '/tu-dien' }]} current={term.title} />
-        <h1 className="font-display text-2xl sm:text-3xl text-parchment mb-6 text-center">{term.title}</h1>
+        <h1 className="font-display font-extrabold text-3xl sm:text-4xl leading-tight text-parchment mb-6">{term.title}</h1>
         <div className="mystic-card p-6 space-y-5">
           <p className="text-lg text-gold-soft">{term.shortDefinition}</p>
           {term.origin && (
@@ -75,7 +74,7 @@ export default function TuDienDetail({ term }) {
               <p className="text-jade font-semibold mb-2">Thuật ngữ liên quan</p>
               <div className="flex flex-wrap gap-2">
                 {term.relatedTerms.map((rt) => (
-                  <Link key={rt} href={`/tu-dien/${rt}`} className="px-3 py-1 rounded-full bg-ink-soft border border-ink-line text-sm hover:border-gold/40 transition-colors">
+                  <Link key={rt} href={`/tu-dien/${rt}`} className="px-3 py-1 rounded bg-ink-soft border border-ink-line text-sm hover:border-lich transition-colors">
                     {rt}
                   </Link>
                 ))}
@@ -86,6 +85,8 @@ export default function TuDienDetail({ term }) {
         <AdSlot label="Ad slot — từ điển" className="mt-6" />
         <Link href="/tu-dien" className="block text-center text-sm text-moon hover:text-gold-soft mt-6">← Về Từ điển huyền học</Link>
       </main>
+        <SidebarTools seed="tu-dien" />
+      </div>
       <Footer />
     </>
   );

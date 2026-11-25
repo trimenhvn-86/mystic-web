@@ -5,6 +5,7 @@ import { CalendarDays, Hash, Layers, Users, Sun, CircleDot, Sparkle } from 'luci
 import Header from '../components/Header';
 import Breadcrumb from '../components/Breadcrumb';
 import Footer from '../components/Footer';
+import SidebarTools from '../components/SidebarTools';
 import { HUBS, getAllActiveTools } from '../content/hubs';
 
 const HUB_ICONS = { CalendarDays, Hash, Layers, Users, Sun, CircleDot };
@@ -22,11 +23,12 @@ export default function GioiThieu() {
         />
       </Head>
       <Header />
-      <main className="max-w-3xl mx-auto px-5 py-8 sm:py-14">
+      <div className="max-w-6xl mx-auto px-5 py-8 sm:py-12 grid lg:grid-cols-[minmax(0,1fr)_320px] gap-10 lg:gap-14">
+        <main className="min-w-0 max-w-3xl">
         <div className="text-center mb-8">
           <Image src="/brand/trimenh-logo.png" alt="TriMenh" width={96} height={96} className="mx-auto mb-4" />
           <Breadcrumb trail={[]} current="Giới thiệu" />
-          <h1 className="font-display text-2xl sm:text-3xl text-parchment mb-1">TriMenh — Khám phá vận mệnh, kiến tạo tương lai.</h1>
+          <h1 className="font-display font-extrabold text-3xl sm:text-4xl leading-tight text-parchment mb-1">TriMenh — Khám phá vận mệnh, kiến tạo tương lai.</h1>
           <p className="text-gold-soft text-sm">Hiểu mình để sống tốt hơn</p>
         </div>
 
@@ -93,8 +95,8 @@ export default function GioiThieu() {
             {HUBS.map((h) => {
               const Icon = HUB_ICONS[h.icon] || Layers;
               return (
-                <Link key={h.slug} href={`/${h.slug}`} className="mystic-card p-4 hover:border-gold/40 transition-colors">
-                  <div className="w-9 h-9 rounded-lg bg-ink-soft border border-ink-line flex items-center justify-center mb-2">
+                <Link key={h.slug} href={`/${h.slug}`} className="mystic-card p-4 hover:border-lich transition-colors">
+                  <div className="w-9 h-9 rounded-md bg-ink-soft border border-ink-line flex items-center justify-center mb-2">
                     <Icon size={18} className="text-gold" />
                   </div>
                   <p className="text-gold-soft font-medium text-sm mb-1">{h.name}</p>
@@ -110,7 +112,7 @@ export default function GioiThieu() {
           <h2 className="font-display text-xl text-parchment mb-4 text-center">Công cụ miễn phí tại TriMenh</h2>
           <div className="grid sm:grid-cols-2 gap-2.5">
             {popularTools.map((t) => (
-              <Link key={t.href} href={t.href} className="flex items-start gap-2.5 bg-ink-soft border border-ink-line rounded-lg px-4 py-3 text-sm text-parchment/85 hover:border-gold/40 transition-colors">
+              <Link key={t.href} href={t.href} className="flex items-start gap-2.5 bg-ink-soft border border-ink-line rounded-md px-4 py-3 text-sm text-parchment/85 hover:border-lich transition-colors">
                 <Sparkle size={14} className="text-gold mt-0.5 flex-shrink-0" />
                 {t.label}
               </Link>
@@ -118,6 +120,8 @@ export default function GioiThieu() {
           </div>
         </div>
       </main>
+        <SidebarTools seed="gioi-thieu" />
+      </div>
       <Footer />
     </>
   );

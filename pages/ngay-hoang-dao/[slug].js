@@ -4,6 +4,7 @@ import { Sparkles } from 'lucide-react';
 import Header from '../../components/Header';
 import Breadcrumb from '../../components/Breadcrumb';
 import Footer from '../../components/Footer';
+import SidebarTools from '../../components/SidebarTools';
 import AdSlot from '../../components/AdSlot';
 import CalendarImageCard from '../../components/CalendarImageCard';
 import MiniCalendar from '../../components/MiniCalendar';
@@ -82,13 +83,11 @@ export default function NgayHoangDaoResult({ dd, mm, yyyy, lunar, canChiNam, can
         <meta name="description" content={desc} />
       </Head>
       <Header />
-      <main className="max-w-3xl mx-auto px-5 py-8 sm:py-12">
-        <div className="w-14 h-14 rounded-full bg-ink-soft border border-gold/30 flex items-center justify-center mx-auto mb-4">
-          <Sparkles size={26} className="text-gold" />
-        </div>
+      <div className="max-w-6xl mx-auto px-5 py-8 sm:py-12 grid lg:grid-cols-[minmax(0,1fr)_320px] gap-10 lg:gap-14">
+        <main className="min-w-0 max-w-3xl w-full mx-auto lg:mx-0">
         <Breadcrumb trail={[{ label: 'Lịch & Ngày Tốt', href: '/lich-ngay-tot' }, { label: 'Ngày Hoàng đạo', href: '/ngay-hoang-dao' }]} current={`Ngày ${dd}/${mm}/${yyyy}`} />
-        <h1 className={`font-display text-2xl sm:text-3xl mb-4 text-center ${isGoodDay ? 'text-jade' : 'text-vermilion'}`}>{title}</h1>
-        <p className="text-moon/80 text-center max-w-2xl mx-auto mb-8 leading-relaxed">{summary}</p>
+        <h1 className={`font-display font-extrabold text-3xl sm:text-4xl leading-tight mb-4 ${isGoodDay ? 'text-jade' : 'text-vermilion'}`}>{title}</h1>
+        <p className="text-moon/80 max-w-2xl mb-8 leading-relaxed">{summary}</p>
 
         <div className="grid md:grid-cols-[340px_1fr] gap-6 items-start">
           <CalendarImageCard dd={dd} mm={mm} yyyy={yyyy} />
@@ -123,7 +122,7 @@ export default function NgayHoangDaoResult({ dd, mm, yyyy, lunar, canChiNam, can
               <h2 className="font-display text-lg text-parchment mb-3">Giờ Hoàng Đạo trong ngày</h2>
               <div className="grid sm:grid-cols-2 gap-2.5">
                 {gioHoangDao.map((g) => (
-                  <div key={g.chi} className="flex items-center justify-between bg-ink-soft rounded-lg px-4 py-2.5 border border-ink-line">
+                  <div key={g.chi} className="flex items-center justify-between bg-ink-soft rounded-md px-4 py-2.5 border border-ink-line">
                     <span className="text-gold-soft font-display">Giờ {g.chi}</span>
                     <span className="text-moon text-sm">{g.khung}</span>
                   </div>
@@ -165,6 +164,8 @@ export default function NgayHoangDaoResult({ dd, mm, yyyy, lunar, canChiNam, can
           Nội dung mang tính tham khảo, chiêm nghiệm dân gian — không thay thế quyết định cá nhân.
         </p>
       </main>
+        <SidebarTools seed="ngay-hoang-dao-slug" />
+      </div>
       <Footer />
     </>
   );

@@ -4,6 +4,7 @@ import { Briefcase } from 'lucide-react';
 import Header from '../../components/Header';
 import Breadcrumb from '../../components/Breadcrumb';
 import Footer from '../../components/Footer';
+import SidebarTools from '../../components/SidebarTools';
 import AdSlot from '../../components/AdSlot';
 import TuoiHopLinks from '../../components/TuoiHopLinks';
 import FaqSection from '../../components/FaqSection';
@@ -51,23 +52,21 @@ export default function XemTuoiLamAnResult({ result, advice, yearA, yearB, dicti
         <meta property="og:description" content={desc} />
       </Head>
       <Header />
-      <main className="max-w-2xl mx-auto px-5 py-8 sm:py-12">
-        <div className="w-14 h-14 rounded-full bg-ink-soft border border-gold/30 flex items-center justify-center mx-auto mb-4">
-          <Briefcase size={26} className="text-gold" />
-        </div>
+      <div className="max-w-6xl mx-auto px-5 py-8 sm:py-12 grid lg:grid-cols-[minmax(0,1fr)_320px] gap-10 lg:gap-14">
+        <main className="min-w-0 max-w-3xl w-full mx-auto lg:mx-0">
         <Breadcrumb trail={[{ label: 'Tuổi & Tương Hợp', href: '/tuoi-tuong-hop' }, { label: 'Xem tuổi làm ăn', href: '/xem-tuoi-lam-an' }]} current="Kết quả" />
-        <h1 className="font-display text-2xl sm:text-3xl text-parchment mb-8 text-center">{title}</h1>
+        <h1 className="font-display font-extrabold text-3xl sm:text-4xl leading-tight text-parchment mb-8">{title}</h1>
 
         <div className="mystic-card p-6 text-center mb-6">
           <div className="flex items-center justify-center gap-6 mb-4">
             <div>
-              <p className="text-xs text-moon uppercase mb-1">Đối tác 1</p>
+              <p className="text-xs text-moon mb-1">Đối tác 1</p>
               <p className="font-display text-2xl text-gold-soft">{yearA}</p>
               <p className="text-xs text-moon mt-1">{canChiA}</p>
             </div>
             <span className="text-2xl">🤝</span>
             <div>
-              <p className="text-xs text-moon uppercase mb-1">Đối tác 2</p>
+              <p className="text-xs text-moon mb-1">Đối tác 2</p>
               <p className="font-display text-2xl text-gold-soft">{yearB}</p>
               <p className="text-xs text-moon mt-1">{canChiB}</p>
             </div>
@@ -103,6 +102,8 @@ export default function XemTuoiLamAnResult({ result, advice, yearA, yearB, dicti
           Nội dung mang tính tham khảo, chiêm nghiệm dân gian — không thay thế quyết định cá nhân.
         </p>
       </main>
+        <SidebarTools seed="xem-tuoi-lam-an-slug" />
+      </div>
       <Footer />
     </>
   );

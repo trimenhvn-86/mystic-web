@@ -3,6 +3,7 @@ import Link from 'next/link';
 import Header from '../../components/Header';
 import Breadcrumb from '../../components/Breadcrumb';
 import Footer from '../../components/Footer';
+import SidebarTools from '../../components/SidebarTools';
 import AdSlot from '../../components/AdSlot';
 import TarotCardArt from '../../components/TarotCardArt';
 import FaqSection from '../../components/FaqSection';
@@ -35,10 +36,11 @@ export default function TarotCardDetail({ card, related, dictionaryPreview, guid
         <meta name="description" content={card.meaningUpright.slice(0, 155)} />
       </Head>
       <Header />
-      <main className="max-w-2xl mx-auto px-5 py-8 sm:py-12">
+      <div className="max-w-6xl mx-auto px-5 py-8 sm:py-12 grid lg:grid-cols-[minmax(0,1fr)_320px] gap-10 lg:gap-14">
+        <main className="min-w-0 max-w-3xl w-full mx-auto lg:mx-0">
         <Breadcrumb trail={[{ label: 'Tarot', href: '/tarot' }, { label: 'Bộ bài 78 lá', href: '/tarot/bo-bai' }]} current={card.nameVi} />
 
-        <h1 className="font-display text-2xl sm:text-3xl text-parchment mb-8 text-center">{title}</h1>
+        <h1 className="font-display font-extrabold text-3xl sm:text-4xl leading-tight text-parchment mb-8">{title}</h1>
 
         <div className="flex justify-center mb-8">
           <TarotCardArt card={card} upright={true} size={180} />
@@ -49,7 +51,7 @@ export default function TarotCardDetail({ card, related, dictionaryPreview, guid
             <p className="text-jade font-semibold mb-2">Ý nghĩa xuôi</p>
             <div className="flex flex-wrap gap-1.5 mb-3">
               {card.keywordsUpright.map((k) => (
-                <span key={k} className="px-2.5 py-0.5 rounded-full bg-ink-soft border border-jade/30 text-xs">{k}</span>
+                <span key={k} className="px-2.5 py-0.5 rounded bg-ink-soft border border-jade/30 text-xs">{k}</span>
               ))}
             </div>
             <p className="text-sm text-parchment/85">{card.meaningUpright}</p>
@@ -58,7 +60,7 @@ export default function TarotCardDetail({ card, related, dictionaryPreview, guid
             <p className="text-vermilion font-semibold mb-2">Ý nghĩa ngược</p>
             <div className="flex flex-wrap gap-1.5 mb-3">
               {card.keywordsReversed.map((k) => (
-                <span key={k} className="px-2.5 py-0.5 rounded-full bg-ink-soft border border-vermilion/30 text-xs">{k}</span>
+                <span key={k} className="px-2.5 py-0.5 rounded bg-ink-soft border border-vermilion/30 text-xs">{k}</span>
               ))}
             </div>
             <p className="text-sm text-parchment/85">{card.meaningReversed}</p>
@@ -93,9 +95,9 @@ export default function TarotCardDetail({ card, related, dictionaryPreview, guid
         </div>
 
         <div className="flex flex-wrap justify-center gap-2">
-          <Link href="/tarot-hom-nay" className="px-3 py-1.5 rounded-full border border-ink-line text-sm text-moon hover:border-gold/40 hover:text-gold-soft transition-colors">Tarot hôm nay</Link>
-          <Link href="/rut-la-tarot" className="px-3 py-1.5 rounded-full border border-ink-line text-sm text-moon hover:border-gold/40 hover:text-gold-soft transition-colors">Rút 1 lá bài</Link>
-          <Link href="/tarot-yes-no" className="px-3 py-1.5 rounded-full border border-ink-line text-sm text-moon hover:border-gold/40 hover:text-gold-soft transition-colors">Tarot Yes/No</Link>
+          <Link href="/tarot-hom-nay" className="px-3 py-1.5 rounded border border-ink-line text-sm text-moon hover:border-lich hover:text-gold-soft transition-colors">Tarot hôm nay</Link>
+          <Link href="/rut-la-tarot" className="px-3 py-1.5 rounded border border-ink-line text-sm text-moon hover:border-lich hover:text-gold-soft transition-colors">Rút 1 lá bài</Link>
+          <Link href="/tarot-yes-no" className="px-3 py-1.5 rounded border border-ink-line text-sm text-moon hover:border-lich hover:text-gold-soft transition-colors">Tarot Yes/No</Link>
         </div>
 
         <div className="mt-8">
@@ -106,6 +108,8 @@ export default function TarotCardDetail({ card, related, dictionaryPreview, guid
           <HubContentPreview dictionaryPreview={dictionaryPreview} guidePreview={guidePreview} />
         </div>
       </main>
+        <SidebarTools seed="tarot-slug" />
+      </div>
       <Footer />
     </>
   );

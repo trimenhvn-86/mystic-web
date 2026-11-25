@@ -5,6 +5,7 @@ import { CalendarCheck } from 'lucide-react';
 import Header from '../../components/Header';
 import Breadcrumb from '../../components/Breadcrumb';
 import Footer from '../../components/Footer';
+import SidebarTools from '../../components/SidebarTools';
 import AdSlot from '../../components/AdSlot';
 import MysticLoader from '../../components/MysticLoader';
 import { getBestAndWorstDays } from '../../lib/periodRating';
@@ -68,13 +69,11 @@ export default function XemNgayOccasion({ occasion, initial }) {
         <meta property="og:description" content={desc} />
       </Head>
       <Header />
-      <main className="max-w-2xl mx-auto px-5 py-8 sm:py-12">
-        <div className="w-14 h-14 rounded-full bg-ink-soft border border-gold/30 flex items-center justify-center mx-auto mb-4">
-          <CalendarCheck size={26} className="text-gold" />
-        </div>
+      <div className="max-w-6xl mx-auto px-5 py-8 sm:py-12 grid lg:grid-cols-[minmax(0,1fr)_320px] gap-10 lg:gap-14">
+        <main className="min-w-0 max-w-3xl w-full mx-auto lg:mx-0">
         <Breadcrumb trail={[{ label: 'Lịch & Ngày Tốt', href: '/lich-ngay-tot' }, { label: 'Xem ngày tốt theo việc', href: '/xem-ngay' }]} current={occasion.label} />
-        <h1 className="font-display text-2xl sm:text-3xl text-parchment mb-2 text-center">Xem Ngày Tốt {occasion.label}</h1>
-        <p className="text-moon/70 text-sm text-center mb-8">Danh sách ngày Hoàng đạo tốt trong 60 ngày tới</p>
+        <h1 className="font-display font-extrabold text-3xl sm:text-4xl leading-tight text-parchment mb-2">Xem Ngày Tốt {occasion.label}</h1>
+        <p className="text-moon/70 text-sm mb-8">Danh sách ngày Hoàng đạo tốt trong 60 ngày tới</p>
 
         <div className="mystic-card p-6 mb-6">
           <p className="text-sm text-parchment/85">{occasion.tip}</p>
@@ -85,7 +84,7 @@ export default function XemNgayOccasion({ occasion, initial }) {
             <Link
               key={`${d.dd}-${d.mm}-${d.yyyy}`}
               href={`/xem-ngay-tot/ngay-${pad(d.dd)}-thang-${pad(d.mm)}-nam-${d.yyyy}`}
-              className="flex items-center justify-between mystic-card px-4 py-3 hover:border-gold/40 transition-colors"
+              className="flex items-center justify-between mystic-card px-4 py-3 hover:border-lich transition-colors"
             >
               <span className="text-parchment">{d.thu}, {pad(d.dd)}/{pad(d.mm)}/{d.yyyy}</span>
               <span className="text-gold">{'★'.repeat(d.stars)}</span>
@@ -101,7 +100,7 @@ export default function XemNgayOccasion({ occasion, initial }) {
           <p className="text-sm text-moon mb-3">Việc khác:</p>
           <div className="flex flex-wrap gap-2">
             {occasions.filter((o) => o.slug !== occasion.slug).map((o) => (
-              <Link key={o.slug} href={`/xem-ngay/${o.slug}`} className="px-3 py-1.5 rounded-full border border-ink-line text-sm text-moon hover:border-gold/40 hover:text-gold-soft transition-colors">
+              <Link key={o.slug} href={`/xem-ngay/${o.slug}`} className="px-3 py-1.5 rounded border border-ink-line text-sm text-moon hover:border-lich hover:text-gold-soft transition-colors">
                 {o.label}
               </Link>
             ))}
@@ -116,6 +115,8 @@ export default function XemNgayOccasion({ occasion, initial }) {
           Danh sách dựa trên đánh giá Hoàng đạo/Hắc đạo chung — chưa tính riêng đặc thù từng việc theo trường phái chuyên sâu, mang tính tham khảo.
         </p>
       </main>
+        <SidebarTools seed="xem-ngay-occasion" />
+      </div>
       <Footer />
     </>
   );

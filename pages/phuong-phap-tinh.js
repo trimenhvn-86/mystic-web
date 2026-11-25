@@ -2,6 +2,7 @@ import Head from 'next/head';
 import Header from '../components/Header';
 import Breadcrumb from '../components/Breadcrumb';
 import Footer from '../components/Footer';
+import SidebarTools from '../components/SidebarTools';
 
 export default function PhuongPhapTinh() {
   const title = 'Phương pháp tính lịch, ngày tốt xấu — TriMenh';
@@ -15,9 +16,10 @@ export default function PhuongPhapTinh() {
         <meta property="og:description" content={desc} />
       </Head>
       <Header />
-      <main className="max-w-2xl mx-auto px-5 py-8 sm:py-12">
+      <div className="max-w-6xl mx-auto px-5 py-8 sm:py-12 grid lg:grid-cols-[minmax(0,1fr)_320px] gap-10 lg:gap-14">
+        <main className="min-w-0 max-w-3xl">
         <Breadcrumb trail={[]} current="Phương pháp tính" />
-        <h1 className="font-display text-2xl sm:text-3xl text-parchment mb-6 text-center">Phương pháp tính của TriMenh</h1>
+        <h1 className="font-display font-extrabold text-3xl sm:text-4xl leading-tight text-parchment mb-6">Phương pháp tính của TriMenh</h1>
         <div className="mystic-card p-6 space-y-4 text-parchment/85 leading-relaxed">
           <h2 className="font-display text-xl text-parchment">Lịch âm dương</h2>
           <p>Đổi ngày dương – âm theo thuật toán thiên văn của Hồ Ngọc Đức, múi giờ Việt Nam (UTC+7), có xử lý tháng nhuận.</p>
@@ -31,6 +33,8 @@ export default function PhuongPhapTinh() {
           <p>Kết quả mang tính tham khảo văn hóa truyền thống. Các trường phái có thể khác nhau ở một số quy tắc.</p>
         </div>
       </main>
+        <SidebarTools seed="phuong-phap-tinh" />
+      </div>
       <Footer />
     </>
   );

@@ -45,7 +45,7 @@ export default function App({ Component, pageProps }) {
         <meta name="google-site-verification" content="4Al67m0IrHmrKDCvrnmwrj2nujRtUbXkhIayyp5Dv08" />
         <link rel="icon" href="/favicon.ico" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-        <meta name="theme-color" content="#0B0E1A" />
+        <meta name="theme-color" content="#F7F6F1" />
         {homeSchema && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(homeSchema) }} />}
         <meta property="og:site_name" content="TriMenh" />
         <meta property="og:type" content="website" />
@@ -53,7 +53,7 @@ export default function App({ Component, pageProps }) {
         <meta name="twitter:card" content="summary_large_image" />
         <link
           rel="preload"
-          href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&display=swap"
           as="style"
           onLoad={(e) => {
             e.currentTarget.rel = 'stylesheet';
@@ -62,7 +62,7 @@ export default function App({ Component, pageProps }) {
         <noscript>
           <link
             rel="stylesheet"
-            href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap"
+            href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&display=swap"
           />
         </noscript>
       </Head>

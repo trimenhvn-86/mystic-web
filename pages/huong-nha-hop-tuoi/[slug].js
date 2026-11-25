@@ -4,6 +4,7 @@ import { Compass } from 'lucide-react';
 import Header from '../../components/Header';
 import Breadcrumb from '../../components/Breadcrumb';
 import Footer from '../../components/Footer';
+import SidebarTools from '../../components/SidebarTools';
 import AdSlot from '../../components/AdSlot';
 import MenhPhongThuyLinks from '../../components/MenhPhongThuyLinks';
 import FaqSection from '../../components/FaqSection';
@@ -45,12 +46,10 @@ export default function HuongNhaResult({ gender, year, cungMenh, huong, dictiona
         <meta property="og:description" content={desc} />
       </Head>
       <Header />
-      <main className="max-w-2xl mx-auto px-5 py-8 sm:py-12">
-        <div className="w-14 h-14 rounded-full bg-ink-soft border border-gold/30 flex items-center justify-center mx-auto mb-4">
-          <Compass size={26} className="text-gold" />
-        </div>
+      <div className="max-w-6xl mx-auto px-5 py-8 sm:py-12 grid lg:grid-cols-[minmax(0,1fr)_320px] gap-10 lg:gap-14">
+        <main className="min-w-0 max-w-3xl w-full mx-auto lg:mx-0">
         <Breadcrumb trail={[{ label: 'Mệnh & Phong Thủy', href: '/menh-phong-thuy' }, { label: 'Hướng nhà hợp tuổi', href: '/huong-nha-hop-tuoi' }]} current={`Năm ${year}`} />
-        <h1 className="font-display text-2xl sm:text-3xl text-parchment mb-8 text-center">{title}</h1>
+        <h1 className="font-display font-extrabold text-3xl sm:text-4xl leading-tight text-parchment mb-8">{title}</h1>
 
         <div className="mystic-card p-6 text-center mb-6">
           <p className="text-moon text-sm mb-1">{genderLabel} sinh năm {year}</p>
@@ -63,7 +62,7 @@ export default function HuongNhaResult({ gender, year, cungMenh, huong, dictiona
             <p className="text-jade font-semibold mb-3">Hướng hợp (nên chọn)</p>
             <div className="flex flex-wrap gap-2">
               {huong.tot.map((h) => (
-                <span key={h} className="px-3 py-1.5 rounded-full bg-ink-soft border border-jade/40 text-sm">{h}</span>
+                <span key={h} className="px-3 py-1.5 rounded bg-ink-soft border border-jade/40 text-sm">{h}</span>
               ))}
             </div>
           </div>
@@ -71,7 +70,7 @@ export default function HuongNhaResult({ gender, year, cungMenh, huong, dictiona
             <p className="text-vermilion font-semibold mb-3">Hướng nên tránh</p>
             <div className="flex flex-wrap gap-2">
               {huong.xau.map((h) => (
-                <span key={h} className="px-3 py-1.5 rounded-full bg-ink-soft border border-vermilion/40 text-sm">{h}</span>
+                <span key={h} className="px-3 py-1.5 rounded bg-ink-soft border border-vermilion/40 text-sm">{h}</span>
               ))}
             </div>
           </div>
@@ -101,6 +100,8 @@ export default function HuongNhaResult({ gender, year, cungMenh, huong, dictiona
           Công thức tham khảo theo Bát Trạch Minh Cảnh — mang tính tham khảo, chiêm nghiệm dân gian, chưa qua kiểm duyệt chuyên gia.
         </p>
       </main>
+        <SidebarTools seed="huong-nha-hop-tuoi-slug" />
+      </div>
       <Footer />
     </>
   );

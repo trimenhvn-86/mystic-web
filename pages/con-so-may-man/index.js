@@ -5,6 +5,7 @@ import { useRouter } from 'next/router';
 import Header from '../../components/Header';
 import Breadcrumb from '../../components/Breadcrumb';
 import Footer from '../../components/Footer';
+import SidebarTools from '../../components/SidebarTools';
 import MysticLoader from '../../components/MysticLoader';
 import { getLuckyNumbers } from '../../lib/luckyNumber';
 import { trackToolUse } from '../../lib/analytics';
@@ -54,14 +55,15 @@ export default function ConSoMayMan() {
       <>
         <Head><title>Con Số May Mắn Của Bạn — TriMenh</title></Head>
         <Header />
-        <main className="max-w-md mx-auto px-5 py-10 sm:py-14">
+        <div className="max-w-6xl mx-auto px-5 py-8 sm:py-12 grid lg:grid-cols-[minmax(0,1fr)_320px] gap-10 lg:gap-14">
+        <main className="min-w-0 max-w-3xl w-full mx-auto lg:mx-0">
           <Breadcrumb trail={[{ label: 'Thần Số Học', href: '/than-so-hoc-hub' }]} current="Con số may mắn" />
-        <h1 className="font-display text-2xl sm:text-3xl text-parchment mb-6 text-center">Con Số May Mắn</h1>
+        <h1 className="font-display font-extrabold text-3xl sm:text-4xl leading-tight text-parchment mb-6">Con Số May Mắn</h1>
           <div className="mystic-card p-6 text-center space-y-4">
             <p className="text-moon text-sm">Số Chủ Đạo: <strong className="text-parchment">{result.lifePath}</strong> — Mệnh: <strong className="text-parchment">{result.hanh}</strong></p>
             <div className="flex justify-center gap-3 flex-wrap pt-2">
               {result.luckyNumbers.map((n) => (
-                <span key={n} className="w-12 h-12 rounded-full bg-gold text-ink font-display text-xl flex items-center justify-center">{n}</span>
+                <span key={n} className="w-12 h-12 rounded-full bg-lich text-ink font-display text-xl flex items-center justify-center">{n}</span>
               ))}
             </div>
           </div>
@@ -69,13 +71,15 @@ export default function ConSoMayMan() {
           <div className="mt-6">
             <p className="text-sm text-moon mb-3 text-center">Công cụ liên quan:</p>
             <div className="flex flex-wrap justify-center gap-2">
-              <Link href="/than-so-hoc" className="px-3 py-1.5 rounded-full border border-ink-line text-sm text-moon hover:border-gold/40 hover:text-gold-soft transition-colors">Tra cứu Thần số học đầy đủ</Link>
-              <Link href={`/than-so-hoc/so-chu-dao-${result.lifePath}`} className="px-3 py-1.5 rounded-full border border-ink-line text-sm text-moon hover:border-gold/40 hover:text-gold-soft transition-colors">Ý nghĩa Số {result.lifePath}</Link>
+              <Link href="/than-so-hoc" className="px-3 py-1.5 rounded border border-ink-line text-sm text-moon hover:border-lich hover:text-gold-soft transition-colors">Tra cứu Thần số học đầy đủ</Link>
+              <Link href={`/than-so-hoc/so-chu-dao-${result.lifePath}`} className="px-3 py-1.5 rounded border border-ink-line text-sm text-moon hover:border-lich hover:text-gold-soft transition-colors">Ý nghĩa Số {result.lifePath}</Link>
             </div>
           </div>
 
           <button onClick={() => setStep('form')} className="mt-6 text-sm text-moon hover:text-gold-soft underline block mx-auto">← Tra cứu lại</button>
         </main>
+        <SidebarTools seed="con-so-may-man-index" />
+      </div>
         <Footer />
       </>
     );
@@ -90,33 +94,36 @@ export default function ConSoMayMan() {
         <meta property="og:description" content="Tìm con số may mắn hợp với bản mệnh dựa trên ngày sinh, kết hợp Thần số học và Ngũ hành." />
       </Head>
       <Header />
-      <main className="max-w-md mx-auto px-5 py-10 sm:py-14">
-        <h1 className="font-display text-2xl sm:text-3xl text-parchment mb-2 text-center">Con Số May Mắn</h1>
-        <p className="text-moon/70 text-sm text-center mb-8">Nhập ngày sinh để tìm con số hợp mệnh</p>
+      <div className="max-w-6xl mx-auto px-5 py-8 sm:py-12 grid lg:grid-cols-[minmax(0,1fr)_320px] gap-10 lg:gap-14">
+        <main className="min-w-0 max-w-3xl w-full mx-auto lg:mx-0">
+        <h1 className="font-display font-extrabold text-3xl sm:text-4xl leading-tight text-parchment mb-2">Con Số May Mắn</h1>
+        <p className="text-moon/70 text-sm mb-8">Nhập ngày sinh để tìm con số hợp mệnh</p>
         <form onSubmit={handleSubmit} className="mystic-card p-6 flex flex-col gap-4">
           <div className="grid grid-cols-3 gap-3">
             <label className="flex flex-col gap-1 text-xs text-moon min-w-0">
               Ngày
               <input type="number" min="1" max="31" required value={form.dd}
                 onChange={(e) => setForm({ ...form, dd: e.target.value })}
-                className="bg-ink-soft border border-ink-line rounded-lg px-3 py-3 text-parchment text-base" />
+                className="bg-ink-soft border border-ink-line rounded-md px-3 py-3 text-parchment text-base" />
             </label>
             <label className="flex flex-col gap-1 text-xs text-moon min-w-0">
               Tháng
               <input type="number" min="1" max="12" required value={form.mm}
                 onChange={(e) => setForm({ ...form, mm: e.target.value })}
-                className="bg-ink-soft border border-ink-line rounded-lg px-3 py-3 text-parchment text-base" />
+                className="bg-ink-soft border border-ink-line rounded-md px-3 py-3 text-parchment text-base" />
             </label>
             <label className="flex flex-col gap-1 text-xs text-moon min-w-0">
               Năm
               <input type="number" min="1900" max="2100" required value={form.yyyy}
                 onChange={(e) => setForm({ ...form, yyyy: e.target.value })}
-                className="bg-ink-soft border border-ink-line rounded-lg px-3 py-3 text-parchment text-base" />
+                className="bg-ink-soft border border-ink-line rounded-md px-3 py-3 text-parchment text-base" />
             </label>
           </div>
           <button type="submit" className="btn-gold py-3.5 text-base font-semibold mt-2">Xem kết quả</button>
         </form>
       </main>
+        <SidebarTools seed="con-so-may-man-index-b1" />
+      </div>
       <Footer />
     </>
   );

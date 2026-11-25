@@ -24,7 +24,7 @@ export default function HubDayLinks({ dd, mm, yyyy, exclude }) {
           <Link
             key={t.key}
             href={`/${t.path}/${slug}`}
-            className="px-3 py-1.5 rounded-full border border-ink-line text-sm text-moon hover:border-gold/40 hover:text-gold-soft transition-colors"
+            className="px-3 py-1.5 rounded border border-ink-line text-sm text-moon hover:border-lich hover:text-gold-soft transition-colors"
           >
             {t.label}
           </Link>

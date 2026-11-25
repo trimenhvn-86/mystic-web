@@ -4,6 +4,7 @@ import { HeartHandshake } from 'lucide-react';
 import Header from '../../components/Header';
 import Breadcrumb from '../../components/Breadcrumb';
 import Footer from '../../components/Footer';
+import SidebarTools from '../../components/SidebarTools';
 import AdSlot from '../../components/AdSlot';
 import TuoiHopLinks from '../../components/TuoiHopLinks';
 import FaqSection from '../../components/FaqSection';
@@ -51,12 +52,10 @@ export default function SoSanhTuoiResult({ result, dictionaryPreview, guidePrevi
         <meta property="og:description" content={desc} />
       </Head>
       <Header />
-      <main className="max-w-2xl mx-auto px-5 py-8 sm:py-12">
-        <div className="w-14 h-14 rounded-full bg-ink-soft border border-gold/30 flex items-center justify-center mx-auto mb-4">
-          <HeartHandshake size={26} className="text-gold" />
-        </div>
+      <div className="max-w-6xl mx-auto px-5 py-8 sm:py-12 grid lg:grid-cols-[minmax(0,1fr)_320px] gap-10 lg:gap-14">
+        <main className="min-w-0 max-w-3xl w-full mx-auto lg:mx-0">
         <Breadcrumb trail={[{ label: 'Tuổi & Tương Hợp', href: '/tuoi-tuong-hop' }, { label: 'So sánh tuổi 2 người', href: '/so-sanh-tuoi' }]} current="Kết quả" />
-        <h1 className="font-display text-2xl sm:text-3xl text-parchment mb-8 text-center">{title}</h1>
+        <h1 className="font-display font-extrabold text-3xl sm:text-4xl leading-tight text-parchment mb-8">{title}</h1>
 
         <div className="mystic-card p-6 text-center mb-6">
           <div className="flex items-center justify-center gap-6 mb-4">
@@ -91,8 +90,8 @@ export default function SoSanhTuoiResult({ result, dictionaryPreview, guidePrevi
         <div>
           <p className="text-sm text-moon mb-3">Xem thêm:</p>
           <div className="flex flex-wrap gap-2">
-            <Link href={`/${yearA}-hop-tuoi-nao`} className="px-3 py-1.5 rounded-full border border-ink-line text-sm text-moon hover:border-gold/40 hover:text-gold-soft transition-colors">Danh sách tuổi hợp {yearA}</Link>
-            <Link href={`/${yearB}-hop-tuoi-nao`} className="px-3 py-1.5 rounded-full border border-ink-line text-sm text-moon hover:border-gold/40 hover:text-gold-soft transition-colors">Danh sách tuổi hợp {yearB}</Link>
+            <Link href={`/${yearA}-hop-tuoi-nao`} className="px-3 py-1.5 rounded border border-ink-line text-sm text-moon hover:border-lich hover:text-gold-soft transition-colors">Danh sách tuổi hợp {yearA}</Link>
+            <Link href={`/${yearB}-hop-tuoi-nao`} className="px-3 py-1.5 rounded border border-ink-line text-sm text-moon hover:border-lich hover:text-gold-soft transition-colors">Danh sách tuổi hợp {yearB}</Link>
           </div>
         </div>
 
@@ -110,6 +109,8 @@ export default function SoSanhTuoiResult({ result, dictionaryPreview, guidePrevi
           Nội dung mang tính tham khảo, chiêm nghiệm dân gian — không thay thế quyết định cá nhân.
         </p>
       </main>
+        <SidebarTools seed="so-sanh-tuoi-slug" />
+      </div>
       <Footer />
     </>
   );

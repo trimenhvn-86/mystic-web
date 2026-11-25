@@ -18,7 +18,7 @@ export default function HubToolRelated({ exclude, title = 'Có thể bạn quan 
       <p className="text-sm text-moon mb-3">{title}</p>
       <div className="flex flex-wrap gap-2">
         {tools.map((t) => (
-          <Link key={t.key} href={t.href} className="px-3 py-1.5 rounded-full border border-ink-line text-sm text-moon hover:border-gold/40 hover:text-gold-soft transition-colors">
+          <Link key={t.key} href={t.href} className="px-3 py-1.5 rounded border border-ink-line text-sm text-moon hover:border-lich hover:text-gold-soft transition-colors">
             {t.label}
           </Link>
         ))}

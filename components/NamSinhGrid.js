@@ -25,7 +25,7 @@ export default function NamSinhGrid({ kind = 'menh-gi', from = 1950, to }) {
           <div key={d} className="flex flex-wrap items-center gap-1.5">
             <span className="text-xs text-moon/60 w-14 shrink-0">Thập niên {d}</span>
             {years.map((y) => (
-              <Link key={y} href={`/${y}-${k.suffix}`} className="px-2.5 py-1 rounded-full border border-ink-line text-xs text-moon hover:border-gold/40 hover:text-gold-soft transition-colors">
+              <Link key={y} href={`/${y}-${k.suffix}`} className="px-2.5 py-1 rounded border border-ink-line text-xs text-moon hover:border-lich hover:text-gold-soft transition-colors">
                 {k.label(y)}
               </Link>
             ))}

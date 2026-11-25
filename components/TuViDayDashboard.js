@@ -45,13 +45,10 @@ export default function TuViDayDashboard({ dashboard, dateStr, prevSlug, nextSlu
   return (
     <>
       {/* Hero */}
-      <div className="text-center mb-6">
-        <div className="w-14 h-14 rounded-full bg-ink-soft border border-gold/30 flex items-center justify-center mx-auto mb-4">
-          <Sun size={26} className="text-gold" />
-        </div>
-        <h1 className="font-display text-2xl sm:text-3xl text-parchment mb-1">Tử Vi 12 Con Giáp Ngày {dateStr}</h1>
+      <div className="mb-6">
+        <h1 className="font-display font-extrabold text-3xl sm:text-4xl leading-tight text-parchment mb-1">Tử Vi 12 Con Giáp Ngày {dateStr}</h1>
         <p className="text-moon/70 text-sm mb-3">Ngày {canChiNgay} — Âm lịch {lunar.day}/{lunar.month}{lunar.leap ? ' (nhuận)' : ''}/{lunar.year}</p>
-        <div className="flex items-center justify-center gap-1">
+        <div className="flex items-center gap-1">
           {[1, 2, 3, 4, 5].map((i) => (
             <span key={i} className={i <= rating.stars ? 'text-gold' : 'text-ink-line'}>★</span>
           ))}
@@ -66,7 +63,7 @@ export default function TuViDayDashboard({ dashboard, dateStr, prevSlug, nextSlu
         {QUICK_ITEMS.map((q) => {
           const Icon = q.icon;
           return (
-            <a key={q.key} href={`#${q.key}`} className="flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-ink-line text-xs text-moon hover:border-gold/40 hover:text-gold-soft transition-colors">
+            <a key={q.key} href={`#${q.key}`} className="flex items-center gap-1.5 px-3 py-1.5 rounded border border-ink-line text-xs text-moon hover:border-lich hover:text-gold-soft transition-colors">
               <Icon size={13} className="text-gold" /> {q.label}
             </a>
           );
@@ -116,7 +113,7 @@ export default function TuViDayDashboard({ dashboard, dateStr, prevSlug, nextSlu
         <p className="text-gold-soft font-semibold mb-3">Giờ may mắn</p>
         <div className="grid sm:grid-cols-2 gap-2.5">
           {gioHoangDao.map((g) => (
-            <div key={g.chi} className="flex items-center justify-between bg-ink-soft rounded-lg px-4 py-2.5 border border-ink-line">
+            <div key={g.chi} className="flex items-center justify-between bg-ink-soft rounded-md px-4 py-2.5 border border-ink-line">
               <span className="text-gold-soft font-display">Giờ {g.chi}</span>
               <span className="text-moon text-sm">{g.khung}</span>
             </div>
@@ -129,7 +126,7 @@ export default function TuViDayDashboard({ dashboard, dateStr, prevSlug, nextSlu
         <p className="text-vermilion font-semibold mb-3">Giờ cần tránh</p>
         <div className="grid sm:grid-cols-2 gap-2.5">
           {gioHacDao.map((g) => (
-            <div key={g.chi} className="flex items-center justify-between bg-ink-soft rounded-lg px-4 py-2.5 border border-ink-line opacity-80">
+            <div key={g.chi} className="flex items-center justify-between bg-ink-soft rounded-md px-4 py-2.5 border border-ink-line opacity-80">
               <span className="text-vermilion/90 font-display">Giờ {g.chi}</span>
               <span className="text-moon text-sm">{g.khung}</span>
             </div>
@@ -143,15 +140,15 @@ export default function TuViDayDashboard({ dashboard, dateStr, prevSlug, nextSlu
       {napAmNgay && (
         <div className="mystic-card p-6 mb-6 grid sm:grid-cols-2 gap-6">
           <div>
-            <p className="text-xs text-moon uppercase mb-2">Màu hợp hôm nay</p>
+            <p className="text-xs text-moon mb-2">Màu hợp hôm nay</p>
             <div className="flex flex-wrap gap-2">
               {napAmNgay.mauHop.map((m) => (
-                <span key={m} className="px-3 py-1 rounded-full bg-ink-soft border border-ink-line text-sm">{m}</span>
+                <span key={m} className="px-3 py-1 rounded bg-ink-soft border border-ink-line text-sm">{m}</span>
               ))}
             </div>
           </div>
           <div>
-            <p className="text-xs text-moon uppercase mb-2">Mệnh ngày</p>
+            <p className="text-xs text-moon mb-2">Mệnh ngày</p>
             <p className="text-parchment">{napAmNgay.napAm} ({napAmNgay.hanh})</p>
           </div>
         </div>
@@ -165,7 +162,7 @@ export default function TuViDayDashboard({ dashboard, dateStr, prevSlug, nextSlu
             <p className="text-jade text-sm mb-2">Hợp</p>
             <div className="flex flex-wrap gap-2">
               {tuoiHopHomNay.hopTuoi.map((c) => (
-                <span key={c} className="px-3 py-1 rounded-full bg-ink-soft border border-jade/40 text-sm">Tuổi {c}</span>
+                <span key={c} className="px-3 py-1 rounded bg-ink-soft border border-jade/40 text-sm">Tuổi {c}</span>
               ))}
             </div>
           </div>
@@ -173,7 +170,7 @@ export default function TuViDayDashboard({ dashboard, dateStr, prevSlug, nextSlu
             <p className="text-vermilion text-sm mb-2">Tuổi xung</p>
             <div className="flex flex-wrap gap-2">
               {tuoiHopHomNay.xungTuoi.map((c) => (
-                <span key={c} className="px-3 py-1 rounded-full bg-ink-soft border border-vermilion/40 text-sm">Tuổi {c}</span>
+                <span key={c} className="px-3 py-1 rounded bg-ink-soft border border-vermilion/40 text-sm">Tuổi {c}</span>
               ))}
             </div>
           </div>
@@ -184,8 +181,8 @@ export default function TuViDayDashboard({ dashboard, dateStr, prevSlug, nextSlu
       <div className="mb-6">
         <p className="text-sm text-moon mb-3">Công cụ liên quan:</p>
         <div className="flex flex-wrap gap-2">
-          <Link href="/tu-vi-tuan" className="px-3 py-1.5 rounded-full border border-gold/30 text-sm text-gold-soft hover:bg-gold/10 transition-colors">Tử vi tuần</Link>
-          <Link href="/tu-vi-thang" className="px-3 py-1.5 rounded-full border border-gold/30 text-sm text-gold-soft hover:bg-gold/10 transition-colors">Tử vi tháng</Link>
+          <Link href="/tu-vi-tuan" className="px-3 py-1.5 rounded border border-gold/30 text-sm text-gold-soft hover:bg-gold/10 transition-colors">Tử vi tuần</Link>
+          <Link href="/tu-vi-thang" className="px-3 py-1.5 rounded border border-gold/30 text-sm text-gold-soft hover:bg-gold/10 transition-colors">Tử vi tháng</Link>
         </div>
       </div>
 

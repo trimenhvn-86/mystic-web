@@ -13,12 +13,12 @@ export default function MauSoHomNay({ hanh, mauHop }) {
   return (
     <div className="mystic-card p-6 grid sm:grid-cols-2 gap-6">
       <div>
-        <p className="text-xs text-moon uppercase mb-3">Hôm nay hợp màu gì?</p>
+        <p className="text-xs text-moon mb-3">Hôm nay hợp màu gì?</p>
         <div className="flex flex-wrap gap-2">
           {mauHop.map((m) => {
             const baseColor = m.split(' (')[0];
             return (
-              <span key={m} className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-ink-soft border border-ink-line text-sm">
+              <span key={m} className="flex items-center gap-1.5 px-3 py-1 rounded bg-ink-soft border border-ink-line text-sm">
                 <span className={`w-2.5 h-2.5 rounded-full ${COLOR_DOT[baseColor] || 'bg-gold'}`} />
                 {m}
               </span>
@@ -27,10 +27,10 @@ export default function MauSoHomNay({ hanh, mauHop }) {
         </div>
       </div>
       <div>
-        <p className="text-xs text-moon uppercase mb-3">Hôm nay hợp số nào?</p>
+        <p className="text-xs text-moon mb-3">Hôm nay hợp số nào?</p>
         <div className="flex gap-2">
           {numbers.map((n) => (
-            <span key={n} className="w-9 h-9 rounded-full bg-gold text-ink font-display text-lg flex items-center justify-center">
+            <span key={n} className="w-9 h-9 rounded-full bg-lich text-ink font-display text-lg flex items-center justify-center">
               {n}
             </span>
           ))}

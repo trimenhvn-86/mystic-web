@@ -1,18 +1,20 @@
 import Head from 'next/head';
 import Link from 'next/link';
 import Image from 'next/image';
-import { BookOpen } from 'lucide-react';
 import { PortableText } from '@portabletext/react';
 import Header from '../../components/Header';
 import Breadcrumb from '../../components/Breadcrumb';
 import Footer from '../../components/Footer';
 import AdSlot from '../../components/AdSlot';
+import ArticleBody from '../../components/ArticleBody';
+import SidebarTools from '../../components/SidebarTools';
+import { InlineCTA } from '../../components/PromoBanner';
 import { getGuidePosts, getGuidePostBySlug } from '../../lib/content';
 
 const ptComponents = {
   block: {
-    h2: ({ children }) => <h2 className="font-display text-xl text-parchment mt-6 mb-3">{children}</h2>,
-    normal: ({ children }) => <p className="text-parchment/85 leading-relaxed mb-4">{children}</p>
+    h2: ({ children }) => <h2>{children}</h2>,
+    normal: ({ children }) => <p>{children}</p>
   }
 };
 
@@ -68,56 +70,59 @@ export default function CamNangDetail({ post, related = [] }) {
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
       </Head>
       <Header />
-      <main className="max-w-2xl mx-auto px-5 py-8 sm:py-12">
-        {post.featuredImageUrl ? (
-          <div className="relative w-full aspect-[16/9] rounded-xl overflow-hidden mb-6">
-            <Image
-              src={post.featuredImageUrl}
-              alt={post.featuredImageAlt || post.title}
-              fill
-              className="object-cover"
-              sizes="(max-width: 768px) 100vw, 700px"
-              priority
-            />
-          </div>
-        ) : (
-          <div className="w-14 h-14 rounded-full bg-ink-soft border border-gold/30 flex items-center justify-center mx-auto mb-4">
-            <BookOpen size={26} className="text-gold" />
-          </div>
-        )}
-        <Breadcrumb trail={[{ label: 'Cẩm nang', href: '/cam-nang' }]} current={post.title} />
-        <h1 className="font-display text-2xl sm:text-3xl text-parchment mb-6 text-center">{post.title}</h1>
-        <p className="text-center text-xs text-moon -mt-3 mb-5">
-          Biên soạn bởi <Link href="/ban-bien-soan" className="text-gold-soft hover:underline">Ban biên soạn TriMenh</Link>
-          {post.publishedAt ? ` · ${new Date(post.publishedAt).toLocaleDateString('vi-VN', { timeZone: 'Asia/Ho_Chi_Minh' })}` : ''}
-          {' · '}<Link href="/phuong-phap-tinh" className="hover:underline">Phương pháp tính</Link>
-        </p>
-        <div className="mystic-card p-6">
-          {post.htmlContent ? (
-            // eslint-disable-next-line react/no-danger
-            <div className="cam-nang-html" dangerouslySetInnerHTML={{ __html: post.htmlContent }} />
-          ) : post.body ? (
-            <PortableText value={post.body} components={ptComponents} />
-          ) : (
-            <p className="text-moon">{post.excerpt}</p>
+      <div className="max-w-6xl mx-auto px-5 py-8 sm:py-12 grid lg:grid-cols-[minmax(0,1fr)_320px] gap-10 lg:gap-14">
+        <main className="min-w-0">
+          <Breadcrumb trail={[{ label: 'Cẩm nang', href: '/cam-nang' }]} current={post.title} />
+          <article className="max-w-[44rem]">
+            <h1 className="font-display font-extrabold text-3xl sm:text-4xl leading-tight text-parchment mb-4">{post.title}</h1>
+            <p className="text-sm text-moon mb-6 pb-5 border-b border-ink-line">
+              Biên soạn bởi <Link href="/ban-bien-soan" className="text-parchment font-medium underline underline-offset-4 decoration-lich">Ban biên soạn TriMenh</Link>
+              {post.publishedAt ? `, ${new Date(post.publishedAt).toLocaleDateString('vi-VN', { timeZone: 'Asia/Ho_Chi_Minh' })}` : ''}
+              {'. '}<Link href="/phuong-phap-tinh" className="underline underline-offset-4">Phương pháp tính</Link>
+            </p>
+            {post.featuredImageUrl && (
+              <div className="relative w-full aspect-[16/9] rounded-md overflow-hidden mb-8">
+                <Image
+                  src={post.featuredImageUrl}
+                  alt={post.featuredImageAlt || post.title}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 704px"
+                  priority
+                />
+              </div>
+            )}
+            {post.htmlContent ? (
+              <ArticleBody html={post.htmlContent} seed={post.slug} />
+            ) : post.body ? (
+              <div className="cam-nang-html"><PortableText value={post.body} components={ptComponents} /></div>
+            ) : (
+              <p className="text-moon">{post.excerpt}</p>
+            )}
+            <p className="mt-8 text-xs text-moon leading-relaxed">
+              Nội dung chỉ mang tính tham khảo và chiêm nghiệm, không thay thế lời khuyên chuyên môn về sức khỏe, tài chính hay pháp lý.
+            </p>
+          </article>
+
+          <div className="max-w-[44rem] mt-10"><InlineCTA seed={`${post.slug}-cuoi`} /></div>
+
+          {related.length > 0 && (
+            <section className="mt-12 max-w-[44rem]">
+              <h2 className="font-display font-bold text-xl text-parchment mb-2 pb-2 border-b-2 border-parchment">Đọc tiếp</h2>
+              <div className="divide-y divide-ink-line">
+                {related.map((r) => (
+                  <Link key={r.slug} href={`/cam-nang/${r.slug}`} className="block py-4 group">
+                    <p className="font-display font-semibold text-parchment group-hover:text-lich transition-colors">{r.title}</p>
+                    {r.excerpt && <p className="text-sm text-moon mt-1 line-clamp-2">{r.excerpt}</p>}
+                  </Link>
+                ))}
+              </div>
+            </section>
           )}
-        </div>
-        {related.length > 0 && (
-          <section className="mt-8">
-            <h2 className="font-display text-lg text-parchment mb-3">Bài viết liên quan</h2>
-            <div className="grid sm:grid-cols-2 gap-2.5">
-              {related.map((r) => (
-                <Link key={r.slug} href={`/cam-nang/${r.slug}`} className="mystic-card px-4 py-3 hover:border-gold/40 transition-colors">
-                  <p className="text-gold-soft text-sm font-medium">{r.title}</p>
-                  <p className="text-xs text-moon/70 line-clamp-2">{r.excerpt}</p>
-                </Link>
-              ))}
-            </div>
-          </section>
-        )}
-        <AdSlot label="Ad slot — cẩm nang" className="mt-6" />
-        <Link href="/cam-nang" className="block text-center text-sm text-moon hover:text-gold-soft mt-6">← Về Cẩm nang</Link>
-      </main>
+          <AdSlot label="cam-nang-cuoi-bai" className="mt-8 max-w-[44rem]" />
+        </main>
+        <SidebarTools seed={post.slug} />
+      </div>
       <Footer />
     </>
   );

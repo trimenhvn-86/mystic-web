@@ -5,6 +5,7 @@ import { Sun } from 'lucide-react';
 import Header from '../../components/Header';
 import Breadcrumb from '../../components/Breadcrumb';
 import Footer from '../../components/Footer';
+import SidebarTools from '../../components/SidebarTools';
 import AdSlot from '../../components/AdSlot';
 import MysticLoader from '../../components/MysticLoader';
 import TuViWeekDashboard from '../../components/TuViWeekDashboard';
@@ -72,9 +73,12 @@ export default function TuViTuanSlug(props) {
           <meta name="description" content={`Tử vi tuần ${props.week}/${props.year}: tổng quan, chỉ số vận trình, ngày đẹp nhất, vận trình 12 con giáp.`} />
         </Head>
         <Header />
-        <main className="max-w-3xl mx-auto px-5 py-8 sm:py-12">
+        <div className="max-w-6xl mx-auto px-5 py-8 sm:py-12 grid lg:grid-cols-[minmax(0,1fr)_320px] gap-10 lg:gap-14">
+        <main className="min-w-0 max-w-3xl w-full mx-auto lg:mx-0">
           <TuViWeekDashboard {...props} />
         </main>
+        <SidebarTools seed="tu-vi-tuan-slug" />
+      </div>
         <Footer />
       </>
     );
@@ -103,13 +107,11 @@ export default function TuViTuanSlug(props) {
         <meta property="og:description" content={`Tử vi tuổi ${data.conGiap} tuần ${rangeStr}: tổng quan, công danh, tài lộc, tình duyên, màu may mắn.`} />
       </Head>
       <Header />
-      <main className="max-w-xl mx-auto px-5 py-12">
-        <div className="w-14 h-14 rounded-full bg-ink-soft border border-gold/30 flex items-center justify-center mx-auto mb-4">
-          <Sun size={26} className="text-gold" />
-        </div>
+      <div className="max-w-6xl mx-auto px-5 py-8 sm:py-12 grid lg:grid-cols-[minmax(0,1fr)_320px] gap-10 lg:gap-14">
+        <main className="min-w-0 max-w-3xl w-full mx-auto lg:mx-0">
         <Breadcrumb trail={[{ label: 'Tử Vi', href: '/tu-vi' }, { label: 'Tử vi tuần', href: '/tu-vi-tuan' }]} current={`Tuổi ${data.conGiap}`} />
-        <h1 className="font-display text-2xl sm:text-3xl text-parchment mb-1 text-center">Tuổi {data.conGiap}</h1>
-        <p className="text-moon/70 text-sm text-center mb-8">Tuần {rangeStr} — Mệnh {data.hanh}</p>
+        <h1 className="font-display font-extrabold text-3xl sm:text-4xl leading-tight text-parchment mb-1">Tuổi {data.conGiap}</h1>
+        <p className="text-moon/70 text-sm mb-8">Tuần {rangeStr} — Mệnh {data.hanh}</p>
         <div className="mystic-card p-6 space-y-4">
           <div>
             <p className="text-gold-soft font-semibold mb-1">Tổng quan tuần</p>
@@ -143,6 +145,8 @@ export default function TuViTuanSlug(props) {
           <HubContentPreview dictionaryPreview={dictionaryPreview} guidePreview={guidePreview} />
         </div>
       </main>
+        <SidebarTools seed="tu-vi-tuan-slug-b1" />
+      </div>
       <Footer />
     </>
   );

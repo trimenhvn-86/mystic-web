@@ -6,6 +6,7 @@ import { Search as SearchIcon } from 'lucide-react';
 import Header from '../../components/Header';
 import Breadcrumb from '../../components/Breadcrumb';
 import Footer from '../../components/Footer';
+import SidebarTools from '../../components/SidebarTools';
 import { HUBS, getAllActiveTools } from '../../content/hubs';
 import { getDictionaryTerms, getGuidePosts } from '../../lib/content';
 
@@ -37,9 +38,10 @@ export default function TimKiem({ index }) {
         <meta name="robots" content="noindex" />
       </Head>
       <Header />
-      <main className="max-w-2xl mx-auto px-5 py-10 sm:py-14">
+      <div className="max-w-6xl mx-auto px-5 py-8 sm:py-12 grid lg:grid-cols-[minmax(0,1fr)_320px] gap-10 lg:gap-14">
+        <main className="min-w-0 max-w-3xl w-full mx-auto lg:mx-0">
         <Breadcrumb trail={[]} current="Tìm kiếm" />
-        <h1 className="font-display text-2xl sm:text-3xl text-parchment mb-6 text-center">Tìm kiếm</h1>
+        <h1 className="font-display font-extrabold text-3xl sm:text-4xl leading-tight text-parchment mb-6">Tìm kiếm</h1>
         <div className="relative mb-6">
           <SearchIcon size={18} className="absolute left-4 top-1/2 -translate-y-1/2 text-moon" />
           <input
@@ -48,7 +50,7 @@ export default function TimKiem({ index }) {
             value={q}
             onChange={(e) => setQ(e.target.value)}
             placeholder="Tìm công cụ, thuật ngữ, bài viết..."
-            className="w-full bg-ink-soft border border-ink-line rounded-lg pl-11 pr-4 py-3.5 text-parchment text-base"
+            className="w-full bg-ink-soft border border-ink-line rounded-md pl-11 pr-4 py-3.5 text-parchment text-base"
           />
         </div>
 
@@ -57,9 +59,9 @@ export default function TimKiem({ index }) {
         ) : results.length > 0 ? (
           <div className="space-y-2">
             {results.map((r) => (
-              <Link key={`${r.type}-${r.href}`} href={r.href} className="mystic-card px-4 py-3 flex items-center justify-between hover:border-gold/40 transition-colors">
+              <Link key={`${r.type}-${r.href}`} href={r.href} className="mystic-card px-4 py-3 flex items-center justify-between hover:border-lich transition-colors">
                 <span className="text-parchment">{r.title}</span>
-                <span className="text-xs text-moon/60 uppercase">{r.type}</span>
+                <span className="text-xs text-moon/60">{r.type}</span>
               </Link>
             ))}
           </div>
@@ -67,6 +69,8 @@ export default function TimKiem({ index }) {
           <p className="text-sm text-moon/60 text-center">Không tìm thấy kết quả phù hợp.</p>
         )}
       </main>
+        <SidebarTools seed="tim-kiem-index" />
+      </div>
       <Footer />
     </>
   );

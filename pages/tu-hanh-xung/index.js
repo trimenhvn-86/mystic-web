@@ -4,6 +4,7 @@ import { Users } from 'lucide-react';
 import Header from '../../components/Header';
 import Breadcrumb from '../../components/Breadcrumb';
 import Footer from '../../components/Footer';
+import SidebarTools from '../../components/SidebarTools';
 import AdSlot from '../../components/AdSlot';
 import TuoiHopLinks from '../../components/TuoiHopLinks';
 import data from '../../content/phong-thuy/tuoi-hop/tam-hop-tu-hanh-xung.json';
@@ -18,12 +19,10 @@ export default function TuHanhXung() {
         <meta property="og:description" content="Tứ hành xung là gì? Tra cứu đầy đủ 3 nhóm Tứ hành xung Địa Chi: Tý-Ngọ-Mão-Dậu, Dần-Thân-Tỵ-Hợi, Thìn-Tuất-Sửu-Mùi." />
       </Head>
       <Header />
-      <main className="max-w-2xl mx-auto px-5 py-8 sm:py-12">
-        <div className="w-14 h-14 rounded-full bg-ink-soft border border-gold/30 flex items-center justify-center mx-auto mb-4">
-          <Users size={26} className="text-gold" />
-        </div>
+      <div className="max-w-6xl mx-auto px-5 py-8 sm:py-12 grid lg:grid-cols-[minmax(0,1fr)_320px] gap-10 lg:gap-14">
+        <main className="min-w-0 max-w-3xl w-full mx-auto lg:mx-0">
         <Breadcrumb trail={[{ label: 'Tuổi & Tương Hợp', href: '/tuoi-tuong-hop' }]} current="Tứ hành xung là gì" />
-        <h1 className="font-display text-2xl sm:text-3xl text-parchment mb-6 text-center">Tứ Hành Xung Là Gì?</h1>
+        <h1 className="font-display font-extrabold text-3xl sm:text-4xl leading-tight text-parchment mb-6">Tứ Hành Xung Là Gì?</h1>
 
         <div className="mystic-card p-6 mb-6 text-parchment/85 leading-relaxed">
           <p>
@@ -36,10 +35,10 @@ export default function TuHanhXung() {
         <div className="space-y-4 mb-6">
           {data.tuHanhXung.map((group, i) => (
             <div key={i} className="mystic-card p-5">
-              <p className="text-xs text-moon uppercase mb-2">Nhóm {i + 1}</p>
+              <p className="text-xs text-moon mb-2">Nhóm {i + 1}</p>
               <div className="flex flex-wrap gap-2">
                 {group.map((chi) => (
-                  <span key={chi} className="px-3 py-1.5 rounded-full bg-ink-soft border border-vermilion/40 text-sm text-vermilion">Tuổi {chi}</span>
+                  <span key={chi} className="px-3 py-1.5 rounded bg-ink-soft border border-vermilion/40 text-sm text-vermilion">Tuổi {chi}</span>
                 ))}
               </div>
             </div>
@@ -63,6 +62,8 @@ export default function TuHanhXung() {
           Nội dung mang tính tham khảo, chiêm nghiệm dân gian — không thay thế quyết định cá nhân.
         </p>
       </main>
+        <SidebarTools seed="tu-hanh-xung-index" />
+      </div>
       <Footer />
     </>
   );

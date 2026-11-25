@@ -4,6 +4,7 @@ import { Sun } from 'lucide-react';
 import Header from '../../components/Header';
 import Breadcrumb from '../../components/Breadcrumb';
 import Footer from '../../components/Footer';
+import SidebarTools from '../../components/SidebarTools';
 import AdSlot from '../../components/AdSlot';
 import CalendarImageCard from '../../components/CalendarImageCard';
 import MiniCalendar from '../../components/MiniCalendar';
@@ -101,20 +102,18 @@ export default function TietKhiResult({ dd, mm, yyyy, current, startDate, next, 
         <meta name="description" content={desc} />
       </Head>
       <Header />
-      <main className="max-w-3xl mx-auto px-5 py-8 sm:py-12">
-        <div className="w-14 h-14 rounded-full bg-ink-soft border border-gold/30 flex items-center justify-center mx-auto mb-4">
-          <Sun size={26} className="text-gold" />
-        </div>
+      <div className="max-w-6xl mx-auto px-5 py-8 sm:py-12 grid lg:grid-cols-[minmax(0,1fr)_320px] gap-10 lg:gap-14">
+        <main className="min-w-0 max-w-3xl w-full mx-auto lg:mx-0">
         <Breadcrumb trail={[{ label: 'Lịch & Ngày Tốt', href: '/lich-ngay-tot' }, { label: 'Tiết khí', href: '/tiet-khi' }]} current={`Ngày ${dd}/${mm}/${yyyy}`} />
-        <h1 className="font-display text-2xl sm:text-3xl text-parchment mb-4 text-center">{title}</h1>
-        <p className="text-moon/80 text-center max-w-2xl mx-auto mb-8 leading-relaxed">{summary}</p>
+        <h1 className="font-display font-extrabold text-3xl sm:text-4xl leading-tight text-parchment mb-4">{title}</h1>
+        <p className="text-moon/80 max-w-2xl mb-8 leading-relaxed">{summary}</p>
 
         <div className="grid md:grid-cols-[340px_1fr] gap-6 items-start">
           <CalendarImageCard dd={dd} mm={mm} yyyy={yyyy} />
 
           <div className="space-y-6 min-w-0">
             <div className="mystic-card p-6 text-center">
-              <p className="text-xs text-moon uppercase mb-1">Tiết Khí hiện tại</p>
+              <p className="text-xs text-moon mb-1">Tiết Khí hiện tại</p>
               <p className="font-display text-3xl text-gold-soft mb-2">{current}</p>
               <p className="text-parchment/85 mb-3">{tietKhiMeaning[current]}</p>
               <p className="text-sm text-moon">Bắt đầu từ: <strong className="text-parchment">{pad(startDate.dd)}/{pad(startDate.mm)}/{startDate.yyyy}</strong></p>
@@ -122,7 +121,7 @@ export default function TietKhiResult({ dd, mm, yyyy, current, startDate, next, 
 
             {next && (
               <div className="mystic-card p-6 text-center">
-                <p className="text-xs text-moon uppercase mb-1">Tiết Khí tiếp theo</p>
+                <p className="text-xs text-moon mb-1">Tiết Khí tiếp theo</p>
                 <p className="font-display text-xl text-gold-soft mb-1">{next.name}</p>
                 <p className="text-sm text-moon">Dự kiến: <strong className="text-parchment">{pad(next.date.dd)}/{pad(next.date.mm)}/{next.date.yyyy}</strong></p>
               </div>
@@ -148,6 +147,8 @@ export default function TietKhiResult({ dd, mm, yyyy, current, startDate, next, 
           </div>
         </div>
       </main>
+        <SidebarTools seed="tiet-khi-slug" />
+      </div>
       <Footer />
     </>
   );

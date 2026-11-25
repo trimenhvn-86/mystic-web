@@ -5,6 +5,7 @@ import { HelpCircle, RotateCcw } from 'lucide-react';
 import Header from '../../components/Header';
 import Breadcrumb from '../../components/Breadcrumb';
 import Footer from '../../components/Footer';
+import SidebarTools from '../../components/SidebarTools';
 import AdSlot from '../../components/AdSlot';
 import TarotCardFlip from '../../components/TarotCardFlip';
 import HubContentPreview from '../../components/HubContentPreview';
@@ -55,13 +56,11 @@ export default function TarotYesNo({ dictionaryPreview, guidePreview }) {
         <meta property="og:description" content="Đặt câu hỏi Có/Không, rút 1 lá Tarot để nhận câu trả lời với 5 mức độ rõ ràng." />
       </Head>
       <Header />
-      <main className="max-w-lg mx-auto px-5 py-8 sm:py-12">
-        <div className="w-14 h-14 rounded-full bg-ink-soft border border-gold/30 flex items-center justify-center mx-auto mb-4">
-          <HelpCircle size={26} className="text-gold" />
-        </div>
+      <div className="max-w-6xl mx-auto px-5 py-8 sm:py-12 grid lg:grid-cols-[minmax(0,1fr)_320px] gap-10 lg:gap-14">
+        <main className="min-w-0 max-w-3xl w-full mx-auto lg:mx-0">
         <Breadcrumb trail={[{ label: 'Tarot', href: '/tarot' }]} current="Tarot Yes/No" />
-        <h1 className="font-display text-2xl sm:text-3xl text-parchment mb-1 text-center">Tarot Yes / No</h1>
-        <p className="text-moon/70 text-sm text-center mb-8">Đặt câu hỏi Có/Không rồi rút 1 lá để nhận câu trả lời</p>
+        <h1 className="font-display font-extrabold text-3xl sm:text-4xl leading-tight text-parchment mb-1">Tarot Yes / No</h1>
+        <p className="text-moon/70 text-sm mb-8">Đặt câu hỏi Có/Không rồi rút 1 lá để nhận câu trả lời</p>
 
         {!flipped && (
           <div className="mystic-card p-5 mb-6">
@@ -72,7 +71,7 @@ export default function TarotYesNo({ dictionaryPreview, guidePreview }) {
                 value={question}
                 onChange={(e) => setQuestion(e.target.value)}
                 placeholder="VD: Tôi có nên thay đổi công việc không?"
-                className="bg-ink-soft border border-ink-line rounded-lg px-3 py-3 text-parchment text-base"
+                className="bg-ink-soft border border-ink-line rounded-md px-3 py-3 text-parchment text-base"
               />
             </label>
           </div>
@@ -93,7 +92,7 @@ export default function TarotYesNo({ dictionaryPreview, guidePreview }) {
             )}
 
             <div className="mystic-card p-6 mt-4 text-center">
-              <p className="text-xs text-moon uppercase mb-1">Kết quả</p>
+              <p className="text-xs text-moon mb-1">Kết quả</p>
               <p className={`font-display text-3xl font-bold ${RESULT_COLOR[result.yesNo.key]}`}>{result.yesNo.label}</p>
               <p className="text-sm text-moon mt-2">Lá bài: {result.card.nameVi} — {result.upright ? 'Xuôi' : 'Ngược'}</p>
             </div>
@@ -120,7 +119,7 @@ export default function TarotYesNo({ dictionaryPreview, guidePreview }) {
             <div className="flex justify-center mt-6">
               <button
                 onClick={handleReset}
-                className="flex items-center gap-2 px-5 py-2.5 rounded-full border border-ink-line text-sm text-moon hover:border-gold/40 hover:text-gold-soft transition-colors"
+                className="flex items-center gap-2 px-5 py-2.5 rounded border border-ink-line text-sm text-moon hover:border-lich hover:text-gold-soft transition-colors"
               >
                 <RotateCcw size={15} /> Hỏi câu khác
               </button>
@@ -137,10 +136,10 @@ export default function TarotYesNo({ dictionaryPreview, guidePreview }) {
         <div className="mt-8">
           <p className="text-sm text-moon mb-3 text-center">Công cụ liên quan:</p>
           <div className="flex flex-wrap justify-center gap-2">
-            <Link href="/tarot-hom-nay" className="px-3 py-1.5 rounded-full border border-ink-line text-sm text-moon hover:border-gold/40 hover:text-gold-soft transition-colors">Tarot hôm nay</Link>
-            <Link href="/rut-la-tarot" className="px-3 py-1.5 rounded-full border border-ink-line text-sm text-moon hover:border-gold/40 hover:text-gold-soft transition-colors">Rút 1 lá bài</Link>
-            <Link href="/tarot/bo-bai" className="px-3 py-1.5 rounded-full border border-ink-line text-sm text-moon hover:border-gold/40 hover:text-gold-soft transition-colors">Bộ bài 78 lá</Link>
-            <Link href="/trai-bai-3-la" className="px-3 py-1.5 rounded-full border border-ink-line text-sm text-moon hover:border-gold/40 hover:text-gold-soft transition-colors">Trải bài 3 lá</Link>
+            <Link href="/tarot-hom-nay" className="px-3 py-1.5 rounded border border-ink-line text-sm text-moon hover:border-lich hover:text-gold-soft transition-colors">Tarot hôm nay</Link>
+            <Link href="/rut-la-tarot" className="px-3 py-1.5 rounded border border-ink-line text-sm text-moon hover:border-lich hover:text-gold-soft transition-colors">Rút 1 lá bài</Link>
+            <Link href="/tarot/bo-bai" className="px-3 py-1.5 rounded border border-ink-line text-sm text-moon hover:border-lich hover:text-gold-soft transition-colors">Bộ bài 78 lá</Link>
+            <Link href="/trai-bai-3-la" className="px-3 py-1.5 rounded border border-ink-line text-sm text-moon hover:border-lich hover:text-gold-soft transition-colors">Trải bài 3 lá</Link>
           </div>
         </div>
 
@@ -152,6 +151,8 @@ export default function TarotYesNo({ dictionaryPreview, guidePreview }) {
           Tarot mang tính tham khảo, chiêm nghiệm — không thay thế quyết định cá nhân.
         </p>
       </main>
+        <SidebarTools seed="tarot-yes-no-index" />
+      </div>
       <Footer />
     </>
   );

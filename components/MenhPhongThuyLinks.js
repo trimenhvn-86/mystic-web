@@ -16,7 +16,7 @@ export default function MenhPhongThuyLinks({ year, exclude }) {
           <Link
             key={i.key}
             href={i.href}
-            className="px-3 py-1.5 rounded-full border border-ink-line text-sm text-moon hover:border-gold/40 hover:text-gold-soft transition-colors"
+            className="px-3 py-1.5 rounded border border-ink-line text-sm text-moon hover:border-lich hover:text-gold-soft transition-colors"
           >
             {i.label}
           </Link>

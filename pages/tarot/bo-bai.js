@@ -47,8 +47,8 @@ export default function TarotBoBai({ major, minorBySuit }) {
       <Header />
       <main className="max-w-5xl mx-auto px-5 py-8 sm:py-12">
         <Breadcrumb trail={[{ label: 'Tarot', href: '/tarot' }]} current="Bộ bài 78 lá" />
-        <h1 className="font-display text-2xl sm:text-3xl text-parchment mb-2 text-center">Bộ Bài Tarot 78 Lá</h1>
-        <p className="text-moon/70 text-sm text-center mb-10">Bấm vào từng lá để xem ý nghĩa xuôi và ngược đầy đủ</p>
+        <h1 className="font-display font-extrabold text-3xl sm:text-4xl leading-tight text-parchment mb-2">Bộ Bài Tarot 78 Lá</h1>
+        <p className="text-moon/70 text-sm mb-10">Bấm vào từng lá để xem ý nghĩa xuôi và ngược đầy đủ</p>
 
         <section className="mb-12">
           <h2 className="font-display text-xl text-gold-soft mb-1">Ẩn Chính — Major Arcana (22 lá)</h2>
@@ -69,9 +69,9 @@ export default function TarotBoBai({ major, minorBySuit }) {
         ))}
 
         <div className="flex flex-wrap justify-center gap-2 mt-10">
-          <Link href="/tarot-hom-nay" className="px-3 py-1.5 rounded-full border border-ink-line text-sm text-moon hover:border-gold/40 hover:text-gold-soft transition-colors">Tarot hôm nay</Link>
-          <Link href="/rut-la-tarot" className="px-3 py-1.5 rounded-full border border-ink-line text-sm text-moon hover:border-gold/40 hover:text-gold-soft transition-colors">Rút 1 lá bài</Link>
-          <Link href="/tarot-yes-no" className="px-3 py-1.5 rounded-full border border-ink-line text-sm text-moon hover:border-gold/40 hover:text-gold-soft transition-colors">Tarot Yes/No</Link>
+          <Link href="/tarot-hom-nay" className="px-3 py-1.5 rounded border border-ink-line text-sm text-moon hover:border-lich hover:text-gold-soft transition-colors">Tarot hôm nay</Link>
+          <Link href="/rut-la-tarot" className="px-3 py-1.5 rounded border border-ink-line text-sm text-moon hover:border-lich hover:text-gold-soft transition-colors">Rút 1 lá bài</Link>
+          <Link href="/tarot-yes-no" className="px-3 py-1.5 rounded border border-ink-line text-sm text-moon hover:border-lich hover:text-gold-soft transition-colors">Tarot Yes/No</Link>
         </div>
       </main>
       <Footer />

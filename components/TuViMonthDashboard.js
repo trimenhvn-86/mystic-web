@@ -37,11 +37,8 @@ export default function TuViMonthDashboard({ mm, yyyy, tongQuan, indexScores, be
 
   return (
     <>
-      <div className="text-center mb-6">
-        <div className="w-14 h-14 rounded-full bg-ink-soft border border-gold/30 flex items-center justify-center mx-auto mb-4">
-          <Calendar size={26} className="text-gold" />
-        </div>
-        <h1 className="font-display text-2xl sm:text-3xl text-parchment mb-1">Tử Vi Tháng {mm}/{yyyy}</h1>
+      <div className="mb-6">
+        <h1 className="font-display font-extrabold text-3xl sm:text-4xl leading-tight text-parchment mb-1">Tử Vi Tháng {mm}/{yyyy}</h1>
       </div>
 
       <div className="mystic-card p-6 mb-6">
@@ -61,7 +58,7 @@ export default function TuViMonthDashboard({ mm, yyyy, tongQuan, indexScores, be
         <p className="text-gold-soft font-semibold mb-3">Timeline theo tuần</p>
         <div className="grid sm:grid-cols-2 gap-2.5">
           {timeline.map((t) => (
-            <div key={t.label} className="flex items-center justify-between bg-ink-soft rounded-lg px-4 py-2.5 border border-ink-line">
+            <div key={t.label} className="flex items-center justify-between bg-ink-soft rounded-md px-4 py-2.5 border border-ink-line">
               <span className="text-parchment">{t.label}</span>
               <span className="text-gold">{'★'.repeat(t.stars)}{'☆'.repeat(5 - t.stars)}</span>
             </div>
@@ -102,8 +99,8 @@ export default function TuViMonthDashboard({ mm, yyyy, tongQuan, indexScores, be
       <div className="mb-6">
         <p className="text-sm text-moon mb-3">Công cụ liên quan:</p>
         <div className="flex flex-wrap gap-2">
-          <Link href="/tu-vi-tuan" className="px-3 py-1.5 rounded-full border border-ink-line text-sm text-moon hover:border-gold/40 hover:text-gold-soft transition-colors">Tử vi tuần</Link>
-          <Link href="/tu-vi-hom-nay" className="px-3 py-1.5 rounded-full border border-ink-line text-sm text-moon hover:border-gold/40 hover:text-gold-soft transition-colors">Tử vi hôm nay</Link>
+          <Link href="/tu-vi-tuan" className="px-3 py-1.5 rounded border border-ink-line text-sm text-moon hover:border-lich hover:text-gold-soft transition-colors">Tử vi tuần</Link>
+          <Link href="/tu-vi-hom-nay" className="px-3 py-1.5 rounded border border-ink-line text-sm text-moon hover:border-lich hover:text-gold-soft transition-colors">Tử vi hôm nay</Link>
         </div>
       </div>
 

@@ -22,7 +22,7 @@ export default function CalendarImageCard({ dd, mm, yyyy }) {
           href={imgUrl}
           download={fileName}
           aria-label="Tải ảnh lịch"
-          className="w-9 h-9 rounded-full bg-gold text-ink flex items-center justify-center hover:opacity-90 transition-opacity"
+          className="w-9 h-9 rounded-full bg-lich text-ink flex items-center justify-center hover:opacity-90 transition-opacity"
         >
           <Download size={15} />
         </a>
@@ -31,7 +31,7 @@ export default function CalendarImageCard({ dd, mm, yyyy }) {
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Chia sẻ Facebook"
-          className="w-9 h-9 rounded-full bg-ink-soft border border-ink-line flex items-center justify-center text-moon hover:text-gold-soft hover:border-gold/40 transition-colors"
+          className="w-9 h-9 rounded-full bg-ink-soft border border-ink-line flex items-center justify-center text-moon hover:text-gold-soft hover:border-lich transition-colors"
         >
           <Facebook size={15} />
         </a>
@@ -40,7 +40,7 @@ export default function CalendarImageCard({ dd, mm, yyyy }) {
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Chia sẻ Zalo"
-          className="w-9 h-9 rounded-full bg-ink-soft border border-ink-line flex items-center justify-center text-moon hover:text-gold-soft hover:border-gold/40 transition-colors"
+          className="w-9 h-9 rounded-full bg-ink-soft border border-ink-line flex items-center justify-center text-moon hover:text-gold-soft hover:border-lich transition-colors"
         >
           <Send size={15} />
         </a>

@@ -27,7 +27,7 @@ export default function LucNhamPicker({ lunarDay, lunarMonth }) {
         <select
           value={hour}
           onChange={(e) => setHour(Number(e.target.value))}
-          className="w-full bg-ink-soft border border-ink-line rounded-lg px-3 py-3 text-parchment text-base"
+          className="w-full bg-ink-soft border border-ink-line rounded-md px-3 py-3 text-parchment text-base"
         >
           {GIO_OPTIONS.map((g) => (
             <option key={g.hour} value={g.hour}>Giờ {g.label}</option>
@@ -35,7 +35,7 @@ export default function LucNhamPicker({ lunarDay, lunarMonth }) {
         </select>
       </div>
 
-      <div className={`rounded-lg border p-4 ${result.tot ? 'border-jade/40 bg-jade/5' : 'border-vermilion/40 bg-vermilion/5'}`}>
+      <div className={`rounded-md border p-4 ${result.tot ? 'border-jade/40 bg-jade/5' : 'border-vermilion/40 bg-vermilion/5'}`}>
         <p className="flex items-center gap-2 mb-2">
           <span className="font-display text-xl text-gold-soft">Giờ {result.ten}</span>
           <span className={`text-xs px-2 py-0.5 rounded-full ${result.tot ? 'text-jade border border-jade/40' : 'text-vermilion border border-vermilion/40'}`}>

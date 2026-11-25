@@ -15,12 +15,12 @@ export default function CalendarSheet({ dd, mm, yyyy, lunar, canChiNgay, isGoodD
 
   return (
     <div className="w-full max-w-[240px] mx-auto select-none">
-      <div className="relative bg-parchment rounded-lg shadow-xl -rotate-1 pt-5 pb-5 px-4 border border-black/5">
+      <div className="relative bg-parchment rounded-md shadow-xl -rotate-1 pt-5 pb-5 px-4 border border-black/5">
         {/* Lỗ treo lịch */}
         <div className="absolute -top-2 left-1/2 -translate-x-1/2 w-5 h-5 rounded-full bg-ink border-4 border-parchment shadow" />
 
         {/* Băng đỏ ngày trong tuần */}
-        <div className={`-mx-4 -mt-5 mb-3 py-1.5 text-center text-xs font-semibold tracking-wide uppercase rounded-t-lg ${isSunday ? 'bg-vermilion text-white' : 'bg-ink text-gold-soft'}`}>
+        <div className={`-mx-4 -mt-5 mb-3 py-1.5 text-center text-xs font-semibold rounded-t-lg ${isSunday ? 'bg-vermilion text-white' : 'bg-ink text-gold-soft'}`}>
           {thu}
         </div>
 

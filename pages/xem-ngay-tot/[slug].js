@@ -100,7 +100,7 @@ export default function NgayTotXauResult({ dd, mm, yyyy, lunar, canChiNam, canCh
           <p className="text-moon mb-3 text-sm">6 khung giờ Hoàng đạo tốt trong ngày:</p>
           <div className="grid sm:grid-cols-2 gap-2.5">
             {gioHoangDao.map((g) => (
-              <div key={g.chi} className="flex items-center justify-between bg-ink-soft rounded-lg px-4 py-2.5 border border-ink-line">
+              <div key={g.chi} className="flex items-center justify-between bg-ink-soft rounded-md px-4 py-2.5 border border-ink-line">
                 <span className="text-gold-soft font-display">Giờ {g.chi}</span>
                 <span className="text-moon text-sm">{g.khung}</span>
               </div>
@@ -130,7 +130,7 @@ export default function NgayTotXauResult({ dd, mm, yyyy, lunar, canChiNam, canCh
       content: (
         <div className="space-y-3">
           <h2 className="sr-only">Ngày xuất hành theo Khổng Minh</h2>
-          <div className={`rounded-lg border p-4 ${khongMinh?.tot ? 'border-jade/40 bg-jade/5' : 'border-vermilion/40 bg-vermilion/5'}`}>
+          <div className={`rounded-md border p-4 ${khongMinh?.tot ? 'border-jade/40 bg-jade/5' : 'border-vermilion/40 bg-vermilion/5'}`}>
             <p className="flex items-center gap-2 mb-2">
               <span className="font-display text-xl text-gold-soft">Ngày {khongMinh?.ten}</span>
               <span className={`text-xs px-2 py-0.5 rounded-full ${khongMinh?.tot ? 'text-jade border border-jade/40' : 'text-vermilion border border-vermilion/40'}`}>
@@ -193,12 +193,9 @@ export default function NgayTotXauResult({ dd, mm, yyyy, lunar, canChiNam, canCh
       </Head>
       <Header />
       <main className="max-w-6xl mx-auto px-5 py-8 sm:py-12">
-        <div className="w-14 h-14 rounded-full bg-ink-soft border border-gold/30 flex items-center justify-center mx-auto mb-4">
-          <Sparkles size={26} className="text-gold" />
-        </div>
         <Breadcrumb trail={[{ label: 'Lịch & Ngày Tốt', href: '/lich-ngay-tot' }, { label: 'Xem ngày tốt', href: '/xem-ngay-tot' }]} current={`Ngày ${dd}/${mm}/${yyyy}`} />
-        <h1 className="font-display text-2xl sm:text-3xl text-parchment mb-4 text-center">{title}</h1>
-        <p className="text-moon/80 text-center max-w-2xl mx-auto mb-3 leading-relaxed">{summary}</p>
+        <h1 className="font-display font-extrabold text-3xl sm:text-4xl leading-tight text-parchment mb-4">{title}</h1>
+        <p className="text-moon/80 max-w-2xl mb-3 leading-relaxed">{summary}</p>
         <p className="text-moon/80 text-center max-w-2xl mx-auto mb-8 leading-relaxed text-sm">
           Ngày {canChiNgay}, năm {canChiNam}, nạp âm {napAmNgay?.napAm}.
           {gioHoangDao?.length ? ` Giờ Hoàng đạo: ${gioHoangDao.map((g) => `${g.chi} (${g.khung})`).join(', ')}.` : ''}{' '}
@@ -214,11 +211,11 @@ export default function NgayTotXauResult({ dd, mm, yyyy, lunar, canChiNam, canCh
                 <h2 className="sr-only">Ngày âm lịch hôm nay</h2>
                 <div className="grid sm:grid-cols-2 gap-4 text-center mb-4">
                   <div>
-                    <p className="text-xs text-moon uppercase mb-1">Dương lịch</p>
+                    <p className="text-xs text-moon mb-1">Dương lịch</p>
                     <p className="text-xl text-gold-soft font-display">{dd}/{mm}/{yyyy}</p>
                   </div>
                   <div>
-                    <p className="text-xs text-moon uppercase mb-1">Âm lịch</p>
+                    <p className="text-xs text-moon mb-1">Âm lịch</p>
                     <p className="text-xl text-gold-soft font-display">
                       {lunar.day}/{lunar.month}{lunar.leap ? ' (nhuận)' : ''}/{lunar.year}
                     </p>
@@ -280,7 +277,7 @@ export default function NgayTotXauResult({ dd, mm, yyyy, lunar, canChiNam, canCh
               <p className="text-xs text-moon mb-4">Nếu hôm nay bạn đang dự định:</p>
               <div className="space-y-2.5">
                 {decisionAssistant.map((item) => (
-                  <div key={item.label} className="flex items-center justify-between gap-3 bg-ink-soft rounded-lg px-4 py-3 border border-ink-line">
+                  <div key={item.label} className="flex items-center justify-between gap-3 bg-ink-soft rounded-md px-4 py-3 border border-ink-line">
                     <span className="text-parchment text-sm">{item.label}</span>
                     <span className={`flex items-center gap-1.5 text-sm font-medium ${item.good ? 'text-jade' : 'text-vermilion'}`}>
                       {item.good ? <ThumbsUp size={14} /> : item.decision.startsWith('Có thể') ? <HelpCircle size={14} /> : <ThumbsDown size={14} />}

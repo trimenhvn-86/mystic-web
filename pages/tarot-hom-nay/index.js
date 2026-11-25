@@ -5,6 +5,7 @@ import { Sparkles, Share2 } from 'lucide-react';
 import Header from '../../components/Header';
 import Breadcrumb from '../../components/Breadcrumb';
 import Footer from '../../components/Footer';
+import SidebarTools from '../../components/SidebarTools';
 import AdSlot from '../../components/AdSlot';
 import TarotCardFlip from '../../components/TarotCardFlip';
 import HubContentPreview from '../../components/HubContentPreview';
@@ -84,13 +85,11 @@ export default function TarotHomNay({ initial, dictionaryPreview, guidePreview }
         <meta name="description" content={`Tarot hôm nay ${dateStr}: lá ${card.nameVi} (${upright ? 'Xuôi' : 'Ngược'}). ${dailyMsg}`} />
       </Head>
       <Header />
-      <main className="max-w-lg mx-auto px-5 py-8 sm:py-12">
-        <div className="w-14 h-14 rounded-full bg-ink-soft border border-gold/30 flex items-center justify-center mx-auto mb-4">
-          <Sparkles size={26} className="text-gold" />
-        </div>
+      <div className="max-w-6xl mx-auto px-5 py-8 sm:py-12 grid lg:grid-cols-[minmax(0,1fr)_320px] gap-10 lg:gap-14">
+        <main className="min-w-0 max-w-3xl w-full mx-auto lg:mx-0">
         <Breadcrumb trail={[{ label: 'Tarot', href: '/tarot' }]} current="Tarot hôm nay" />
-        <h1 className="font-display text-2xl sm:text-3xl text-parchment mb-1 text-center">Tarot Hôm Nay</h1>
-        <p className="text-moon/70 text-sm text-center mb-8">{dateStr} — lá bài chung cho hôm nay</p>
+        <h1 className="font-display font-extrabold text-3xl sm:text-4xl leading-tight text-parchment mb-1">Tarot Hôm Nay</h1>
+        <p className="text-moon/70 text-sm mb-8">{dateStr} — lá bài chung cho hôm nay</p>
 
         <div className="flex justify-center mb-6">
           <TarotCardFlip card={card} upright={upright} flipped={flipped} onFlip={() => {}} responsive hint={false} />
@@ -100,14 +99,14 @@ export default function TarotHomNay({ initial, dictionaryPreview, guidePreview }
           <h2 className="font-display text-2xl text-gold-soft">{card.nameVi}</h2>
           <p className="text-sm text-moon">{card.nameEn}</p>
           <div className="flex items-center justify-center gap-2 mt-2">
-            <span className="text-xs px-2.5 py-1 rounded-full bg-ink-soft border border-ink-line text-moon">{metaLine}</span>
+            <span className="text-xs px-2.5 py-1 rounded bg-ink-soft border border-ink-line text-moon">{metaLine}</span>
             <span className={`text-xs px-2.5 py-1 rounded-full border ${upright ? 'border-jade/40 text-jade' : 'border-vermilion/40 text-vermilion'}`}>
               {upright ? 'Xuôi' : 'Ngược'}
             </span>
           </div>
           <div className="flex flex-wrap justify-center gap-2 mt-3">
             {keywords.map((k) => (
-              <span key={k} className="px-3 py-1 rounded-full bg-ink-soft border border-ink-line text-xs text-moon">{k}</span>
+              <span key={k} className="px-3 py-1 rounded bg-ink-soft border border-ink-line text-xs text-moon">{k}</span>
             ))}
           </div>
         </div>
@@ -134,10 +133,10 @@ export default function TarotHomNay({ initial, dictionaryPreview, guidePreview }
         <AdSlot label="Ad slot — tarot hôm nay" className="mt-6" />
 
         <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
-          <Link href={`/tarot/${card.slug}`} className="inline-block px-5 py-3 rounded-full bg-gold text-ink text-sm font-semibold hover:opacity-90 transition-opacity">
+          <Link href={`/tarot/${card.slug}`} className="inline-block px-5 py-3 rounded bg-lich text-ink text-sm font-semibold hover:opacity-90 transition-opacity">
             Khám phá toàn bộ ý nghĩa lá {card.nameVi} →
           </Link>
-          <button onClick={handleShare} className="flex items-center gap-2 px-4 py-3 rounded-full border border-ink-line text-sm text-moon hover:border-gold/40 hover:text-gold-soft transition-colors">
+          <button onClick={handleShare} className="flex items-center gap-2 px-4 py-3 rounded border border-ink-line text-sm text-moon hover:border-lich hover:text-gold-soft transition-colors">
             <Share2 size={15} /> Chia sẻ
           </button>
         </div>
@@ -145,10 +144,10 @@ export default function TarotHomNay({ initial, dictionaryPreview, guidePreview }
         <div className="mt-8">
           <p className="text-sm text-moon mb-3 text-center">Công cụ liên quan:</p>
           <div className="flex flex-wrap justify-center gap-2">
-            <Link href="/rut-la-tarot" className="px-3 py-1.5 rounded-full border border-ink-line text-sm text-moon hover:border-gold/40 hover:text-gold-soft transition-colors">Rút 1 lá bài</Link>
-            <Link href="/tarot-yes-no" className="px-3 py-1.5 rounded-full border border-ink-line text-sm text-moon hover:border-gold/40 hover:text-gold-soft transition-colors">Tarot Yes/No</Link>
-            <Link href="/tarot/bo-bai" className="px-3 py-1.5 rounded-full border border-ink-line text-sm text-moon hover:border-gold/40 hover:text-gold-soft transition-colors">Bộ bài 78 lá</Link>
-            <Link href="/trai-bai-3-la" className="px-3 py-1.5 rounded-full border border-ink-line text-sm text-moon hover:border-gold/40 hover:text-gold-soft transition-colors">Trải bài 3 lá</Link>
+            <Link href="/rut-la-tarot" className="px-3 py-1.5 rounded border border-ink-line text-sm text-moon hover:border-lich hover:text-gold-soft transition-colors">Rút 1 lá bài</Link>
+            <Link href="/tarot-yes-no" className="px-3 py-1.5 rounded border border-ink-line text-sm text-moon hover:border-lich hover:text-gold-soft transition-colors">Tarot Yes/No</Link>
+            <Link href="/tarot/bo-bai" className="px-3 py-1.5 rounded border border-ink-line text-sm text-moon hover:border-lich hover:text-gold-soft transition-colors">Bộ bài 78 lá</Link>
+            <Link href="/trai-bai-3-la" className="px-3 py-1.5 rounded border border-ink-line text-sm text-moon hover:border-lich hover:text-gold-soft transition-colors">Trải bài 3 lá</Link>
           </div>
         </div>
 
@@ -160,6 +159,8 @@ export default function TarotHomNay({ initial, dictionaryPreview, guidePreview }
           Tarot mang tính tham khảo, chiêm nghiệm — không thay thế quyết định cá nhân.
         </p>
       </main>
+        <SidebarTools seed="tarot-hom-nay-index" />
+      </div>
       <Footer />
     </>
   );

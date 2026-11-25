@@ -4,6 +4,7 @@ import { Users } from 'lucide-react';
 import Header from '../../components/Header';
 import Breadcrumb from '../../components/Breadcrumb';
 import Footer from '../../components/Footer';
+import SidebarTools from '../../components/SidebarTools';
 import AdSlot from '../../components/AdSlot';
 import TuoiHopLinks from '../../components/TuoiHopLinks';
 import data from '../../content/phong-thuy/tuoi-hop/tam-hop-tu-hanh-xung.json';
@@ -18,12 +19,10 @@ export default function LucHop() {
         <meta property="og:description" content="Lục hợp là gì? Tra cứu đầy đủ 6 cặp Lục hợp Địa Chi: Tý-Sửu, Dần-Hợi, Mão-Tuất, Thìn-Dậu, Tỵ-Thân, Ngọ-Mùi." />
       </Head>
       <Header />
-      <main className="max-w-2xl mx-auto px-5 py-8 sm:py-12">
-        <div className="w-14 h-14 rounded-full bg-ink-soft border border-gold/30 flex items-center justify-center mx-auto mb-4">
-          <Users size={26} className="text-gold" />
-        </div>
+      <div className="max-w-6xl mx-auto px-5 py-8 sm:py-12 grid lg:grid-cols-[minmax(0,1fr)_320px] gap-10 lg:gap-14">
+        <main className="min-w-0 max-w-3xl w-full mx-auto lg:mx-0">
         <Breadcrumb trail={[{ label: 'Tuổi & Tương Hợp', href: '/tuoi-tuong-hop' }]} current="Lục hợp là gì" />
-        <h1 className="font-display text-2xl sm:text-3xl text-parchment mb-6 text-center">Lục Hợp Là Gì?</h1>
+        <h1 className="font-display font-extrabold text-3xl sm:text-4xl leading-tight text-parchment mb-6">Lục Hợp Là Gì?</h1>
 
         <div className="mystic-card p-6 mb-6 text-parchment/85 leading-relaxed">
           <p>
@@ -36,9 +35,9 @@ export default function LucHop() {
         <div className="grid sm:grid-cols-2 gap-4 mb-6">
           {data.lucHop.map((pair, i) => (
             <div key={i} className="mystic-card p-5 flex items-center justify-center gap-3">
-              <span className="px-3 py-1.5 rounded-full bg-ink-soft border border-jade/40 text-sm text-jade">Tuổi {pair[0]}</span>
+              <span className="px-3 py-1.5 rounded bg-ink-soft border border-jade/40 text-sm text-jade">Tuổi {pair[0]}</span>
               <span className="text-moon">—</span>
-              <span className="px-3 py-1.5 rounded-full bg-ink-soft border border-jade/40 text-sm text-jade">Tuổi {pair[1]}</span>
+              <span className="px-3 py-1.5 rounded bg-ink-soft border border-jade/40 text-sm text-jade">Tuổi {pair[1]}</span>
             </div>
           ))}
         </div>
@@ -60,6 +59,8 @@ export default function LucHop() {
           Nội dung mang tính tham khảo, chiêm nghiệm dân gian — không thay thế quyết định cá nhân.
         </p>
       </main>
+        <SidebarTools seed="luc-hop-index" />
+      </div>
       <Footer />
     </>
   );

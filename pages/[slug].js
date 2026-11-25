@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { Layers, Users, CalendarDays, Hash, Sun, CircleDot, BookOpen, ArrowRight, Star, Palette, Gem } from 'lucide-react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import SidebarTools from '../components/SidebarTools';
 import AdSlot from '../components/AdSlot';
 import FaqSection from '../components/FaqSection';
 import HubContentPreview from '../components/HubContentPreview';
@@ -126,11 +127,8 @@ export default function YearToolPage({ type, year, menh, tuoiHop, hub, dictionar
             <span>/</span>
             <span className="text-parchment/70">{hub.name}</span>
           </div>
-          <div className="w-16 h-16 rounded-full bg-ink-soft border border-gold/30 flex items-center justify-center mx-auto mb-4">
-            <Icon size={30} className="text-gold" />
-          </div>
-          <h1 className="font-display text-2xl sm:text-3xl text-parchment mb-2 text-center">{hub.name}</h1>
-          <p className="text-moon/80 text-center max-w-lg mx-auto mb-10">{hub.desc}</p>
+          <h1 className="font-display font-extrabold text-3xl sm:text-4xl leading-tight text-parchment mb-2">{hub.name}</h1>
+          <p className="text-moon/80 max-w-lg mb-10">{hub.desc}</p>
 
           {hub.slug === 'tarot' && <TarotHeroCTA />}
 
@@ -140,14 +138,14 @@ export default function YearToolPage({ type, year, menh, tuoiHop, hub, dictionar
               <div className="grid sm:grid-cols-2 gap-3">
                 {hub.tools.map((tool) =>
                   tool.active ? (
-                    <Link key={tool.label} href={tool.href} className="mystic-card px-4 py-3.5 flex items-center justify-between hover:border-gold/40 transition-colors">
+                    <Link key={tool.label} href={tool.href} className="mystic-card px-4 py-3.5 flex items-center justify-between hover:border-lich transition-colors">
                       <span className="text-parchment">{tool.label}</span>
                       <ArrowRight size={16} className="text-gold" />
                     </Link>
                   ) : (
                     <div key={tool.label} className="mystic-card px-4 py-3.5 flex items-center justify-between opacity-50">
                       <span className="text-parchment/70">{tool.label}</span>
-                      <span className="text-[10px] uppercase text-moon/60">Sắp ra mắt</span>
+                      <span className="text-[10px] text-moon/60">Sắp ra mắt</span>
                     </div>
                   )
                 )}
@@ -196,7 +194,7 @@ export default function YearToolPage({ type, year, menh, tuoiHop, hub, dictionar
             {dictionaryPreview.length > 0 ? (
               <div className="grid sm:grid-cols-2 gap-3">
                 {dictionaryPreview.map((t) => (
-                  <Link key={t.slug} href={`/tu-dien/${t.slug}`} className="mystic-card px-4 py-3 hover:border-gold/40 transition-colors">
+                  <Link key={t.slug} href={`/tu-dien/${t.slug}`} className="mystic-card px-4 py-3 hover:border-lich transition-colors">
                     <p className="text-gold-soft font-medium">{t.title}</p>
                     <p className="text-sm text-moon/70 line-clamp-1">{t.shortDefinition}</p>
                   </Link>
@@ -212,7 +210,7 @@ export default function YearToolPage({ type, year, menh, tuoiHop, hub, dictionar
             {guidePreview.length > 0 ? (
               <div className="grid sm:grid-cols-2 gap-3">
                 {guidePreview.map((g) => (
-                  <Link key={g.slug} href={`/cam-nang/${g.slug}`} className="mystic-card px-4 py-3 hover:border-gold/40 transition-colors">
+                  <Link key={g.slug} href={`/cam-nang/${g.slug}`} className="mystic-card px-4 py-3 hover:border-lich transition-colors">
                     <p className="text-gold-soft font-medium">{g.title}</p>
                     <p className="text-sm text-moon/70 line-clamp-2">{g.excerpt}</p>
                   </Link>
@@ -243,38 +241,36 @@ export default function YearToolPage({ type, year, menh, tuoiHop, hub, dictionar
           <meta property="og:description" content={desc} />
         </Head>
         <Header />
-        <main className="max-w-3xl mx-auto px-5 py-8 sm:py-12">
+        <div className="max-w-6xl mx-auto px-5 py-8 sm:py-12 grid lg:grid-cols-[minmax(0,1fr)_320px] gap-10 lg:gap-14">
+        <main className="min-w-0 max-w-3xl w-full mx-auto lg:mx-0">
           <Breadcrumb trail={[{ label: 'Mệnh & Phong Thủy', href: '/menh-phong-thuy' }]} current={`Mệnh năm ${year}`} />
-          <div className="w-14 h-14 rounded-full bg-ink-soft border border-gold/30 flex items-center justify-center mx-auto mb-4">
-            <Layers size={26} className="text-gold" />
-          </div>
-          <h1 className="font-display text-2xl sm:text-3xl text-parchment mb-3 text-center">{title}</h1>
-          <p className="text-center text-parchment/85 max-w-xl mx-auto mb-8 leading-relaxed">
+          <h1 className="font-display font-extrabold text-3xl sm:text-4xl leading-tight text-parchment mb-3">{title}</h1>
+          <p className="text-center text-parchment/85 max-w-xl mb-8 leading-relaxed">
             Người sinh năm {year} ({menh.canChi}) thuộc mệnh <strong className="text-gold-soft">{menh.napAm}</strong> (hành {menh.hanh}).
           </p>
 
           <div className="space-y-6">
             {/* Ket qua nhanh + Dashboard */}
             <div className="mystic-card p-6 text-center">
-              <p className="text-xs text-moon uppercase mb-1">Sinh năm</p>
+              <p className="text-xs text-moon mb-1">Sinh năm</p>
               <p className="font-display text-3xl text-gold-soft mb-2">{year}</p>
               <div className="flex items-center justify-center gap-1 mb-3">
                 {[1, 2, 3, 4, 5].map((i) => <Star key={i} size={18} className="fill-gold text-gold" />)}
               </div>
               <div className="grid sm:grid-cols-4 gap-3 text-sm mt-4">
-                <div className="bg-ink-soft rounded-lg border border-ink-line px-2 py-3">
+                <div className="bg-ink-soft rounded-md border border-ink-line px-2 py-3">
                   <p className="text-parchment font-medium">{menh.canChi}</p>
                   <p className="text-[11px] text-moon mt-1">Can Chi</p>
                 </div>
-                <div className="bg-ink-soft rounded-lg border border-ink-line px-2 py-3">
+                <div className="bg-ink-soft rounded-md border border-ink-line px-2 py-3">
                   <p className="text-parchment font-medium">{amDuong} {menh.hanh}</p>
                   <p className="text-[11px] text-moon mt-1">Âm / Dương</p>
                 </div>
-                <div className="bg-ink-soft rounded-lg border border-ink-line px-2 py-3">
+                <div className="bg-ink-soft rounded-md border border-ink-line px-2 py-3">
                   <p className="text-parchment font-medium">{menh.napAm}</p>
                   <p className="text-[11px] text-moon mt-1">Nạp Âm</p>
                 </div>
-                <div className="bg-ink-soft rounded-lg border border-ink-line px-2 py-3">
+                <div className="bg-ink-soft rounded-md border border-ink-line px-2 py-3">
                   <p className="text-parchment font-medium">{menh.hanh}</p>
                   <p className="text-[11px] text-moon mt-1">Hành</p>
                 </div>
@@ -291,16 +287,16 @@ export default function YearToolPage({ type, year, menh, tuoiHop, hub, dictionar
             <div className="mystic-card p-6">
               <h2 className="font-display text-lg text-parchment mb-3">Quan hệ Ngũ Hành</h2>
               <div className="grid grid-cols-2 gap-3 text-sm">
-                <div className="bg-jade/10 border border-jade/30 rounded-lg px-3 py-2.5">
+                <div className="bg-jade/10 border border-jade/30 rounded-md px-3 py-2.5">
                   <p className="text-jade font-medium">Được sinh bởi: {extra.duocSinhBoi}</p>
                 </div>
-                <div className="bg-jade/10 border border-jade/30 rounded-lg px-3 py-2.5">
+                <div className="bg-jade/10 border border-jade/30 rounded-md px-3 py-2.5">
                   <p className="text-jade font-medium">Sinh ra: {extra.sinhRa}</p>
                 </div>
-                <div className="bg-vermilion/10 border border-vermilion/30 rounded-lg px-3 py-2.5">
+                <div className="bg-vermilion/10 border border-vermilion/30 rounded-md px-3 py-2.5">
                   <p className="text-vermilion font-medium">Khắc: {extra.khac}</p>
                 </div>
-                <div className="bg-vermilion/10 border border-vermilion/30 rounded-lg px-3 py-2.5">
+                <div className="bg-vermilion/10 border border-vermilion/30 rounded-md px-3 py-2.5">
                   <p className="text-vermilion font-medium">Bị khắc bởi: {extra.khacBoi}</p>
                 </div>
               </div>
@@ -312,7 +308,7 @@ export default function YearToolPage({ type, year, menh, tuoiHop, hub, dictionar
                 <p className="text-jade font-semibold mb-2">Màu hợp mệnh {menh.hanh}</p>
                 <div className="flex gap-2 flex-wrap">
                   {menh.mauHop.map((c) => (
-                    <span key={c} className="px-3 py-1 rounded-full bg-ink-soft border border-jade/30 text-sm">{c}</span>
+                    <span key={c} className="px-3 py-1 rounded bg-ink-soft border border-jade/30 text-sm">{c}</span>
                   ))}
                 </div>
               </div>
@@ -321,7 +317,7 @@ export default function YearToolPage({ type, year, menh, tuoiHop, hub, dictionar
                   <p className="text-vermilion font-semibold mb-2">Màu nên hạn chế</p>
                   <div className="flex gap-2 flex-wrap">
                     {mauKy.map((c) => (
-                      <span key={c} className="px-3 py-1 rounded-full bg-ink-soft border border-vermilion/30 text-sm">{c}</span>
+                      <span key={c} className="px-3 py-1 rounded bg-ink-soft border border-vermilion/30 text-sm">{c}</span>
                     ))}
                   </div>
                 </div>
@@ -333,19 +329,19 @@ export default function YearToolPage({ type, year, menh, tuoiHop, hub, dictionar
             {/* Con so may man + Huong hop */}
             <div className="grid sm:grid-cols-2 gap-4">
               <div className="mystic-card p-5">
-                <p className="text-xs text-moon uppercase mb-3">Con số may mắn</p>
+                <p className="text-xs text-moon mb-3">Con số may mắn</p>
                 <div className="flex gap-2 flex-wrap">
                   {luckyNumbers.hanhNumbers.map((n) => (
-                    <span key={n} className="w-9 h-9 rounded-full bg-gold text-ink font-display flex items-center justify-center">{n}</span>
+                    <span key={n} className="w-9 h-9 rounded-full bg-lich text-ink font-display flex items-center justify-center">{n}</span>
                   ))}
                 </div>
                 <Link href="/con-so-may-man" className="text-xs text-gold-soft hover:underline mt-3 inline-block">Xem chi tiết →</Link>
               </div>
               <div className="mystic-card p-5">
-                <p className="text-xs text-moon uppercase mb-3">Hướng hợp</p>
+                <p className="text-xs text-moon mb-3">Hướng hợp</p>
                 <div className="flex gap-2 flex-wrap">
                   {extra.huong.map((h) => (
-                    <span key={h} className="px-3 py-1 rounded-full bg-ink-soft border border-ink-line text-sm">{h}</span>
+                    <span key={h} className="px-3 py-1 rounded bg-ink-soft border border-ink-line text-sm">{h}</span>
                   ))}
                 </div>
               </div>
@@ -353,10 +349,10 @@ export default function YearToolPage({ type, year, menh, tuoiHop, hub, dictionar
 
             {/* Tuoi hop */}
             <div className="mystic-card p-6">
-              <p className="text-xs text-moon uppercase mb-3">Tuổi hợp (Tam hợp)</p>
+              <p className="text-xs text-moon mb-3">Tuổi hợp (Tam hợp)</p>
               <div className="flex gap-2 flex-wrap mb-2">
                 {tuoiHopForMenh.hopTuoi.map((c) => (
-                  <span key={c} className="px-3 py-1 rounded-full bg-ink-soft border border-jade/30 text-sm">
+                  <span key={c} className="px-3 py-1 rounded bg-ink-soft border border-jade/30 text-sm">
                     Tuổi {c} ({getYearsForChi(c, year).join(', ')})
                   </span>
                 ))}
@@ -367,13 +363,13 @@ export default function YearToolPage({ type, year, menh, tuoiHop, hub, dictionar
             {/* Nghe nghiep + vat pham */}
             <div className="grid sm:grid-cols-2 gap-4">
               <div className="mystic-card p-5">
-                <p className="text-xs text-moon uppercase mb-3">Nghề nghiệp phù hợp</p>
+                <p className="text-xs text-moon mb-3">Nghề nghiệp phù hợp</p>
                 <ul className="text-sm text-parchment/85 space-y-1">
                   {extra.ngheNghiep.map((n) => <li key={n}>• {n}</li>)}
                 </ul>
               </div>
               <div className="mystic-card p-5">
-                <p className="text-xs text-moon uppercase mb-3">Vật phẩm phong thủy gợi ý</p>
+                <p className="text-xs text-moon mb-3">Vật phẩm phong thủy gợi ý</p>
                 <ul className="text-sm text-parchment/85 space-y-1">
                   {extra.vatPham.map((v) => <li key={v}>• {v}</li>)}
                 </ul>
@@ -385,7 +381,7 @@ export default function YearToolPage({ type, year, menh, tuoiHop, hub, dictionar
               <p className="text-sm text-moon mb-3">Tra cứu nhanh theo năm sinh:</p>
               <div className="flex flex-wrap gap-2">
                 {years.map((y) => (
-                  <Link key={y} href={`/${y}-menh-gi`} className="px-3 py-1.5 rounded-full border border-ink-line text-sm text-moon hover:border-gold/40 hover:text-gold-soft transition-colors">{y}</Link>
+                  <Link key={y} href={`/${y}-menh-gi`} className="px-3 py-1.5 rounded border border-ink-line text-sm text-moon hover:border-lich hover:text-gold-soft transition-colors">{y}</Link>
                 ))}
               </div>
             </div>
@@ -394,10 +390,10 @@ export default function YearToolPage({ type, year, menh, tuoiHop, hub, dictionar
             <div>
               <p className="text-sm text-moon mb-3">Công cụ liên quan:</p>
               <div className="flex flex-wrap gap-2">
-                <Link href={`/${year}-hop-tuoi-nao`} className="px-3 py-1.5 rounded-full border border-ink-line text-sm text-moon hover:border-gold/40 hover:text-gold-soft transition-colors">Tuổi hợp</Link>
-                <Link href="/xem-ngay-tot" className="px-3 py-1.5 rounded-full border border-ink-line text-sm text-moon hover:border-gold/40 hover:text-gold-soft transition-colors">Xem ngày tốt</Link>
-                <Link href="/than-so-hoc" className="px-3 py-1.5 rounded-full border border-ink-line text-sm text-moon hover:border-gold/40 hover:text-gold-soft transition-colors">Thần số học</Link>
-                <Link href="/con-so-may-man" className="px-3 py-1.5 rounded-full border border-ink-line text-sm text-moon hover:border-gold/40 hover:text-gold-soft transition-colors">Con số may mắn</Link>
+                <Link href={`/${year}-hop-tuoi-nao`} className="px-3 py-1.5 rounded border border-ink-line text-sm text-moon hover:border-lich hover:text-gold-soft transition-colors">Tuổi hợp</Link>
+                <Link href="/xem-ngay-tot" className="px-3 py-1.5 rounded border border-ink-line text-sm text-moon hover:border-lich hover:text-gold-soft transition-colors">Xem ngày tốt</Link>
+                <Link href="/than-so-hoc" className="px-3 py-1.5 rounded border border-ink-line text-sm text-moon hover:border-lich hover:text-gold-soft transition-colors">Thần số học</Link>
+                <Link href="/con-so-may-man" className="px-3 py-1.5 rounded border border-ink-line text-sm text-moon hover:border-lich hover:text-gold-soft transition-colors">Con số may mắn</Link>
               </div>
             </div>
 
@@ -412,6 +408,8 @@ export default function YearToolPage({ type, year, menh, tuoiHop, hub, dictionar
             Nội dung mang tính tham khảo, chiêm nghiệm dân gian — không thay thế quyết định cá nhân.
           </p>
         </main>
+        <SidebarTools seed="nam-sinh-1" />
+      </div>
         <Footer />
       </>
     );
@@ -436,12 +434,10 @@ export default function YearToolPage({ type, year, menh, tuoiHop, hub, dictionar
           <meta property="og:description" content={desc} />
         </Head>
         <Header />
-        <main className="max-w-2xl mx-auto px-5 py-8 sm:py-12">
+        <div className="max-w-6xl mx-auto px-5 py-8 sm:py-12 grid lg:grid-cols-[minmax(0,1fr)_320px] gap-10 lg:gap-14">
+        <main className="min-w-0 max-w-3xl w-full mx-auto lg:mx-0">
           <Breadcrumb trail={[{ label: 'Mệnh & Phong Thủy', href: '/menh-phong-thuy' }]} current={`Màu hợp mệnh năm ${year}`} />
-          <div className="w-14 h-14 rounded-full bg-ink-soft border border-gold/30 flex items-center justify-center mx-auto mb-4">
-            <Palette size={26} className="text-gold" />
-          </div>
-          <h1 className="font-display text-2xl sm:text-3xl text-parchment mb-6 text-center">{title}</h1>
+          <h1 className="font-display font-extrabold text-3xl sm:text-4xl leading-tight text-parchment mb-6">{title}</h1>
 
           <div className="mystic-card p-6 space-y-5">
             <p className="text-center text-moon">
@@ -455,7 +451,7 @@ export default function YearToolPage({ type, year, menh, tuoiHop, hub, dictionar
                 {menh.mauHop.map((m) => {
                   const baseColor = m.split(' (')[0];
                   return (
-                    <span key={m} className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-ink-soft border border-jade/30 text-sm">
+                    <span key={m} className="flex items-center gap-2 px-3 py-1.5 rounded bg-ink-soft border border-jade/30 text-sm">
                       <span className={`w-3 h-3 rounded-full ${COLOR_DOT[baseColor] || 'bg-gold'}`} />
                       {m}
                     </span>
@@ -471,7 +467,7 @@ export default function YearToolPage({ type, year, menh, tuoiHop, hub, dictionar
                   {mauKy.map((m) => {
                     const baseColor = m.split(' (')[0];
                     return (
-                      <span key={m} className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-ink-soft border border-vermilion/30 text-sm">
+                      <span key={m} className="flex items-center gap-2 px-3 py-1.5 rounded bg-ink-soft border border-vermilion/30 text-sm">
                         <span className={`w-3 h-3 rounded-full ${COLOR_DOT[baseColor] || 'bg-vermilion'}`} />
                         {m}
                       </span>
@@ -489,7 +485,7 @@ export default function YearToolPage({ type, year, menh, tuoiHop, hub, dictionar
           <AdSlot label="Ad slot — màu hợp mệnh" className="mt-6" />
 
           <div className="mt-6">
-            <Link href={`/${year}-menh-gi`} className="px-3 py-1.5 rounded-full border border-ink-line text-sm text-moon hover:border-gold/40 hover:text-gold-soft transition-colors inline-block">
+            <Link href={`/${year}-menh-gi`} className="px-3 py-1.5 rounded border border-ink-line text-sm text-moon hover:border-lich hover:text-gold-soft transition-colors inline-block">
               Xem chi tiết mệnh, hướng hợp, nghề nghiệp →
             </Link>
           </div>
@@ -504,6 +500,8 @@ export default function YearToolPage({ type, year, menh, tuoiHop, hub, dictionar
             <HubContentPreview dictionaryPreview={dictionaryPreview} guidePreview={guidePreview} />
           </div>
         </main>
+        <SidebarTools seed="nam-sinh-2" />
+      </div>
         <Footer />
       </>
     );
@@ -521,12 +519,10 @@ export default function YearToolPage({ type, year, menh, tuoiHop, hub, dictionar
           <meta property="og:description" content={desc} />
         </Head>
         <Header />
-        <main className="max-w-2xl mx-auto px-5 py-8 sm:py-12">
+        <div className="max-w-6xl mx-auto px-5 py-8 sm:py-12 grid lg:grid-cols-[minmax(0,1fr)_320px] gap-10 lg:gap-14">
+        <main className="min-w-0 max-w-3xl w-full mx-auto lg:mx-0">
           <Breadcrumb trail={[{ label: 'Mệnh & Phong Thủy', href: '/menh-phong-thuy' }]} current={`Vật phẩm phong thủy năm ${year}`} />
-          <div className="w-14 h-14 rounded-full bg-ink-soft border border-gold/30 flex items-center justify-center mx-auto mb-4">
-            <Gem size={26} className="text-gold" />
-          </div>
-          <h1 className="font-display text-2xl sm:text-3xl text-parchment mb-6 text-center">{title}</h1>
+          <h1 className="font-display font-extrabold text-3xl sm:text-4xl leading-tight text-parchment mb-6">{title}</h1>
 
           <div className="mystic-card p-6 space-y-5">
             <p className="text-center text-moon">
@@ -538,7 +534,7 @@ export default function YearToolPage({ type, year, menh, tuoiHop, hub, dictionar
               <p className="text-jade font-semibold mb-3">Đá hợp mệnh</p>
               <div className="flex flex-wrap gap-2">
                 {daInfo.daHop.map((d) => (
-                  <span key={d} className="px-3 py-1.5 rounded-full bg-ink-soft border border-jade/30 text-sm">{d}</span>
+                  <span key={d} className="px-3 py-1.5 rounded bg-ink-soft border border-jade/30 text-sm">{d}</span>
                 ))}
               </div>
             </div>
@@ -569,6 +565,8 @@ export default function YearToolPage({ type, year, menh, tuoiHop, hub, dictionar
             <HubContentPreview dictionaryPreview={dictionaryPreview} guidePreview={guidePreview} />
           </div>
         </main>
+        <SidebarTools seed="nam-sinh-3" />
+      </div>
         <Footer />
       </>
     );
@@ -586,18 +584,16 @@ export default function YearToolPage({ type, year, menh, tuoiHop, hub, dictionar
         <meta property="og:description" content={desc} />
       </Head>
       <Header />
-      <main className="max-w-2xl mx-auto px-5 py-8 sm:py-12">
+      <div className="max-w-6xl mx-auto px-5 py-8 sm:py-12 grid lg:grid-cols-[minmax(0,1fr)_320px] gap-10 lg:gap-14">
+        <main className="min-w-0 max-w-3xl w-full mx-auto lg:mx-0">
         <Breadcrumb trail={[{ label: 'Tuổi & Tương Hợp', href: '/tuoi-tuong-hop' }]} current={`Tuổi hợp năm ${year}`} />
-        <div className="w-14 h-14 rounded-full bg-ink-soft border border-gold/30 flex items-center justify-center mx-auto mb-4">
-          <Users size={26} className="text-gold" />
-        </div>
-        <h1 className="font-display text-2xl sm:text-3xl text-parchment mb-6 text-center">{title}</h1>
+        <h1 className="font-display font-extrabold text-3xl sm:text-4xl leading-tight text-parchment mb-6">{title}</h1>
         <div className="mystic-card p-6 space-y-4">
           <div>
             <p className="text-jade font-semibold mb-2">Tam hợp (hợp nhất):</p>
             <div className="flex gap-2 flex-wrap">
               {tuoiHop.hopTuoi.map((c) => (
-                <span key={c} className="px-3 py-1 rounded-full bg-ink-soft border border-jade/40 text-sm">
+                <span key={c} className="px-3 py-1 rounded bg-ink-soft border border-jade/40 text-sm">
                   Tuổi {c} ({getYearsForChi(c, year).join(', ')})
                 </span>
               ))}
@@ -607,7 +603,7 @@ export default function YearToolPage({ type, year, menh, tuoiHop, hub, dictionar
             <p className="text-vermilion font-semibold mb-2">Tứ hành xung (nên cân nhắc):</p>
             <div className="flex gap-2 flex-wrap">
               {tuoiHop.xungTuoi.map((c) => (
-                <span key={c} className="px-3 py-1 rounded-full bg-ink-soft border border-vermilion/40 text-sm">
+                <span key={c} className="px-3 py-1 rounded bg-ink-soft border border-vermilion/40 text-sm">
                   Tuổi {c} ({getYearsForChi(c, year).join(', ')})
                 </span>
               ))}
@@ -629,6 +625,8 @@ export default function YearToolPage({ type, year, menh, tuoiHop, hub, dictionar
           <HubContentPreview dictionaryPreview={dictionaryPreview} guidePreview={guidePreview} />
         </div>
       </main>
+        <SidebarTools seed="nam-sinh-4" />
+      </div>
       <Footer />
     </>
   );

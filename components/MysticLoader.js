@@ -15,7 +15,7 @@ export default function MysticLoader({ label = 'Hệ thống Tri Mệnh đang ph
           <div className="w-3 h-3 rounded-full bg-gold shadow-[0_0_12px_2px_rgba(201,162,75,0.6)]" />
         </div>
       </div>
-      <p className="text-moon text-sm tracking-wide">{label}</p>
+      <p className="text-moon text-sm">{label}</p>
     </div>
   );
 }

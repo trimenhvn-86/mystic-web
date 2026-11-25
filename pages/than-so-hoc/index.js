@@ -5,6 +5,7 @@ import { useRouter } from 'next/router';
 import { Share2, RotateCcw } from 'lucide-react';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
+import SidebarTools from '../../components/SidebarTools';
 import MysticLoader from '../../components/MysticLoader';
 import ResultTabs from '../../components/ResultTabs';
 import NumerologyChart from '../../components/NumerologyChart';
@@ -122,7 +123,7 @@ export default function ThanSoHoc({ dictionaryPreview, guidePreview }) {
                 const Wrapper = hasPage ? Link : 'div';
                 const wrapperProps = hasPage ? { href: `/than-so-hoc/so-chu-dao-${val}` } : {};
                 return (
-                  <Wrapper key={label} {...wrapperProps} className={`bg-ink-soft rounded-lg border border-ink-line px-2 py-3 ${hasPage ? 'hover:border-gold/40 transition-colors cursor-pointer' : ''}`}>
+                  <Wrapper key={label} {...wrapperProps} className={`bg-ink-soft rounded-md border border-ink-line px-2 py-3 ${hasPage ? 'hover:border-lich transition-colors cursor-pointer' : ''}`}>
                     <p className="text-2xl font-display text-gold-soft">{val}</p>
                     <p className="text-[11px] text-moon mt-1">{label}</p>
                   </Wrapper>
@@ -146,9 +147,9 @@ export default function ThanSoHoc({ dictionaryPreview, guidePreview }) {
             )}
             {result.arrows.length > 0 && (
               <div className="mt-6 space-y-3">
-                <p className="text-xs text-moon uppercase text-center">Mũi tên sức mạnh</p>
+                <p className="text-xs text-moon text-center">Mũi tên sức mạnh</p>
                 {result.arrows.map((a) => (
-                  <div key={a.ten} className="bg-ink-soft rounded-lg px-4 py-3 border border-gold/20">
+                  <div key={a.ten} className="bg-ink-soft rounded-md px-4 py-3 border border-gold/20">
                     <p className="text-gold-soft font-display">{a.ten}</p>
                     <p className="text-sm text-parchment/80">{a.mota}</p>
                   </div>
@@ -174,7 +175,7 @@ export default function ThanSoHoc({ dictionaryPreview, guidePreview }) {
         content: (
           <div className="flex flex-wrap gap-2">
             {(info?.diemManh || []).map((d) => (
-              <span key={d} className="px-3 py-1.5 rounded-full bg-jade/10 border border-jade/30 text-jade text-sm">{d}</span>
+              <span key={d} className="px-3 py-1.5 rounded bg-jade/10 border border-jade/30 text-jade text-sm">{d}</span>
             ))}
           </div>
         )
@@ -185,7 +186,7 @@ export default function ThanSoHoc({ dictionaryPreview, guidePreview }) {
         content: (
           <div className="flex flex-wrap gap-2">
             {(info?.diemYeu || []).map((d) => (
-              <span key={d} className="px-3 py-1.5 rounded-full bg-vermilion/10 border border-vermilion/30 text-vermilion text-sm">{d}</span>
+              <span key={d} className="px-3 py-1.5 rounded bg-vermilion/10 border border-vermilion/30 text-vermilion text-sm">{d}</span>
             ))}
           </div>
         )
@@ -209,7 +210,7 @@ export default function ThanSoHoc({ dictionaryPreview, guidePreview }) {
             <p className="text-sm text-moon mb-3">Số Chủ Đạo {result.lifePath} thường hợp với:</p>
             <div className="flex gap-2 flex-wrap">
               {result.compatible.map((n) => (
-                <span key={n} className="w-10 h-10 rounded-full bg-gold text-ink font-display text-lg flex items-center justify-center">{n}</span>
+                <span key={n} className="w-10 h-10 rounded-full bg-lich text-ink font-display text-lg flex items-center justify-center">{n}</span>
               ))}
             </div>
           </div>
@@ -226,22 +227,23 @@ export default function ThanSoHoc({ dictionaryPreview, guidePreview }) {
           <meta name="description" content={summary} />
         </Head>
         <Header />
-        <main className="max-w-2xl mx-auto px-5 py-8 sm:py-12">
-          <h1 className="font-display text-2xl sm:text-3xl text-parchment mb-4 text-center">
+        <div className="max-w-6xl mx-auto px-5 py-8 sm:py-12 grid lg:grid-cols-[minmax(0,1fr)_320px] gap-10 lg:gap-14">
+        <main className="min-w-0 max-w-3xl w-full mx-auto lg:mx-0">
+          <h1 className="font-display font-extrabold text-3xl sm:text-4xl leading-tight text-parchment mb-4">
             Bản đồ Thần Số Học của {form.hoTen}
           </h1>
-          <p className="text-moon/80 text-center max-w-xl mx-auto mb-8 leading-relaxed">{summary}</p>
+          <p className="text-moon/80 max-w-xl mb-8 leading-relaxed">{summary}</p>
 
           <ResultTabs tabs={tabs} />
 
           <div className="mt-8">
             <p className="text-sm text-moon mb-3">Đọc thêm về Số Chủ Đạo {result.lifePath}:</p>
             <div className="flex flex-wrap gap-2">
-              <Link href={`/than-so-hoc/so-chu-dao-${result.lifePath}`} className="px-3 py-1.5 rounded-full border border-gold/30 text-sm text-gold-soft hover:bg-gold/10 transition-colors">
+              <Link href={`/than-so-hoc/so-chu-dao-${result.lifePath}`} className="px-3 py-1.5 rounded border border-gold/30 text-sm text-gold-soft hover:bg-gold/10 transition-colors">
                 Ý nghĩa đầy đủ Số {result.lifePath} →
               </Link>
               {otherNumbers.map((n) => (
-                <Link key={n} href={`/than-so-hoc/so-chu-dao-${n}`} className="px-3 py-1.5 rounded-full border border-ink-line text-sm text-moon hover:border-gold/40 hover:text-gold-soft transition-colors">
+                <Link key={n} href={`/than-so-hoc/so-chu-dao-${n}`} className="px-3 py-1.5 rounded border border-ink-line text-sm text-moon hover:border-lich hover:text-gold-soft transition-colors">
                   Số {n}
                 </Link>
               ))}
@@ -251,7 +253,7 @@ export default function ThanSoHoc({ dictionaryPreview, guidePreview }) {
           <div className="mt-6">
             <p className="text-sm text-moon mb-3">Công cụ liên quan:</p>
             <div className="flex flex-wrap gap-2">
-              <Link href="/con-so-may-man" className="px-3 py-1.5 rounded-full border border-ink-line text-sm text-moon hover:border-gold/40 hover:text-gold-soft transition-colors">Con số may mắn</Link>
+              <Link href="/con-so-may-man" className="px-3 py-1.5 rounded border border-ink-line text-sm text-moon hover:border-lich hover:text-gold-soft transition-colors">Con số may mắn</Link>
             </div>
           </div>
 
@@ -266,18 +268,20 @@ export default function ThanSoHoc({ dictionaryPreview, guidePreview }) {
           <div className="flex flex-wrap justify-center gap-3 mt-8">
             <button
               onClick={() => { setStep('form'); setResult(null); }}
-              className="flex items-center gap-2 px-5 py-2.5 rounded-full border border-ink-line text-sm text-moon hover:border-gold/40 hover:text-gold-soft transition-colors"
+              className="flex items-center gap-2 px-5 py-2.5 rounded border border-ink-line text-sm text-moon hover:border-lich hover:text-gold-soft transition-colors"
             >
               <RotateCcw size={15} /> Tra cứu người khác
             </button>
             <button
               onClick={handleShare}
-              className="flex items-center gap-2 px-5 py-2.5 rounded-full bg-gold text-ink text-sm font-semibold hover:opacity-90 transition-opacity"
+              className="flex items-center gap-2 px-5 py-2.5 rounded bg-lich text-ink text-sm font-semibold hover:opacity-90 transition-opacity"
             >
               <Share2 size={15} /> Chia sẻ kết quả
             </button>
           </div>
         </main>
+        <SidebarTools seed="than-so-hoc-index" />
+      </div>
         <Footer />
       </>
     );
@@ -292,7 +296,8 @@ export default function ThanSoHoc({ dictionaryPreview, guidePreview }) {
         <meta property="og:description" content="Lập biểu đồ ngày sinh (Birth Chart) miễn phí: tính Số Chủ Đạo, Số Sứ Mệnh, Số Linh Hồn, Số Biểu Đạt, Số Trưởng Thành theo hệ Pythagoras." />
       </Head>
       <Header />
-      <main className="max-w-md mx-auto px-5 py-10 sm:py-14">
+      <div className="max-w-6xl mx-auto px-5 py-8 sm:py-12 grid lg:grid-cols-[minmax(0,1fr)_320px] gap-10 lg:gap-14">
+        <main className="min-w-0 max-w-3xl w-full mx-auto lg:mx-0">
         <div className="flex flex-wrap items-center gap-1.5 text-xs text-moon mb-6">
           <Link href="/" className="hover:text-gold-soft transition-colors">Trang chủ</Link>
           <span>/</span>
@@ -301,8 +306,8 @@ export default function ThanSoHoc({ dictionaryPreview, guidePreview }) {
           <span className="text-parchment/70">Lập biểu đồ ngày sinh</span>
         </div>
 
-        <h1 className="font-display text-2xl sm:text-3xl text-parchment mb-2 text-center">Lập Biểu Đồ Ngày Sinh (Birth Chart)</h1>
-        <p className="text-moon/70 text-sm text-center mb-4">Khám phá bản thân qua ngày sinh và họ tên</p>
+        <h1 className="font-display font-extrabold text-3xl sm:text-4xl leading-tight text-parchment mb-2">Lập Biểu Đồ Ngày Sinh (Birth Chart)</h1>
+        <p className="text-moon/70 text-sm mb-4">Khám phá bản thân qua ngày sinh và họ tên</p>
 
         <div className="mystic-card p-5 mb-6 text-sm">
           <p className="text-moon mb-2">Biểu đồ ngày sinh sẽ tính:</p>
@@ -320,19 +325,19 @@ export default function ThanSoHoc({ dictionaryPreview, guidePreview }) {
               Ngày
               <input type="number" min="1" max="31" required value={form.dd}
                 onChange={(e) => setForm({ ...form, dd: e.target.value })}
-                className="bg-ink-soft border border-ink-line rounded-lg px-3 py-3 text-parchment text-base" />
+                className="bg-ink-soft border border-ink-line rounded-md px-3 py-3 text-parchment text-base" />
             </label>
             <label className="flex flex-col gap-1 text-xs text-moon min-w-0">
               Tháng
               <input type="number" min="1" max="12" required value={form.mm}
                 onChange={(e) => setForm({ ...form, mm: e.target.value })}
-                className="bg-ink-soft border border-ink-line rounded-lg px-3 py-3 text-parchment text-base" />
+                className="bg-ink-soft border border-ink-line rounded-md px-3 py-3 text-parchment text-base" />
             </label>
             <label className="flex flex-col gap-1 text-xs text-moon min-w-0">
               Năm
               <input type="number" min="1900" max="2100" required value={form.yyyy}
                 onChange={(e) => setForm({ ...form, yyyy: e.target.value })}
-                className="bg-ink-soft border border-ink-line rounded-lg px-3 py-3 text-parchment text-base" />
+                className="bg-ink-soft border border-ink-line rounded-md px-3 py-3 text-parchment text-base" />
             </label>
           </div>
           <label className="flex flex-col gap-1 text-xs text-moon min-w-0">
@@ -341,7 +346,7 @@ export default function ThanSoHoc({ dictionaryPreview, guidePreview }) {
               type="text" required
               value={form.hoTen}
               onChange={(e) => setForm({ ...form, hoTen: e.target.value })}
-              className="bg-ink-soft border border-ink-line rounded-lg px-3 py-3 text-parchment text-base"
+              className="bg-ink-soft border border-ink-line rounded-md px-3 py-3 text-parchment text-base"
               placeholder="Nhập họ và tên đầy đủ"
             />
           </label>
@@ -359,7 +364,7 @@ export default function ThanSoHoc({ dictionaryPreview, guidePreview }) {
                 <Link
                   key={n}
                   href={`/than-so-hoc/so-chu-dao-${n}`}
-                  className="px-3 py-1.5 rounded-full border border-ink-line text-sm text-moon hover:border-gold hover:text-gold-soft transition-colors"
+                  className="px-3 py-1.5 rounded border border-ink-line text-sm text-moon hover:border-gold hover:text-gold-soft transition-colors"
                 >
                   Số {n}
                 </Link>
@@ -370,13 +375,15 @@ export default function ThanSoHoc({ dictionaryPreview, guidePreview }) {
           <div>
             <p className="text-sm text-moon mb-3">Công cụ liên quan:</p>
             <div className="flex flex-wrap gap-2">
-              <Link href="/con-so-may-man" className="px-3 py-1.5 rounded-full border border-ink-line text-sm text-moon hover:border-gold/40 hover:text-gold-soft transition-colors">Con số may mắn</Link>
+              <Link href="/con-so-may-man" className="px-3 py-1.5 rounded border border-ink-line text-sm text-moon hover:border-lich hover:text-gold-soft transition-colors">Con số may mắn</Link>
             </div>
           </div>
 
           <HubContentPreview dictionaryPreview={dictionaryPreview} guidePreview={guidePreview} />
         </div>
       </main>
+        <SidebarTools seed="than-so-hoc-index-b1" />
+      </div>
       <Footer />
     </>
   );

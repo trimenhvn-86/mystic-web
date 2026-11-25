@@ -71,7 +71,7 @@ export default function MiniCalendar({ dd, mm, yyyy, basePath = '/doi-lich-am-du
         <select
           value={jumpMonth}
           onChange={(e) => setJumpMonth(e.target.value)}
-          className="bg-ink-soft border border-ink-line rounded-lg px-2 py-1.5 text-sm text-parchment flex-1"
+          className="bg-ink-soft border border-ink-line rounded-md px-2 py-1.5 text-sm text-parchment flex-1"
         >
           {MONTH_OPTIONS.map((m) => <option key={m} value={m}>Tháng {m}</option>)}
         </select>
@@ -79,9 +79,9 @@ export default function MiniCalendar({ dd, mm, yyyy, basePath = '/doi-lich-am-du
           type="number"
           value={jumpYear}
           onChange={(e) => setJumpYear(e.target.value)}
-          className="bg-ink-soft border border-ink-line rounded-lg px-2 py-1.5 text-sm text-parchment w-20"
+          className="bg-ink-soft border border-ink-line rounded-md px-2 py-1.5 text-sm text-parchment w-20"
         />
-        <button type="submit" className="px-3 py-1.5 rounded-lg bg-gold text-ink text-sm font-semibold">Xem</button>
+        <button type="submit" className="px-3 py-1.5 rounded-md bg-lich text-ink text-sm font-semibold">Xem</button>
       </form>
 
       {showQuality && (
@@ -106,8 +106,8 @@ export default function MiniCalendar({ dd, mm, yyyy, basePath = '/doi-lich-am-du
             <Link
               key={d}
               href={buildSlug(basePath, d, mm, yyyy)}
-              className={`aspect-square flex flex-col items-center justify-center rounded-lg text-sm transition-colors leading-tight ${
-                d === dd ? 'bg-gold text-ink font-semibold' : `text-parchment/80 hover:bg-ink-soft ${qualityClass}`
+              className={`aspect-square flex flex-col items-center justify-center rounded-md text-sm transition-colors leading-tight ${
+                d === dd ? 'bg-lich text-ink font-semibold' : `text-parchment/80 hover:bg-ink-soft ${qualityClass}`
               }`}
             >
               <span>{d}</span>

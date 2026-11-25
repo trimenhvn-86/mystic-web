@@ -6,6 +6,7 @@ import { Compass } from 'lucide-react';
 import Header from '../../components/Header';
 import Breadcrumb from '../../components/Breadcrumb';
 import Footer from '../../components/Footer';
+import SidebarTools from '../../components/SidebarTools';
 import MysticLoader from '../../components/MysticLoader';
 import HubContentPreview from '../../components/HubContentPreview';
 import FaqSection from '../../components/FaqSection';
@@ -62,21 +63,19 @@ export default function HuongNhaForm({ dictionaryPreview, guidePreview }) {
         <meta property="og:description" content="Tra cứu hướng nhà hợp tuổi theo Cung Mệnh Bát Trạch (Đông Tứ Mệnh / Tây Tứ Mệnh)." />
       </Head>
       <Header />
-      <main className="max-w-md mx-auto px-5 py-10 sm:py-14">
+      <div className="max-w-6xl mx-auto px-5 py-8 sm:py-12 grid lg:grid-cols-[minmax(0,1fr)_320px] gap-10 lg:gap-14">
+        <main className="min-w-0 max-w-3xl w-full mx-auto lg:mx-0">
         <Breadcrumb trail={[{ label: 'Mệnh & Phong Thủy', href: '/menh-phong-thuy' }]} current="Hướng nhà hợp tuổi" />
-        <div className="w-14 h-14 rounded-full bg-ink-soft border border-gold/30 flex items-center justify-center mx-auto mb-4">
-          <Compass size={26} className="text-gold" />
-        </div>
-        <h1 className="font-display text-2xl sm:text-3xl text-parchment mb-2 text-center">Hướng Nhà Hợp Tuổi</h1>
-        <p className="text-moon/70 text-sm text-center mb-8">Nhập năm sinh và giới tính để xem hướng nhà hợp mệnh</p>
+        <h1 className="font-display font-extrabold text-3xl sm:text-4xl leading-tight text-parchment mb-2">Hướng Nhà Hợp Tuổi</h1>
+        <p className="text-moon/70 text-sm mb-8">Nhập năm sinh và giới tính để xem hướng nhà hợp mệnh</p>
         <form onSubmit={handleSubmit} className="mystic-card p-6 flex flex-col gap-4">
           <div className="flex gap-2">
             <button type="button" onClick={() => setGender('nam')}
-              className={`flex-1 py-2 rounded-lg text-sm ${gender === 'nam' ? 'bg-gold text-ink font-semibold' : 'text-moon border border-ink-line'}`}>
+              className={`flex-1 py-2 rounded-md text-sm ${gender === 'nam' ? 'bg-lich text-ink font-semibold' : 'text-moon border border-ink-line'}`}>
               Nam
             </button>
             <button type="button" onClick={() => setGender('nu')}
-              className={`flex-1 py-2 rounded-lg text-sm ${gender === 'nu' ? 'bg-gold text-ink font-semibold' : 'text-moon border border-ink-line'}`}>
+              className={`flex-1 py-2 rounded-md text-sm ${gender === 'nu' ? 'bg-lich text-ink font-semibold' : 'text-moon border border-ink-line'}`}>
               Nữ
             </button>
           </div>
@@ -86,7 +85,7 @@ export default function HuongNhaForm({ dictionaryPreview, guidePreview }) {
               type="number" min="1900" max="2100" required
               value={year}
               onChange={(e) => setYear(e.target.value)}
-              className="bg-ink-soft border border-ink-line rounded-lg px-3 py-3 text-parchment text-base"
+              className="bg-ink-soft border border-ink-line rounded-md px-3 py-3 text-parchment text-base"
             />
           </label>
           <button type="submit" className="btn-gold py-3.5 text-base font-semibold mt-2">Xem kết quả</button>
@@ -97,6 +96,8 @@ export default function HuongNhaForm({ dictionaryPreview, guidePreview }) {
           <HubContentPreview dictionaryPreview={dictionaryPreview} guidePreview={guidePreview} />
         </div>
       </main>
+        <SidebarTools seed="huong-nha-hop-tuoi-index" />
+      </div>
       <Footer />
     </>
   );

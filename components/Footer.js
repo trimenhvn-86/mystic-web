@@ -11,13 +11,13 @@ const SOCIALS = [
 
 export default function Footer() {
   return (
-    <footer className="mt-16">
+    <footer className="mt-16 bg-ink-soft border-t-4 border-parchment">
       <div className="max-w-6xl mx-auto px-5 py-10">
         {/* Brand + social */}
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-8">
           <div>
-            <p className="text-gold-soft font-display text-lg">TriMenh</p>
-            <p className="text-moon/70 text-sm">Khám phá vận mệnh, kiến tạo tương lai.</p>
+            <p className="text-parchment font-display font-extrabold text-xl tracking-tight">Tri<span className="text-lich">Menh</span></p>
+            <p className="text-moon text-sm">Khám phá vận mệnh, kiến tạo tương lai.</p>
           </div>
           <div className="flex gap-3">
             {SOCIALS.map((s) => {
@@ -29,7 +29,7 @@ export default function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={s.label}
-                  className="w-9 h-9 rounded-full bg-ink-soft border border-ink-line flex items-center justify-center text-moon hover:text-gold hover:border-gold/40 transition-colors"
+                  className="w-9 h-9 rounded-full bg-ink border border-ink-line flex items-center justify-center text-moon hover:text-lich hover:border-lich transition-colors"
                 >
                   <Icon size={16} />
                 </a>
@@ -44,41 +44,41 @@ export default function Footer() {
             <p className="text-parchment font-medium mb-3">Công cụ</p>
             <div className="flex flex-col gap-2">
               {HUBS.map((h) => (
-                <Link key={h.slug} href={`/${h.slug}`} className="text-moon/80 hover:text-gold-soft transition-colors">{h.name}</Link>
+                <Link key={h.slug} href={`/${h.slug}`} className="text-moon hover:text-lich transition-colors">{h.name}</Link>
               ))}
             </div>
           </div>
           <div>
             <p className="text-parchment font-medium mb-3">Nội dung</p>
             <div className="flex flex-col gap-2">
-              <Link href="/tu-dien" className="text-moon/80 hover:text-gold-soft transition-colors">Từ điển huyền học</Link>
-              <Link href="/cam-nang" className="text-moon/80 hover:text-gold-soft transition-colors">Cẩm nang</Link>
-              <Link href="/gioi-thieu" className="text-moon/80 hover:text-gold-soft transition-colors">Giới thiệu</Link>
-              <Link href="/ban-bien-soan" className="text-moon/80 hover:text-gold-soft transition-colors">Ban biên soạn</Link>
-              <Link href="/phuong-phap-tinh" className="text-moon/80 hover:text-gold-soft transition-colors">Phương pháp tính</Link>
-              <Link href="/lien-he" className="text-moon/80 hover:text-gold-soft transition-colors">Liên hệ</Link>
+              <Link href="/tu-dien" className="text-moon hover:text-lich transition-colors">Từ điển huyền học</Link>
+              <Link href="/cam-nang" className="text-moon hover:text-lich transition-colors">Cẩm nang</Link>
+              <Link href="/gioi-thieu" className="text-moon hover:text-lich transition-colors">Giới thiệu</Link>
+              <Link href="/ban-bien-soan" className="text-moon hover:text-lich transition-colors">Ban biên soạn</Link>
+              <Link href="/phuong-phap-tinh" className="text-moon hover:text-lich transition-colors">Phương pháp tính</Link>
+              <Link href="/lien-he" className="text-moon hover:text-lich transition-colors">Liên hệ</Link>
             </div>
           </div>
           <div className="hidden md:block">
             <p className="text-parchment font-medium mb-3">Khác</p>
             <div className="flex flex-col gap-2">
-              <Link href="/chinh-sach-bao-mat" className="text-moon/80 hover:text-gold-soft transition-colors">Chính sách bảo mật</Link>
-              <Link href="/dieu-khoan-su-dung" className="text-moon/80 hover:text-gold-soft transition-colors">Điều khoản sử dụng</Link>
+              <Link href="/chinh-sach-bao-mat" className="text-moon hover:text-lich transition-colors">Chính sách bảo mật</Link>
+              <Link href="/dieu-khoan-su-dung" className="text-moon hover:text-lich transition-colors">Điều khoản sử dụng</Link>
             </div>
           </div>
           <div className="hidden md:block">
             <p className="text-parchment font-medium mb-3">Theo dõi TriMenh</p>
-            <p className="text-moon/70">Cập nhật ngày tốt, vận trình mỗi ngày qua Fanpage, YouTube, TikTok.</p>
+            <p className="text-moon">Cập nhật ngày tốt, vận trình mỗi ngày qua Fanpage, YouTube, TikTok.</p>
           </div>
         </div>
       </div>
 
-      <div className="border-t border-ink-line">
-        <div className="max-w-6xl mx-auto px-5 py-5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 text-xs text-moon/60">
+      <div className="border-t border-ink-line bg-ink">
+        <div className="max-w-6xl mx-auto px-5 py-5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 text-xs text-moon">
           <p>&copy; {new Date().getFullYear()} TriMenh.com. Nội dung chỉ mang tính tham khảo, chiêm nghiệm — không khuyến khích mê tín hay phụ thuộc vào dự đoán.</p>
           <div className="flex gap-4 flex-shrink-0">
-            <Link href="/chinh-sach-bao-mat" className="hover:text-gold-soft transition-colors">Chính sách bảo mật</Link>
-            <Link href="/dieu-khoan-su-dung" className="hover:text-gold-soft transition-colors">Điều khoản sử dụng</Link>
+            <Link href="/chinh-sach-bao-mat" className="hover:text-lich transition-colors">Chính sách bảo mật</Link>
+            <Link href="/dieu-khoan-su-dung" className="hover:text-lich transition-colors">Điều khoản sử dụng</Link>
           </div>
         </div>
       </div>

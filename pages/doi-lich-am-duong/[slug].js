@@ -109,12 +109,9 @@ export default function DoiLichResult({
       </Head>
       <Header />
       <main className="max-w-6xl mx-auto px-5 py-8 sm:py-12">
-        <div className="w-14 h-14 rounded-full bg-ink-soft border border-gold/30 flex items-center justify-center mx-auto mb-4">
-          <CalendarDays size={26} className="text-gold" />
-        </div>
         <Breadcrumb trail={[{ label: 'Lịch & Ngày Tốt', href: '/lich-ngay-tot' }, { label: 'Đổi lịch âm dương', href: '/doi-lich-am-duong' }]} current={`Ngày ${dd}/${mm}/${yyyy}`} />
-        <h1 className="font-display text-2xl sm:text-3xl text-parchment mb-4 text-center">{title}</h1>
-        <p className="text-moon/80 text-center max-w-2xl mx-auto mb-8 leading-relaxed">{summary}</p>
+        <h1 className="font-display font-extrabold text-3xl sm:text-4xl leading-tight text-parchment mb-4">{title}</h1>
+        <p className="text-moon/80 max-w-2xl mb-8 leading-relaxed">{summary}</p>
 
         <div className="grid lg:grid-cols-[1fr_240px] gap-8">
           <div className="space-y-6 min-w-0">
@@ -122,11 +119,11 @@ export default function DoiLichResult({
               {/* Card thông tin chi tiết */}
               <div className="mystic-card p-6 grid sm:grid-cols-2 gap-4 text-center order-2 md:order-1">
                 <div>
-                  <p className="text-xs text-moon uppercase mb-1">Dương lịch</p>
+                  <p className="text-xs text-moon mb-1">Dương lịch</p>
                   <p className="text-2xl text-gold-soft font-display">{dd}/{mm}/{yyyy}</p>
                 </div>
                 <div>
-                  <p className="text-xs text-moon uppercase mb-1">Âm lịch</p>
+                  <p className="text-xs text-moon mb-1">Âm lịch</p>
                   <p className="text-2xl text-gold-soft font-display">
                     {lunar.day}/{lunar.month}{lunar.leap ? ' (nhuận)' : ''}/{lunar.year}
                   </p>
@@ -162,7 +159,7 @@ export default function DoiLichResult({
             {/* Hôm nay có tốt không */}
             <DayRatingBox stars={rating.stars} label={rating.label} nenLam={activities.nenLam} kiengKy={activities.kiengKy} />
 
-            <AdSlot label="Ad slot — kết quả đổi lịch" />
+            <AdSlot label="Ad slot — kết quả đổi lịch" slim />
 
             <HubDayLinks dd={dd} mm={mm} yyyy={yyyy} exclude="doi-lich-am-duong" />
 

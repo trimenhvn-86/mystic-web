@@ -2,6 +2,7 @@ import Head from 'next/head';
 import Header from '../components/Header';
 import Breadcrumb from '../components/Breadcrumb';
 import Footer from '../components/Footer';
+import SidebarTools from '../components/SidebarTools';
 
 export default function ChinhSachBaoMat() {
   return (
@@ -14,10 +15,11 @@ export default function ChinhSachBaoMat() {
         <meta name="robots" content="noindex, follow" />
       </Head>
       <Header />
-      <main className="max-w-3xl mx-auto px-5 py-8 sm:py-14">
+      <div className="max-w-6xl mx-auto px-5 py-8 sm:py-12 grid lg:grid-cols-[minmax(0,1fr)_320px] gap-10 lg:gap-14">
+        <main className="min-w-0 max-w-3xl">
         <Breadcrumb trail={[]} current="Chính sách bảo mật" />
-        <h1 className="font-display text-2xl sm:text-3xl text-parchment mb-2 text-center">Chính Sách Bảo Mật</h1>
-        <p className="text-moon/70 text-sm text-center mb-8">Cập nhật lần cuối: tháng 8/2026</p>
+        <h1 className="font-display font-extrabold text-3xl sm:text-4xl leading-tight text-parchment mb-2">Chính Sách Bảo Mật</h1>
+        <p className="text-moon/70 text-sm mb-8">Cập nhật lần cuối: tháng 8/2026</p>
 
         <div className="mystic-card p-6 sm:p-8 space-y-6 leading-relaxed text-parchment/90 text-[15px]">
           <p>
@@ -124,6 +126,8 @@ export default function ChinhSachBaoMat() {
           </div>
         </div>
       </main>
+        <SidebarTools seed="bao-mat" />
+      </div>
       <Footer />
     </>
   );

@@ -31,24 +31,24 @@ export default function NumerologyQuickForm() {
           <label className="flex flex-col gap-1 text-xs text-moon min-w-0">
             Ngày
             <input type="number" min="1" max="31" required value={dd} onChange={(e) => setDd(e.target.value)}
-              className="bg-ink-soft border border-ink-line rounded-lg px-3 py-3 text-parchment text-base" />
+              className="bg-ink-soft border border-ink-line rounded-md px-3 py-3 text-parchment text-base" />
           </label>
           <label className="flex flex-col gap-1 text-xs text-moon min-w-0">
             Tháng
             <input type="number" min="1" max="12" required value={mm} onChange={(e) => setMm(e.target.value)}
-              className="bg-ink-soft border border-ink-line rounded-lg px-3 py-3 text-parchment text-base" />
+              className="bg-ink-soft border border-ink-line rounded-md px-3 py-3 text-parchment text-base" />
           </label>
           <label className="flex flex-col gap-1 text-xs text-moon min-w-0">
             Năm
             <input type="number" min="1900" max="2100" required value={yyyy} onChange={(e) => setYyyy(e.target.value)}
-              className="bg-ink-soft border border-ink-line rounded-lg px-3 py-3 text-parchment text-base" />
+              className="bg-ink-soft border border-ink-line rounded-md px-3 py-3 text-parchment text-base" />
           </label>
         </div>
         <label className="flex flex-col gap-1 text-xs text-moon min-w-0 mb-4">
           Họ và tên đầy đủ
           <input type="text" required value={hoTen} onChange={(e) => setHoTen(e.target.value)}
             placeholder="Nhập họ và tên đầy đủ"
-            className="bg-ink-soft border border-ink-line rounded-lg px-3 py-3 text-parchment text-base" />
+            className="bg-ink-soft border border-ink-line rounded-md px-3 py-3 text-parchment text-base" />
         </label>
         <button
           type="submit"
@@ -72,7 +72,7 @@ export default function NumerologyQuickForm() {
             <Link
               key={n}
               href={`/than-so-hoc/so-chu-dao-${n}`}
-              className="px-3 py-1.5 rounded-full border border-ink-line text-sm text-moon hover:border-gold/40 hover:text-gold-soft transition-colors"
+              className="px-3 py-1.5 rounded border border-ink-line text-sm text-moon hover:border-lich hover:text-gold-soft transition-colors"
             >
               Số {n}
             </Link>

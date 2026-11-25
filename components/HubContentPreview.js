@@ -13,7 +13,7 @@ export default function HubContentPreview({ dictionaryPreview = [], guidePreview
           </div>
           <div className="grid sm:grid-cols-2 gap-2.5">
             {dictionaryPreview.map((t) => (
-              <Link key={t.slug} href={`/tu-dien/${t.slug}`} className="mystic-card px-4 py-3 hover:border-gold/40 transition-colors">
+              <Link key={t.slug} href={`/tu-dien/${t.slug}`} className="mystic-card px-4 py-3 hover:border-lich transition-colors">
                 <p className="text-gold-soft text-sm font-medium">{t.title}</p>
                 <p className="text-xs text-moon/70 line-clamp-1">{t.shortDefinition}</p>
               </Link>
@@ -29,7 +29,7 @@ export default function HubContentPreview({ dictionaryPreview = [], guidePreview
           </div>
           <div className="grid sm:grid-cols-2 gap-2.5">
             {guidePreview.map((g) => (
-              <Link key={g.slug} href={`/cam-nang/${g.slug}`} className="mystic-card px-4 py-3 hover:border-gold/40 transition-colors">
+              <Link key={g.slug} href={`/cam-nang/${g.slug}`} className="mystic-card px-4 py-3 hover:border-lich transition-colors">
                 <p className="text-gold-soft text-sm font-medium">{g.title}</p>
                 <p className="text-xs text-moon/70 line-clamp-2">{g.excerpt}</p>
               </Link>

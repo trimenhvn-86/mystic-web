@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
+import SidebarTools from '../../components/SidebarTools';
 import MysticLoader from '../../components/MysticLoader';
 import MiniCalendar from '../../components/MiniCalendar';
 import FaqSection from '../../components/FaqSection';
@@ -50,26 +51,27 @@ export default function CanChiForm() {
         <meta property="og:description" content="Tra cứu Can Chi của ngày, tháng, năm theo lịch Âm. Xem Thiên Can, Địa Chi và ý nghĩa." />
       </Head>
       <Header />
-      <main className="max-w-2xl mx-auto px-5 py-10 sm:py-14">
+      <div className="max-w-6xl mx-auto px-5 py-8 sm:py-12 grid lg:grid-cols-[minmax(0,1fr)_320px] gap-10 lg:gap-14">
+        <main className="min-w-0 max-w-3xl w-full mx-auto lg:mx-0">
         <HubToolBreadcrumb current="Can Chi" />
-        <h1 className="font-display text-2xl sm:text-3xl text-parchment mb-2 text-center">Tra Cứu Can Chi</h1>
-        <p className="text-moon/70 text-sm text-center mb-8">Xem Can Chi Ngày - Tháng - Năm theo lịch Âm.</p>
+        <h1 className="font-display font-extrabold text-3xl sm:text-4xl leading-tight text-parchment mb-2">Tra Cứu Can Chi</h1>
+        <p className="text-moon/70 text-sm mb-8">Xem Can Chi Ngày - Tháng - Năm theo lịch Âm.</p>
         <form onSubmit={handleSubmit} className="mystic-card p-6 flex flex-col gap-4">
           <div className="grid grid-cols-3 gap-3">
             <label className="flex flex-col gap-1 text-xs text-moon min-w-0">Ngày
               <input type="number" min="1" max="31" required value={date.dd}
                 onChange={(e) => setDate({ ...date, dd: e.target.value })}
-                className="bg-ink-soft border border-ink-line rounded-lg px-3 py-3 text-parchment text-base" />
+                className="bg-ink-soft border border-ink-line rounded-md px-3 py-3 text-parchment text-base" />
             </label>
             <label className="flex flex-col gap-1 text-xs text-moon min-w-0">Tháng
               <input type="number" min="1" max="12" required value={date.mm}
                 onChange={(e) => setDate({ ...date, mm: e.target.value })}
-                className="bg-ink-soft border border-ink-line rounded-lg px-3 py-3 text-parchment text-base" />
+                className="bg-ink-soft border border-ink-line rounded-md px-3 py-3 text-parchment text-base" />
             </label>
             <label className="flex flex-col gap-1 text-xs text-moon min-w-0">Năm
               <input type="number" min="1900" max="2100" required value={date.yyyy}
                 onChange={(e) => setDate({ ...date, yyyy: e.target.value })}
-                className="bg-ink-soft border border-ink-line rounded-lg px-3 py-3 text-parchment text-base" />
+                className="bg-ink-soft border border-ink-line rounded-md px-3 py-3 text-parchment text-base" />
             </label>
           </div>
           <button type="submit" className="btn-gold py-3.5 text-base font-semibold mt-2">Xem kết quả</button>
@@ -79,8 +81,8 @@ export default function CanChiForm() {
           <div>
             <p className="text-sm text-moon mb-3">Tra cứu phổ biến:</p>
             <div className="flex flex-wrap gap-2">
-              <Link href={`/can-chi/ngay-${pad(today.getDate())}-thang-${pad(today.getMonth() + 1)}-nam-${today.getFullYear()}`} className="px-3 py-1.5 rounded-full border border-gold/30 text-sm text-gold-soft hover:bg-gold/10 transition-colors">Can Chi hôm nay</Link>
-              <Link href="/xem-ngay" className="px-3 py-1.5 rounded-full border border-gold/30 text-sm text-gold-soft hover:bg-gold/10 transition-colors">Xem ngày tốt theo việc</Link>
+              <Link href={`/can-chi/ngay-${pad(today.getDate())}-thang-${pad(today.getMonth() + 1)}-nam-${today.getFullYear()}`} className="px-3 py-1.5 rounded border border-gold/30 text-sm text-gold-soft hover:bg-gold/10 transition-colors">Can Chi hôm nay</Link>
+              <Link href="/xem-ngay" className="px-3 py-1.5 rounded border border-gold/30 text-sm text-gold-soft hover:bg-gold/10 transition-colors">Xem ngày tốt theo việc</Link>
             </div>
           </div>
 
@@ -98,6 +100,8 @@ export default function CanChiForm() {
           <FaqSection faqs={FAQ} />
         </div>
       </main>
+        <SidebarTools seed="can-chi-index" />
+      </div>
       <Footer />
     </>
   );

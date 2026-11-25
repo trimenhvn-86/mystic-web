@@ -3,6 +3,7 @@ import Head from 'next/head';
 import Header from '../../components/Header';
 import Breadcrumb from '../../components/Breadcrumb';
 import Footer from '../../components/Footer';
+import SidebarTools from '../../components/SidebarTools';
 import TuViWeekDashboard from '../../components/TuViWeekDashboard';
 import MysticLoader from '../../components/MysticLoader';
 import { buildWeekDashboard } from '../../lib/tuViDashboard';
@@ -44,10 +45,13 @@ export default function TuViTuanIndex({ dictionaryPreview, guidePreview }) {
         <meta name="description" content={`Tử vi tuần ${rangeStr}: tổng quan, chỉ số vận trình, ngày đẹp nhất, vận trình 12 con giáp.`} />
       </Head>
       <Header />
-      <main className="max-w-3xl mx-auto px-5 py-8 sm:py-12">
+      <div className="max-w-6xl mx-auto px-5 py-8 sm:py-12 grid lg:grid-cols-[minmax(0,1fr)_320px] gap-10 lg:gap-14">
+        <main className="min-w-0 max-w-3xl w-full mx-auto lg:mx-0">
         <Breadcrumb trail={[{ label: 'Tử Vi', href: '/tu-vi' }]} current="Tử vi tuần" />
         <TuViWeekDashboard {...dashboard} dictionaryPreview={dictionaryPreview} guidePreview={guidePreview} />
       </main>
+        <SidebarTools seed="tu-vi-tuan-index" />
+      </div>
       <Footer />
     </>
   );

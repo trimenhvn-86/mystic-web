@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { Check } from 'lucide-react';
 
-const KEY = process.env.NEXT_PUBLIC_WEB3FORMS_KEY || 'YOUR_WEB3FORMS_ACCESS_KEY';
 
 /** Ô nhận email gọn, một hàng. Gửi qua Web3Forms như NewsletterCTA. */
 export default function EmailStrip({ source = 'chan-trang-chu' }) {
@@ -12,27 +11,21 @@ export default function EmailStrip({ source = 'chan-trang-chu' }) {
     e.preventDefault();
     setStatus('sending');
     try {
-      const res = await fetch('https://api.web3forms.com/submit', {
+      const res = await fetch('/api/subscribe', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-        body: JSON.stringify({
-          access_key: KEY,
-          subject: 'Đăng ký nhận tin từ TriMenh.com',
-          from_name: 'TriMenh đăng ký email',
-          email,
-          message: `Đăng ký nhận email miễn phí. Nguồn: ${source}`
-        })
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, source, website: '' })
       });
       const data = await res.json();
-      setStatus(data.success ? 'ok' : 'error');
-      if (data.success) setEmail('');
+      setStatus(res.ok && data.ok ? 'ok' : 'error');
+      if (res.ok && data.ok) setEmail('');
     } catch {
       setStatus('error');
     }
   }
 
   if (status === 'ok') {
-    return <p role="status" className="flex items-center gap-2 text-sm text-jade font-medium"><Check size={16} /> Đã nhận. Kiểm tra hộp thư của bạn trong ít ngày tới.</p>;
+    return <p role="status" className="flex items-center gap-2 text-sm text-jade font-medium"><Check size={16} /> Gần xong rồi. Mở email chúng tôi vừa gửi và bấm xác nhận (xem cả thư rác).</p>;
   }
   return (
     <div>

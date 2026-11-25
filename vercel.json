@@ -3,6 +3,10 @@
     {
       "path": "/api/cron/bai-viet-thang",
       "schedule": "0 19 27 * *"
+    },
+    {
+      "path": "/api/cron/gui-email-thang",
+      "schedule": "0 1 25 * *"
     }
   ]
 }

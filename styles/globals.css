@@ -112,7 +112,8 @@
 /* Nội dung HTML bài Cẩm nang: chữ serif, dòng thoáng, đọc lâu không mỏi */
 .cam-nang-html {
   color: #24242E;
-  font-family: 'Source Serif 4', Georgia, serif;
+  font-family: 'Source Serif 4', 'Noto Serif', 'Times New Roman', serif;
+  font-variant-numeric: lining-nums;
   font-size: 1.0625rem;
   line-height: 1.8;
 }

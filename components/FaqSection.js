@@ -18,7 +18,7 @@ export default function FaqSection({ faqs, title = 'Câu hỏi thường gặp' 
     <div>
       {/* eslint-disable-next-line react/no-danger */}
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <h2 className="font-display text-xl text-parchment mb-4">{title}</h2>
+      <h2 className="font-display font-bold text-2xl text-parchment mb-3 pb-2 border-b-2 border-parchment">{title}</h2>
       <div className="mystic-card divide-y divide-ink-line">
         {faqs.map((item, i) => (
           <div key={item.q} className="p-4">

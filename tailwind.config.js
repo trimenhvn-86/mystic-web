@@ -30,7 +30,7 @@ module.exports = {
       fontFamily: {
         display: ['"Be Vietnam Pro"', 'sans-serif'],
         body: ['"Be Vietnam Pro"', 'sans-serif'],
-        read: ['"Source Serif 4"', 'Georgia', 'serif'],
+        read: ['"Source Serif 4"', '"Noto Serif"', '"Times New Roman"', 'serif'],
         mono: ['"JetBrains Mono"', 'monospace']
       },
     }

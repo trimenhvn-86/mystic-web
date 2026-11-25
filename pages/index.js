@@ -5,7 +5,6 @@ import { useRouter } from 'next/router';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import NewsletterCTA from '../components/NewsletterCTA';
-import PromoBanner from '../components/PromoBanner';
 import FaqSection from '../components/FaqSection';
 import {
   CalendarDays, Sparkles, Clock3, Hash, Dices, Users, Sun, Search as SearchIcon,
@@ -293,23 +292,25 @@ export default function Home({ today, dailyCard, dailyCardUpright, napAmNgay, di
           </div>
         </section>
 
-        {/* Banner giới thiệu */}
-        <section className="max-w-6xl mx-auto px-5 pb-12">
-          <PromoBanner placement="inline" seed="trang-chu-cuoi" />
-        </section>
-
-        {/* Về TriMenh */}
-        <section className="max-w-2xl mx-auto px-5 pb-12">
-          <h2 className="font-display font-bold text-2xl text-parchment mb-3">Về TriMenh</h2>
-          <p className="text-parchment/85 leading-relaxed mb-3 font-read text-lg">
-            TriMenh là nền tảng tra cứu và khám phá bản thân dành cho người Việt, kết hợp thần số học, tử vi, phong thủy,
-            lịch âm dương, ngũ hành, tarot và cung hoàng đạo. Mỗi kết quả đều có phần giải thích cách tính để bạn tự kiểm tra.
-          </p>
-          <Link href="/gioi-thieu" className="text-sm text-lich font-medium hover:underline">Đọc thêm về TriMenh</Link>
-        </section>
-
-        <section className="max-w-2xl mx-auto px-5 pb-16">
-          <FaqSection faqs={FAQ_HOMEPAGE} title="Câu hỏi thường gặp" />
+        {/* Giới thiệu và câu hỏi thường gặp: cùng khung rộng với các mục trên */}
+        <div className="max-w-6xl mx-auto px-5"><div className="border-t border-ink-line" /></div>
+        <section className="max-w-6xl mx-auto px-5 pt-12 pb-10 grid md:grid-cols-2 gap-10 md:gap-14">
+          <div>
+            <h2 className="font-display font-bold text-2xl text-parchment mb-3 pb-2 border-b-2 border-parchment">Về TriMenh</h2>
+            <p className="text-parchment/85 leading-relaxed mb-4 font-read text-lg">
+              TriMenh là nền tảng tra cứu và khám phá bản thân dành cho người Việt, kết hợp thần số học, tử vi, phong thủy,
+              lịch âm dương, ngũ hành, tarot và cung hoàng đạo. Mỗi kết quả đều có phần giải thích cách tính để bạn tự kiểm tra.
+            </p>
+            <div className="flex flex-wrap gap-x-5 gap-y-2 text-sm">
+              <Link href="/gioi-thieu" className="text-lich font-medium hover:underline">Giới thiệu</Link>
+              <Link href="/ban-bien-soan" className="text-lich font-medium hover:underline">Ban biên soạn</Link>
+              <Link href="/phuong-phap-tinh" className="text-lich font-medium hover:underline">Phương pháp tính</Link>
+              <Link href="/lien-he" className="text-lich font-medium hover:underline">Liên hệ</Link>
+            </div>
+          </div>
+          <div>
+            <FaqSection faqs={FAQ_HOMEPAGE} title="Câu hỏi thường gặp" />
+          </div>
         </section>
       </main>
       <Footer />

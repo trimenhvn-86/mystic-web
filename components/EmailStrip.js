@@ -40,8 +40,8 @@ export default function EmailStrip({ source = 'chan-trang-chu' }) {
         <label className="sr-only" htmlFor={`email-${source}`}>Địa chỉ email</label>
         <input id={`email-${source}`} type="email" required value={email} onChange={(e) => setEmail(e.target.value)}
           placeholder="email@cuaban.com"
-          className="flex-1 min-w-0 bg-white border border-ink-line rounded-md px-3.5 py-2.5 text-parchment focus:border-lich" />
-        <button type="submit" disabled={status === 'sending'} className="btn-gold px-5 py-2.5 text-sm whitespace-nowrap">
+          className="flex-1 min-w-0 bg-white border border-ink-line rounded-md px-3 py-2 text-sm text-parchment focus:border-lich" />
+        <button type="submit" disabled={status === 'sending'} className="btn-gold px-4 py-2 text-sm whitespace-nowrap">
           {status === 'sending' ? 'Đang gửi…' : 'Nhận lịch miễn phí'}
         </button>
       </form>

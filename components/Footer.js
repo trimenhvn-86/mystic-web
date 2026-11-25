@@ -2,6 +2,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Facebook, Youtube } from 'lucide-react';
 import { HUBS } from '../content/hubs';
+import EmailStrip from './EmailStrip';
 import TikTokIcon from './TikTokIcon';
 
 const SOCIALS = [
@@ -10,9 +11,9 @@ const SOCIALS = [
   { href: '#', label: 'TikTok', icon: TikTokIcon }
 ];
 
-export default function Footer({ noTopMargin = false }) {
+export default function Footer({ withEmail = false }) {
   return (
-    <footer className={`${noTopMargin ? '' : 'mt-16 '}bg-ink-soft ${noTopMargin ? 'border-t border-ink-line' : 'border-t-4 border-parchment'}`}>
+    <footer className={`mt-16 bg-ink-soft border-t-4 border-parchment`}>
       <div className="max-w-6xl mx-auto px-5 py-10">
         {/* Brand + social */}
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-8">
@@ -77,6 +78,12 @@ export default function Footer({ noTopMargin = false }) {
             </div>
           </div>
         </div>
+        {withEmail && (
+          <div className="mt-8 pt-6 border-t border-ink-line flex flex-col md:flex-row md:items-center gap-3 md:gap-6">
+            <p className="text-parchment font-semibold text-sm md:whitespace-nowrap">Nhận lịch ngày tốt tháng tới</p>
+            <div className="w-full md:max-w-md"><EmailStrip /></div>
+          </div>
+        )}
       </div>
 
       <div className="border-t border-ink-line bg-ink">

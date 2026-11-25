@@ -5,7 +5,6 @@ import Footer from '../components/Footer';
 import HeroLookup from '../components/HeroLookup';
 import HubArt from '../components/art/HubArt';
 import ZodiacStamp from '../components/art/ZodiacStamp';
-import EmailStrip from '../components/EmailStrip';
 import FaqSection from '../components/FaqSection';
 import {
   CalendarDays, Sparkles, Clock3, Hash, Dices, Users, Sun,
@@ -255,17 +254,7 @@ export default function Home({ today, todayIso, dailyCard, dailyCardUpright, nap
         </section>
 
       </main>
-      {/* Email: dải gọn, ngay trên footer */}
-      <section id="nhan-email" className="bg-ink-soft border-t border-ink-line scroll-mt-24 mt-12">
-        <div className="max-w-6xl mx-auto px-5 py-6 grid md:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)] gap-4 md:gap-8 items-center">
-          <div>
-            <h2 className="font-display font-bold text-xl text-parchment">Nhận lịch ngày tốt tháng tới</h2>
-            <p className="text-sm text-moon mt-1">Mỗi tháng một email miễn phí, hủy bất cứ lúc nào.</p>
-          </div>
-          <EmailStrip />
-        </div>
-      </section>
-      <Footer noTopMargin />
+      <Footer withEmail />
     </>
   );
 }

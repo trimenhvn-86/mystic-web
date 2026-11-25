@@ -254,8 +254,10 @@ export default function Home({ today, todayIso, dailyCard, dailyCardUpright, nap
           <FaqSection faqs={FAQ_HOMEPAGE} title="Câu hỏi thường gặp" />
         </section>
 
-        {/* Email: một khối chính, sau khi đã có giá trị */}
-        <section id="nhan-email" className="border-t border-ink-line scroll-mt-24">
+      </main>
+      <Footer />
+      {/* Email: một khối chính, sau khi đã có giá trị */}
+        <section id="nhan-email" className="bg-ink-soft border-t border-ink-line scroll-mt-24">
           <div className="max-w-6xl mx-auto px-5 py-12 grid md:grid-cols-2 gap-8 items-center">
             <div>
               <h2 className="font-display font-extrabold text-3xl text-parchment mb-3">Nhận lịch ngày tốt tháng tới</h2>
@@ -264,8 +266,6 @@ export default function Home({ today, todayIso, dailyCard, dailyCardUpright, nap
             <NewsletterCTA title="Đăng ký bằng email" text="Điền email, bạn sẽ nhận lịch ngày tốt của tháng kế tiếp." source="trang-chu" />
           </div>
         </section>
-      </main>
-      <Footer />
     </>
   );
 }

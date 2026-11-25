@@ -68,7 +68,7 @@ export default function TarotHomNay({ initial, dictionaryPreview, guidePreview }
     : `Ẩn Phụ — Bộ ${SUIT_LABEL[card.suit]} — Số ${card.number}`;
 
   function handleShare() {
-    const shareText = `Tarot hôm nay ${dateStr}: lá ${card.nameVi} (${upright ? 'Xuôi' : 'Ngược'}). Xem đầy đủ tại https://www.trimenh.com/tarot-hom-nay`;
+    const shareText = `Tarot hôm nay ${dateStr}: lá ${card.nameVi} (${upright ? 'Xuôi' : 'Ngược'}). Xem đầy đủ tại https://trimenh.com/tarot-hom-nay`;
     if (navigator.share) {
       navigator.share({ title: title, text: shareText }).catch(() => {});
     } else if (navigator.clipboard) {

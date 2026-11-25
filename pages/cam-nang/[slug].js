@@ -27,10 +27,19 @@ export async function getStaticProps({ params }) {
   const post = await getGuidePostBySlug(params.slug);
   // Sanity lỗi => getGuidePostBySlug ném lỗi => ISR giữ bản cũ. Chỉ khi Sanity trả null (không có bài) mới 404.
   if (!post) return { notFound: true, revalidate: 300 };
-  return { props: { post }, revalidate: 3600 };
+  // Bài liên quan: cùng chuyên mục trước, rồi bài mới nhất (tối đa 4) để tăng liên kết nội bộ
+  let related = [];
+  try {
+    const all = await getGuidePosts();
+    const others = all.filter((p) => p.slug !== post.slug);
+    related = [...others.filter((p) => p.hub === post.hub), ...others.filter((p) => p.hub !== post.hub)]
+      .slice(0, 4)
+      .map((p) => ({ slug: p.slug, title: p.title, excerpt: p.excerpt || '' }));
+  } catch (e) { related = []; }
+  return { props: { post, related }, revalidate: 3600 };
 }
 
-export default function CamNangDetail({ post }) {
+export default function CamNangDetail({ post, related = [] }) {
   const seoTitle = post.seoTitle || `${post.title} — Cẩm nang TriMenh`;
   const seoDescription = post.seoDescription || post.excerpt;
   const articleSchema = {
@@ -39,12 +48,12 @@ export default function CamNangDetail({ post }) {
     headline: post.title,
     description: seoDescription,
     inLanguage: 'vi-VN',
-    mainEntityOfPage: `https://www.trimenh.com/cam-nang/${post.slug}`,
+    mainEntityOfPage: `https://trimenh.com/cam-nang/${post.slug}`,
     ...(post.publishedAt ? { datePublished: post.publishedAt } : {}),
     dateModified: post.updatedAt || post.publishedAt || undefined,
     ...(post.featuredImageUrl ? { image: post.featuredImageUrl } : {}),
-    author: { '@type': 'Organization', name: 'Ban biên soạn TriMenh', url: 'https://www.trimenh.com/ban-bien-soan' },
-    publisher: { '@type': 'Organization', name: 'TriMenh', url: 'https://www.trimenh.com/' }
+    author: { '@type': 'Organization', name: 'Ban biên soạn TriMenh', url: 'https://trimenh.com/ban-bien-soan' },
+    publisher: { '@type': 'Organization', name: 'TriMenh', url: 'https://trimenh.com/' }
   };
 
   return (
@@ -93,6 +102,19 @@ export default function CamNangDetail({ post }) {
             <p className="text-moon">{post.excerpt}</p>
           )}
         </div>
+        {related.length > 0 && (
+          <section className="mt-8">
+            <h2 className="font-display text-lg text-parchment mb-3">Bài viết liên quan</h2>
+            <div className="grid sm:grid-cols-2 gap-2.5">
+              {related.map((r) => (
+                <Link key={r.slug} href={`/cam-nang/${r.slug}`} className="mystic-card px-4 py-3 hover:border-gold/40 transition-colors">
+                  <p className="text-gold-soft text-sm font-medium">{r.title}</p>
+                  <p className="text-xs text-moon/70 line-clamp-2">{r.excerpt}</p>
+                </Link>
+              ))}
+            </div>
+          </section>
+        )}
         <AdSlot label="Ad slot — cẩm nang" className="mt-6" />
         <Link href="/cam-nang" className="block text-center text-sm text-moon hover:text-gold-soft mt-6">← Về Cẩm nang</Link>
       </main>

@@ -1,5 +1,0 @@
-User-agent: *
-Allow: /
-Disallow: /tim-kiem
-
-Sitemap: https://trimenh.com/sitemap.xml

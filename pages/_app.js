@@ -8,16 +8,16 @@ export default function App({ Component, pageProps }) {
   let canonicalPath = router.asPath.split('?')[0].split('#')[0];
   // Trang chủ: lúc build Next.js thấy đường dẫn là "/index" => phải ép về "/"
   if (canonicalPath === '/index' || canonicalPath === '') canonicalPath = '/';
-  const canonicalUrl = `https://www.trimenh.com${canonicalPath}`;
+  const canonicalUrl = `https://trimenh.com${canonicalPath}`;
   // Trang lỗi (404, 500) không được khai canonical
   const isErrorPage = router.pathname === '/404' || router.pathname === '/_error' || router.pathname === '/500';
 
   const homeSchema = canonicalPath === '/' ? {
     '@context': 'https://schema.org',
     '@graph': [
-      { '@type': 'Organization', '@id': 'https://www.trimenh.com/#org', name: 'TriMenh', url: 'https://www.trimenh.com/', logo: 'https://www.trimenh.com/brand/og-image.png' },
-      { '@type': 'WebSite', '@id': 'https://www.trimenh.com/#website', url: 'https://www.trimenh.com/', name: 'TriMenh', inLanguage: 'vi-VN', publisher: { '@id': 'https://www.trimenh.com/#org' },
-        potentialAction: { '@type': 'SearchAction', target: 'https://www.trimenh.com/tim-kiem?q={search_term_string}', 'query-input': 'required name=search_term_string' } }
+      { '@type': 'Organization', '@id': 'https://trimenh.com/#org', name: 'TriMenh', url: 'https://trimenh.com/', logo: 'https://trimenh.com/brand/og-image.png' },
+      { '@type': 'WebSite', '@id': 'https://trimenh.com/#website', url: 'https://trimenh.com/', name: 'TriMenh', inLanguage: 'vi-VN', publisher: { '@id': 'https://trimenh.com/#org' },
+        potentialAction: { '@type': 'SearchAction', target: 'https://trimenh.com/tim-kiem?q={search_term_string}', 'query-input': 'required name=search_term_string' } }
     ]
   } : null;
 
@@ -49,7 +49,7 @@ export default function App({ Component, pageProps }) {
         {homeSchema && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(homeSchema) }} />}
         <meta property="og:site_name" content="TriMenh" />
         <meta property="og:type" content="website" />
-        <meta property="og:image" content="https://www.trimenh.com/brand/og-image.png" />
+        <meta property="og:image" content="https://trimenh.com/brand/og-image.png" />
         <meta name="twitter:card" content="summary_large_image" />
         <link
           rel="preload"

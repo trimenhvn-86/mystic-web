@@ -1,12 +1,12 @@
 {
-  "title": "Khổng Minh",
+  "title": "Ngày Khổng Minh",
   "slug": "khong-minh",
   "hub": "lich-ngay-tot",
-  "shortDefinition": "Khổng Minh (Lục diệu) là phép xem ngày xuất hành theo sáu trạng thái lặp lại, tương truyền do Gia Cát Lượng truyền lại.",
-  "origin": "Phép Khổng Minh gồm sáu ngày: Đại An, Lưu Niên, Tốc Hỷ, Xích Khẩu, Tiểu Cát, Không Vong. Dân gian gắn với tên Khổng Minh Gia Cát Lượng, thời Tam Quốc, nhưng nguồn gốc chưa được kiểm chứng chắc chắn.",
-  "meaning": "Đại An, Tốc Hỷ, Tiểu Cát thường được xem là tốt; Lưu Niên có thể chậm trễ; Xích Khẩu dễ tranh cãi; Không Vong thường khuyên tránh việc lớn.",
-  "application": "Dùng để chọn ngày xuất hành, đi xa, cầu tài, khai trương. Tính theo ngày và tháng âm lịch.",
-  "example": "Ngày Đại An thường được gợi ý cho việc cần sự ổn định, bền vững.",
+  "shortDefinition": "Ngày Khổng Minh là bảng tra ngày xuất hành theo ngày và tháng âm lịch, tương truyền do Gia Cát Lượng truyền lại, cho biết ngày nào thuận hay kém cho đi xa, cầu tài.",
+  "origin": "Gắn với tên Khổng Minh (Gia Cát Lượng) thời Tam Quốc theo truyền thuyết dân gian; nguồn gốc cụ thể chưa được kiểm chứng. Bảng tra được lưu truyền trong sách xem ngày.",
+  "meaning": "Tháng âm chia thành ba nhóm với chu kỳ ngày riêng (6 hoặc 8 ngày), mỗi ngày mang một tên như Đường Phong, Thiên Môn, Thanh Long Kiếp là ngày tốt; Đạo Tặc, Thiên Tặc, Bạch Hổ Túc là ngày xấu.",
+  "application": "Dùng để chọn ngày xuất hành, đi xa, cầu tài, gặp đối tác. Tính theo ngày và tháng âm lịch.",
+  "example": "Tháng 1 âm lịch, ngày mùng 1 là ngày Đường Phong (tốt); ngày mùng 5 là Đạo Tặc (kém).",
   "relatedTerms": [
     "luc-nham",
     "gio-hoang-dao"

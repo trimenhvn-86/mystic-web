@@ -290,6 +290,23 @@ export default function Home({ today, dailyCard, dailyCardUpright, napAmNgay, di
           <Link href="/gioi-thieu" className="text-sm text-gold-soft hover:underline">Đọc thêm về TriMenh →</Link>
         </section>
 
+        {/* Tra cứu theo năm sinh */}
+        <section className="max-w-2xl mx-auto px-5 pb-12">
+          <h2 className="font-display text-xl text-parchment mb-3">Tra cứu theo năm sinh</h2>
+          <p className="text-sm text-moon mb-3">Chọn năm sinh để xem mệnh, tuổi hợp, màu và đá hợp mệnh:</p>
+          <div className="flex flex-wrap gap-1.5 mb-3">
+            {Array.from({ length: 24 }, (_, i) => new Date().getFullYear() - 14 - i).map((y) => (
+              <Link key={y} href={`/${y}-menh-gi`} className="px-2.5 py-1 rounded-full border border-ink-line text-xs text-moon hover:border-gold/40 hover:text-gold-soft transition-colors">{y}</Link>
+            ))}
+          </div>
+          <div className="flex flex-wrap gap-3 text-sm">
+            <Link href="/menh-ngu-hanh" className="text-gold-soft hover:underline">Tra mệnh</Link>
+            <Link href="/tuoi-hop" className="text-gold-soft hover:underline">Tuổi hợp</Link>
+            <Link href="/mau-sac-hop-menh" className="text-gold-soft hover:underline">Màu hợp mệnh</Link>
+            <Link href="/da-phong-thuy" className="text-gold-soft hover:underline">Đá phong thủy</Link>
+          </div>
+        </section>
+
         {/* SECTION 12 - FAQ */}
         <section className="max-w-2xl mx-auto px-5 pb-16">
           <FaqSection faqs={FAQ_HOMEPAGE} title="Câu hỏi thường gặp" />

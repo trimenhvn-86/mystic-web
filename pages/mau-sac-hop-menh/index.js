@@ -4,6 +4,7 @@ import { useRouter } from 'next/router';
 import Header from '../../components/Header';
 import Breadcrumb from '../../components/Breadcrumb';
 import Footer from '../../components/Footer';
+import NamSinhGrid from '../../components/NamSinhGrid';
 import MysticLoader from '../../components/MysticLoader';
 import HubContentPreview from '../../components/HubContentPreview';
 import FaqSection from '../../components/FaqSection';
@@ -76,6 +77,7 @@ export default function MauSacHopMenhForm({ dictionaryPreview, guidePreview }) {
 
           <HubContentPreview dictionaryPreview={dictionaryPreview} guidePreview={guidePreview} />
         </div>
+      <NamSinhGrid kind="hop-mau-gi" />
       </main>
       <Footer />
     </>

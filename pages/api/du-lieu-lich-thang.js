@@ -1,7 +1,7 @@
 /**
  * pages/api/du-lieu-lich-thang.js
  * Endpoint HTTP cong khai. Logic thuc su nam o lib/monthlyContentData.js.
- * Cach goi: GET https://www.trimenh.com/api/du-lieu-lich-thang?mm=8&yyyy=2026
+ * Cach goi: GET https://trimenh.com/api/du-lieu-lich-thang?mm=8&yyyy=2026
  */
 import { buildLichThangData } from '../../lib/monthlyContentData';
 import { getVietnamNow } from '../../lib/vnDate';

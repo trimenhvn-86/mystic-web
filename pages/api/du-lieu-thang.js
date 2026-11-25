@@ -3,8 +3,8 @@
  * Endpoint HTTP cong khai cho cong cu ben ngoai (VD tools.visamon) goi lay du lieu.
  * Logic tinh toan thuc su nam o lib/monthlyContentData.js (dung chung voi cron job noi bo).
  *
- * Cach goi: GET https://www.trimenh.com/api/du-lieu-thang
- *           GET https://www.trimenh.com/api/du-lieu-thang?mm=8&yyyy=2026
+ * Cach goi: GET https://trimenh.com/api/du-lieu-thang
+ *           GET https://trimenh.com/api/du-lieu-thang?mm=8&yyyy=2026
  */
 import { buildTuViThangData } from '../../lib/monthlyContentData';
 import { getVietnamNow } from '../../lib/vnDate';

@@ -17,6 +17,7 @@ import FaqSection from '../../components/FaqSection';
 import HubContentPreview from '../../components/HubContentPreview';
 import MysticLoader from '../../components/MysticLoader';
 import { getVietnamNow } from '../../lib/vnDate';
+import { isOutsideDayRange } from '../../lib/indexWindow';
 import { FAQ_TU_VI_NGAY } from '../../content/faq-data';
 
 const DATE_RE = /^ngay-(\d{1,2})-thang-(\d{1,2})-nam-(\d{4})$/;
@@ -26,6 +27,12 @@ function slugOf(dd, mm, yyyy) { return `ngay-${pad(dd)}-thang-${pad(mm)}-nam-${y
 
 export async function getStaticPaths() {
   const paths = Object.keys(SLUG_TO_CHI).map((slug) => ({ params: { slug } }));
+  // Dựng sẵn trang theo ngày: hôm qua đến 7 ngày tới (để Google có trang trước khi người dùng tìm đúng ngày đó)
+  const vn = getVietnamNow();
+  for (let i = -1; i <= 7; i++) {
+    const d = new Date(vn.getFullYear(), vn.getMonth(), vn.getDate() + i);
+    paths.push({ params: { slug: slugOf(d.getDate(), d.getMonth() + 1, d.getFullYear()) } });
+  }
   return { paths, fallback: 'blocking' };
 }
 
@@ -47,11 +54,12 @@ export async function getStaticProps({ params }) {
         type: 'ngay',
         dashboard,
         dateStr: `${dd}/${mm}/${yyyy}`,
+        noindex: isOutsideDayRange(dd, mm, yyyy),
         prevSlug: slugOf(pd, pm, py),
         nextSlug: slugOf(nd, nm, ny),
         ...preview
       },
-      revalidate: 2592000
+      revalidate: 86400
     };
   }
 
@@ -87,11 +95,17 @@ export default function TuViHomNaySlug(props) {
   }, [props.type, props.chi]);
 
   if (props.type === 'ngay') {
+    const { dd, mm, yyyy } = props.dashboard;
+    const t = `Tử Vi 12 Con Giáp Ngày ${dd} Tháng ${mm} Năm ${yyyy} (${props.dateStr}) — TriMenh`;
+    const d = `Tử vi ngày ${props.dateStr} (${dd} tháng ${mm} năm ${yyyy}) của 12 con giáp: tổng quan, chỉ số vận trình, giờ may mắn, màu sắc, tuổi hợp. Cập nhật theo lịch âm.`;
     return (
       <>
         <Head>
-          <title>{`Tử Vi Hôm Nay Ngày ${props.dashboard.dd} Tháng ${props.dashboard.mm} Năm ${props.dashboard.yyyy} (${props.dateStr}) — TriMenh`}</title>
-          <meta name="description" content={`Tử vi hôm nay ${props.dateStr}: tổng quan, chỉ số vận trình, giờ may mắn, màu sắc, tuổi hợp và vận trình đủ 12 con giáp.`} />
+          <title>{t}</title>
+          <meta name="description" content={d} />
+          <meta property="og:title" content={t} />
+          <meta property="og:description" content={d} />
+          {props.noindex && <meta name="robots" content="noindex, follow" />}
         </Head>
         <Header />
         <main className="max-w-3xl mx-auto px-5 py-8 sm:py-12">

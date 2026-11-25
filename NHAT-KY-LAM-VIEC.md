@@ -87,3 +87,11 @@ Bỏ banner riêng "Liên hệ hợp tác quảng cáo" (hiện ở mọi trang,
 - Công cụ: scripts/import-articles.js (CSV, mẫu ở tools/), scripts/export-from-sanity.js (chạy 1 lần), lib/githubPublish.js; cron bai-viet-thang.js nay commit file qua GitHub API (cần GITHUB_TOKEN).
 - SEO: noindex,follow cho /can-chi, /ngay-hoang-dao, /ngay-hac-dao, /tiet-khi theo ngày và bỏ khỏi sitemap; xem-ngay-tot, doi-lich-am-duong, gio-hoang-dao noindex ngoài khoảng -3/+12 tháng; xem-ngay-tot thêm đoạn Can Chi/giờ Hoàng đạo + link; Organization+WebSite(SearchAction) trang chủ; Article+tác giả cẩm nang; DefinedTerm từ điển; trang /ban-bien-soan, /phuong-phap-tinh; public/llms.txt; câu trả lời đầu trang /<năm>-menh-gi; H1 trong bài hạ xuống H2.
 - 24/11/2026: thêm sẵn 25 bài cẩm nang + 22 thuật ngữ MỚI viết (tools/seed/*.py là nguồn tạo; file thật ở content/cms/). Đây không phải bản gốc trên Sanity.
+
+## 25/11/2026 — Tối ưu SEO đợt 2
+- Phát hiện: repo GitHub có bản sao cả dự án nằm trong public/ (public/pages, public/lib, public/components…) do chép nhầm. Đã thêm don-dep.bat để xóa; thêm .gitignore.
+- Tử vi theo ngày: title/H1 "Tử Vi 12 Con Giáp Ngày D/M/YYYY"; dựng sẵn hôm qua → +7 ngày; noindex ngoài -120/+14 ngày; sitemap chỉ -7/+7 ngày.
+- Liên kết nội bộ: khối năm sinh (components/NamSinhGrid.js) ở menh-ngu-hanh, tuoi-hop, mau-sac-hop-menh, da-phong-thuy; khối "Tra cứu theo năm sinh" ở trang chủ; trang năm hiển thị ±8 năm lân cận; bài liên quan ở cẩm nang.
+- Nội dung: sửa bài/thuật ngữ Khổng Minh đúng bảng của site (Đường Phong, Thiên Môn…; khác Lục Nhâm). Thêm 4 bài: tet-dinh-mui-2027, nam-dinh-mui-2027, lich-ngay-tot-thang-12-2026, lich-ngay-tot-thang-1-2027 (tạo bằng tools/gen-ngay-tot-thang.js từ dữ liệu lịch, cron dùng cùng slug nên không trùng).
+- Cron: đổi model sang claude-sonnet-5-5.
+- 25/11/2026: đổi địa chỉ chuẩn từ https://www.trimenh.com sang https://trimenh.com (canonical, sitemap, robots, schema, llms.txt). Cần đặt www redirect → trimenh.com trong Vercel Domains.

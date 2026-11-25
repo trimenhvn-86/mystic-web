@@ -25,8 +25,8 @@ export default function TuDienDetail({ term }) {
     '@type': 'DefinedTerm',
     name: term.title,
     description: term.shortDefinition,
-    url: `https://www.trimenh.com/tu-dien/${term.slug}`,
-    inDefinedTermSet: { '@type': 'DefinedTermSet', name: 'Từ điển huyền học TriMenh', url: 'https://www.trimenh.com/tu-dien' }
+    url: `https://trimenh.com/tu-dien/${term.slug}`,
+    inDefinedTermSet: { '@type': 'DefinedTermSet', name: 'Từ điển huyền học TriMenh', url: 'https://trimenh.com/tu-dien' }
   };
   return (
     <>

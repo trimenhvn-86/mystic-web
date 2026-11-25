@@ -49,7 +49,7 @@ export default function TuViDayDashboard({ dashboard, dateStr, prevSlug, nextSlu
         <div className="w-14 h-14 rounded-full bg-ink-soft border border-gold/30 flex items-center justify-center mx-auto mb-4">
           <Sun size={26} className="text-gold" />
         </div>
-        <h1 className="font-display text-2xl sm:text-3xl text-parchment mb-1">Tử Vi Hôm Nay {dateStr}</h1>
+        <h1 className="font-display text-2xl sm:text-3xl text-parchment mb-1">Tử Vi 12 Con Giáp Ngày {dateStr}</h1>
         <p className="text-moon/70 text-sm mb-3">Ngày {canChiNgay} — Âm lịch {lunar.day}/{lunar.month}{lunar.leap ? ' (nhuận)' : ''}/{lunar.year}</p>
         <div className="flex items-center justify-center gap-1">
           {[1, 2, 3, 4, 5].map((i) => (

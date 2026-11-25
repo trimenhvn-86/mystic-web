@@ -4,6 +4,7 @@ import { useRouter } from 'next/router';
 import Header from '../../components/Header';
 import Breadcrumb from '../../components/Breadcrumb';
 import Footer from '../../components/Footer';
+import NamSinhGrid from '../../components/NamSinhGrid';
 import MysticLoader from '../../components/MysticLoader';
 import HubContentPreview from '../../components/HubContentPreview';
 import { getHubContentPreview } from '../../lib/content';
@@ -63,6 +64,7 @@ export default function MenhNguHanhForm({ dictionaryPreview, guidePreview }) {
         <div className="mt-10 space-y-8">
           <HubContentPreview dictionaryPreview={dictionaryPreview} guidePreview={guidePreview} />
         </div>
+      <NamSinhGrid kind="menh-gi" />
       </main>
       <Footer />
     </>

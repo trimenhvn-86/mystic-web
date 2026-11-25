@@ -232,7 +232,7 @@ export default function YearToolPage({ type, year, menh, tuoiHop, hub, dictionar
     const title = `Sinh năm ${year} mệnh gì? — Tra cứu Ngũ Hành`;
     const desc = `Người sinh năm ${year} (${menh.canChi}) thuộc mệnh ${menh.hanh} — nạp âm ${menh.napAm}. Xem màu hợp mệnh, con số may mắn, hướng hợp và nghề nghiệp phù hợp.`;
     const currentYear = getVietnamNow().getFullYear();
-    const years = Array.from({ length: 20 }, (_, i) => currentYear - i);
+    const years = Array.from({ length: 17 }, (_, i) => year + 8 - i).filter((y) => y >= 1940 && y <= currentYear);
 
     return (
       <>

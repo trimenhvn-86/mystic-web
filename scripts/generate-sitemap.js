@@ -11,7 +11,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const SITE_URL = process.env.SITE_URL || 'https://www.trimenh.com';
+const SITE_URL = process.env.SITE_URL || 'https://trimenh.com';
 
 const HUBS = require('../content/hubs').HUBS;
 const { CHI_SLUG } = require('../lib/chiSlug');
@@ -69,7 +69,9 @@ const staticUrls = [
 // Cac tool theo ngay - sinh cho 60 ngay toi (ISR fallback:'blocking' se tu render neu Google
 // crawl ngay ngoai pham vi nay, nhung dua vao sitemap giup Google uu tien crawl truoc)
 // ngay-hoang-dao, ngay-hac-dao, can-chi, tiet-khi theo ngày: noindex (trùng nội dung) => không đưa vào sitemap
-const DAILY_TOOLS = ['xem-ngay-tot', 'doi-lich-am-duong', 'gio-hoang-dao', 'tu-vi-hom-nay'];
+const DAILY_TOOLS = ['xem-ngay-tot', 'doi-lich-am-duong', 'gio-hoang-dao'];
+// Tử vi theo ngày: chỉ ngày gần (7 ngày trước, 7 ngày tới) vì giá trị thời sự
+const TUVI_DAILY_RANGE = [-7, 7];
 const dailyUrls = [];
 const today = new Date();
 for (let i = -7; i <= 60; i++) { // chỉ khoảng gần; noindex ngoài -3/+12 tháng đã xử lý ở trang
@@ -77,6 +79,7 @@ for (let i = -7; i <= 60; i++) { // chỉ khoảng gần; noindex ngoài -3/+12 
   d.setDate(d.getDate() + i);
   const slug = `ngay-${pad(d.getDate())}-thang-${pad(d.getMonth() + 1)}-nam-${d.getFullYear()}`;
   DAILY_TOOLS.forEach((tool) => dailyUrls.push(`/${tool}/${slug}`));
+  if (i >= TUVI_DAILY_RANGE[0] && i <= TUVI_DAILY_RANGE[1]) dailyUrls.push(`/tu-vi-hom-nay/${slug}`);
 }
 
 // Tu vi tuan (8 tuan toi) va tu vi thang (6 thang toi)

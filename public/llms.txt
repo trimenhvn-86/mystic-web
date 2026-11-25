@@ -3,17 +3,17 @@
 > TriMenh.com là website tra cứu huyền học bằng tiếng Việt: lịch âm dương, xem ngày tốt, giờ hoàng đạo, can chi, thần số học, tử vi, tarot, mệnh – phong thủy.
 
 ## Công cụ chính
-- [Đổi lịch âm dương](https://www.trimenh.com/doi-lich-am-duong)
-- [Xem ngày tốt](https://www.trimenh.com/xem-ngay-tot)
-- [Thần số học](https://www.trimenh.com/than-so-hoc)
-- [Tử vi hôm nay](https://www.trimenh.com/tu-vi-hom-nay)
-- [Tarot hôm nay](https://www.trimenh.com/tarot-hom-nay)
-- [Tra cứu mệnh](https://www.trimenh.com/menh-ngu-hanh)
+- [Đổi lịch âm dương](https://trimenh.com/doi-lich-am-duong)
+- [Xem ngày tốt](https://trimenh.com/xem-ngay-tot)
+- [Thần số học](https://trimenh.com/than-so-hoc)
+- [Tử vi hôm nay](https://trimenh.com/tu-vi-hom-nay)
+- [Tarot hôm nay](https://trimenh.com/tarot-hom-nay)
+- [Tra cứu mệnh](https://trimenh.com/menh-ngu-hanh)
 
 ## Nội dung
-- [Cẩm nang](https://www.trimenh.com/cam-nang)
-- [Từ điển huyền học](https://www.trimenh.com/tu-dien)
+- [Cẩm nang](https://trimenh.com/cam-nang)
+- [Từ điển huyền học](https://trimenh.com/tu-dien)
 
 ## Về chúng tôi
-- [Ban biên soạn](https://www.trimenh.com/ban-bien-soan)
-- [Phương pháp tính](https://www.trimenh.com/phuong-phap-tinh)
+- [Ban biên soạn](https://trimenh.com/ban-bien-soan)
+- [Phương pháp tính](https://trimenh.com/phuong-phap-tinh)

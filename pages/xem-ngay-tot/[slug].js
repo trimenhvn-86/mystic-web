@@ -185,7 +185,7 @@ export default function NgayTotXauResult({ dd, mm, yyyy, lunar, canChiNam, canCh
         <meta name="description" content={desc} />
         <meta property="og:title" content={title} />
         <meta property="og:description" content={desc} />
-        <meta property="og:image" content={`https://www.trimenh.com/api/lich-anh?dd=${dd}&mm=${mm}&yyyy=${yyyy}`} />
+        <meta property="og:image" content={`https://trimenh.com/api/lich-anh?dd=${dd}&mm=${mm}&yyyy=${yyyy}`} />
       </Head>
       <Header />
       <main className="max-w-6xl mx-auto px-5 py-8 sm:py-12">

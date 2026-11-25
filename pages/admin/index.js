@@ -33,11 +33,11 @@ export default function Admin() {
   }
   async function logout() { await fetch('/api/admin/login', { method: 'DELETE' }); loadStatus(); }
 
-  async function makeDraft() {
+  async function makeDraft(kieu) {
     setMsg('');
-    const r = await fetch('/api/admin/draft');
+    const r = await fetch(`/api/admin/draft${kieu ? `?kieu=${kieu}` : ''}`);
     const d = await r.json();
-    if (r.ok) { setSubject(d.subject); setBody(d.body); setMsg(`Đã tạo nháp cho tháng ${d.mm}/${d.yyyy}. Bạn đọc lại, sửa nếu muốn.`); }
+    if (r.ok) { setSubject(d.subject); setBody(d.body); setMsg(`Đã tạo nháp ${kieu ? 'nửa sau' : 'cả'} tháng ${d.mm}/${d.yyyy}. Bạn đọc lại, sửa nếu muốn.`); }
   }
   async function sendTest() {
     setBusy(true); setMsg('');
@@ -89,7 +89,7 @@ export default function Admin() {
               <p>Lưu danh sách (Redis): <b>{st.redis ? 'đã kết nối' : 'CHƯA kết nối'}</b></p>
               <p>Gửi mail (SMTP2GO): <b>{st.smtp ? 'đã có key' : 'CHƯA có key'}</b></p>
               <p>Người gửi: <b>{st.sender}</b></p>
-              <p className="sm:col-span-3">Tự gửi ngày 25 hằng tháng: <b>{st.autoSend ? 'ĐANG BẬT' : 'đang tắt'}</b></p>
+              <p className="sm:col-span-3">Tự gửi ngày 25 (trước ngày 1) và ngày 13 (trước ngày 15): <b>{st.autoSend ? 'ĐANG BẬT' : 'đang tắt'}</b></p>
             </div>
             <div className="flex gap-2 mb-5">
               {[['send', 'Soạn và gửi'], ['subs', `Người đăng ký${subs && subs.counts ? ` (${subs.counts.active || 0})` : ''}`]].map(([id, label]) => (
@@ -100,8 +100,9 @@ export default function Admin() {
             {tab === 'send' && (
               <div className={`${box} p-5 space-y-4`}>
                 <div className="flex flex-wrap gap-2 items-center">
-                  <button onClick={makeDraft} className={btn2}>Tạo nháp lịch tháng tới</button>
-                  <span className="text-sm text-[#55555F]">Lấy số liệu thật của tháng sau từ hệ thống lịch.</span>
+                  <button onClick={() => makeDraft()} className={btn2}>Nháp: lịch tháng sau (gửi trước ngày 1)</button>
+                  <button onClick={() => makeDraft('nua-thang')} className={btn2}>Nháp: nửa sau tháng (gửi trước ngày 15)</button>
+                  <span className="text-sm text-[#55555F]">Lấy số liệu thật từ hệ thống lịch.</span>
                 </div>
                 <div>
                   <label className="block text-sm mb-1" htmlFor="sj">Tiêu đề</label>

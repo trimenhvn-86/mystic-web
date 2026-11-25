@@ -7,6 +7,10 @@
     {
       "path": "/api/cron/gui-email-thang",
       "schedule": "0 1 25 * *"
+    },
+    {
+      "path": "/api/cron/gui-email-thang?kieu=nua-thang",
+      "schedule": "0 1 13 * *"
     }
   ]
 }

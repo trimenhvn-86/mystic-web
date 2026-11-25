@@ -1,0 +1,16 @@
+{
+  "title": "Trực",
+  "slug": "truc",
+  "hub": "lich-ngay-tot",
+  "shortDefinition": "Trực là một trong 12 vị trí trong chu kỳ ngày của lịch cổ, dùng để đánh giá ngày thuận lợi hay nên thận trọng cho từng loại việc.",
+  "origin": "Hệ thống 12 Trực (Kiến, Trừ, Mãn, Bình, Định, Chấp, Phá, Nguy, Thành, Thu, Khai, Bế) gắn với tiết khí và chi của ngày trong lịch Á Đông. Mỗi tháng tiết khí, Trực được đặt khởi từ ngày có chi trùng với chi của tháng, sau đó luân phiên theo thứ tự.",
+  "meaning": "Mỗi Trực mang một ý nghĩa riêng. Ví dụ Trực Thành, Trực Khai thường được xem là thuận cho khởi sự, giao dịch; Trực Phá thường được khuyên tránh việc lớn như khai trương, cưới hỏi; Trực Bế hợp việc lấp, đóng, hoàn tất hơn là mở đầu.",
+  "application": "Người xem ngày dùng Trực làm một tiêu chí bên cạnh ngày Hoàng đạo, Sao 28 tú và giờ tốt. Nên xem Trực như một yếu tố tham khảo, không phải kết luận duy nhất.",
+  "example": "Ngày có Trực Khai thường được gợi ý cho khai trương, mở cửa hàng; ngày Trực Phá thường được khuyên dời việc trọng đại sang ngày khác.",
+  "relatedTerms": [
+    "hoang-dao",
+    "nhi-thap-bat-tu",
+    "tiet-khi"
+  ],
+  "updatedAt": "2026-11-24T09:00:00+07:00"
+}

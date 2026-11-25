@@ -1,0 +1,14 @@
+{
+  "title": "Tarot",
+  "slug": "tarot",
+  "hub": "tarot",
+  "shortDefinition": "Tarot là bộ bài 78 lá, dùng để suy ngẫm, đặt câu hỏi và gợi ý góc nhìn, không thể dự đoán tương lai một cách chắc chắn.",
+  "origin": "Bộ bài tarot xuất hiện ở Ý vào thế kỷ 15 như một trò chơi bài, sau này được các nhóm huyền học thế kỷ 18 – 19 gắn với ý nghĩa bói toán và biểu tượng.",
+  "meaning": "Bộ bài gồm 22 lá Ẩn chính (Major Arcana) và 56 lá Ẩn phụ (Minor Arcana) chia bốn bộ: Gậy, Cốc, Kiếm, Tiền. Mỗi lá có nghĩa xuôi và nghĩa ngược.",
+  "application": "Người dùng rút bài để tự suy nghĩ về tình huống của mình. Trên TriMenh có rút bài hằng ngày, trải bài 3 lá và tarot yes/no.",
+  "example": "Trải bài 3 lá thường dùng theo thứ tự Quá khứ – Hiện tại – Tương lai.",
+  "relatedTerms": [
+    "bo-an-chinh"
+  ],
+  "updatedAt": "2026-11-24T09:00:00+07:00"
+}

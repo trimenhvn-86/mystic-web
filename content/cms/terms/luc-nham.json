@@ -1,0 +1,15 @@
+{
+  "title": "Lục Nhâm",
+  "slug": "luc-nham",
+  "hub": "lich-ngay-tot",
+  "shortDefinition": "Lục Nhâm là một môn dự đoán cổ, trong dân gian thường dùng bản rút gọn để xem giờ tốt xấu theo ngày và tháng âm.",
+  "origin": "Lục Nhâm Đại Độn là bộ môn cổ trong Tam thức của phương Đông, bản đầy đủ khá phức tạp. Bản rút gọn dân gian dùng sáu cung Đại An, Lưu Niên, Tốc Hỷ, Xích Khẩu, Tiểu Cát, Không Vong.",
+  "meaning": "Từ ngày âm, tháng âm và giờ, ta đếm tuần tự qua sáu cung để biết giờ mang tính thuận hay trở ngại.",
+  "application": "Thường dùng khi cần chọn giờ xuất hành, đi xa, gặp gỡ, tìm đồ. Chỉ nên coi là tham khảo.",
+  "example": "Có thể dùng công cụ Lục Nhâm trên TriMenh để tính nhanh theo giờ.",
+  "relatedTerms": [
+    "khong-minh",
+    "gio-hoang-dao"
+  ],
+  "updatedAt": "2026-11-24T09:00:00+07:00"
+}

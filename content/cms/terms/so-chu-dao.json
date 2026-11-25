@@ -1,0 +1,14 @@
+{
+  "title": "Số chủ đạo",
+  "slug": "so-chu-dao",
+  "hub": "than-so-hoc",
+  "shortDefinition": "Số chủ đạo (Life Path Number) là con số rút gọn từ toàn bộ ngày tháng năm sinh, được xem là chỉ số quan trọng nhất trong thần số học.",
+  "origin": "Số chủ đạo được tính bằng cách cộng các chữ số của ngày, tháng, năm sinh rồi rút gọn về một chữ số, trừ khi ra 11, 22 hoặc 33.",
+  "meaning": "Số 1 gắn với tinh thần độc lập, số 2 với hợp tác, số 3 với sáng tạo, số 4 với ổn định, số 5 với tự do, số 6 với trách nhiệm, số 7 với chiều sâu, số 8 với quyền lực, số 9 với nhân văn. 11, 22, 33 là các số đặc biệt.",
+  "application": "Dùng làm điểm khởi đầu để mô tả điểm mạnh, thách thức và định hướng nghề nghiệp. Có thể tính nhanh bằng công cụ trên TriMenh.",
+  "example": "Sinh ngày 29/11/1992: 2+9+1+1+1+9+9+2 = 34, rút gọn 3+4 = 7, số chủ đạo 7.",
+  "relatedTerms": [
+    "than-so-hoc"
+  ],
+  "updatedAt": "2026-11-24T09:00:00+07:00"
+}
